@@ -1,0 +1,39 @@
+to:
+subject: FIIT STU – Žiadosť o spoluprácu pri výskume umelej inteligencie v školskom prostredí
+copy: bahleda.miroslav@gmail.com
+text:
+
+Vážená pani riaditeľka / Vážený pán riaditeľ,
+
+volám sa Mykyta Prykhodko a som študentom inžinierskeho štúdia na Fakulte informatiky a informačných technológií Slovenskej technickej univerzity v Bratislave (FIIT STU). Pod vedením Ing. Miroslava Bahledu, PhD., píšem diplomovú prácu na tému „Výskum vplyvu generických a adaptívnych nástrojov umelej inteligencie v školskom prostredí“. Chcem zistiť, ako umelá inteligencia ovplyvňuje vyučovací proces a čo si žiaci z vyučovacej hodiny naozaj zapamätajú.
+
+Výskum uskutočním tak, že porovnám tri spôsoby výučby:
+1. hodinu bez umelej inteligencie,
+2. hodinu s nástrojom, v ktorom je integrovaný bežný chatbot (napr. ChatGPT), ktorý dáva hotové odpovede,
+3. hodinu s asistentom, ktorý odpoveď neprezradí, ale otázkami vedie žiaka k tomu, aby na ňu prišiel sám.
+
+Chcel by som Vás požiadať, či by sa Vaša škola mohla do výskumu zapojiť. Výskum by sa podľa plánu mal začať už v novembri 2026 a prebiehal by takto:
+- tri triedy 2. alebo 3. ročníka,
+- v každej triede jedna vyučovacia hodina z fyziky, z matematiky a z informatiky,
+- každá trieda tak postupne vyskúša všetky tri spôsoby výučby (bez umelej inteligencie, s bežným chatbotom a s adaptívnym asistentom umelej inteligencie),
+- vyučujúci dostane hotovú prípravu na hodinu k vybranej téme z daného predmetu a hodinu podľa nej odučí; pre hodiny s nástrojmi umelej inteligencie dostane aj príklady, ktoré sa začlenia do výučby,
+- žiaci napíšu krátky test pred hodinou, hneď po nej a po troch týždňoch,
+- testy dostanete tiež spolu s nástrojom, v ktorom ich žiaci budú písať a s ktorým budú pracovať aj počas vyučovacích hodín; nástroj sa používa v internetovom prehliadači na školských počítačoch,
+- údaje sú anonymné: žiaci sa prihlasujú kódom a ich mená nezbieram; informovaný súhlas pre rodičov pripravím.
+
+Po skončení výskumu poskytnem škole súhrnné výsledky.
+
+Ak Vás spolupráca zaujíma, rád by som Vám podrobnosti vysvetlil na krátkom osobnom alebo online stretnutí v termíne, ktorý Vám bude vyhovovať. V priebehu budúceho týždňa si Vás dovolím kontaktovať aj telefonicky.
+
+Ďakujem za Váš čas.
+
+S pozdravom
+
+Bc. Mykyta Prykhodko
+Fakulta informatiky a informačných technológií
+Slovenská technická univerzita v Bratislave
+
+T: +421 951 589 703
+E: myky.prykhodko@gmail.com
+A: Ilkovičova 2, 842 16 Bratislava 4
+W: www.fiit.stuba.sk

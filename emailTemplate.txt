@@ -29,3 +29,27 @@ Ak Vás spolupráca zaujíma, rád by som Vám podrobnosti vysvetlil na krátkom
 S pozdravom
 
 Bc. Mykyta Prykhodko
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+updated version by hand :
+
+	Vážená pani riaditeľka / Vážený pán riaditeľ,
+volám sa Mykyta Prykhodko a som študentom inžinierskeho štúdia na Fakulte informatiky a informačných technológií Slovenskej technickej univerzity v Bratislave (FIIT STU).
+Pod vedením Ing. Miroslava Bahledu, PhD., píšem diplomovú prácu na tému „Výskum vplyvu generických a adaptívnych nástrojov umelej inteligencie v školskom prostredí“. Chcem zistiť, ako umelá inteligencia ovplyvňuje vyucujuci process a, čo si žiaci z vyučovacej hodiny naozaj zapamätajú.
+
+Chceme uskotocnit vyskum nasledovnym sposobom: Porovnávam tri spôsoby výučby: 1. hodinu bez umelej inteligencie, 2. hodinu s nastrojom v ktorom je integrovany bežny chatbot (napr. ChatGPT), ktorý dáva hotové odpovede, 3. hodinu s asistentom, ktorý odpoveď neprezradí, ale otázkami vedie žiaka k tomu, aby na ňu prišiel sám. Chcel by som Vás požiadať, či by sa Vaša škola mohla do výskumu zapojiť. Výskum by v plane mal začal už v novembri 2026: - tri triedy 2. alebo 3. ročníka, - v každej triede jedna vyučovacia hodina z fyziky, z matematiky a z informatiky. Vyucujuci dostane hotovu prednasku na vybrane temy z tycho predmetov, ktoru nasledne odprednasa. Pri skupinach v ktorych bude sa vyuzivat nastroje umelej inteligencie bude mat aj priklady , ktore sa bude integrovat pocas hodiny. Na konci kazda trieda absolvuje tri sposoby (bez umelej inteligencie, s beznym catbotom a s adaptivnym asistentom umelej inteligencie). Taktiez pred hodinou ziaci spravia krátky test, hneď po nej a po troch týždňoch. testy dostanente tiez spolu s najstojem v ktorom sa budu testovane a ktory budu pouzivat pocas vyucovacich hodin. žiaci budu pouzivat nastroj v internetovom prehliadači na školských počítačoch, - údaje sú anonymné: žiaci sa prihlasujú kódom a ich mená nezbierame; informovaný súhlas pre rodičov pripravím. Po skončení výskumu poskytnem škole súhrnné výsledky. Ak Vás spolupráca zaujíma, rád by som Vám podrobnosti vysvetlil na krátkom osobnom alebo online stretnutí v termíne, ktorý Vám bude vyhovovať. V priebehu budúceho týždňa si Vás dovolím kontaktovať aj telefonicky. Ďakujem za Váš čas.
+S pozdravom.
+
+
+
+FIIT	Bc. Mykyta Prykhodko
+
+ 	Fakulta informatiky a informačných technológií
+ 	Slovenská technická univerzita v Bratislave
+
+ 	T:	+421951589703
+ 	E:	myky.prykhodko@gmail.com
+
+ 	A:	Ilkovičova 2, 842 16 Bratislava 4
+ 	W:	www.fiit.stuba.sk
