@@ -1,0 +1,61 @@
+# Study configuration for the classroom experiment.
+#
+# This file is the experimental setup as an artefact: it is archived alongside
+# the data, so that what was captured can be reconstructed exactly.  Anything
+# not matched by url_patterns is neither stored nor logged.
+#
+# The salt and the roster are supplied by the SCHOOL and never leave it.  Keep
+# this file out of version control once they are filled in -- see .gitignore.
+
+study:
+  # filled in per lesson block by the person running the capture
+  condition: G          # K | G | A
+  period: 1             # 1 | 2 | 3
+  topic: T1_vyhladavanie
+
+capture:
+  output_dir: ./captures
+  max_prompt_chars: 8000
+
+  # Only a digest, a length and 8-gram shingles of the model's answer are kept.
+  # That is enough for the verbatim-transfer ratio and keeps no model output.
+  store_response_digest: true
+
+  # Held by the school.  The researcher never sees it, so the researcher cannot
+  # reverse a pseudonym back to a pupil.  Capture refuses to start without it.
+  pseudonym_salt: ""
+
+  # One name per line, supplied by the school for the participating classes.
+  # Every occurrence of these names, in any Slovak case ending, is replaced
+  # before the prompt is written to disk.
+  roster_file: ./config/roster.local.txt
+
+# Allow-list.  Regular expressions matched against the full request URL.
+# Deliberately narrow: these are the endpoints that carry a user-authored
+# message, not every endpoint a conversational interface touches.
+url_patterns:
+  # --- OpenAI / ChatGPT ---
+  - "chatgpt\\.com/backend-api/(f/)?conversation$"
+  - "chat\\.openai\\.com/backend-api/conversation$"
+  - "api\\.openai\\.com/v1/(chat/completions|responses)$"
+
+  # --- Anthropic / Claude ---
+  - "claude\\.ai/api/organizations/[^/]+/chat_conversations/[^/]+/completion$"
+  - "api\\.anthropic\\.com/v1/messages$"
+
+  # --- Google / Gemini ---
+  - "gemini\\.google\\.com/_/BardChatUi/data/.*StreamGenerate"
+  - "generativelanguage\\.googleapis\\.com/v1beta/models/.*:(streamG|g)enerateContent"
+
+  # --- our own exercise client (conditions G and A run through it) ---
+  - "^https?://(localhost|127\\.0\\.0\\.1)(:\\d+)?/api/ask$"
+
+# Endpoints that are explicitly NOT captured, listed so the exclusion is a
+# documented decision rather than an oversight.  Autocomplete and conversation
+# preparation carry fragments of typing, not a submitted prompt, and capturing
+# them would record keystroke-level data that the consent does not cover.
+not_captured:
+  - "chatgpt.com/backend-api/ac"           # autocomplete suggestions
+  - "chatgpt.com/backend-api/conversation/prepare"
+  - "*/telemetry"
+  - "*/analytics"

@@ -1,0 +1,178 @@
+% =====================================================================
+%  KONCEPT KAPITOLY: METODIKA VLASTNÉHO VÝSKUMU  (draft pre DP)
+%  ---------------------------------------------------------------------
+%  ⚠️  POZOR — PRAVIDLÁ PRÁCE:
+%  Toto je AI-ASISTOVANÝ DRAFT. Podľa zadania DP musí byť AI-generovaný
+%  obsah (a) označený vertikálnou čiarou a (b) priznaný v doplnkovom
+%  materiáli. Tento súbor preto NEVKLADAJ priamo bez revízie. Postup:
+%    1) Prečítaj, preformuluj vlastnými slovami a over každé tvrdenie.
+%    2) Časti, ktoré ostanú AI-asistované, nechaj v prostredí {aibar}.
+%    3) Pridaj zdroj do doplnkového materiálu (priznanie AI).
+%  Štruktúra a tvrdenia vychádzajú z podkladov 01–05 v tomto priečinku
+%  a z tvojej existujúcej SOTA kapitoly.
+%
+%  Vyžaduje v preambule:  \usepackage{framed}  (pre vertikálnu čiaru).
+%  Ak framed nemáš, definovaný je fallback (obyčajný odsek).
+% =====================================================================
+
+% --- značenie AI-asistovaného obsahu vertikálnou čiarou ---
+\ifcsname leftbar\endcsname
+  \newenvironment{aibar}{\begin{leftbar}}{\end{leftbar}}
+\else
+  \newenvironment{aibar}{\par\noindent\ignorespaces}{\par}
+\fi
+
+\chapter{Metodika vlastného výskumu}
+\label{chapter:methodology}
+
+\begin{aibar}
+
+Táto kapitola transformuje východiská zo súčasného stavu poznania
+(kapitola~\ref{chapter:sota}) do konkrétneho, realizovateľného výskumného
+dizajnu. Nadväzuje na záver rešerše, podľa ktorého je pre slovenský kontext
+najvhodnejšie kombinovať tri prístupy: trojskupinový dizajn (Slijepcevic a
+Yaylali), systematický zber interakčných dát (Lee a kolektív) a doplnenie
+self-report meraní o behaviorálne ukazovatele (Kosmyna a kolektív).
+
+
+\section{Výskumné otázky a hypotézy}
+\label{sec:rq}
+
+Výskum sleduje tri vzájomne prepojené výskumné otázky, ktoré zodpovedajú
+trom medzeram identifikovaným v rešerši (dominancia self-reportu, hrubá
+typológia používateľov, podreprezentovanosť slovenského kontextu).
+
+\paragraph{RQ1 (deskriptívna).}
+Ako slovenskí stredoškoláci reálne využívajú generické a adaptívne nástroje
+umelej inteligencie? Predpokladáme existenciu aspoň troch odlíšiteľných
+profilov používateľov (H1a), pričom profil sa líši podľa typu školy (H1b).
+
+\paragraph{RQ2 (experimentálna).}
+Aký vplyv má typ použitého nástroja na vedomostný zisk a na kritické zapojenie
+žiaka? Predpokladáme vyšší vedomostný zisk pri adaptívnom nástroji (H2a) a
+nižšie kritické zapojenie pri generickom nástroji, merané behaviorálnymi
+ukazovateľmi (H2b).
+
+\paragraph{RQ3 (vysvetľujúca).}
+Akým mechanizmom ovplyvňuje používanie umelej inteligencie kritické myslenie?
+Predpokladáme, že vzťah je mediovaný kognitívnym offloadingom (H3a) a že
+vyššia dôvera v nástroj súvisí s nižším kritickým myslením, zatiaľ čo vyššia
+sebadôvera s vyšším (H3b).
+
+
+\section{Výskumný dizajn}
+\label{sec:design}
+
+Zvolený je trojskupinový kvázi-experiment s meraním pred intervenciou a po
+nej. Účastníci sú priradení do troch podmienok: (A)~adaptívny nástroj,
+(B)~generický konverzačný nástroj a (C)~kontrolná skupina bez asistencie
+umelej inteligencie. Meracie nástroje pre-testu a post-testu sú ekvivalentné,
+no nie identické, čím sa eliminuje efekt opakovaného testovania.
+
+Vzhľadom na to, že historická vzorka žiakov z obdobia pred rozšírením
+generatívnej umelej inteligencie na Slovensku neexistuje a porovnanie
+nesúrodých kohort by bolo metodologicky neinterpretovateľné, je úloha
+``pred-AI'' referencie nahradená synchrónnou kontrolnou skupinou~(C).
+Doplnkovo je dizajn rozšírený o longitudinálne jadro s odloženým re-testom,
+ktoré umožňuje sledovať retenciu a aproximovať fenomén kognitívneho dlhu
+dokumentovaný neurofyziologicky v štúdii Kosmyny a kolektívu.
+
+
+\section{Vzorka a výber škôl}
+\label{sec:sample}
+
+Jadrom vzorky je gymnázium (2.--3. ročník), ktoré predstavuje najhomogénnejšiu
+a najľahšie interpretovateľnú populáciu s dostupnými štandardizovanými testami.
+Vzorka je rozšírená o jednu technickú strednú odbornú školu ako kontrastnú
+podmienku, čo umožňuje testovať hypotézu H1b o rozdieloch medzi typmi škôl.
+Cieľová veľkosť je orientačne 30--60 účastníkov na typ školy; analýza sily pri
+troch skupinách, strednom efekte, hladine $\alpha = 0{,}05$ a sile $0{,}8$
+stanovuje minimum na 18~účastníkov na skupinu, k čomu je pripočítaná rezerva na
+výpadky.
+
+
+\section{Meracie nástroje}
+\label{sec:instruments}
+
+Meranie je organizované do štyroch vrstiev (tabuľka~\ref{tab:vrstvy}).
+Doménový vedomostný zisk je meraný adaptovaným konceptuálnym testom
+(\emph{concept inventory}). Kritické myslenie je merané vlastnou batériou úloh
+mapovanou na päť dimenzií Halpernovho modelu, doplnenou o Test kognitívnej
+reflexie; Halpernov komerčný test (HCTA) je pritom použitý len ako teoretický
+rámec, nie ako licencovaný nástroj. Vzťah k umelej inteligencii je meraný
+voľne dostupnými škálami (kognitívne offloading, dôvera v nástroj, gramotnosť v
+oblasti umelej inteligencie). Štvrtou, originálnou vrstvou sú behaviorálne
+ukazovatele extrahované z interakčných logov, ktoré slúžia ako dostupná
+náhrada za neurofyziologické meranie. Všeobecná rozumová schopnosť
+(Ravenove matice, prípadne voľne dostupný itemset ICAR) je meraná len ako
+kontrolná premenná.
+
+\begin{table}[H]
+\centering
+\caption{Štyri vrstvy merania}
+\label{tab:vrstvy}
+\small
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Vrstva} & \textbf{Konštrukt} & \textbf{Nástroj} \\
+\hline
+A & Vedomostný zisk & Adaptovaný concept inventory \\
+\hline
+B & Kritické myslenie, metakognícia & Vlastná batéria (5 dimenzií) + CRT + MAI \\
+\hline
+C & Vzťah k umelej inteligencii & Offloading, dôvera (SAID), AI gramotnosť \\
+\hline
+D & Behaviorálne zapojenie & Logy: čas čítania, miera úprav, doplňujúce dopyty \\
+\hline
+\end{tabularx}
+\end{table}
+
+Pred ostrým zberom je naplánovaná pilotná validácia vlastnej batérie a hernej
+aplikácie na vzorke približne 30~žiakov (položková analýza, vnútorná
+konzistencia).
+
+
+\section{Nástroj zberu dát a herná aplikácia}
+\label{sec:tool}
+
+Zber prebieha dvoma komplementárnymi kanálmi. Prvým je sieťové zachytávanie
+reálnych dopytov prostredníctvom lokálneho proxy (popísané v
+kapitole~\ref{chapter:sota} a v praktickej časti), ktoré poskytuje vysokú
+ekologickú validitu. Druhým je herná aplikácia ``AI~Detektív'', ktorá
+prevádza schopnosti žiaka na uzavreté voľby a tým rieši problém obtiažnej
+kvantifikácie otvorených odpovedí. V hre žiak rieši úlohy s asistentom, ktorý
+zámerne v časti prípadov poskytuje nesprávne informácie; pri každom
+rozhodovacom uzle žiak volí z uzavretých možností, ktoré sú napevno priradené
+k meranej dimenzii a skórované automaticky. Tri režimy hry (adaptívny,
+generický, bez asistencie) zodpovedajú trom experimentálnym skupinám, pričom
+meracie uzly sú vo všetkých režimoch identické, čím je zachovaná
+porovnateľnosť.
+
+
+\section{Analýza dát}
+\label{sec:analysis}
+
+Vplyv intervencie na vedomostný zisk je analyzovaný kovariančnou analýzou
+(ANCOVA) s post-testom ako závislou premennou, skupinou ako faktorom a
+pre-testom ako kovariátom; doplnkovo sú uvádzané normalizovaný zisk a
+Cohenovo~$d$ kvôli porovnateľnosti so zahraničnými štúdiami. Zmena v čase je
+modelovaná lineárnym zmiešaným modelom s náhodným interceptom na účastníka.
+Mechanizmus vplyvu na kritické myslenie je testovaný mediačnou analýzou s
+bootstrapovaným intervalom spoľahlivosti nepriameho efektu. Profily
+používateľov sú identifikované zhlukovou analýzou nad behaviorálnymi a
+self-report premennými. Kvalitatívne dáta z pološtruktúrovaných rozhovorov sú
+spracované tematickou analýzou a slúžia na interpretáciu kvantitatívnych
+nálezov.
+
+
+\section{Etické aspekty a ochrana údajov}
+\label{sec:ethics}
+
+Keďže účastníkmi sú prevažne maloletí žiaci, výskum si vyžaduje informovaný
+súhlas zákonných zástupcov aj samotných žiakov. Pred zberom je vykonaná analýza
+vplyvu na ochranu údajov (DPIA) podľa vzoru fínskeho modelu a získané je
+schválenie etickej komisie fakulty. Dáta sú pseudonymizované už pri zázname;
+surové logy sú uchovávané len po dobu nevyhnutnú na analýzu a následne
+nahradené agregátmi.
+
+\end{aibar}

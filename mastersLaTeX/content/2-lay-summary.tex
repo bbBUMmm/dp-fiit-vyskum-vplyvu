@@ -1,0 +1,14 @@
+\chapter{Zrozumiteľné zhrnutie}
+\label{chapter:Lay-summary}
+
+Keď žiak rieši úlohu s pomocou umelej inteligencie, ide mu to lepšie. Vyrieši viac príkladov, hodina sa mu páči viac a má pocit, že sa naučil veľa. Otázka, ktorú si táto práca kladie, znie: \emph{ostane mu z toho niečo o tri týždne?}
+
+Zahraničné výskumy dávajú na prvý pohľad protichodné odpovede. Jeden zistil, že žiaci s umelou inteligenciou dopadli na neskoršej písomke horšie než tí bez nej. Iný zistil pravý opak. Táto práca ponúka vysvetlenie, ktoré obe zistenia spája: nezáleží na tom, \emph{či} žiak nástroj použije, ale \emph{ako}. Žiak, ktorý napíše „napíš mi kód“, si neodnesie nič. Žiak, ktorý napíše „myslím si, že to je takto, kde robím chybu?“, si odnesie veľa. Rozdiel medzi nimi doteraz nikto poriadne nemeral, pretože sa naň pýtal dotazníkom~--- a na otázku, či ste podvádzali, sa nedá spoľahlivo odpovedať dotazníkom.
+
+Práca preto navrhuje spôsob, ako to zmerať priamo: nástroj, ktorý na školskom notebooku počas hodiny zaznamená, čo presne žiak umelej inteligencii napísal, a automaticky to zaradí na škálu od „daj mi odpoveď“ po „over moju úvahu“. Z toho vznikne jedno číslo na žiaka, ktoré hovorí, nakoľko pri práci naozaj premýšľal.
+
+Druhou časťou je školský experiment. Každá trieda absolvuje tri hodiny informatiky: jednu bez pomoci, jednu s bežným asistentom a jednu s asistentom, ktorý zámerne nedáva hotové riešenia, ale kladie otázky. Dôležité je, že obaja asistenti používajú rovnakú technológiu~--- líšia sa len tým, ako sú nastavení. Po každej hodine žiaci píšu krátky test a hovoria, nakoľko si sú istí svojimi odpoveďami. O tri týždne píšu test znova, tentoraz nečakane.
+
+Pri stavbe toho meradla sme narazili na chybu, ktorú stojí za to opísať, lebo hovorí niečo o celej oblasti. Program mal rozoznať, či žiak naozaj premýšľal. Rozoznával to podľa toho, či prompt začína slovami „myslím si, že“. Lenže tie slová sa dajú napísať pred čokoľvek: veta „myslím si, že napíš mi kód“ dostala najvyššie hodnotenie, hoci žiak nepremýšľal ani sekundu. Horšie: asistent, ktorý žiaka núti napísať vlastné vysvetlenie, ho tým núti použiť presne tieto slová~--- takže meradlo by bolo priaznivé k tomu asistentovi len preto, ako je urobený. Chybu sme našli tak, že sme sa ju pokúsili zneužiť, a opravili tak, že sa teraz vyžaduje skutočný dôvod, nie len úvodná formulka.
+
+Očakávame, že sa ukáže nepríjemná vec: žiakom sa bude najviac páčiť hodina, po ktorej si zapamätajú najmenej. Ak to tak je, znamená to, že spokojnosť žiakov~--- teda to, čím školy bežne merajú, či niečo funguje~--- pri umelej inteligencii merať nestačí.

@@ -1,0 +1,254 @@
+{
+  "bank_id": "T1_DRT",
+  "instrument": "DRT",
+  "topic": "T1",
+  "title": "Odložený test, téma T1 — vyhľadávanie v poli",
+  "minutes": 15,
+  "jol": true,
+  "note": "Šesť kotviacich položiek (A1–A6) má ÚPLNE ROVNAKÉ znenie ako v okamžitej forme. Pôvodná verzia prílohy tvrdila totožnosť, ale položky sa líšili veľkosťou poľa (1024 vs 512), konkrétnym poľom aj formátom odpovede — kotvenie teda neexistovalo a rozdiel medzi okamžitým a odloženým skóre by zamieňal zabúdanie s obtiažnosťou formy. Opravené; bank.cross_validate() to odvtedy vynucuje. Zvyšných šesť položiek je izomorfných: tá istá bunka špecifikačnej tabuľky, iný obsah. Položka D1-8 bola pôvodne tabuľková (rubrika 0–2); je uzavretá, aby obe formy mali nielen rovnakú špecifikačnú tabuľku, ale aj rovnaký pomer formátov — izomorfia foriem zahŕňa formát, nie len kognitívnu úroveň.",
+  "items": [
+    {
+      "id": "D1-1",
+      "level": "zapamatanie",
+      "format": "mc4",
+      "anchor": "A1",
+      "skill": "usporiadanost",
+      "expected_sec": 30,
+      "stem": "Aká podmienka musí platiť o poli, aby sa v ňom dalo použiť binárne vyhľadávanie?",
+      "options": [
+        "musí obsahovať len čísla",
+        "musí byť usporiadané",
+        "musí mať párny počet prvkov",
+        "žiadna"
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "zamieňa podmienku usporiadanosti s typom údajov",
+        "2": "domnieva sa, že polenie vyžaduje párny počet prvkov",
+        "3": "nerozlišuje predpoklady lineárneho a binárneho vyhľadávania"
+      }
+    },
+    {
+      "id": "D1-2",
+      "level": "zapamatanie",
+      "format": "mc4",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 25,
+      "stem": "Aká je časová zložitosť binárneho vyhľadávania v najlepšom prípade?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "uvádza najhorší prípad namiesto najlepšieho",
+        "2": "nerozlišuje binárne od lineárneho vyhľadávania",
+        "3": "zamieňa s vnoreným cyklom"
+      }
+    },
+    {
+      "id": "D1-3",
+      "level": "porozumenie",
+      "format": "mc4",
+      "anchor": "A2",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 45,
+      "stem": "Pole má 1024 prvkov. Koľko porovnaní potrebuje binárne vyhľadávanie v najhoršom prípade?",
+      "options": [
+        "10",
+        "11",
+        "512",
+        "1024"
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "počíta o jedno polenie viac; zrejme nesprávne ukončenie",
+        "2": "polí interval len raz a výsledok považuje za počet krokov",
+        "3": "uvažuje o lineárnom prechode namiesto polenia"
+      }
+    },
+    {
+      "id": "D1-4",
+      "level": "porozumenie",
+      "format": "mc4",
+      "anchor": "A3",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 45,
+      "stem": "Veľkosť poľa sa zdvojnásobí. O koľko sa zvýši počet krokov binárneho vyhľadávania v najhoršom prípade?",
+      "options": [
+        "o jeden",
+        "zdvojnásobí sa",
+        "nezmení sa",
+        "zvýši sa štvornásobne"
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "prenáša lineárnu intuíciu na logaritmický rast — najčastejšia chyba v tejto téme",
+        "2": "zamieňa logaritmický rast s konštantným",
+        "3": "zamieňa s kvadratickým rastom"
+      }
+    },
+    {
+      "id": "D1-5",
+      "level": "aplikacia",
+      "format": "mc4",
+      "anchor": "A4",
+      "skill": "stred_a_hranice",
+      "expected_sec": 60,
+      "stem": "Pole [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], hľadáme 23. Koľko porovnaní celkovo urobí binárne vyhľadávanie?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "10"
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "domnieva sa, že hodnota je nájdená prvým porovnaním",
+        "2": "ráta aj kroky, ktoré sa po nájdení už nevykonajú",
+        "3": "ráta lineárny prechod celým poľom"
+      }
+    },
+    {
+      "id": "D1-6",
+      "level": "aplikacia",
+      "format": "mc4",
+      "anchor": "A5",
+      "skill": "ukoncenie_a_hranicne_pripady",
+      "expected_sec": 45,
+      "stem": "Pole [4, 9, 15, 20, 27], hľadáme 7. Čo vráti binárne vyhľadávanie?",
+      "options": [
+        "index 0",
+        "index 1",
+        "signál, že prvok nebol nájdený",
+        "chybu"
+      ],
+      "key": 2,
+      "distractor_dx": {
+        "0": "vracia najbližší menší prvok namiesto signálu o nenájdení",
+        "1": "vracia najbližší väčší prvok namiesto signálu o nenájdení",
+        "3": "zamieňa neúspešné hľadanie s chybovým stavom"
+      }
+    },
+    {
+      "id": "D1-7",
+      "level": "aplikacia",
+      "format": "mc4",
+      "skill": "stred_a_hranice",
+      "expected_sec": 50,
+      "stem": "Pole [1, 6, 11, 17, 25, 31, 44, 58], hľadáme 31. Ktorý prvok sa porovná ako prvý?",
+      "options": [
+        "1",
+        "17",
+        "31",
+        "58"
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "začína od začiatku poľa — postupuje lineárne, nie binárne",
+        "2": "uvádza hľadanú hodnotu namiesto porovnávaného prvku",
+        "3": "začína od konca poľa"
+      }
+    },
+    {
+      "id": "D1-8",
+      "level": "aplikacia",
+      "format": "mc4",
+      "skill": "stred_a_hranice",
+      "expected_sec": 60,
+      "stem": "Pole [1, 6, 11, 17, 25, 31, 44, 58], hľadáme 6. Koľko porovnaní celkovo urobí binárne vyhľadávanie?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "8"
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "domnieva sa, že hodnota je nájdená prvým porovnaním",
+        "2": "ráta aj krok, ktorý sa po nájdení už nevykoná",
+        "3": "ráta lineárny prechod celým poľom"
+      }
+    },
+    {
+      "id": "D1-9",
+      "level": "analyza",
+      "format": "mc4",
+      "anchor": "A6",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 70,
+      "stem": "V poli 1 000 000 prvkov: koľkokrát viac porovnaní urobí lineárne vyhľadávanie oproti binárnemu v najhoršom prípade?",
+      "options": [
+        "približne 20-krát",
+        "približne 1000-krát",
+        "približne 50 000-krát",
+        "rovnako"
+      ],
+      "key": 2,
+      "distractor_dx": {
+        "0": "uvádza počet krokov binárneho vyhľadávania namiesto ich pomeru",
+        "1": "odhaduje rádovo nesprávne; zrejme použil odmocninu",
+        "3": "nerozlišuje rast oboch postupov"
+      }
+    },
+    {
+      "id": "D1-10",
+      "level": "analyza",
+      "format": "open",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 150,
+      "max_points": 2,
+      "stem": "Čo znamená, že zložitosť je logaritmická? Vysvetli vlastnými slovami a uveď, čo sa s počtom krokov stane pri desaťnásobnom zväčšení vstupu.",
+      "rubric": [
+        {
+          "points": 1,
+          "criterion": "vysvetlí, že počet krokov rastie oveľa pomalšie než vstup"
+        },
+        {
+          "points": 1,
+          "criterion": "uvedie, že desaťnásobné zväčšenie pridá len niekoľko krokov (3–4), nie desaťnásobok"
+        }
+      ]
+    },
+    {
+      "id": "D1-11",
+      "level": "analyza",
+      "format": "open",
+      "skill": "volba_postupu",
+      "expected_sec": 150,
+      "max_points": 2,
+      "stem": "Uveď prípad, v ktorom lineárne vyhľadávanie prekoná binárne, a vysvetli prečo.",
+      "rubric": [
+        {
+          "points": 1,
+          "criterion": "uvedie konkrétny prípad (neusporiadané pole; veľmi malé pole; hľadaný prvok na začiatku)"
+        },
+        {
+          "points": 1,
+          "criterion": "vysvetlí dôvod — náklad usporiadania alebo režijné náklady pri malom n"
+        }
+      ]
+    },
+    {
+      "id": "D1-12",
+      "level": "hodnotenie",
+      "format": "open",
+      "skill": "volba_postupu",
+      "expected_sec": 160,
+      "max_points": 2,
+      "stem": "Máš usporiadané pole, ktoré sa po každom hľadaní zmení na neusporiadané. Ktorý postup vyhľadávania zvolíš a prečo?",
+      "rubric": [
+        {
+          "points": 1,
+          "criterion": "zvolí lineárne vyhľadávanie"
+        },
+        {
+          "points": 1,
+          "criterion": "zdôvodní tým, že podmienka usporiadanosti sa po každom hľadaní stráca a jej obnovenie je drahšie než samo hľadanie"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,783 @@
+\chapter{Hodnotiaci modul: ako nástroj overuje a vyhodnocuje žiakov}
+\label{chapter:hodnotiaci-modul}
+
+Táto príloha opisuje tú časť riešenia, ktorá zo \emph{návrhu merania} robí
+\emph{vykonateľné meranie}. Metodika (kapitola~\ref{chapter:metodika}) hovorí,
+\emph{čo} sa meria a \emph{prečo}; táto príloha hovorí, čím a ako sa to
+administruje, skóruje, kontroluje a komu sa vracia. Kód je v priečinku
+\texttt{assessment/}, používa výhradne štandardnú knižnicu Pythonu a je overený
+\instrTests{}~automatickými testami v~\instrTestSections{}~oddieloch.
+
+\section{Východisková zásada: položka je údaj, nie próza}
+\label{sec:bank-zasada}
+
+Pred vznikom tohto modulu existoval každý merací nástroj práve raz~--- ako text
+prílohy~\ref{chapter:instrumenty}. To stačí na \emph{zdokumentovanie} testu a
+nestačí na jeho \emph{administrovanie}, takže by musela vzniknúť druhá kópia: tá,
+ktorú žiak skutočne vidí. Dve kópie jednej špecifikácie sú v tejto práci už dvakrát
+zaplatenou chybou~--- taxonómia PEQI v~Pythone a v~Jave sa ticho rozišla a oprava
+šla len do jednej; úprava kódovania konzoly šla do jedného vstupného bodu z~osemnástich.
+Druhá kópia vždy prehrá, prehrá neviditeľne, a tu by prehrávajúcou kópiou bola
+práve tá, podľa ktorej sa práca hodnotí.
+
+Položka je preto údaj. Jeden zásobník, tri odberatelia, a ani jeden z~nich nedrží
+vlastnú kópiu:
+
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+\texttt{assessment/banks/*.json} & \textbf{jediný zdroj pravdy} \\
+\midrule
+$\rightarrow$ \texttt{runner.py}     & to, čo žiak vidí na obrazovke \\
+$\rightarrow$ \texttt{scoring.py}    & to, čo z~odpovede robí skóre \\
+$\rightarrow$ \texttt{tex\_export.py} & to, čo vytlačí príloha~\ref{chapter:instrumenty} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Zásobník obsahuje \asmBanks{}~nástrojov a \asmItems{}~položiek. Tretí odberateľ je
+overovaný oproti druhému: každé zadanie, ktoré príloha tlačí, musí byť zadanie,
+ktoré zásobník drží, a preklad práce zlyhá, ak to tak nie je. Príloha sa od
+nástroja rozísť nemôže, pretože príloha z~nástroja \emph{vzniká}.
+
+\paragraph{Čo zásobník odmieta.} Validátor nie je štylistický. Každá kontrola
+zodpovedá spôsobu, akým školská štúdia stráca údaje nenávratne:
+
+\begin{itemize}[nosep]
+    \item položka bez kľúča~--- do analýzy by prišla ako stĺpec nul, čo sa nedá
+          odlíšiť od veľmi ťažkej položky;
+    \item rozptyľovač bez diagnózy~--- nesprávna odpoveď, z~ktorej sa nič
+          nedozvieme, hoci je to jediná príležitosť sa žiaka na niečo spýtať;
+    \item jazdec sebadôvery na položke, ktorá nemá správnu odpoveď;
+    \item forma, ktorá nesedí na špecifikačnú tabuľku, alebo má iný počet
+          rubrikových položiek než druhá forma;
+    \item nástroj, ktorého položky nevojdú do svojho času v~protokole;
+    \item kotviaca položka, ktorá nie je v~oboch formách znak po znaku totožná.
+\end{itemize}
+
+Posledná z~nich je dôvod, pre ktorý tento modul vznikol, a je predmetom
+časti~\ref{sec:kotvenie-oprava}.
+
+\section{Identifikácia žiaka na piatich príležitostiach}
+\label{sec:kod-ziaka}
+
+Primárny výstup štúdie je \emph{zmena}: čo žiak dosiahol v~šiestom týždni mínus
+to, čo dosiahol v~nultom. Vypočítať ju znamená spojiť päť príležitostí jednej
+osoby. Chrániť žiaka znamená, že výskumník tú osobu nesmie vedieť pomenovať.
+Protokol (príloha~\ref{chapter:protokol}) rieši druhú polovicu dobre~--- kontaktná
+osoba školy rozdá obálky s~kódmi a je jediná, kto vie priradiť kód k~žiakovi~---
+a prvú polovicu necháva na prsty žiaka.
+
+Tam bola medzera. Kód sa pri 330~žiakoch a piatich príležitostiach píše asi
+1\,650-krát, pätnásťročnými, na školských klávesniciach, pod časovým tlakom.
+Preklep nevyrobí chybu. Vyrobí dve:
+
+\begin{itemize}[nosep]
+    \item jeden žiak tú príležitosť ticho stratí~--- a s~ňou svoje skóre zmeny,
+          teda práve tú veličinu, pre ktorú štúdia existuje;
+    \item žiak, ktorý neexistuje, ticho získa riadok.
+\end{itemize}
+
+Obe sú neviditeľné, a tu je to horšie než obvykle: analytický plán pokladá
+výpadok za náhodný podmienene (MAR) a dopĺňa ho imputáciou. Imputovať hodnotu
+neexistujúcemu žiakovi a zahodiť príležitosť skutočného ako neúčasť znamená
+skresliť výsledok v~smere, ktorý nikto nedokáže podpísať.
+
+\paragraph{Riešenie má tri vrstvy a každá zachytáva to, čo predchádzajúca nevie.}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Kontrolný znak}] podľa ISO~7064 MOD~37,36. Zachytí každú
+          jednoznakovú zámenu a každé prehodenie susedných znakov, teda veľkú
+          väčšinu preklepov~--- a zachytí ich \emph{pri klávesnici}, kým je žiak
+          ešte v~triede a môže kód prepísať.
+    \item[\textbf{Abeceda bez zámenitelných znakov}] O/0, I/1/L, S/5, Z/2, B/8 sa
+          nikdy nevydávajú. Znak mimo vydávanej abecedy teda nie je kódom vôbec a
+          nástroj môže povedať, \emph{ktorá} chyba sa stala („v~kódoch nie je
+          písmeno O~--- nemyslel si nulu?“), namiesto aby odmietol bez
+          vysvetlenia. Trieda chýb sa tým mení na pokyn.
+    \item[\textbf{Jeden kód, jedno sedenie}] kód už otvorený na inom počítači sa
+          odmietne. Toto je jediná vrstva, ktorá zachytí chybu, ktorú kontrolný
+          znak preukazateľne zachytiť nemôže: žiaka, ktorý zadá \emph{platný} kód
+          niekoho iného. Aritmetika dva legitímne kódy od seba odlíšiť nedokáže.
+\end{description}
+
+\paragraph{Vlastnosť normy, ktorá nie je pravdivá.} ISO~7064 MOD~37,36 sa bežne
+opisuje tak, že zachytí každú zámenu jedného znaku \emph{a} každé prehodenie
+susedných znakov. Prvá polovica platí presne. Druhá nie: pri vyčerpávajúcom
+preverení prejde približne jedno prehodenie z~dvoch tisíc, napríklad
+\texttt{GY-YEDET-R} $\rightarrow$ \texttt{GY-YDEET-R}, pričom obidva kódy
+kontrolou prejdú. Príčinou je pretečenie v~hybridnej rekurencii, ktoré pre jednu
+dvojicu pozícií zopakuje účinný násobiteľ.
+
+Na výber boli dve možnosti: vykázať 99{,}95\,\%, alebo urobiť z~toho 100\,\%. Je
+to 100\,\%, pretože kódový priestor jednej školy má $9\,765\,625$ prvkov a škola
+potrebuje asi tridsať: pri vydávaní sa vyskúšajú všetky prehodenia susedných aj
+vzdialenejších znakov kandidáta a kandidát sa zahodí, ak hoci jedno z~nich
+kontrolou prejde. Vlastnosť potom platí konštrukciou pre každý kód, ktorý sa
+skutočne dostane do obálky, a test ju vyčerpávajúco preveruje namiesto toho, aby
+veril norme na slovo. Zahodí sa asi jeden kandidát zo šiestich.
+
+\paragraph{Čo to znamená pre štúdiu.} Pri pesimistickom predpoklade jedného
+percenta chyby na znak má asi 5{,}9\,\% zadaní nejakú chybu, z~toho prevažná
+väčšina jednoznakovú~--- a tie sa zachytia všetky. Očakávaný počet tichých
+spojení dvoch žiakov za celú štúdiu je rádu $10^{-6}$. Bez kontrolného znaku by
+nepozorovane prešlo približne sto zadaní.
+
+\paragraph{Čo sa zámerne nerobí.} Žiadne samogenerované kódy (iniciály, mesiac
+narodenia matky a podobne). Sú bežnou odpoveďou tam, kde zoznam neexistuje, a sú
+súčasne slabšie a horšie: vybavenie po troch týždňoch je nedokonalé, takže
+príležitosti sa stratia aj tak, a zložky kódu sú kvázi\-identifikátory, takže
+„anonymný“ kód dokáže spätne priradiť ktokoľvek, kto má zoznam triedy. Školou
+držaný zoznam je lepší v~oboch ohľadoch a táto štúdia ho má.
+
+\section{Oprava kotvenia a to, čo by chyba stála}
+\label{sec:kotvenie-oprava}
+
+Metodika tvrdí, že \emph{šesť položiek je v~oboch formách totožných}, a že práve
+tieto kotviace položky robia obe formy porovnateľnými. Príloha to tvrdí tiež:
+kotviace položky sa vyskytujú „v~nezmenenej podobe“ aj v~okamžitom teste.
+
+Ani jedna zo šiestich totožná nebola. Okamžitá forma sa pýtala na pole s~1024
+prvkami, odložená na pole s~512; okamžitá uvádzala desaťprvkové pole, odložená
+osemprvkové; jedna „kotviaca“ položka mala v~jednej forme štyri možnosti a v~druhej
+voľnú numerickú odpoveď; dve boli rubrikové a ich zadanie bolo preformulované.
+Kotviaca položka s~iným $n$ je \emph{iná} položka s~inou obtiažnosťou. Prevod
+foriem na spoločnú škálu teda neexistoval, a rozdiel medzi okamžitým a odloženým
+skóre~--- primárny kontrast práce~--- by zamieňal zabúdanie s~obtiažnosťou formy.
+
+Ide o~tretí výskyt tej istej systémovej chyby: oprava bola urobená v~jednej
+reprezentácii a nie v~druhej. Simulácia odhalila, že formy nie sú kotvené,
+a oprava šla do \texttt{pipeline.py}; položky, ktoré by sa tým kódom
+spracovávali, zostali nekotviteľné.
+
+\paragraph{Koľko to stálo, číselne.} Pri vloženom zabúdaní \asmEqPlanted{}~logitu
+a skutočne totožných kotviacich položkách sa hodnota obnoví na \asmEqEstZero{}
+(skreslenie \asmEqRepairedBias). Ak sa šesť „kotviacich“ položiek líši a sú
+o~pol logitu ľahšie~--- čo je pri 1024 oproti 512 striedmy odhad~--- obnoví sa
+na \asmEqEstHalf{}.
+
+\begin{table}[H]
+\centering
+\caption{Obnovenie vloženého zabúdania podľa rozdielu kotviacich položiek}
+\label{tab:kotvenie-ucinok}
+\small
+\begin{tabular}{@{}lccl@{}}
+\toprule
+\textbf{Rozdiel kotviacich položiek} & \textbf{Odhad} & \textbf{Skreslenie} &
+\textbf{Čo by práca vykázala} \\
+\midrule
+žiadny (opravený stav) & \asmEqEstZero  & \asmEqBiasZero  & zabúdanie, správne \\
+0{,}3 logitu           & \asmEqEstThree & \asmEqBiasThree & zabúdanie, výrazne podhodnotené \\
+0{,}5 logitu           & \asmEqEstHalf  & \asmEqBiasHalf  & \textbf{zlepšenie namiesto zabúdania} \\
+0{,}8 logitu           & \asmEqEstEight & \asmEqBiasEight & zlepšenie, veľké \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tretí riadok je ten, pre ktorý sa to vykazuje: \textbf{znak sa obráti}. Pri pol
+logitu rozdielu by štúdia vykázala, že žiaci sa medzi okamžitým a odloženým
+testom \emph{zlepšili}, hoci vložená pravda bola, že zabudli. A nič by na to
+neupozornilo~--- model konverguje, zhoda položiek s~modelom je v~poriadku, interval
+je úzky. Chyba, ktorá nevyzerá ako chyba, je v~metodologickej práci najhorší
+možný druh.
+
+\paragraph{Oprava a jej vedľajší zisk.} Obe formy majú teraz
+\asmFormItems{}~položiek, jednu špecifikačnú tabuľku, rovnaký počet rubrikových
+položiek (\asmOpenPerForm) a šesť znak po znaku totožných kotviacich položiek.
+Skrátenie okamžitej formy zo šestnástich na \asmFormItems{} vynútil časový
+rozpočet (časť~\ref{sec:cas-rozpocet}), ale metodicky je to zisk, nie ústupok:
+izomorfia foriem je predpoklad, na ktorom primárny kontrast stojí, a dve formy
+rôznej dĺžky s~rôznym pomerom formátov nie sú izomorfné v~žiadnom zmysle, ktorý
+by čitateľ mohol overiť. Cenou je spoľahlivosť: dvanásť položiek dáva približne
+$0{,}73$ namiesto $0{,}78$ pri šestnástich~--- rovnako ako odložená forma, ktorá
+je primárnym výstupom.
+
+Kotvia sa výhradne uzavreté položky. Pri rubrikovej položke by do prevodu foriem
+na spoločnú škálu vstúpila aj zhoda medzi hodnotiteľmi, čiže chyba merania
+hodnotenia by sa stala chybou prepojenia škál.
+
+\section{Cena totožného kotvenia a rotovaný dizajn}
+\label{sec:rotovane-kotvenie}
+
+Totožné kotviace položky kotvenie opravia a prinesú vlastný problém, ktorý je
+väčší, než sa dalo tušiť. Žiak tie šesť položiek videl pred tromi týždňami, takže
+ich druhé zodpovedanie je \emph{vybavovacie precvičenie}. Kalibrácia nemá ako
+vedieť, že položka je pre tohto žiaka ľahšia, a jej ľahkosť prečíta ako
+schopnosť.
+
+Pri precvičení 0{,}25~logitu sa vložené zabúdanie \asmEqPlanted{} odhadne na
+\asmTeForgetting{}~--- takmer celé zmizne. Kontrast medzi podmienkami však
+chránený \emph{je}: odhadne sa na \asmTeContrast{} pri vloženom
+\asmTeContrastPlanted{} (skreslenie \asmTeContrastBias), pretože obe formy píše
+každý žiak v~každej podmienke rovnako. Konfirmačná rodina práce je teda v~poriadku;
+absolútna úroveň zadržania nie, a práca o~absolútnej úrovni tvrdenia vyslovuje.
+
+\paragraph{Prečo pevná sada kotviacich položiek tento problém vyriešiť nemôže.}
+Precvičenie by sa dalo odpočítať, keby sa poznala jeho veľkosť. Pri pevnej sade
+ju poznať nemožno: každý žiak videl každú kotviacu položku, takže neexistuje
+porovnávacia skupina. Problém nie je v~štatistike, ale v~dizajne.
+
+\paragraph{Rotovaný dizajn.} Náhodné pridelenie porovnávaciu skupinu vyrobí. Téma
+má zásobník \asmRotPool{}~kalibrovaných položiek, zloženého tak, aby každý
+prípustný výber splnil špecifikačnú tabuľku (3~zapamätanie, 3~porozumenie,
+6~aplikácia, 5~analýza, 1~hodnotenie). Pre každého žiaka sa náhodne vyberie šesť
+položiek ako \emph{jeho} kotviaca sada (1/1/2/1/1 po úrovniach); okamžitá forma je
+táto sada doplnená zo zásobníka na 2/2/4/3/1, odložená je tá istá sada plus
+doplnok. Obe formy majú dvanásť položiek a obe splnia tabuľku, pre každého žiaka.
+
+Dôsledok je ten, na ktorom záleží: v~odloženom teste odpovedá na každú položku aj
+žiak, ktorý ju už videl, aj žiak, ktorý nie~--- a tie dve skupiny sú pridelením
+ekvivalentné. Z~toho vyplývajú dve veličiny, ktoré pevný dizajn vyrobiť nedokáže:
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Veľkosť precvičenia}] je rozdiel logaritmov šancí medzi tými
+          dvoma skupinami na tej istej položke. Odhadne sa na \asmRotPractice{}
+          pri vloženom \asmRotPracticePlanted{}, a je \emph{identifikovaná
+          pridelením}, nie predpokladom.
+    \item[\textbf{Odložená schopnosť bez precvičenia}] sa odhadne len z~tých
+          položiek, ktoré žiak predtým nevidel, pri obtiažnostiach pevne daných
+          z~okamžitej príležitosti, kde precvičenie nie je žiadne. Je teda
+          bezprecvičenia \emph{konštrukciou}, nie korekciou po fakte.
+\end{description}
+
+Zabúdanie potom vyjde \asmRotForgetting{} oproti vloženým \asmEqPlanted{}
+(skreslenie \asmRotBias), kým pri pevnej sade vyjde \asmFixForgetting{}
+(skreslenie \asmFixBias). Rotácia skreslenie zmenšuje približne trojnásobne a
+naviac dodá odhad precvičenia samého.
+
+\paragraph{Korekcia po fakte nefunguje, a stojí za to povedať prečo.} Prvý pokus
+odhadol precvičenie zo náhodného kontrastu a pripočítal ho k~bežnému odhadu
+zabúdania. Výsledok bol horší než neopravený, pretože bežný odhad už polovicu
+precvičenia pohltil do presunu priemernej obtiažnosti~--- korekcia ju spočítala
+druhýkrát. Druhý pokus odhadoval schopnosť, obtiažnosť a precvičenie spoločne
+jednou vierohodnosťou a vrátil precvičenie $-378$~logitov: žiak, ktorý odpovedal
+správne na všetky administrované položky, nemá konečný odhad schopnosti, Newtonov
+krok pre neho beží na hranicu, a s~parametrom precvičenia v~tej istej
+vierohodnosti ho ohraničení žiaci tlačia. Tretí pokus~--- obtiažnosti pevne
+z~okamžitej príležitosti, schopnosť len z~nevidených položiek~--- funguje, pretože
+nepotrebuje korekciu ani spoločnú vierohodnosť.
+
+\paragraph{Cena a stav.} Zásobník \asmRotPool{}~položiek na tému už existuje:
+toľko ich obe formy dohromady obsahujú. Čo neexistuje, je pilot~--- zásobník treba
+najprv nakalibrovať, aby bol výber z~neho voči špecifikačnej tabuľke neutrálny~---
+a na úrovni hodnotenia je v~zásobníku jediná položka, ktorú teda zdieľa každý
+žiak, takže tam precvičenie odhadnuteľné nie je. \textbf{Ide o~odporúčanú zmenu
+dizajnu s~pilotom, nie o~zmenu už vykonanú.} Primárnym dizajnom zostáva pevné
+kotvenie s~priznaným obmedzením: kontrast medzi podmienkami je platný, absolútna
+úroveň zadržania je nadhodnotená o~veľkosť precvičenia.
+
+\section{Časový rozpočet počítaný z~položiek}
+\label{sec:cas-rozpocet}
+
+Práca mala časový rozpočet už predtým a vykazovala, že každé stretnutie sa
+zmestí. Počítal každý blok ako \emph{počet položiek krát priemerný čas na
+položku}, s~jedným priemerom na nástroj. To je v~poriadku, keď položky stoja
+približne rovnako, a je to výrazne nesprávne, keď nie~--- a tu nie. Okamžitý test
+mal desať uzavretých položiek po štyridsiatich sekundách a šesť rubrikových po
+dvoch a pol minúte; plochý priemer 55~sekúnd rozdiel rozdelil a test podhodnotil
+o~päť minút. Transferový test je šesť rubrikových položiek, ktorým príloha sama
+priznáva dvadsaťpäť minút, a priemer im dal šesť a pol.
+
+Chyby sa nevyrušia, pretože ukazujú rovnakým smerom: každý nástroj, ktorý priemer
+podhodnocuje, je nástroj s~rubrikovými položkami, a tie sú zhromaždené na dvoch
+miestach~--- v~odloženom teste, opakovanom pre tri témy, a v~transferovom teste.
+Obe sedia v~stretnutí~T4, ktoré nesie primárny výstup štúdie.
+
+Rozpočet sa preto počíta z~položiek, položku po položke. Celkové podhodnotenie
+plochého priemeru je \asmBudgetUnderstated{}~minúty, najviac pri transferovom
+teste o~\asmBudgetWorstBy{}~minúty. Pri takto počítanom rozpočte neprešli tri
+z~piatich dozorovaných stretnutí.
+
+\paragraph{Dve pravidlá, ktoré plochý priemer nemal ako vyjadriť.}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Únavový strop}] meracie stretnutie nie je len súčet minút. Nad
+          približne \instrFatigueCap{}~minút nepretržitého testovania výkon
+          dospievajúcich klesá, a klesá rýchlejšie u~žiakov s~nižšou motiváciou~---
+          čo je veličina, ktorú podmienky pravdepodobne ovplyvňujú. Priveľmi dlhé
+          stretnutie teda nepridáva len šum, ale šum korelovaný so zásahom.
+          Strop je požiadavka validity, nie ohľaduplnosti, a platí na najdlhší
+          \emph{neprerušený} úsek, nie na súčet: tri pätnásťminútové testy
+          s~prestávkami nie sú štyridsaťpäťminútový test.
+    \item[\textbf{Náklad odovzdania}] každé dozorované stretnutie strávi čas,
+          ktorý nie je testovaním: rozdanie kódov, pokyny, prebudenie notebookov.
+          Účtuje sa raz za stretnutie a líši sa podľa stretnutia~--- T0a rozdáva
+          obálky a vysvetľuje štúdiu žiakom, ktorí ju nikdy nevideli, kým pri P1
+          už žiaci postup poznajú a majú sa len prihlásiť.
+\end{description}
+
+\paragraph{Čo z~toho vyplynulo pre dizajn.} Štyri zmeny, z~ktorých tri sú
+metodickými zlepšeniami a jedna je náklad, ktorý nesie škola:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Okamžitá forma má \asmFormItems{} položiek namiesto
+          šestnástich.} Vedľajším ziskom je jedna špecifikačná tabuľka pre obe
+          formy (časť~\ref{sec:kotvenie-oprava}).
+    \item \textbf{Predtest k~téme sa presunul na konec predchádzajúcej hodiny
+          informatiky} (4~min, pod dozorom, 2--3 dni vopred). Vedomosti
+          o~predpokladoch témy sa za dva dni bez výučby nemenia, takže kovariát
+          nič nestráca, a blok získa štyri minúty, ktoré v~ňom nie sú.
+    \item \textbf{Výklad je 64~minút, nie 75.} Kontrolný list vernosti (V1--V3)
+          sčítal 35+40+15 = 90~minút vyučovania vnútri 90-minútového bloku,
+          ktorý má okrem toho obsahovať aj test a dotazník. Rozvrh a kontrolný
+          list si protirečili o~pätnásť minút, a obe tvrdenia boli v~tej istej
+          prílohe.
+    \item \textbf{T4 sa delí na T4a a T4b.} Spolu je to 92~minút merania a
+          transfer je práve to meranie, ktorému únava uškodí najviac: šesť
+          rubrikových položiek vyžaduje odvodenie, nie vybavenie. Počet meracích
+          hodín, ktoré škola dáva, stúpa na \asmMeasureLessons{}.
+\end{enumerate}
+
+Po týchto zmenách sa zmestia všetky stretnutia a žiadne neprekračuje únavový
+strop. Rozpočet je v~tabuľke~\ref{tab:budget-gen}, generovanej zo zásobníka.
+
+\paragraph{Na čom tento rozpočet stojí, a je to odhad.} Rozpočet je presnejší než
+plochý priemer, pretože počíta položku po položke. Nie je však meraním: čas na
+položku (\texttt{expected\_sec}) je \emph{úsudok} autora o~tom, koľko potrebuje
+pozorný žiak~--- odvodený z~typu položky, dĺžky zadania a počtu krokov, ale
+neoverený na žiakoch. Celé rozhodnutie o~rozdelení stretnutia~T4 na dve teda
+stojí na číslach, ktoré ešte nikto nenameral.
+
+Povedať to je potrebné, pretože inak by rozpočet vyzeral ako zistenie, hoci je
+hypotéza. Dôsledky sú dva. Prvý: pilot tieto čísla nahradí pozorovanými mediánmi
+z~jednej triedy, a rozpočet sa prepočíta~--- a keď sa prepočíta, môže sa ukázať,
+že T4 sa deliť nemusí, alebo naopak, že sa musí deliť aj vyučovací blok. Druhý a
+dôležitejší: aj keby boli všetky časy o~tretinu nadhodnotené, \emph{poradie}
+nástrojov podľa náročnosti sa nezmení, a to je to, čo rozhodlo. Plochý priemer
+pokazil práve poradie: postavil transferový test, najnáročnejší nástroj v~pláne,
+pred predtest. Chyba v~úrovni je iná vec než chyba v~poradí, a opravená je zatiaľ
+druhá.
+
+Nástroj je na toto pripravený: \texttt{expected\_sec} je pole v~zásobníku a
+rozpočet je funkcia nad ním, takže nahradenie odhadov meraniami je jedna úprava
+zásobníka a jedno opätovné spustenie, nie prepísanie plánu.
+
+\section{Skórovanie: čo robí stroj a čo nerobí}
+\label{sec:skorovanie}
+
+Uzavreté položky skóruje modul, okamžite a bez človeka. Rubrikové položky
+\textbf{nie}, a odmietnutie je zámerné. Automatické hodnotenie voľného
+slovenského textu o~algoritmickom uvažovaní by bolo nespoľahlivé spôsobom, ktorý
+je horší než šum: bolo by nespoľahlivé \emph{diferenciálne}. Žiak, ktorý strávil
+hodinu čítaním plynulej prózy asistenta, píše plynulejšiu prózu, a akýkoľvek
+ukazovateľ povrchových príznakov by to odmenil. Hypotéza práce je, že podmienky
+$A$ a $G$ sa líšia v~tom, \emph{ako} žiaci píšu. Hodnotič citlivý na to, ako
+žiaci píšu, by teda časť účinku, ktorý meria, vyrábal~--- čo je presne tá chyba,
+ktorú klasifikátor PEQI už raz mal a musel byť opravený.
+
+Rubrikové položky teda odchádzajú ako \texttt{pending}, s~rubrikou pripojenou,
+a vracajú sa dvojito kódované. Čo modul zaručuje, je úplnosť odovzdania: každá
+voľná odpoveď sa exportuje na kódovanie, každé kódovanie sa načíta späť, a
+\texttt{finalise()} odmietne vyrobiť analytický súbor, kým je hoci jedna
+rubriková položka nekódovaná. Tichá nula za nekódovanú položku by vyzerala ako
+nesprávna odpoveď.
+
+\paragraph{Tri veci, ktoré skórovací skript obvykle nerobí.}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Čiastočné body oddelene od dichotómie.}] Raschov model je
+          dichotomický. Rubriková položka za 0--2 body sa preto exportuje aj ako
+          hrubé body, aj ako dichotomizácia na strede rubriky, a ktorú z~nich
+          analýza použije, je rozhodnutie analýzy a je deklarované tam. Čo
+          prípustné nie je, je aby si ju tento modul ticho vybral sám.
+    \item[\textbf{Zaznamenáva sa rozptyľovač, nie len nesprávnosť.}]
+          \texttt{correct = 0} zahodí jedinú diagnostickú informáciu, ktorú
+          položka s~voľbou vyrobí. Zvolená možnosť aj jej diagnóza putujú
+          s~riadkom, a práve to umožňuje triednej správe povedať učiteľovi,
+          \emph{ktorú} mylnú predstavu trieda drží. Zásobník nesie
+          \asmDistractorsDiagnosed{}~diagnóz.
+    \item[\textbf{Skórovanie je oddelené od vylúčenia.}] Odpoveď daná za
+          1{,}4~sekundy sa skóruje normálne a označí sa samostatne
+          (časť~\ref{sec:usilie}). Spojiť to dvoje by znamenalo skryť rozhodnutie
+          o~vylúčení údajov do skórovacej funkcie, kde ho žiadny oponent hľadať
+          nebude.
+\end{description}
+
+\paragraph{Nezhoda kódovateľov sa nepriemeruje.} Dve nezávislé hodnotenia rubriky,
+ktoré sa rozchádzajú, sa riešia konsenzom. Priemer dvoch čítaní rubriky je číslo,
+ktoré by nepodpísal ani jeden z~kódovateľov, a podiel nezhôd je sám vykazovanou
+veličinou (váženou Cohenovou $\kappa$).
+
+\section{Úsilie pri teste}
+\label{sec:usilie}
+
+Práca už pomenúva zámenu: „žiaci sa naučili viac“ a „žiaci sa na teste po hodine,
+ktorá ich bavila, viac snažili“ sú ten istý kontrast, pokiaľ ich niečo neoddelí.
+Jej dosiaľ jediná odpoveď je negatívna kontrola~--- výstup, ktorý sa nesmie
+pohnúť. Je to správny druh odpovede a je neúplná, pretože negatívna kontrola
+povie, \emph{že} je niečo zlé, nie \emph{čo}. Ak zlyhá, štúdii zostane
+nevysvetlené zlyhanie a žiadny spôsob, ako rozhodnúť, či šlo o~úsilie, únavu
+alebo pokazený nástroj.
+
+Úsilie pri teste sa dá merať priamo a je to tu najpravdepodobnejší kandidát, a to
+z~dôvodu špecifického pre tento dizajn: podmienka $G$ odstraňuje úsilie
+\emph{počas hodiny} a predpokladá sa pri nej najvyššia spokojnosť. Žiak, ktorý mal
+najpríjemnejšiu hodinu, potom píše test, ktorý sa neznámkuje. Či doň investuje, je
+empirická otázka, a odpoveď sa pravdepodobne líši podľa podmienky~--- čím je
+diferenciálna, a diferenciálne úsilie na výstupe nie je šum. Je to skreslenie
+v~smere hypotézy alebo proti nej, a bez merania nikto nepovie, v~ktorom.
+
+Meranie vyžaduje čas na položku, čo vyžaduje digitálnu administráciu. Toto je
+najsilnejší jediný argument pre \texttt{runner.py}: papierový test toto číslo
+nevyrobí vôbec.
+
+\paragraph{Ako sa identifikuje rýchle hádanie.} Odpoveď rýchlejšia, než sa
+položka dá prečítať, nie je odpoveďou. Hranica je miesto, kde sa metóda obvykle
+ohýba, takže sú implementované tri pravidlá a vykazujú sa všetky tri: desať
+percent očakávaného času položky (bežná konvencia), pevná dolná hranica (istota
+proti položke s~priveľmi nízkym očakávaným časom), a dolina medzi dvoma vrcholmi
+pozorovaného rozdelenia časov tam, kde nejaká je. Tretie pravidlo je jediné, ktoré
+používa dáta, a vracia „žiadna hranica“, keď je rozdelenie jednovrcholové~---
+metóda, ktorá by vždy vrátila číslo, by vyrobila rýchle hádanie v~triede, ktorá
+žiadne nerobila. Nezhoda pravidiel je informácia: výsledok, ktorý platí pri
+všetkých troch, je voči hranici odolný; výsledok, ktorý sa objaví pri jednom, je
+výsledkom o~hranici.
+
+\paragraph{Operačné vlastnosti.} Rozdiel v~úsilí 0{,}08 medzi podmienkami~--- taký,
+ktorý by vedel predstierať najmenší zaujímavý účinok~--- sa odhalí
+v~\asmEffortDetect{} prípadov, pri falošnej pozitivite \asmEffortFalsePos{} tam,
+kde rozdiel nie je.
+
+\paragraph{Čo sa nerobí.} Odpovede označené ako rýchle hádanie sa neodstraňujú;
+označenie je samostatná premenná. Odstránenie by ticho zmenilo odhadovanú veličinu
+z~„čo žiaci dosiahli“ na „čo dosiahli, keď sa snažili“, a tie dve sa líšia práve
+vtedy, keď na tom záleží najviac. Vopred stanovené pravidlo: hlavná analýza na
+všetkých odpovediach, analýza po filtrovaní úsilia ako deklarovaná robustnostná
+kontrola, obe vždy.
+
+\section{Kontaminácia počas testu}
+\label{sec:kontaminacia}
+
+Toto je štúdia o~tom, čo sa stane s~učením, keď má žiak asistenta s~umelou
+inteligenciou. Jej výstupom je test. Test sa píše na notebooku, v~škole, žiakom,
+ktorý má telefón. Každá publikovaná štúdia tohto druhu to rieši rovnako: dozorca
+odfajkne položku. V~tejto práci je tou položkou V12 kontrolného listu vernosti~---
+„počas testu žiaci nemali prístup k~asistentovi ani k~poznámkam“~--- a je to
+jediné, čo stojí medzi primárnym výstupom a kontaminovaným.
+
+A zlyháva v~nesprávnom smere. Žiak, ktorého hodina frustrovala, má menej dôvodov
+starať sa o~neznámkovaný test než žiak, ktorého bavila; a žiak, ktorý hodinu
+dostával hotové odpovede, má aj návyk, aj očakávanie, že si jednu vyhľadá.
+Kontaminácia je teda pravdepodobne \emph{diferenciálna podľa podmienky}, čím je
+skreslením, nie šumom, a skreslením, ktorého znak sa nedá uhádnuť.
+
+\paragraph{Päť rodín príznakov z~troch nezávislých zdrojov.} Okno testu stratilo
+zameranie; text odpovede bol vložený, nie napísaný; položka správne a výrazne
+rýchlejšie, než sa dá prečítať; voľná odpoveď takmer totožná s~odpoveďou iného
+žiaka; ťažšie položky žiaka trvali kratšie než ľahšie; a záchytná vrstva
+zaznamenala dopyty na asistenta v~čase testu. Každý jednotlivo je slabý. Spolu
+tiež nie sú silné~--- a práve preto je výstupom odstupňovaný príznak a nikdy
+verdikt.
+
+\paragraph{Tri pravidlá, ktoré z~toho robia použiteľnú vec a nie podozrievanie.}
+
+\begin{enumerate}[nosep]
+    \item \textbf{Detektor je kalibrovaný na stretnutí, kde kontaminácia nie je
+          možná.} T0a prebehne skôr, než žiak nástroj videl, v~miestnosti, kde
+          žiadny asistent nie je. Čokoľvek tam detektor označí, je falošná
+          pozitivita \emph{konštrukciou}. Táto hodnota sa vykazuje, a detektor,
+          ktorý označí 8\,\% na T0a, je detektor, ktorého 9\,\% na T4a nič
+          neznamená. Samotný podiel príznakov v~poli nehovorí nič~--- je to tá
+          istá chyba ako vykazovať podiel pozitívnych testov bez špecificity.
+    \item \textbf{Žiadny žiak sa škole nepomenuje.} Ide o~meranie kvality údajov,
+          nie o~obvinenia o~deťoch, a rozdiel nie je rečnícky: príznak, ktorý by
+          sa mohol dostať ku známke, by zmenil motiváciu žiaka písať test
+          poctivo, a tým by zničil meranie, pre ktoré bol zavedený. Správa pre
+          školu nesie podiel za triedu a nič iné.
+    \item \textbf{Vylúčenie je stanovené vopred a vykazuje sa vždy dvojmo.}
+          Odpoveď sa vylúči len pri dvoch príznakoch z~rôznych rodín nad hranicou.
+          Hlavná analýza beží na všetkom, analýza s~vylúčením vedľa nej, a obe sa
+          vytlačia, akokoľvek vyjdú.
+\end{enumerate}
+
+\paragraph{Operačné vlastnosti.} Pri realistickom nazeraní~--- žiak si pozrie dve
+až štyri položky z~dvanástich, nie všetky~--- detektor zachytí
+\asmIntegDetect{} kontaminovaných žiakov v~triede
+pri falošnej pozitivite \asmIntegFalsePos{}. To nie je dozor a nemá ním byť: je to
+dolná hranica, ktorá z~nemerateľného tvrdenia robí vykazovateľný podiel.
+
+\paragraph{Štyri rodiny v~deň zberu, piata až v~analýze.} Toto rozlíšenie sa
+ukázalo pri skúšobnom prejdení celého školského priečinka a stojí za to ho
+uviesť, pretože inak by sa od triednej správy čakalo viac, než vie dať. Rodiny
+B,~T,~S a~C pracujú s~veličinami, ktoré sú známe okamžite~--- stav okna, čas
+odpovede, podobnosť textov, záznam záchytnej vrstvy~--- a dajú sa teda vyhodnotiť
+v~ten istý deň. Rodina~I porovnáva čas odpovede s~\emph{obtiažnosťou} položky, a
+obtiažnosť pred Raschovou kalibráciou neexistuje. Beží preto až v~analytickej
+vrstve, nie v~školskom priečinku. Správa, ktorú škola dostane v~deň zberu, je
+teda založená na štyroch rodinách z~piatich, a vykazuje to.
+
+Prvá verzia tejto simulácie dávala kontaminovanému žiakovi odpovedať na každú
+položku za 3{,}5~sekundy s~osemnástimi sekundami straty zamerania, a detektor
+proti nej dosiahol 100\,\%. To nehovorí nič, pretože nič také zjavné sa
+v~miestnosti s~učiteľom nedeje. Lichotivé číslo je horšie než striedme.
+
+\section{Kategorizácia žiakov, ktorá funguje pre jednu triedu}
+\label{sec:pravidlovy-profil}
+
+Zadanie žiada od nástroja kategorizáciu používateľov. Metodika odpovedá latentnou
+profilovou analýzou nad šiestimi ukazovateľmi, a odpovedá dobre: profily sú
+pomenované vopred, kovariančná štruktúra bola vybraná oproti vloženej pravde aj
+oproti vloženej neprítomnosti štruktúry, a typológia sa poctivo vykazuje ako
+exploratívna.
+
+Len si treba všimnúť, čo to znamená pre toho, kto by nástroj skutočne používal.
+Latentná profilová analýza je tvrdenie o~\emph{vzorke}. Potrebuje stovky žiakov,
+prikladá zmes tomu rozptylu, aký vzorka náhodou má, a označenie jedného žiaka
+závisí od toho, kto je v~súbore s~ním. Učiteľ s~jednou triedou dvadsiatich dvoch
+ju spustiť nedokáže, a keby ju spustili dve školy, dostali by dve rôzne a
+neporovnateľné typológie.
+
+Práca teda dodáva kategorizáciu, ktorú vie použiť len štúdia. Pre účel, ktorý
+zadanie samo pomenúva~--- nástroj nasaditeľný v~škole~--- je to nesprávny objekt.
+
+\paragraph{Pravidlo s~absolútnymi hranicami.} Nástroj preto obsahuje
+deterministické, vopred stanovené pravidlo nad \emph{absolútnymi} hranicami. Štyri
+dôsledky, z~ktorých žiadny zmesový model mať nemôže: funguje pri $n=1$; označenie
+nezávisí od ostatných v~triede, takže dve školy v~rôznych rokoch dostanú
+porovnateľné označenia; každá hranica je napísaná skôr, než existujú dáta, takže
+nezostáva voľnosť ladiť typológiu, kým nepovie niečo zaujímavé; a učiteľovi sa dá
+jednou vetou povedať, \emph{prečo} bol žiak označený, čo posteriórna
+pravdepodobnosť zo šesťrozmernej gaussovskej zmesi nedokáže.
+
+Cena, povedaná priamo: pravidlo nedokáže objaviť profil, ktorý nikto nečakal, a
+zmes dokáže. Nie sú to konkurenti. Zmes zostáva v~práci ako výskumná otázka „je
+táto populácia zmesou, a akou“; pravidlo je to, čo dostane škola.
+
+\paragraph{Odkiaľ sa berú hranice.} Nie z~dát a nie z~konvencie. Každá je bodom na
+škále, ktorá už má význam. PEQI je priemer úrovní promptov s~váhami
+$L_0=0$ až $L_4=1$, takže $0{,}25$ je žiak, ktorého priemerný prompt je holá
+žiadosť o~overenie, a $0{,}50$ ten, ktorý sa v~priemere pýta na vysvetlenie~---
+obe hranice sú položené práve tam, pretože tam sa mení konštrukt, nie tam, kde sa
+delí vzorka. Podiel úloh s~vlastným pokusom má hranicu $0{,}50$, čo je jediný
+nearbitrárny bod na podiele. Kalibračné skreslenie má hranicu $0{,}15$, čo je
+najmenšie nadhodnotenie prevyšujúce chybu merania dvanásťpoložkového testu.
+
+\paragraph{Pravidlo, ktoré odmietne odpovedať.} Ukazovateľ pod svojím minimom
+dôkazu je \emph{neprítomný}, nie len poznamenaný. Prvá verzia ho uvádzala ako
+chýbajúci a potom ho aj tak použila, a nesprávne označila práve toho žiaka, pre
+ktorého to rozlíšenie existuje: žiak s~jediným promptom mal PEQI $0{,}50$
+spočítané z~toho jedného promptu, prešiel hranicou „pýta sa na vysvetlenie“ a bol
+označený ako kritický používateľ na základe jednej otázky. Pravidlo, ktoré vždy
+vydá označenie, je pravidlo, ktoré háda, a hádanie vytlačené pri mene žiaka je
+horšie než prázdne miesto.
+
+Podmienka $K$ nemá asistenta, takže profil používania nástroja preň nie je
+definovaný. To nie sú chýbajúce údaje, ale podmienka, v~ktorej konštrukt
+neexistuje.
+
+\paragraph{Čo pravidlo dokáže a čo nie, číselne.}
+
+\begin{table}[H]
+\centering
+\caption{Pravidlo a latentná profilová analýza oproti vloženej pravde (upravený Randov index)}
+\label{tab:pravidlo-vs-lpa}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Počet žiakov} & \textbf{Pravidlo} & \textbf{Zmesový model} &
+\textbf{Počet komponentov} \\
+\midrule
+\asmNClass{} (jedna trieda) & \asmRuleAriClass & \asmLpaAriClass & \asmLpaKClass \\
+\asmNThree{}                & \asmRuleAriThree & \asmLpaAriThree & \asmLpaKThree \\
+\asmNStudy{} (táto štúdia)  & \asmRuleAriStudy & \asmLpaAriStudy & \asmLpaKStudy \\
+\asmNLarge{}                & \asmRuleAriLarge & \asmLpaAriLarge & \asmLpaKLarge \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Pri jednej triede zmesový model nenájde žiadne profily~--- vyberie jediný
+komponent~--- kým pravidlo dosiahne \asmRuleAriClass. Pri \asmNStudy{} a viac je
+zmes lepšia. To je presne to rozdelenie úloh, ktoré práca navrhuje.
+
+\emph{Pozor na porovnateľnosť:} tieto hodnoty nie sú porovnateľné s~upraveným
+Randovým indexom, ktorý uvádza časť~\ref{sec:kategorizacia}. Tam sú ukazovatele
+v~štandardných jednotkách s~vnútroprofilovým rozptylom $0{,}62$; tu sú na
+absolútnych škálach, ktoré pravidlo potrebuje, a s~menším vnútroprofilovým
+rozptylom. Porovnávať sa dajú obidva stĺpce tejto tabuľky medzi sebou, nie
+s~hodnotou z~kapitoly~\ref{chapter:metodika}.
+
+\paragraph{Označenie nezávisí od vzorky.} Ten istý žiak preklasifikovaný
+v~\asmLabelCohorts{} rôznych náhodných kohortách dostal vždy to isté označenie:
+\asmLabelStable{}. Zmesový model takú vlastnosť nemá a mať nemôže.
+
+\paragraph{Citlivosť na hranice, vykázaná aj tam, kde nelichotí.} Posun jednej
+hranice o~$\pm$20\,\% mení zhodu najviac o~\asmCutSingle{} (najcitlivejšia je
+hranica \asmCutWorst), takže nezhoda o~jednu hranicu typológiu nerozvráti. Posun
+všetkých piatich naraz a v~tom istom smere ju mení o~\asmCutJoint{}, a to málo
+nie je: pravidlo s~absolútnymi hranicami \emph{je} citlivé na ich spoločné
+nastavenie. Práve preto musia byť hranice odvodené z~významu škály a stanovené
+vopred. Predregistrácia tu nie je formalita, ale nosný prvok~--- bez nej by sa päť
+hraníc dalo ladiť, kým typológia nepovie to, čo sa od nej čaká.
+
+\paragraph{Pridáva profil niečo nad vstupnú úroveň?} Ak je „slepo dôverujúci“ len
+inak pomenované „nízke vstupné skóre“, typológia nepridáva nič. Test oproti
+dvom vloženým svetom~--- v~jednom má profil vlastný účinok, v~druhom je presne
+preznačkovanou vstupnou úrovňou~--- má silu \asmIncPower{} nájsť vlastný účinok,
+keď tam je, a nájde ho v~\asmIncFalsePos{} prípadov, keď tam nie je. Bez tohto
+testu by typológia mohla byť preznačkovaná vstupná úroveň a z~výsledku by to nikto
+nerozlíšil.
+
+\section{Čo vychádza von a komu}
+\label{sec:spatna-vazba}
+
+Protokol škole sľubuje „agregovanú správu za triedu (nie za žiaka) s~porovnaním
+voči ostatným zapojeným triedam“. Čo v~nej je, nebolo špecifikované. To nie je
+kozmetické: škola, ktorá nedostane nič užitočné, nepustí štúdiu na ďalší rok, a
+merací nástroj, ktorý tým, koho meria, nevracia nič, je extraktívny. Zadanie žiada
+nástroj, ktorý vedia používať školy; nástroj, ktorého jediným výstupom je CSV pre
+výskumníka, ním nie je.
+
+Ostrejší dôvod je ale iný. Triedna správa je \emph{zverejnenie}. Dvadsaťdva
+žiakov, tri podmienky, štyri profily~--- tabuľka počtov krížená podmienkou má
+bunky s~dvoma a tromi žiakmi, a učiteľ, ktorý vie, kto sedel v~ktorej podmienke,
+z~malej bunky často prečíta jednotlivca. Potrebné sú teda pravidlá potlačenia,
+ktoré uplatňuje kód a nie dobrý úmysel, a ktoré sa dajú otestovať.
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Učiteľ}] dostane, čo učiť na ďalšej hodine: počty mylných
+          predstáv po položkách, na úrovni triedy, \emph{bez rozpisu podľa
+          podmienky}. Podmienka je premenná výskumníka, učiteľovi pedagogicky
+          neslúži, a jej pridanie je práve to, čo vyrobí malé bunky. Zoradené je
+          to podľa toho, koľko žiakov drží tú istú mylnú predstavu, nie podľa
+          obtiažnosti: položka, ktorú devätnásť žiakov pokazilo devätnástimi
+          rôznymi spôsobmi, je zlá položka, kým položka, ktorú jedenásť žiakov
+          pokazilo rovnako, je učivo.
+    \item[\textbf{Škola}] dostane niekoľko agregátov v~porovnaní s~ostatnými
+          triedami, s~potlačením buniek pod piatimi žiakmi, bez čohokoľvek na
+          úrovni žiaka. Trieda pod dvanásť žiakov sa s~kohortou neporovnáva vôbec:
+          pri malej triede je priemer triedy tvorený niekoľkými konkrétnymi deťmi
+          a „vaša trieda je pod priemerom“ je potom tvrdenie o~troch z~nich.
+          Neporovnáva sa ani proti kohorte menšej než tri triedy.
+    \item[\textbf{Žiak}] nedostáva individuálne skóre, a je to rozhodnutie
+          s~dôvodom: nástroje tejto štúdie majú spoľahlivosť vhodnú na porovnanie
+          skupín, nie na výrok o~jednotlivcovi. Oznámiť žiakovi číslo, ktoré
+          nástroj neunesie, by bola tá istá chyba, akú práca kritizuje inde.
+          Po skončení štúdie dostáva prístup k~celej sade úloh a správnym
+          odpovediam~--- informáciu, ktorú meranie unesie.
+\end{description}
+
+Pravidlá potlačenia sú overené \emph{auditom zverejnenia}, ktorý beží nad
+skutočnými správami a nie nad zámerom: prejde celú štruktúru, hľadá početnosť pod
+hranicou, čokoľvek, čo vyzerá ako pseudonym, a akékoľvek kríženie s~podmienkou.
+
+\section{Čo musí rozhodnúť pilot}
+\label{sec:modul-pilot}
+
+Pilot na jednej triede je už súčasťou plánu (časť~\ref{sec:pilot}) a jeho
+rozhodovacie pravidlá sú stanovené vopred. Hodnotiaci modul pridáva šesť otázok,
+ktoré tam dosiaľ neboli, a pri každej aj to, čo jedna trieda rozhodnúť
+\emph{nevie}.
+
+\begin{table}[H]
+\centering
+\caption{Čo k pilotu pridáva hodnotiaci modul}
+\label{tab:pilot-modul}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}X X l@{}}
+\toprule
+\textbf{Otázka} & \textbf{Vopred stanovené pravidlo} & \textbf{Rozhodne?} \\
+\midrule
+Sedia časy na položku?
+& pozorované mediány nahradia odhady v~zásobníku a rozpočet sa prepočíta; ak sa niektoré stretnutie prestane zmestiť, delí sa blok s~najväčšou rezervou, nikdy nie primárny výsledok
+& \textbf{áno} \\
+Zvládnu pätnásťroční kód z~obálky?
+& podiel zadaní odmietnutých kontrolným znakom sa vykazuje; nad 15\,\% sa kód skracuje na štyri znaky a cena v~kolíziách sa prepočíta
+& \textbf{áno} \\
+Dávajú rubriky zhodu medzi kódovateľmi?
+& vážená $\kappa$ pod $0{,}67$ $\Rightarrow$ rubrika sa zlučuje na dvojúrovňovú; pod $0{,}50$ sa položka vyradí
+& čiastočne \\
+Aká je falošná pozitivita detektora kontaminácie na T0a?
+& nad $0{,}10$ sa detektor z~vykazovania vypúšťa a uvedie sa dôvod
+& \textbf{áno} \\
+Dáva pravidlový profilovač použiteľné rozdelenie?
+& podiel \emph{neurčený} nad $0{,}40$ $\Rightarrow$ minimá dôkazu sa prehodnotia \emph{pred} hlavným zberom a zmena sa zapíše
+& slabo \\
+Je zásobník \asmRotPool{}~položiek nakalibrovaný na rotáciu?
+& bez kalibrácie rotované kotvenie do plánu nevstupuje
+& \textbf{nie} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Prvý riadok je ten, na ktorom záleží najviac}, pretože na odhadoch
+času stojí rozdelenie stretnutia~T4 (časť~\ref{sec:cas-rozpocet}). Pilot ich
+premení z~úsudku na meranie, a je to jediná otázka z~tabuľky, ktorú jedna trieda
+rozhodne úplne: medián času na položku pri dvadsiatich žiakoch je dosť presný na
+rozhodnutie o~minútach, aj keď nie na nič iné.
+
+\paragraph{Posledný riadok je ten, ktorý pilot rozhodnúť nevie}, a uvádzame ho
+práve preto. Kalibrácia zásobníka na rotované kotvenie vyžaduje, aby každú
+položku riešil dostatočný počet žiakov~--- pri osemnástich položkách a jednej
+triede je to asi desať odpovedí na položku, čo nestačí ani na hrubú obtiažnosť.
+Rotácia preto zostáva odporúčaním aj po pilote, pokiaľ sa nenájde druhá trieda
+mimo hlavnej vzorky.
+
+\paragraph{Čo pilot zmeniť nesmie} je rovnaký zoznam ako v~časti~\ref{sec:pilot},
+rozšírený o~tri veci z~tohto modulu: hranice pravidlového profilovača, pravidlo
+„dve rodiny z~rôznych rodín“ pre vylúčenie, a zásadu, že rubrikové položky
+neskóruje stroj. Pilot slúži na nastavenie toho, čo sa dá nameraním zistiť, nie
+na posúvanie rozhodnutí, ktoré boli stanovené vopred práve preto, aby sa
+neposúvali.
+
+\section{Čo tento modul nerieši}
+\label{sec:modul-limity}
+
+\begin{itemize}[nosep]
+    \item \textbf{Správnosť rubrikového hodnotenia.} Modul zaručí, že každá
+          voľná odpoveď bude dvojito kódovaná a že nezhoda sa vyrieši konsenzom.
+          Nezaručí, že rubrika meria to, čo tvrdí.
+    \item \textbf{Kontamináciu cez telefón.} Rodiny B, T a I vidia, čo sa deje
+          v~okne testu a v~časoch odpovedí. Žiaka, ktorý má telefón pod stolom a
+          odpíše pomaly, nevidí žiadna z~nich. Detektor je dolná hranica.
+    \item \textbf{Validitu testu kritického myslenia.} Príloha~\ref{chapter:kriticke-myslenie}
+          je návrh nástroja, nie validovaný nástroj, a pilot ešte neprebehol.
+    \item \textbf{Absolútnu úroveň zadržania pri pevnom kotvení.} Je nadhodnotená
+          o~veľkosť vybavovacieho precvičenia; opravuje to rotovaný dizajn, ktorý
+          čaká na pilot (časť~\ref{sec:rotovane-kotvenie}).
+    \item \textbf{Nič z~toho, čo sa stane, keď škola kód stratí.} Obnovenie
+          zo~zoznamu robí kontaktná osoba školy; modul to nerobí a robiť nemá,
+          pretože by na to potreboval presne to spojenie, ktoré nesmie existovať.
+    \item \textbf{Rodinu~I v~deň zberu.} Porovnanie času s~obtiažnosťou položky
+          vyžaduje kalibráciu, ktorá v~ten deň ešte neexistuje
+          (časť~\ref{sec:kontaminacia}).
+\end{itemize}
+
+\section{Nasaditeľnosť: čo dostane škola a ako sa to overuje}
+\label{sec:nasaditelnost-modul}
+
+Zadanie žiada overenie riešenia \emph{použitím} v~školskom prostredí. Škola
+nedostane repozitár, ale priečinok, a čo v~tom priečinku chýba, chýba v~ten deň.
+Hodnotiaci modul je preto súčasťou školského priečinka (\texttt{build-school-kit.ps1}),
+nie len repozitára:
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\texttt{KODY.cmd}] vydá kódy žiakom. \textbf{Spúšťa ho škola, nie
+    výskumník}, a vzniknú dva súbory: samotné kódy, ktoré idú výskumníkovi, a
+    zoznam s~miestom pre meno, ktorý \emph{zostáva v~škole}. Keby kódy vydával
+    výskumník, prepojovacia tabuľka by vznikla na jeho notebooku, a žiadna
+    formulácia v~protokole by to nenapravila.
+    \item[\texttt{TEST.cmd}] administruje test. Je to zámerne \emph{iný} spúšťač
+    než \texttt{RUN.cmd} pre hodinu: hodina a test sú rôzne udalosti s~rôznymi
+    pravidlami~--- počas testu musí byť asistent nedostupný~--- a jediný vstupný
+    bod, ktorý by vedel spustiť oboje, je jeden chybný stisk od neplatného
+    merania.
+    \item[\texttt{SKONTROLUJ.cmd}] overí zozbierané súbory v~ten istý deň.
+\end{description}
+
+\paragraph{Priečinok sa overuje tým, že sa spustí, nie tým, že sa vymenuje.}
+Zoznam súborov nezaručí, že sa priečinok dá použiť: moduly skopírované do plošej
+štruktúry, než v~akej boli napísané, sa nemusia dať naimportovať, a to sa prejaví
+až v~triede. Zostavenie priečinka preto na konci z~neho spustí Python, naimportuje
+všetky moduly, načíta zásobníky, vydá kód a overí, že preklep v~ňom sa odmietne~---
+a zostavenie zlyhá, ak hoci jedno z~toho neprejde.
+
+\paragraph{Skúšobné prejdenie.} Celý priečinok bol prejdený tak, ako ho prejde
+trieda: škola vydala kódy, šesť žiakov odpovedalo na všetkých
+\asmFormItems{}~položiek okamžitého testu cez skutočný spúšťač, a výsledok sa
+načítal do skórovača bez prekladovej vrstvy. Uzavreté položky boli oskórované,
+rubrikové odišli na kódovanie, \texttt{finalise()} odmietol vytvoriť analytický
+súbor, a triedna správa o~integrite vznikla bez jediného mena. Tento prechod
+odhalil obmedzenie uvedené v~časti~\ref{sec:kontaminacia}~--- rodina~I v~deň zberu
+nie je dostupná~--- ktoré by sa z~jednotkových testov nedalo vidieť, pretože tam
+obtiažnosti položiek dodáva fixtúra.

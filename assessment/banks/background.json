@@ -1,0 +1,43 @@
+{
+  "bank_id": "BACKGROUND",
+  "instrument": "BACKGROUND",
+  "title": "Vstupný dotazník: doterajšie používanie nástrojov umelej inteligencie",
+  "minutes": 4,
+  "jol": false,
+  "note": "Zadáva sa cez EduPage ako domáca úloha spolu s Jr. MAI. Položka U6 a U7 (dôvera a sebaistota v rozpoznaní chyby) sú vstupné hodnoty pre tie isté veličiny, ktoré neskôr vstupujú do profilovania — dôvera deklarovaná PRED akoukoľvek podmienkou je jediná dôvera nezaťažená zásahom.",
+  "items": [
+    {
+      "id": "U1", "format": "choice", "expected_sec": 15,
+      "stem": "Ako často používaš konverzačné nástroje umelej inteligencie (ChatGPT, Gemini, Claude, Copilot a podobne) pri učení?",
+      "options": ["denne", "niekoľkokrát týždenne", "niekoľkokrát mesačne", "zriedka", "nikdy"]
+    },
+    {
+      "id": "U2", "format": "text", "expected_sec": 25,
+      "stem": "Na ktoré predmety ich používaš najčastejšie?"
+    },
+    {
+      "id": "U3", "format": "multi", "expected_sec": 30,
+      "stem": "Na čo ich pri učení najčastejšie používaš?",
+      "options": ["vysvetlenie učiva", "napísanie riešenia", "kontrola môjho riešenia",
+                  "preklad", "zhrnutie textu", "nápady", "iné"]
+    },
+    {
+      "id": "U4", "format": "choice", "expected_sec": 12,
+      "stem": "Koľko rokov máš skúsenosť s programovaním?",
+      "options": ["žiadnu", "menej ako rok", "1–2 roky", "viac ako 2 roky"]
+    },
+    {
+      "id": "U5", "format": "choice", "expected_sec": 15,
+      "stem": "Má vaša škola pravidlá pre používanie nástrojov umelej inteligencie?",
+      "options": ["áno, poznám ich", "áno, ale nepoznám ich", "nie", "neviem"]
+    },
+    {
+      "id": "U6", "format": "likert7", "expected_sec": 14,
+      "stem": "Nakoľko dôveruješ tomu, čo ti takýto nástroj odpovie?"
+    },
+    {
+      "id": "U7", "format": "likert7", "expected_sec": 16,
+      "stem": "Nakoľko si istý, že vieš rozpoznať, keď sa takýto nástroj mýli?"
+    }
+  ]
+}

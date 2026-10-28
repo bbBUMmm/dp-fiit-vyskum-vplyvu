@@ -1,0 +1,88 @@
+{
+  "bank_id": "TT",
+  "instrument": "TT",
+  "title": "Transferový test (6 položiek)",
+  "minutes": 25,
+  "jol": false,
+  "note": "Položky sa týkajú algoritmov, ktoré sa nepreberali. Žiak nemôže vybaviť naučený postup; musí preniesť princíp. Všetky položky sú s rubrikou 0–3, čo je dôvod, prečo blok trvá 25 minút a nie 6,5 — rozdiel, ktorý pôvodný časový rozpočet prehliadol, pretože počítal plochý priemer sekúnd na položku. JOL sa tu nezadáva: pri položke, ktorej rubrika má tri úrovne, nie je otázka „je tvoja odpoveď správna“ dobre definovaná.",
+  "items": [
+    {
+      "id": "TT1",
+      "format": "open",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 250,
+      "max_points": 3,
+      "stem": "Skokové vyhľadávanie. Algoritmus prechádza usporiadané pole po blokoch veľkosti √n a v nájdenom bloku potom lineárne. Odvoď jeho zložitosť a porovnaj ju s binárnym vyhľadávaním.",
+      "rubric": [
+        {"points": 1, "criterion": "rozpozná, že náklad má dve časti: skákanie po blokoch a prechod v bloku"},
+        {"points": 1, "criterion": "odvodí O(√n) ako súčet dvoch zložiek rádu √n"},
+        {"points": 1, "criterion": "porovná s O(log n) a uvedie, že skokové je asymptoticky horšie"}
+      ]
+    },
+    {
+      "id": "TT2",
+      "format": "open",
+      "skill": "volba_postupu",
+      "expected_sec": 250,
+      "max_points": 3,
+      "stem": "Interpolačné vyhľadávanie. Namiesto stredu odhadne pozíciu podľa hodnoty. Za akých podmienok bude rýchlejšie než binárne a kedy naopak výrazne pomalšie?",
+      "rubric": [
+        {"points": 1, "criterion": "uvedie, že odhad pozície predpokladá rovnomerné rozdelenie hodnôt"},
+        {"points": 1, "criterion": "pri rovnomernom rozdelení je rýchlejšie (log log n alebo „oveľa menej krokov“)"},
+        {"points": 1, "criterion": "pri silne nerovnomernom rozdelení degeneruje až k lineárnemu prechodu"}
+      ]
+    },
+    {
+      "id": "TT3",
+      "format": "open",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 250,
+      "max_points": 3,
+      "stem": "Neznámy cyklus. Daný je kód s vnoreným cyklom, ktorého vnútorný rozsah klesá s každou iteráciou vonkajšieho: for i = 1..n { for j = i..n { krok } }. Urči zložitosť a zdôvodni.",
+      "rubric": [
+        {"points": 1, "criterion": "všimne si, že vnútorný cyklus sa vykoná n, n−1, …, 1-krát"},
+        {"points": 1, "criterion": "sčíta rad na n(n+1)/2"},
+        {"points": 1, "criterion": "uzavrie, že ide o O(n²), a nie o O(n log n) ani O(n)"}
+      ]
+    },
+    {
+      "id": "TT4",
+      "format": "open",
+      "skill": "volba_postupu",
+      "expected_sec": 250,
+      "max_points": 3,
+      "stem": "Binárne vyhľadávanie na odpovedi. Úloha znie: nájdi najmenšie x, pre ktoré platí daná monotónna podmienka. Vysvetli, prečo sa dá použiť binárne vyhľadávanie, hoci nejde o pole.",
+      "rubric": [
+        {"points": 1, "criterion": "pomenuje monotónnosť podmienky ako to, čo nahrádza usporiadanosť poľa"},
+        {"points": 1, "criterion": "vysvetlí, že test podmienky v bode x zahodí celú polovicu rozsahu"},
+        {"points": 1, "criterion": "uvedie, že hľadaným objektom je hodnota x z intervalu, nie index v poli"}
+      ]
+    },
+    {
+      "id": "TT5",
+      "format": "open",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 250,
+      "max_points": 3,
+      "stem": "Memoizácia na inom probléme. Počet ciest v mriežke n×m sa počíta rekurzívne. Vysvetli, prečo sa oplatí memoizovať, a odhadni zlepšenie.",
+      "rubric": [
+        {"points": 1, "criterion": "rozpozná, že tie isté podproblémy (r, c) sa počítajú opakovane"},
+        {"points": 1, "criterion": "uvedie, že rôznych podproblémov je len n·m"},
+        {"points": 1, "criterion": "porovná exponenciálny počet volaní s n·m a zlepšenie pomenuje rádovo"}
+      ]
+    },
+    {
+      "id": "TT6",
+      "format": "open",
+      "skill": "volba_postupu",
+      "expected_sec": 250,
+      "max_points": 3,
+      "stem": "Rozhodnutie v novej situácii. Systém dostáva dotazy priebežne a medzi nimi sa pole mení. Ktorý postup vyhľadávania zvolíš a prečo?",
+      "rubric": [
+        {"points": 1, "criterion": "pomenuje konflikt: binárne vyhľadávanie vyžaduje usporiadanosť, ktorú každá zmena ruší"},
+        {"points": 1, "criterion": "porovná náklad na obnovenie usporiadanosti s úsporou pri hľadaní"},
+        {"points": 1, "criterion": "rozhodnutie podmieni pomerom počtu dotazov k počtu zmien (alebo navrhne štruktúru, ktorá udrží poradie pri vkladaní)"}
+      ]
+    }
+  ]
+}

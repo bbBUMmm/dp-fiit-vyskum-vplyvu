@@ -1,0 +1,36 @@
+{
+    "generated_by":  "run-all-tests.ps1",
+    "generated_at":  "2026-10-09",
+    "suites":  {
+                   "thesis consistency":  {
+                                              "passed":  199,
+                                              "status":  "PASS"
+                                          },
+                   "capture layer":  {
+                                         "passed":  29,
+                                         "status":  "PASS"
+                                     },
+                   "PEQI analysis (Java)":  {
+                                                "passed":  45,
+                                                "status":  "PASS"
+                                            },
+                   "analysis layer":  {
+                                          "passed":  149,
+                                          "status":  "PASS"
+                                      },
+                   "assessment layer":  {
+                                            "passed":  75,
+                                            "status":  "PASS"
+                                        },
+                   "pedagogy":  {
+                                    "passed":  67,
+                                    "status":  "PASS"
+                                },
+                   "exercise client e2e":  {
+                                               "passed":  36,
+                                               "status":  "PASS"
+                                           }
+               },
+    "n_suites":  7,
+    "total_passed":  600
+}

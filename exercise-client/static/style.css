@@ -1,0 +1,92 @@
+/* Deliberately plain. The interface must be identical across conditions, and
+   anything decorative is one more thing that could differ between them. */
+
+:root {
+  --ink: #16181c;
+  --muted: #6b7280;
+  --line: #d7dae0;
+  --bg: #fbfbfc;
+  --panel: #ffffff;
+  --accent: #1f3a5f;
+  --good: #1d6b3f;
+  --warn: #8a4b12;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+h1 { font-size: 1.35rem; margin: 0 0 .5rem; }
+h2 { font-size: 1rem; margin: 0 0 .6rem; text-transform: uppercase;
+     letter-spacing: .04em; color: var(--muted); }
+
+.muted { color: var(--muted); }
+.tiny { font-size: .82rem; }
+.spacer { flex: 1; }
+
+/* ---------------------------------------------------------------- gate */
+.gate { display: flex; min-height: 100vh; align-items: center;
+        justify-content: center; padding: 16px; }
+.gate-card { background: var(--panel); border: 1px solid var(--line);
+             border-radius: 10px; padding: 28px; max-width: 460px; width: 100%; }
+.gate-card input { width: 100%; margin: 14px 0 10px; }
+
+/* ---------------------------------------------------------------- shell */
+header { display: flex; gap: 12px; align-items: baseline; padding: 14px 20px;
+         border-bottom: 1px solid var(--line); background: var(--panel); }
+
+.work { display: grid; grid-template-columns: 1fr 380px; gap: 18px;
+        padding: 20px; align-items: start; }
+@media (max-width: 900px) { .work { grid-template-columns: 1fr; } }
+
+.task, .assistant { background: var(--panel); border: 1px solid var(--line);
+                    border-radius: 10px; padding: 18px; }
+
+#task-prompt { font-size: 1.05rem; margin: 0 0 18px; }
+
+label { display: block; font-size: .85rem; color: var(--muted);
+        margin-bottom: 4px; }
+
+textarea, input {
+  width: 100%; font: inherit; padding: 9px 11px;
+  border: 1px solid var(--line); border-radius: 7px; background: #fff;
+  resize: vertical;
+}
+textarea:focus, input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.row { display: flex; gap: 10px; align-items: center; margin-top: 10px;
+       flex-wrap: wrap; }
+
+button {
+  font: inherit; padding: 9px 16px; border-radius: 7px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff;
+}
+button.secondary { background: #fff; color: var(--accent); }
+button:disabled { opacity: .45; cursor: default; }
+
+.feedback { font-size: .9rem; color: var(--muted); }
+.feedback.good { color: var(--good); }
+.feedback.warn { color: var(--warn); }
+
+.explain { margin-top: 16px; padding: 14px; border-radius: 8px;
+           background: #f4f6f9; border: 1px solid var(--line); }
+.explain p { margin: 0 0 8px; font-size: .92rem; }
+
+/* ------------------------------------------------------------ assistant */
+.chat { height: 300px; overflow-y: auto; margin-bottom: 10px; padding: 4px;
+        display: flex; flex-direction: column; gap: 8px; }
+.msg { padding: 8px 11px; border-radius: 9px; max-width: 92%;
+       white-space: pre-wrap; font-size: .94rem; }
+.msg.user { align-self: flex-end; background: var(--accent); color: #fff; }
+.msg.assistant { align-self: flex-start; background: #eef1f5; }
+.msg.warn { background: #fdf0e3; color: var(--warn); }
+
+.assistant button { width: 100%; margin-top: 8px; }
+
+footer { padding: 14px 20px; border-top: 1px solid var(--line); }
+.banner { color: var(--warn); font-size: .9rem; min-height: 1.2em; }

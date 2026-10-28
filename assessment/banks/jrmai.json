@@ -1,0 +1,33 @@
+{
+  "bank_id": "JRMAI",
+  "instrument": "JRMAI",
+  "title": "Skrátený dotazník metakognitívnej uvedomelosti (Jr. MAI, verzia B)",
+  "minutes": 6,
+  "jol": false,
+  "subscales": {
+    "planovanie": ["M1", "M9", "M11", "M12", "M15", "M17"],
+    "monitorovanie": ["M2", "M3", "M6", "M10", "M13", "M14"],
+    "hodnotenie": ["M4", "M5", "M7", "M8", "M16", "M18"]
+  },
+  "note": "Deklarovaných 18 položiek na piatich miestach práce (tab. 5.2, tab. konštruktov, príloha F, dva výpočty v measurement_plan.py), v prílohe A ich však bolo vypísaných 19 — spoľahlivosť aj časový rozpočet sa teda počítali pre nástroj, ktorý neexistoval. Vyradená bola položka „Po skončení premyslím, či by sa to dalo urobiť lepšie“: v podškále hodnotenia sa prekrývala s M8 (kontrola splnenia) aj M16 (zhrnutie po skončení) a jej vyradenie necháva čisté rozdelenie 6/6/6. Päťbodová škála (1 = nikdy, 5 = vždy). Vstupuje výhradne ako črtový kovariát, nikdy ako výstup.",
+  "items": [
+    {"id": "M1", "format": "likert5", "expected_sec": 12, "stem": "Predtým, než začnem riešiť úlohu, premyslím si postup."},
+    {"id": "M2", "format": "likert5", "expected_sec": 12, "stem": "Počas riešenia si priebežne kontrolujem, či mi to dáva zmysel."},
+    {"id": "M3", "format": "likert5", "expected_sec": 12, "stem": "Keď niečomu nerozumiem, zastavím sa a prečítam to znova."},
+    {"id": "M4", "format": "likert5", "expected_sec": 14, "stem": "Viem odhadnúť, ako dobre som úlohu vyriešil, ešte predtým, než sa dozviem výsledok."},
+    {"id": "M5", "format": "likert5", "expected_sec": 12, "stem": "Keď urobím chybu, snažím sa pochopiť, prečo k nej došlo."},
+    {"id": "M6", "format": "likert5", "expected_sec": 12, "stem": "Kladiem si počas riešenia otázky, aby som si overil porozumenie."},
+    {"id": "M7", "format": "likert5", "expected_sec": 11, "stem": "Ak jeden postup nefunguje, skúsim iný."},
+    {"id": "M8", "format": "likert5", "expected_sec": 13, "stem": "Po dokončení úlohy si skontrolujem, či som splnil všetko, čo sa žiadalo."},
+    {"id": "M9", "format": "likert5", "expected_sec": 12, "stem": "Viem, ktoré typy úloh mi idú lepšie a ktoré horšie."},
+    {"id": "M10", "format": "likert5", "expected_sec": 13, "stem": "Sústredím sa na zmysel toho, čo sa učím, nie len na zapamätanie."},
+    {"id": "M11", "format": "likert5", "expected_sec": 11, "stem": "Rozdelím si zložitú úlohu na menšie kroky."},
+    {"id": "M12", "format": "likert5", "expected_sec": 13, "stem": "Pri učení si vedome vyberám stratégiu podľa typu úlohy."},
+    {"id": "M13", "format": "likert5", "expected_sec": 11, "stem": "Uvedomím si, keď prestanem rozumieť."},
+    {"id": "M14", "format": "likert5", "expected_sec": 12, "stem": "Skúšam si učivo vysvetliť vlastnými slovami."},
+    {"id": "M15", "format": "likert5", "expected_sec": 12, "stem": "Porovnávam nové učivo s tým, čo už viem."},
+    {"id": "M16", "format": "likert5", "expected_sec": 12, "stem": "Zhrniem si, čo som sa naučil, keď skončím."},
+    {"id": "M17", "format": "likert5", "expected_sec": 11, "stem": "Viem odhadnúť, koľko času mi úloha zaberie."},
+    {"id": "M18", "format": "likert5", "expected_sec": 12, "stem": "Ak mám výsledok, overím si, či je vôbec rozumný."}
+  ]
+}

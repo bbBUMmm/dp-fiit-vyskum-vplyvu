@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cvičenie — informatika</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <h1>Cvičenie z informatiky</h1>
+    <p class="muted">Zadaj kód, ktorý si dostal od učiteľa. Nie je to tvoje meno
+       — slúži len na to, aby sa tvoje odpovede nepomiešali s cudzími.</p>
+    <input id="code" placeholder="napr. 2A-07" autocomplete="off">
+    <button id="start">Začať</button>
+    <p id="banner" class="banner"></p>
+  </div>
+</div>
+
+<main id="app" hidden>
+  <header>
+    <span id="topic"></span>
+    <span class="spacer"></span>
+    <span id="progress" class="muted"></span>
+  </header>
+
+  <section class="work">
+    <article class="task">
+      <h2>Úloha <span id="task-id"></span></h2>
+      <p id="task-prompt"></p>
+
+      <label for="answer">Tvoja odpoveď</label>
+      <textarea id="answer" rows="5" placeholder="Píš sem…"></textarea>
+      <div class="row">
+        <button id="submit">Odovzdať pokus</button>
+        <button id="unlock" class="secondary">Ukázať riešenie</button>
+        <span id="feedback" class="feedback"></span>
+      </div>
+
+      <div id="gate-explain" class="explain" hidden>
+        <p><strong>Predtým, než ti ukážem riešenie:</strong> napíš vlastnými
+           slovami, prečo je tvoj postup správny alebo kde predpokladáš chybu.</p>
+        <textarea id="explanation" rows="3"
+                  placeholder="Myslím si, že… lebo…"></textarea>
+        <div class="row">
+          <button id="send-explanation">Odoslať</button>
+          <span id="explain-feedback" class="feedback"></span>
+        </div>
+      </div>
+    </article>
+
+    <aside id="assistant" class="assistant" hidden>
+      <h2>Asistent</h2>
+      <div id="chat" class="chat"></div>
+      <textarea id="prompt" rows="3" placeholder="Napíš asistentovi…"></textarea>
+      <button id="send">Poslať</button>
+      <p class="muted tiny">Na konci hodiny píšete krátky test, v ktorom
+         asistenta k dispozícii mať nebudete.</p>
+    </aside>
+  </section>
+
+  <footer class="muted tiny">
+    Táto hodina je súčasťou výskumu. Zaznamenáva sa, čo napíšeš asistentovi
+    a kedy si čo robil s úlohami. Tvoje meno sa nikde neukladá.
+  </footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

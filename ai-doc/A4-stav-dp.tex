@@ -1,0 +1,262 @@
+% A4-stav-dp.tex -- dvojstranový podklad na konzultáciu.
+%
+% Čísla sa neprepisujú: načítavajú sa z tých istých generovaných makier, z
+% ktorých ich berie práca. Preklad tohto súboru teda nemôže ukazovať inú
+% hodnotu než PDF práce.
+%
+%   cd ai-doc && pdflatex -interaction=nonstopmode A4-stav-dp.tex
+\documentclass[9.5pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovak]{babel}
+\usepackage{lmodern}
+\usepackage[margin=16mm,top=14mm,bottom=14mm]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{ink}{HTML}{1C1F26}
+\definecolor{accent}{HTML}{2B4C7E}
+\definecolor{warn}{HTML}{8A4A1C}
+\definecolor{rule}{HTML}{C9C4B8}
+\color{ink}
+
+\titleformat{\section}{\normalfont\bfseries\large\color{accent}}{}{0pt}{}
+\titlespacing{\section}{0pt}{10pt}{4pt}
+\titleformat{\subsection}{\normalfont\bfseries}{}{0pt}{}
+\titlespacing{\subsection}{0pt}{7pt}{2pt}
+
+\setlist[itemize]{nosep,leftmargin=12pt,topsep=2pt}
+\setlist[enumerate]{nosep,leftmargin=16pt,topsep=2pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\renewcommand{\arraystretch}{1.1}
+
+% Generated numbers, from the same two files the thesis loads.
+\input{../mastersLaTeX/analysis/out/thesis_numbers}
+\input{../mastersLaTeX/appendices/instrument-numbers}
+
+\pagestyle{empty}
+
+\begin{document}
+
+{\LARGE\bfseries Ako nástroj overuje a vyhodnocuje žiakov}\\[2pt]
+{\large\color{warn} Čo pribudlo od poslednej konzultácie a čo sa pri tom našlo}\\[4pt]
+{\small\color{warn} Stav k 9.~októbru 2026 \quad\textbullet\quad 221 strán \quad\textbullet\quad
+\repoTests{} testov v \repoSuites{} sadách \quad\textbullet\quad \repoChecks{} konzistenčných
+kontrol \quad\textbullet\quad \repoMacros{} generovaných hodnôt \quad\textbullet\quad
+\textbf{zber v školách neprebehol}}
+
+\vspace{2pt}\textcolor{rule}{\hrule}\vspace{4pt}
+
+\section{Medzera, ktorá sa zatvorila}
+
+Nástroj vedel, \emph{ako sa žiak pýta}: záchytná vrstva zbierala prompty,
+klasifikátor im priradil úroveň, index PEQI z nich spočítal epistemickú kvalitu
+interakcie. O žiakovi samom nevedel nič~--- testy existovali len ako text
+prílohy, nikto ich nepodával, neskóroval ani nekontroloval. Zadanie pritom žiada
+\emph{meranie zmien v schopnostiach pred a po použití nástroja}, a zmena je
+rozdiel dvoch meraní tej istej osoby. Pribudol hodnotiaci modul
+(\texttt{assessment/}, štandardná knižnica, \instrTests{} testov v
+\instrTestSections{} oddieloch), jeho overenie na simulovaných dátach
+(\texttt{analysis/assessment\_validation.py}), nová časť metodiky a príloha~H.
+
+\subsection{Zásada: položka je údaj, nie próza}
+
+Zásobník \texttt{assessment/banks/*.json} (\asmBanks{}~nástrojov,
+\asmItems{}~položiek, \asmDistractorsDiagnosed{}~diagnóz rozptyľovačov) je
+jediný zdroj pravdy. Čítajú z neho tri programy: ten, čo položky žiakovi
+podáva, ten, čo ich skóruje, a ten, čo tlačí prílohu~A. \textbf{Príloha sa od
+nástroja rozísť nemôže, pretože z neho vzniká}~--- preklad práce zlyhá, ak sa
+vytlačené zadania prestanú zhodovať so zásobníkom. Dve kópie jednej
+špecifikácie sa v tomto projekte rozišli už dvakrát a oprava vždy šla len do
+jednej.
+
+\section{Čo sa pri tom našlo}
+
+\subsection{1. Kotviace položky neboli totožné. Chyba obracia znak.}
+
+Metodika aj príloha tvrdili, že \emph{šesť položiek je v oboch testových formách
+totožných}, a že práve tieto kotviace položky robia formy porovnateľnými.
+Totožná nebola ani jedna: okamžitá forma sa pýtala na pole s 1024~prvkami,
+odložená na pole s 512; jedna „kotviaca“ položka mala v jednej forme štyri
+možnosti a v druhej voľnú numerickú odpoveď. Kotviaca položka s iným $n$ je
+\emph{iná} položka s inou obtiažnosťou, takže prevod oboch foriem na spoločnú
+škálu neexistoval.
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}lccX@{}}
+\toprule
+\textbf{Rozdiel kotviacich položiek} & \textbf{Odhad} & \textbf{Skreslenie} &
+\textbf{Čo by práca vykázala} \\
+\midrule
+žiadny (opravený stav) & \asmEqEstZero  & \asmEqBiasZero  & zabúdanie, správne \\
+0{,}3 logitu           & \asmEqEstThree & \asmEqBiasThree & zabúdanie, výrazne podhodnotené \\
+\textcolor{warn}{\textbf{0{,}5 logitu}} & \textcolor{warn}{\textbf{\asmEqEstHalf}} &
+\textcolor{warn}{\textbf{\asmEqBiasHalf}} &
+\textcolor{warn}{\textbf{zlepšenie namiesto zabúdania}} \\
+0{,}8 logitu           & \asmEqEstEight & \asmEqBiasEight & zlepšenie, veľké \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Do simulácie sa vložilo zabúdanie \asmEqPlanted{}~logitu. Pri pol logitu
+rozdielu~--- čo je pri 1024 oproti 512 striedmy odhad~--- by štúdia vykázala, že
+žiaci sa \emph{zlepšili}. A nič by na to neupozornilo: model konverguje, zhoda
+položiek s modelom prejde, interval je úzky. \textbf{Chyba, ktorá nevyzerá ako
+chyba}, je v metodologickej práci najhorší možný druh.
+
+\textbf{Oprava:} obe formy majú \asmFormItems{}~položiek, jednu špecifikačnú
+tabuľku, \asmOpenPerForm{}~rubrikové položky a \asmAnchors{} znak po znaku
+totožných kotviacich položiek, výhradne uzavretých. Validátor zásobníka to
+vynucuje. Cena je spoľahlivosť $0{,}73$ namiesto $0{,}78$~--- rovnako ako
+odložená forma, ktorá je primárnym výstupom.
+
+\subsection{2. Oprava má vlastnú cenu a tá je väčšia, než sa dalo tušiť}
+
+Ak sú kotviace položky totožné, žiak ich v odloženom teste vidí druhýkrát, a to
+je vybavovacie precvičenie. Pri precvičení $0{,}25$~logitu sa vložené zabúdanie
+\asmEqPlanted{} odhadne na \asmTeForgetting{}~--- takmer celé zmizne. Kontrast
+medzi podmienkami je však chránený: \asmTeContrast{} pri vloženom
+\asmTeContrastPlanted{}. \textbf{Konfirmačná rodina je v poriadku, absolútna
+úroveň zadržania nie}, a to sa vykazuje ako priznané obmedzenie.
+
+\textbf{Rotované kotvenie} to vie opraviť: pre každého žiaka sa jeho šesť
+kotviacich položiek vyberie \emph{náhodne} zo zásobníka \asmRotPool{}~položiek
+na tému. V odloženom teste potom na každú položku odpovedá aj žiak, ktorý ju
+videl, aj žiak, ktorý nie, a tie dve skupiny sú pridelením ekvivalentné.
+Precvičenie sa odhadne na \asmRotPractice{} (vložené \asmRotPracticePlanted{}),
+zabúdanie na \asmRotForgetting{} oproti \asmFixForgetting{} pri pevnej sade.
+Rotácia zmenšuje skreslenie približne trojnásobne. \textbf{Je to odporúčaná
+zmena s pilotom, nie zmena vykonaná}: zásobník treba najprv nakalibrovať.
+
+\subsection{3. Časový rozpočet: tri z piatich stretnutí sa nezmestili}
+
+Rozpočet sa počítal ako počet položiek krát \emph{priemerný} čas na položku. To
+je v poriadku, keď položky stoja rovnako, a tu nie: okamžitý test mal desať
+uzavretých položiek po 40~sekundách a šesť rubrikových po dvoch a pol minúte;
+transferovému testu, ktorému príloha sama priznáva 25~minút, dal priemer šesť a
+pol. Chyby sa nevyrušia, pretože ukazujú rovnakým smerom: každý podhodnotený
+nástroj je nástroj s rubrikovými položkami, a tie sedia v stretnutí~T4, ktoré
+nesie primárny výstup. Podhodnotenie \asmBudgetUnderstated{}~minúty celkom,
+najviac transferový test o \asmBudgetWorstBy{}.
+
+Štyri zmeny: okamžitá forma \asmFormItems{}~položiek; predtest k téme na konec
+\emph{predchádzajúcej} hodiny; výklad \instrLessonMin{}~minút namiesto 75
+(kontrolný list vernosti sčítal 90~minút vyučovania v 90-minútovom bloku, ktorý
+má obsahovať aj test~--- rozvrh a kontrolný list si protirečili o pätnásť minút);
+a \textbf{T4 sa delí na T4a a T4b}. Pribudol únavový strop
+\instrFatigueCap{}~minút na najdlhší \emph{neprerušený} úsek: únava sa násobí s
+motiváciou, ktorú podmienky ovplyvňujú, takže priveľmi dlhé stretnutie nepridáva
+šum, ale šum korelovaný so zásahom. \textbf{Škola dá \asmMeasureLessons{}
+meracie hodiny namiesto troch.}
+
+\subsection{4. Preklep v kóde žiaka nevyrobí chybu, ale dve}
+
+Kód sa pri 330~žiakoch a piatich príležitostiach píše asi 1\,650-krát. Preklep
+spôsobí, že jeden žiak ticho stratí príležitosť~--- a s ňou skóre zmeny, teda
+veličinu, pre ktorú štúdia existuje~--- a žiak, ktorý neexistuje, ticho získa
+riadok, ktorý analytický plán doplní imputáciou. Tri vrstvy: kontrolný znak
+(ISO~7064), abeceda bez zámeniteľných znakov (nástroj povie, \emph{ktorá} chyba
+sa stala), a „jeden kód, jedno sedenie“~--- jediná vrstva, ktorá zachytí žiaka
+zadávajúceho \emph{platný} kód niekoho iného.
+
+Norma tvrdí, že zachytí každé prehodenie susedných znakov; pri vyčerpávajúcom
+preverení prejde jedno z dvoch tisíc. Kódový priestor má $9\,765\,625$~prvkov a
+škola potrebuje tridsať, takže sa vydávajú len kódy, pri ktorých to neplatí:
+\textbf{100\,\% konštrukciou, nie 99{,}95\,\% citáciou.}
+
+\subsection{5. Dve veci, ktoré boli doteraz tvrdením}
+
+\textbf{Úsilie pri teste.} „Žiaci sa naučili viac“ a „žiaci sa viac snažili na
+teste po hodine, ktorá ich bavila“ sú ten istý kontrast, pokiaľ ich niečo
+neoddelí. Podmienka~$G$ odstraňuje úsilie počas hodiny, takže rozdiel v úsilí je
+pravdepodobne diferenciálny podľa podmienky, teda skreslenie a nie šum. Rozdiel
+$0{,}08$, taký, ktorý by vedel predstierať najmenší zaujímavý účinok, sa odhalí
+v \asmEffortDetect{} prípadov pri falošnej pozitivite \asmEffortFalsePos{}.
+Papierový test toto číslo nevyrobí vôbec.
+
+\textbf{Kontaminácia testu.} Doterajšou odpoveďou bola položka V12 kontrolného
+listu~--- tvrdenie dozorcu o dvadsiatich obrazovkách. Nástroj zaznamenáva päť
+rodín príznakov z troch nezávislých zdrojov, vylúči odpoveď len pri dvoch
+príznakoch z \emph{rôznych} rodín, a je kalibrovaný na stretnutí~T0a, kde je
+kontaminácia nemožná: čokoľvek tam označí, je falošná pozitivita konštrukciou.
+Pri realistickom nazeraní (dve až štyri položky z dvanástich) zachytí
+\asmIntegDetect{} kontaminovaných žiakov pri falošnej pozitivite
+\asmIntegFalsePos{}. Žiadny žiak sa škole nepomenuje: príznak, ktorý by sa mohol
+dotknúť známky, by zmenil motiváciu písať test poctivo a zničil by meranie, pre
+ktoré bol zavedený.
+
+\subsection{6. Kategorizácia, ktorú vie použiť aj jedna trieda}
+
+Latentná profilová analýza je tvrdenie o \emph{vzorke}: potrebuje stovky žiakov
+a označenie jedného žiaka závisí od toho, kto je v súbore s ním. Učiteľ s jednou
+triedou z nej nedostane nič~--- takže zadanie o kategorizácii používateľov bolo
+splnené spôsobom, ktorý vie použiť len štúdia. Nástroj preto obsahuje aj
+deterministické pravidlo nad \emph{absolútnymi}, vopred stanovenými hranicami,
+odvodenými z významu škály (PEQI $0{,}25$ a $0{,}50$ sú hranice $L_1$ a $L_2$
+samotnej taxonómie).
+
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Počet žiakov} & \textbf{Pravidlo} & \textbf{Zmesový model} & \textbf{Komponentov} \\
+\midrule
+\textbf{\asmNClass{} (jedna trieda)} & \textbf{\asmRuleAriClass} &
+\textcolor{warn}{\textbf{\asmLpaAriClass}} & \asmLpaKClass \\
+\asmNThree{}               & \asmRuleAriThree & \asmLpaAriThree & \asmLpaKThree \\
+\asmNStudy{} (táto štúdia) & \asmRuleAriStudy & \textbf{\asmLpaAriStudy} & \asmLpaKStudy \\
+\asmNLarge{}               & \asmRuleAriLarge & \asmLpaAriLarge & \asmLpaKLarge \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Pri jednej triede zmesový model nenájde žiadne profily; pri \asmNStudy{} a viac
+je lepší než pravidlo. \textbf{Nie sú to konkurenti}: zmes je výskumná otázka o
+populácii, pravidlo je to, čo dostane škola. Ten istý žiak preklasifikovaný v
+\asmLabelCohorts{}~kohortách dostal vždy to isté označenie (\asmLabelStable).
+Posun jednej hranice o $\pm$20\,\% mení zhodu o \asmCutSingle, všetkých piatich
+naraz o \asmCutJoint{}~--- pravidlo \emph{je} citlivé na ich spoločné nastavenie,
+a preto musia byť predregistrované. Test proti svetu, v ktorom je profil len
+preznačkovaná vstupná úroveň, má silu \asmIncPower{} pri falošnej pozitivite
+\asmIncFalsePos{}.
+
+\subsection{7. Čo sa vracia škole}
+
+Učiteľ dostane počty mylných predstáv po položkách~--- nie „jedenásť žiakov nemá
+bod“, ale „jedenásť žiakov si myslí, že zdvojnásobenie poľa zdvojnásobí počet
+krokov“~--- bez rozpisu podľa podmienky, ktorý mu neslúži a vyrába bunky s dvoma
+žiakmi. Škola dostane agregáty s potlačením buniek pod piatimi žiakmi. Žiak
+nedostáva individuálne skóre: spoľahlivosť nástrojov unesie porovnanie skupín,
+nie výrok o jednotlivcovi.
+
+\section{Čo potrebujem rozhodnúť}
+
+\begin{enumerate}
+    \item \textbf{Rotované kotvenie:} pilotovať, alebo priznať obmedzenie?
+    Odporúčam priznať teraz, pilotovať rotáciu, rozhodnúť pred zberom.
+    \item \textbf{Štvrtá meracia hodina:} unesie to nábor? Alternatívou je
+    skrátiť transferový test, teda práve to meranie, na ktorom má byť rozdiel
+    podľa hypotézy najsilnejší.
+    \item \textbf{Predregistrácia piatich hraníc pravidla} do štatistického plánu
+    (príloha~C), skôr než existujú akékoľvek dáta.
+    \item Nezmenené: školy \textbullet{} etická komisia (kritická cesta)
+    \textbullet{} pilot alebo plná štúdia \textbullet{} autorstvo citácie
+    Hariyanto (2025) \textbullet{} má zmysel udržať fyzikálne rameno?
+\end{enumerate}
+
+% The footer is two lines and belongs on the last text page, not alone on a new
+% one. Three lines of extra height on this page is cheaper than cutting content.
+\enlargethispage{3\baselineskip}
+\vspace{2pt}\textcolor{rule}{\hrule}\vspace{3pt}
+{\footnotesize\color{warn} Žiadne číslo v tomto dokumente nie je napísané rukou.
+Všetky sa načítavajú z tých istých generovaných makier, z ktorých ich berie
+práca, takže tento podklad nemôže ukazovať inú hodnotu než jej PDF.
+Rozhodnutia a ich dôvody sú v \texttt{decisions.md}.}
+
+\end{document}

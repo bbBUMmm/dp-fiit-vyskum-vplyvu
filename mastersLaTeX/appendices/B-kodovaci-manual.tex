@@ -1,0 +1,233 @@
+\chapter{Kódovací manuál pre index PEQI}
+\label{chapter:kodovaci-manual}
+
+Tento manuál je záväzným predpisom pre kódovanie promptov. Je napísaný tak, aby ho dokázal použiť kódovateľ bez predchádzajúcej skúsenosti po dvojhodinovom zaškolení, a aby sa dve nezávislé osoby dopracovali k rovnakému výsledku. Kódovaná jednotka je \textbf{jeden odoslaný prompt}, nie celá konverzácia a nie veta.
+
+\section{Kategórie}
+
+\begin{table}[H]
+\centering
+\caption{Kódovacie kategórie, ich ukotvenie v rámci ICAP a váha v indexe}
+\label{tab:taxonomia}
+\small
+\begin{tabularx}{\textwidth}{@{}l l l c X@{}}
+\toprule
+\textbf{Kód} & \textbf{Názov} & \textbf{ICAP} & \textbf{$w$} & \textbf{Rozhodujúci znak} \\
+\midrule
+L0 & SOLVE       & pasívne        & 0,00 & žiada hotový artefakt, sám neprispieva ničím \\
+L1 & VERIFY      & aktívne (nízke)& 0,25 & predkladá vlastnú prácu, žiada verdikt alebo opravu, nepýta sa prečo \\
+L2 & EXPLAIN     & aktívne        & 0,50 & žiada vysvetlenie pojmu, kroku alebo pozorovaného správania \\
+L3 & ELABORATE   & konštruktívne  & 0,75 & žiada porovnanie, podmienky použitia, protipríklad, hranicu platnosti \\
+L4 & SELF-EXPLAIN& interaktívne   & 1,00 & uvádza vlastnú úvahu či hypotézu a žiada jej posúdenie \\
+X  & OFF-TASK    & --- & --- & netýka sa úlohy; vylučuje sa z menovateľa \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Rozhodovací postup}
+
+Pravidlá sa uplatňujú \textbf{v uvedenom poradí} a platí \textbf{prvé, ktoré sa uplatní}. Toto je najdôležitejšia veta manuálu: bez pevného poradia by prompty obsahujúce viacero prvkov kódovali rôzni ľudia rôzne.
+
+\begin{enumerate}[nosep]
+    \item \textbf{Je prompt mimo témy hodiny?} Ak sa netýka riešenej úlohy ani preberaného učiva, kóduj \textbf{X} a skonči. Pozor: otázka na nástroj samotný („vieš to aj v Pythone?“) sa \emph{nepovažuje} za mimo témy, ak sa týka riešenej úlohy.
+    \item \textbf{Žiada žiak výslovne odpoveď \emph{bez} zdôvodnenia?} („len výsledok“, „daj odpoveď a nevysvetľuj“.) Kóduj \textbf{L0} a skonči. Toto je jediná výnimka z pravidla o najvyššej úrovni nižšie, a má svoj dôvod: žiak tu kognitívny úkon, ktorý by sa mu počítal, \emph{výslovne vylúčil}.
+    \item \textbf{Uvádza žiak vlastnú úvahu, hypotézu, predpoklad alebo diagnózu chyby a žiada jej posúdenie?} Kóduj \textbf{L4} a skonči. Znakom je tvrdenie o obsahu spojené so žiadosťou o posúdenie: „myslím si, že\ldots je to tak?“, „moja úvaha je\ldots kde robím chybu?“, „chápem to tak, že\ldots“.
+
+    \textbf{Pozor~--- podmienka odôvodnenia.} Úvodná formulka \emph{sama o sebe} na L4 nestačí. Musí za ňou stáť odôvodnenie: spojka príčiny („lebo“, „takže“, „preto“), pomenovanie vlastnej úvahy („moja úvaha“, „moja hypotéza“), domnienka, ktorú žiak predkladá, alebo predvedený výpočet. „Myslím si, že je odpoveď $O(n\log n)$ správna?“ je \textbf{L1}, nie L4: žiak predkladá na posúdenie \emph{odpoveď}, nie \emph{úvahu}. Toto rozlíšenie je pre prácu kľúčové a jeho zdôvodnenie je v časti~\ref{sec:dominancia}.
+    \item \textbf{Žiada prompt porovnanie, podmienky použitia, protipríklad, hraničný prípad alebo prenos na iný prípad?} Kóduj \textbf{L3} a skonči. Znakom je, že odpoveď nemožno dať bez integrácie aspoň dvoch vecí: „kedy je X lepšie ako Y“, „čo by sa stalo, keby\ldots“, „platí to aj pre\ldots“.
+    \item \textbf{Žiada prompt vysvetlenie pojmu, kroku alebo pozorovaného správania?} Kóduj \textbf{L2} a skonči. Znakom je otázka na \emph{význam}, nie na artefakt: „prečo\ldots“, „vysvetli\ldots“, „čo znamená\ldots“, „ako funguje\ldots“.
+    \item \textbf{Predkladá žiak vlastnú prácu a žiada verdikt, kontrolu alebo opravu bez otázky prečo?} Kóduj \textbf{L1} a skonči. Sem patrí aj vložený kód bez sprievodného textu.
+    \item \textbf{Inak} kóduj \textbf{L0}.
+\end{enumerate}
+
+\section{Hraničné prípady a záväzné rozhodnutia}
+
+Nasledujúce prípady spôsobujú v praxi najviac nezhôd. Rozhodnutia sú záväzné.
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Prompt obsahuje viac otázok naraz.}] Kóduje sa podľa \emph{najvyššej} úrovne, ktorá sa v ňom vyskytuje. Dôvodom je, že žiak, ktorý popri žiadosti o riešenie aj formuluje vlastnú úvahu, vykonal kognitívnu prácu tej vyššej úrovne. Príklad: „napíš mi kód a vysvetli, prečo je to O(log n)“ $\to$ \textbf{L2}.
+    \item[\textbf{Zdvorilostné a organizačné formulácie.}] Ignorujú sa. „Prosím“, „ďakujem“, „ahoj“ na začiatku promptu nemenia kód.
+    \item[\textbf{Prompt je iba vložený kód bez textu.}] \textbf{L1}. Predloženie vlastnej práce implikuje žiadosť o verdikt.
+    \item[\textbf{Prompt je iba zadanie úlohy skopírované zo zadania.}] \textbf{L0}. Žiak neprispel ničím vlastným.
+    \item[\textbf{Žiadosť o vysvetlenie predchádzajúcej odpovede asistenta.}] \textbf{L2}. Napríklad „čo si myslel tým druhým krokom?“
+    \item[\textbf{Žiadosť o jednoduchšie preformulovanie.}] \textbf{L2}. „Povedz to jednoduchšie“ je žiadosť o vysvetlenie, nie o artefakt.
+    \item[\textbf{Žiadosť o ďalší príklad.}] \textbf{L2}, ak žiak už s pojmom pracoval; \textbf{L0}, ak ide o prvý prompt k úlohe a žiak sa neopiera o nič vlastné.
+    \item[\textbf{Opakovanie tej istej žiadosti po odmietnutí.}] Kóduje sa rovnako ako pôvodná. Opakovanie sa eviduje osobitne ako ukazovateľ nátlaku na vrstvu, nie ako zmena úrovne.
+    \item[\textbf{„Je to správne a prečo?“}] \textbf{L2}, nie L1. Prítomnosť otázky na dôvod povyšuje úroveň.
+    \item[\textbf{„Mám to dobre? Myslím, že áno, lebo cyklus prejde celé pole.“}] \textbf{L4}. Žiak uviedol vlastné odôvodnenie.
+    \item[\textbf{Prompt v inom jazyku.}] Kóduje sa podľa významu, jazyk nie je kritériom.
+    \item[\textbf{Neúplný alebo nečitateľný prompt.}] Ak z neho nemožno určiť zámer, kóduje sa \textbf{X} a eviduje sa ako nečitateľný. Podiel nečitateľných sa vykazuje.
+    \item[\textbf{Prompt generovaný samotnou vrstvou (podmienka A).}] Nekóduje sa. Kódujú sa výhradne vstupy od žiaka.
+    \item[\textbf{Formulka bez tvrdenia.}] „Myslím si, že napíš mi kód.“ $\to$ \textbf{L0}. Formulka nie je úvaha; rozhoduje to, čo žiak deleguje, nie to, čím to ozdobil.
+    \item[\textbf{Formulka bez odôvodnenia.}] „Myslím si, že je odpoveď $O(n\log n)$ správna?“ $\to$ \textbf{L1}. Predložená je odpoveď, nie úvaha.
+    \item[\textbf{Odôvodnenie aj žiadosť o kód.}] „Myslím si, že to je $O(n)$, lebo cyklus prejde celé pole~--- napíš mi kód.“ $\to$ \textbf{L4}. Odôvodnenie je skutočné; to, že žiak zároveň pýta kód, zachytávajú procesné ukazovatele VTR a ABHR, nie zníženie úrovne promptu.
+\end{description}
+
+\section{Kotviace príklady}
+
+Kotviaci súbor obsahuje 90 promptov, ktoré sú súčasťou digitálneho média. Tabuľka~\ref{tab:kotvy-priklady} uvádza vybrané príklady pre každú kategóriu spolu s odôvodnením, prečo bol zvolený práve tento kód. Príklady sú uvedené bez diakritiky tak, ako ich žiaci typicky píšu.
+
+\begin{table}[H]
+\centering
+\caption{Vybrané kotviace príklady s odôvodnením}
+\label{tab:kotvy-priklady}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}l X X@{}}
+\toprule
+\textbf{Kód} & \textbf{Prompt} & \textbf{Odôvodnenie} \\
+\midrule
+L0 & \emph{napis mi kod na binarne vyhladavanie v pythone} & žiada artefakt, neprispieva ničím \\
+L0 & \emph{kolko je zlozitost tejto funkcie, len vysledok} & explicitne odmieta vysvetlenie \\
+L0 & \emph{sprav mi tabulku krokov pre pole 1 3 5 7 9 11} & žiada vyplnenie zadania namiesto seba \\
+\midrule
+L1 & \emph{je toto spravne? def bs(a,x): lo=0 hi=len(a)-1 \ldots} & predkladá prácu, žiada verdikt, nepýta sa prečo \\
+L1 & \emph{toto mi hodilo IndexError, oprav to} & žiada opravu bez vlastnej diagnózy \\
+L1 & \emph{[iba vlozeny kod bez textu]} & predloženie práce implikuje žiadosť o verdikt \\
+\midrule
+L2 & \emph{preco je zlozitost binarneho vyhladavania O(log n)} & žiada význam, nie artefakt \\
+L2 & \emph{co presne robi ten riadok mid = (lo+hi)//2} & vysvetlenie kroku \\
+L2 & \emph{povedz to jednoduchsie} & žiadosť o preformulovanie vysvetlenia \\
+\midrule
+L3 & \emph{kedy je linearne vyhladavanie lepsie ako binarne} & vyžaduje porovnanie a podmienky použitia \\
+L3 & \emph{co by sa stalo keby pole nebolo zoradene} & hraničný prípad, vyžaduje integráciu \\
+L3 & \emph{plati to aj pre spajany zoznam alebo len pre pole} & prenos na inú štruktúru \\
+\midrule
+L4 & \emph{myslim si ze to je O(n) lebo cyklus prejde cele pole, kde robim chybu} & vlastná úvaha + žiadosť o posúdenie \\
+L4 & \emph{podla mna je chyba v tom ze porovnavam hi < lo, suhlasis} & vlastná diagnóza chyby \\
+L4 & \emph{chapem to tak ze zlucovanie je linearne a urovni je log n preto n log n, je to spravne odovodnenie} & vlastné odvodenie predložené na posúdenie \\
+\midrule
+X & \emph{kolko mame do konca hodiny} & mimo témy \\
+X & \emph{pomoz mi s domacou ulohou z dejepisu} & iný predmet \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Protokol medzihodnotiteľskej zhody}
+
+\begin{enumerate}[nosep]
+    \item \textbf{Zaškolenie.} Dvaja kódovatelia samostatne nakódujú kotviaci súbor 90 promptov. Nezhody sa prejdú spoločne a manuál sa pri opakujúcom sa type nezhody doplní o záväzné rozhodnutie. Kotviaci súbor sa do výpočtu zhody nezapočítava.
+    \item \textbf{Meranie zhody.} Z celého korpusu sa náhodne vyberie 20\,\%, ktoré obaja kódovatelia nakódujú nezávisle a bez vzájomnej komunikácie. Vykazuje sa Krippendorffova $\alpha$ pre nominálne dáta~\cite{krippendorff2004content}, Cohenova $\kappa$~\cite{landis1977kappa} a percentuálna zhoda.
+    \item \textbf{Prijateľná hranica.} $\alpha \geq 0{,}80$. Pri hodnote medzi $0{,}67$ a $0{,}80$ sa manuál upraví a meranie sa na novej vzorke opakuje. Pri hodnote pod $0{,}67$ sa taxonómia zredukuje zlúčením susedných úrovní (L0 s L1 a L3 s L4) na trojúrovňovú a postup sa opakuje; táto záložná stratégia je stanovená vopred, aby sa o nej nerozhodovalo podľa výsledku.
+    \item \textbf{Riešenie nezhôd.} Nezhody v meranej vzorke rieši konsenzus dvoch kódovateľov; ak sa nedohodnú, rozhoduje tretí kódovateľ. Výsledné kódy sa použijú ako referenčné.
+    \item \textbf{Ordinálna kontrola.} Okrem nominálnej zhody sa vykazuje podiel nezhôd, ktoré sú posunom o jedinú susednú úroveň. Vysoký podiel takých nezhôd znamená, že škála je konzistentne usporiadaná a chyba vedie k útlmu, nie k skresleniu smeru.
+\end{enumerate}
+
+\section{Automatický klasifikátor}
+
+Ručné kódovanie celého korpusu (odhadom 14~tisíc promptov) nie je pri jednočlennom riešiteľskom tíme uskutočniteľné. Preto sa na ručne nakódovanom súbore natrénuje klasifikátor a použije sa na zvyšok, ak dosiahne stanovenú zhodu s ľudskými kódmi.
+
+\subsection{Návrhové rozhodnutie: priehľadnosť pred presnosťou}
+
+Klasifikátor je postavený na explicitných lexikálnych a štruktúrnych príznakoch a multinomickej logistickej regresii, nie na jazykovom modeli. Rozhodnutie je vedomé a má tri dôvody. \emph{Overiteľnosť:} škola aj oponent musia vedieť zistiť, prečo bol konkrétny prompt zaradený tak, ako bol; pri regresii nad trinástimi príznakmi to je možné, pri jazykovom modeli nie. \emph{Nezávislosť:} klasifikácia sa nesmie opierať o externú službu, ktorá môže zmeniť správanie alebo prestať existovať uprostred výskumu. \emph{Cirkularita:} použiť jazykový model na meranie toho, ako žiaci používajú jazykový model, je metodologicky nešťastné.
+
+\subsection{Príznaky}
+
+\begin{table}[H]
+\centering
+\caption{Príznaky klasifikátora}
+\label{tab:priznaky}
+\small
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+\textbf{Príznak} & \textbf{Význam} \\
+\midrule
+\texttt{f\_solve}        & sloveso žiadosti \emph{a súčasne} podstatné meno artefaktu \\
+\texttt{f\_solve\_verb}  & sloveso žiadosti (napíš, sprav, vyrieš, daj mi\ldots) \\
+\texttt{f\_verify}       & formulácia žiadosti o verdikt (je to správne, skontroluj, oprav\ldots) \\
+\texttt{f\_explain}      & formulácia žiadosti o význam (prečo, vysvetli, čo znamená\ldots) \\
+\texttt{f\_elaborate}    & porovnávacia alebo podmienková formulácia (kedy je, rozdiel medzi\ldots) \\
+\texttt{f\_selfexpl}     & marker vlastnej úvahy (myslím si, podľa mňa, moja úvaha\ldots) \\
+\texttt{f\_offtask}      & marker mimo témy \\
+\texttt{f\_domain}       & doménový pojem (pole, zložitosť, rekurzia, triedenie\ldots) \\
+\texttt{f\_code}         & prítomnosť fragmentu kódu \\
+\texttt{f\_len}          & dĺžka v slovách, orezaná zhora \\
+\texttt{f\_qmark}        & prítomnosť otáznika \\
+\texttt{f\_first\_person}& prvá osoba \\
+\texttt{f\_comma}        & počet čiarok, orezaný zhora (zložitosť vety) \\
+\texttt{rule}            & výstup rozhodovacieho postupu z časti 2 ako samostatný príznak \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Overenie klasifikátora}
+
+Na kotviacom súbore 90 promptov v päťnásobnej stratifikovanej krížovej validácii:
+
+\begin{table}[H]
+\centering
+\caption{Výkon klasifikátora na kotviacom súbore}
+\label{tab:klasifikator}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Metóda} & \textbf{Presnosť} & \textbf{$\kappa$} & \textbf{Posun o 1 úroveň} \\
+\midrule
+samotné rozhodovacie pravidlo & \peqiRuleAcc & \peqiRuleKappa & --- \\
+logistická regresia (CV) & \peqiCvAcc & \peqiCvKappa & \peqiAdjacent\,\% \\
+simulované dvojité ručné kódovanie & \peqiHumanAcc & \peqiHumanKappa & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Podstatné je posledné porovnanie: zhoda klasifikátora s ľudskými kódmi ($\kappa=\peqiCvKappa$) je vyššia než simulovaná zhoda dvoch ľudí navzájom ($\kappa=\peqiHumanKappa$). Klasifikátor teda nie je slabším článkom reťazca. Matica zámen (tabuľka~\ref{tab:zamena}) ukazuje, že všetky chyby sú posunom o jedinú susednú úroveň; žiadny prompt nebol zaradený o dve a viac úrovní vedľa a žiadny prompt mimo témy nebol zamenený s promptom k téme.
+
+\begin{table}[H]
+\centering
+\caption{Matica zámen klasifikátora (riadky = ľudský kód, stĺpce = klasifikátor)}
+\label{tab:zamena}
+\small
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & L0 & L1 & L2 & L3 & L4 & X \\
+\midrule
+L0 & \textbf{18} & 0 & 0 & 0 & 0 & 0 \\
+L1 & 1 & \textbf{15} & 0 & 0 & 0 & 0 \\
+L2 & 0 & 0 & \textbf{16} & 1 & 0 & 0 \\
+L3 & 0 & 0 & 0 & \textbf{15} & 0 & 0 \\
+L4 & 0 & 0 & 0 & 0 & \textbf{14} & 0 \\
+X  & 0 & 0 & 0 & 0 & 0 & \textbf{10} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Podmienka nasadenia a ošetrenie chyby}
+
+Klasifikátor sa použije na neanotovanú časť korpusu len vtedy, ak na \emph{zadržanej} časti skutočných ručne kódovaných promptov dosiahne $\kappa \geq 0{,}75$. V opačnom prípade sa celý korpus kóduje ručne, čo je prácne, ale uskutočniteľné pri redukcii vzorky promptov na náhodný podvýber.
+
+Chyba klasifikácie je chybou merania mediátora a spôsobuje útlm odhadu dráhy $b$ v mediačnom modeli. Preto sa vykazuje aj odhad korigovaný na útlm, vypočítaný z kappa na zadržanej vzorke, a to výslovne ako doplnková, nie primárna hodnota.
+
+\subsection{Pravidlo dominancie a útok formulkou}
+\label{sec:dominancia}
+
+Prvá verzia klasifikátora obsahovala chybu, ktorá by túto štúdiu ticho pokazila, a stojí za to ju opísať, pretože je poučná nad rámec jedného programu.
+
+Rozhodovacie pravidlo priraďovalo úroveň $L_4$ každému promptu, v ktorom sa vyskytla epistemická formulka („myslím si, že“, „podľa mňa“, „mám pocit, že“, „chápem to tak, že“). Formulka bola považovaná za doklad úvahy. Nie je: je to forma slov, ktorú možno postaviť pred čokoľvek.
+
+Rozsah chyby sme zmerali. Pred každý z \venN{} kotviacich promptov úrovne $L_0$ a $L_1$ sme postavili jednu zo štyroch formuliek, bez pridania akéhokoľvek obsahu. Klasifikátor posunul úroveň v \venShiftedBefore{} z \venN{} prípadov, teda vo všetkých; priemerná váha stúpla z $0{,}12$ na $1{,}00$, čo je $\venDeltaBefore$ na prompt.
+
+Prečo to bolo nebezpečné práve tu: podmienka $A$ obsahuje bránu sebavysvetlenia, ktorá žiakom \emph{predpisuje} presne takúto formulku. Chyba by teda nepôsobila ako šum, ale ako systematický posun v prospech podmienky $A$~--- a $\venDeltaBefore$ je viac než dvojnásobok celého medzipodmienkového rozdielu, ktorý je štúdia dimenzovaná nájsť. Index by „potvrdil“ manipuláciu, ktorá by v skutočnosti menila len slovník.
+
+Oprava má dve nezávislé časti, ktoré vykazujeme oddelene, aby si jedna nepripísala zásluhu druhej:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Hranice slov v lexikónoch.} Vzory sa zhodovali vnútri dlhších slov: „sprav“ v „správne“, „lebo“ v „alebo“, „hra“ v „hraničné“. Ide o bežnú nedbalosť, nie o ohrozenie dizajnu. Zhoda na kotviacom súbore stúpla z $\venKappaZero$ na $\venKappaOne$, útok formulkou zostal úplne otvorený.
+    \item \textbf{Podmienka odôvodnenia pri $L_4$.} Formulka sa uznáva len vtedy, keď za ňou stojí odôvodnenie (spojka príčiny, pomenovanie vlastnej úvahy, predkladaná domnienka alebo predvedený výpočet). Zhoda stúpla na $\venKappaTwo$ a útok sa uzavrel úplne: \venShiftedAfter{} posunutých promptov z \venN{}, teda $\delta = \venDeltaAfter$.
+\end{enumerate}
+
+Druhý bod stojí za zdôraznenie, lebo nebol samozrejmý: oprava zvýšila zhodu \emph{aj} odolnosť. Pravidlo si odolnosť môže kúpiť za presnosť~--- stačilo by prísne zakázať $L_4$~--- a vtedy je to zlý obchod. Tu nebol.
+
+Zostáva jedna trieda chýb, ktorú takýto test nezachytí: žiak, ktorý formulku použije a \emph{zároveň} napíše skutočnú, hoci povrchnú úvahu. Taký prompt je L4 správne a jeho plytkosť sa musí zachytiť inde~--- na to slúžia procesné ukazovatele, ktoré sú od klasifikátora nezávislé. Aká veľká môže byť zostatková diferenciálna chyba a ako sa odhaduje priamo na dátach štúdie, rozoberá časť~\ref{sec:diferencialna}.
+
+\section{Výpočet indexu}
+
+\begin{equation*}
+    \mathrm{PEQI}_{ij} = \frac{1}{n_{ij}}\sum_{k=1}^{n_{ij}} w(\ell_{ijk}),
+    \qquad
+    \mathrm{OR}_{ij} = \frac{n^{L_0}_{ij}+n^{L_1}_{ij}}{n_{ij}}
+\end{equation*}
+
+kde $i$ je žiak, $j$ perióda, $n_{ij}$ počet promptov k téme a $\ell_{ijk}$ kód $k$-teho promptu.
+
+\paragraph{Zaobchádzanie s malým počtom promptov.} Ak žiak odoslal menej než tri prompty k téme, index je nestabilný. Takéto prípady sa nevylučujú, ale sa označujú a v citlivostnej analýze sa opakuje model bez nich. Žiak, ktorý neodoslal ani jeden prompt, má index nedefinovaný; takých prípadov je podľa pilotu očakávaných pod 5\,\% a zaobchádza sa s nimi ako s chýbajúcimi údajmi.
+
+\paragraph{Citlivosť na váženie.} Voľba rovnomerných váh je arbitrárna. Vykazujú sa preto tri varianty: rovnomerné váhy, váženie $(0{,}0;\,0{,}2;\,0{,}4;\,0{,}7;\,1{,}0)$ zdôrazňujúce vyššie úrovne, a čisto ordinálna verzia (mediánová úroveň). Na simulovaných dátach sa index medzi variantmi líši o menej než $0{,}03$ a poradie podmienok sa nemení. Ak by sa na reálnych dátach závery medzi variantmi rozchádzali, je to samo osebe nálezom a treba ho vykázať.

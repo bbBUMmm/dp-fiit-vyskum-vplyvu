@@ -1,0 +1,74 @@
+
+Kapitola 1 Definícia pojmov 
+Prvá vec, ktorej by sme sa chceli dotknúť v tejto práci, je jasne zadefinovať pojmy, s ktorými budeme ďalej pracovať. Budeme sa zaoberať dvomi typmi nástrojov umelej inteligencie, generickými nástrojmi UI a adaptívnymi nástrojmi UI.
+Za generické nástroje UI považujeme softvérový celok, aplikáciu alebo API (application programming interface), po dotaze na ktorý, formou posielania požiadavky vo forme textu takzvaný prompt [...], zvuku, videa alebo fota, dostaneme
+výsledok, ktorý bude priamou odpoveďou na položenú úlohu z promptu, alebo riešenie zadania, ktoré bolo zadané v prompte. Zvyčajne na strane poskytovateľov nástroja generickej UI prompt sa spracuje pomocou black box deep learning modelu a 
+používateľ síce vie sa opýtať, ako model prišiel na riešenie, ale nevie ho overiť deterministicky. 
+Druhým typom nástroja UI, ktorým budeme sa zaoberať, sú adaptívne nástroje UI. Na rozdiel od generického nástroja, adaptívne nástroje nedávajú priamu odpoveď na úlohu/zadanie z promptu, ale postupnosťou dopĺňajúcich a spresňujúcich otázok navádzajú odosielateľa 
+promptu na to, aby sám si domyslel správnu odpoveď na svoju otázku a/alebo sa naučil nové pomocou learningu a nie dostal hotový výsledok bez toho, aby si zapol mozog (todo preformulovať koniec vety). Na nižších úrovniach z technickej strany 
+adaptívne nástroje UI spracovávajú prompty vo väčšine prípadov rovnako ako generické UI. Pri najvýznamnejších modeloch ako ChatGPT, Codex, Claude, Gemini adaptívna vrstva je len nadstavbou nad generickým modelom, ktorá predstavuje zo seba súbor
+pravidiel, obmedzení a schopností RRS (rules, restrictions a skills), ktoré robia z generického nástroja UI adaptívny nástroj UI. 
+...(todo pridať všetky pojmy vo full verzii)
+
+Kapitola 2 Úvod a problém
+Umelá inteligencia a strojové učenie má svoje veľmi hlboké korene. Veľký prelom pre algoritmy hlbokého učenia nastal ešte v roku 2012, avšak boom pre verejnosť bol v roku 2022, keď OpenAI sprístupnilo nástroj ChatGPT pre verejnosť. Od sprístupnenia služby
+ChatGPT sa generatívne nástroje umelej inteligencie stali bežnou súčasťou práce žiakov. Časom nástroje generickej umelej inteligencie stávali sa čoraz presnejšími, dávali konzistentnejšie výsledky, začalo ich používať viac a viac ľudí. Prístupy ku výučbe sa však
+a štátne organizácie sa však nestíhali prispôsobovať sa k takému rýchlemu pokroku technológií a ako dôsledok plány a prístupy ku výučbe zostali rovnaké ako predtým. Preto potrebujeme mať jasne definovaný a ohraničený výskum vplyvu nástrojov UI v školskom 
+prostredí, aby sme mohli posunúť výučbový proces na ďalšiu novú úroveň, zvýšiť efektivitu a zvýšiť intelektuálno-kognitívne schopnosti žiakov.
+
+Kapitola 3 Aktuálny stav riešenej problematiky na Slovensku a to, čo chýba
+Po dôkladnom researchi a preskúmaní tém spojených s témou tejto práce, podarilo sa nám prísť k nasledovným podzáverom: Po prvé, dominancia self-report meraní v skúmaných štúdiách obmedzuje validitu zistení. Výskum tejto práce môže tento problém adresovať 
+integráciou behaviorálnych ukazovateľov priamo do nástroja zberu dát. Po druhé, kategórie používateľov sú vo väčšine štúdií definované veľmi hrubo. Výskum môže priniesť pridanú hodnotu detailnejšou kategorizáciou používateľov založenou na vzorcoch interakcie 
+s nástrojmi. Po štvrté, slovenský kontext je v medzinárodnom výskume podreprezentovaný a existuje zreteľná potreba empirických údajov, ktoré by zohľadňovali špecifiká slovenského vzdelávacieho systému.
+
+Kapitola 4 Prvý nápad Meranie kognitívnych schopností (toto nebude celá kapitola, asi to spomeniem potom ako subkapitolu)
+Pôvodným zámerom bolo zmerať, či používanie umelej inteligencie mení kognitívne schopnosti žiakov, konkrétne kritické myslenie a inteligenciu (IQ). Žiaci by písali test pred začatím práce s nástrojom a po nej. Od tohto zámeru sme upustili z dvoch dôvodov.
+Za taký krátky čas sa schopnosti nemenia. Inteligencia, v psychológii nazývaná fluidné uvažovanie, sa mení v horizonte rokov. Výskum tréningu kognitívnych schopností opakovane ukazuje, že tréning zlepší výkon v trénovanej úlohe, 
+ale nie všeobecné schopnosti [Sala & Gobet 2019]. Za niekoľko vyučovacích hodín ani za niekoľko mesiacov preto nemožno čakať zmenu, ktorú by test zachytil. Aj keby sa zmena ukázala, nevedeli by sme ju pripísať nástroju. 
+Pri meraní „pred a po“ bez porovnávacej skupiny sa do rozdielu premietne aj prirodzený vývoj žiakov (napríklad dospievanie) a aj to, že žiak píše rovnaký typ testu druhýkrát, a preto v ňom ide lepšie.
+
+Kapitola 5 Metriky, ktoré meriame
+Meriame to, čo sa mení za jednu vyučovaciu hodinu až za niekoľko týždňov:
+-vedomosti z preberanej témy, pred hodinou, hneď po hodine a znova po troch týždňoch,
+-prenos naučeného na úlohu, ktorá sa na hodine nepreberala,
+-ako presne žiak odhaduje, či odpovedal správne (self-estimation, self-evaluating),
+-ako žiak s nástrojom pracuje: či úlohu najprv skúsi vyriešiť sám, či odpoveď nástroja len skopíruje a aké otázky mu kladie a metriky súvisiace s tým (čas do prvého promptu, počet klikov, prvé nápady pri odpovedi),
+-PEQI (Prompt Epistemic Quality Index) scoring
+-zapojenosť do materiálu počas vyučovacej hodiny
+
+Kapitola 6 Technický popis nástroja (nástroj je hotový na 80 %, chýba interaktívna časť, ktorá závisí od predmetu a vyučovacej hodiny)
+Nástroj umožňuje zber metrík z 5. kapitoly, je postavený na Pythone ako aplikácia pre Windows počítače a mobilné zariadenia (prístup cez web). Všetky zozbierané dáta sa posielajú na host (hlavný server), ktoré následne po ukončení zberu informácie 
+prejdú analýzou a budú využité na overenie stanovených hypotéz.
+
+Kapitola 7 Hypotezy , ktore chceme potvrdit alebo vyvratit
+-Ocakavame, ze pri samostatnych ziakoch a skupinach , kde je povolena genericka UI budu dosiahnute horsie vysledky na "neocakavanej" kontorle o 3 tyzdne , co moze byt sposobene kognitivnych ofloadingom a delegaceou uloh na AI pocas hodiny.
+-Líši sa vplyv klasickej výučby, výučby s generickým nástrojom umelej inteligencie a výučby s adaptívnym (sokratovským) nástrojom na trvalé osvojenie
+učiva a na jeho transfer?
+-Rozchádza sa subjektívny pocit naučenia s objektívne meraným trvalým
+osvojením, a ak áno, v ktorej podmienke najviac?
+
+
+
+skupiny rozdelujeme  
+-Vysvetľuje epistemická kvalita promptov, ktoré žiak nástroju posiela, rozdiel v trvalom osvojení medzi generickým a adaptívnym nástrojom?
+
+problem je ze chcem vediet , aky ma vplyv umelej inteligencie. 
+
+obrazok je kostrbaty, treba to vycentovat a aby to vyzeralo dobre.
+
+v decembry a January sa . Februar - Marec kedy budem realizovat vyskum na skolach. Identifikovat 3-4 skoly, nepotrebujem 20, bhleda nahrjue Bratislava
+
+
+nahr mejlu, kto som, co som , napisat conajednoduchsie a jasne a priamocoro. kludne si pomozem chatgpt, ichned, sobotu nedelu a skonceptovat. a ked to budem posielat tak bude to mat vahu, podpisatho ho odporne skutent ttt, fakulta, odkaz na vebovu stranku , tomuto sa venuje nejaky tim. dalsi krok mozno bude , ze treba telefonovat, ziadam o stretnutie na ktorom by som vysvetlil detajly 
+
+
+uzatvoreny test , uzatvoreny test existuje , mas otazky aj viacero odpovedi je spravne ale neudas , ze viacero ale udam ze su viacero otazok. formy otvoreneho polootvoreneho , 6 otazok otvorenych, 6 
+
+treba tie, testy spravit komplexnejsie , lebo bude lepsie pre komisiu. nieco pre psychologiu , T1 a T3 mali by byt nie len testy. Do
+buduceho piatku to mat fakt hotove. T4 super ale komplexnejsi text. 
+
+
+do buduceho piatku EMAIL aky budem pisat, testy ktore budem pisat, 
+
+Plan A je dokonit studium, 2 mesiace meskam zavisim , alternativna moznost je, ze predlzim studium. data sa neda sfalsovat. 
+Ale treba zabrat  

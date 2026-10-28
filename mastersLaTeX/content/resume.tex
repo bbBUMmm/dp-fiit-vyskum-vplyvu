@@ -1,0 +1,39 @@
+\chapter*{Resumé}
+\markboth{Resumé}{}
+\label{chapter:resume}
+
+The thesis is written in Slovak; this summary provides the technical abstract, the lay summary and the conclusion in English.
+
+\section*{Technical abstract}
+
+Empirical findings on the effect of artificial intelligence tools on learning appear to contradict one another. An adaptive tutor outperformed in-class active learning in a randomised experiment at Harvard~\cite{kestin2025aitutoring}; a generative tool \emph{lowered} subsequent exam scores by roughly seventeen per cent in a large secondary-school experiment in Turkey~\cite{bastani2025harm}; and a direct comparison of an adaptive tutor with a generic search engine found no difference in learning gains~\cite{slijepcevic2025khanmigo}.
+
+This thesis argues that the contradiction is only apparent, and that resolving it requires one distinction and one hypothesis. The distinction is that \emph{learning outcomes} are not one quantity but three: performance during the lesson while the tool is at hand, immediate recall right afterwards, and durable recall with transfer after a delay. These three can order themselves in opposite directions. The hypothesis is that a tool raises the first two almost unconditionally, because it removes effort, whereas its effect on the third depends on whether the student's interaction with it stayed \emph{generative}~--- the student formulated their own solution, explanation or hypothesis~--- or became \emph{offloading}, delegating the cognitive act itself.
+
+The hypothesis rests on a quantity nobody has measured directly. Gerlich~\cite{gerlich2025offloading} obtained it from self-report scales, an instrument systematically biased for behaviour subject to social desirability; Kosmyna et al.~\cite{kosmyna2025brain} obtained it from electroencephalography, unusable in a classroom; Bastani et al. did not derive it from data at all.
+
+The thesis makes two linked contributions. The first is the \textbf{Prompt Epistemic Quality Index (PEQI)}: a taxonomy of student prompts anchored in the ICAP framework~\cite{chi2014icap}, ordering them from a request for a finished artefact to the submission of the student's own reasoning for critique, together with an automatic classifier built on transparent lexical and structural features. On an anchor corpus of 90 Slovak prompts the classifier reaches $\kappa = 0.92$ in cross-validation, with 98.8\,\% of its errors being a shift of a single adjacent level. The index is computed from prompts captured by the tool developed in the engineering part of the work; its first iteration, built on LittleProxy, failed because the library supports neither HTTP/2 nor WebSocket, and was replaced by an architecture with an interchangeable capture layer over mitmproxy.
+
+The second contribution is a fully specified \textbf{cross-over classroom experiment}: a replicated $3\times3$ Latin square with six sequences in which every student meets traditional instruction, instruction with a generic tool, and instruction with an adaptive Socratic tool across three isomorphic topics in algorithmics. The generic and the adaptive condition use \emph{the same model, the same exercises and the same interface}; only the pedagogical layer is manipulated, which isolates the effect of scaffolding from the effect of the model~--- a confound that limits the existing literature. Immediate and delayed retention (three weeks), far transfer, item-level confidence calibration and process measures derived from prompts are recorded.
+
+The analysis plan is frozen, implemented and run on data from a known generating model before collection. The validation confirmed recovery of the injected effects and exposed three design faults that would otherwise have surfaced only after collection: a singularity in the carry-over coding, insufficient length of the delayed test, and insufficient sample size for the equivalence claim, which raised the target from 12 to 18 classes.
+
+\section*{Lay summary}
+
+When a student solves a problem with the help of artificial intelligence, it goes better. They finish more exercises, they enjoy the lesson more, and they feel they have learned a lot. The question this thesis asks is: \emph{will anything of it be left in three weeks?}
+
+Studies abroad give apparently contradictory answers. One found that students who used artificial intelligence did \emph{worse} on a later test than those who did not. Another found the opposite. This thesis offers an explanation that reconciles both: what matters is not \emph{whether} a student uses the tool, but \emph{how}. A student who types "write me the code" takes nothing away. A student who types "I think it works like this, where am I going wrong?" takes a lot. Nobody has measured that difference properly, because it has been measured with questionnaires~--- and whether you took a shortcut is not something a questionnaire can establish.
+
+The thesis therefore proposes a way to measure it directly: a tool that records, on a school laptop during the lesson, exactly what the student wrote to the assistant, and automatically places it on a scale running from "give me the answer" to "check my reasoning". The result is one number per student describing how much they actually thought.
+
+The second part is a classroom experiment. Every class takes three computer-science lessons: one without help, one with an ordinary assistant, and one with an assistant deliberately configured not to hand over finished solutions but to ask questions instead. Crucially, both assistants run on the same technology and differ only in how they are configured. After each lesson the students take a short test and state how confident they are in each answer. Three weeks later they take a test again, this time unannounced.
+
+We expect an uncomfortable result: students will most enjoy the lesson after which they remember the least. If that holds, it means that student satisfaction~--- the measure schools normally use to judge whether something works~--- is not enough when artificial intelligence is involved.
+
+\section*{Conclusion}
+
+The thesis contributes four things. \emph{An observed measure in place of self-report}: PEQI converts cognitive offloading from something students are asked about into something computed from what they actually wrote, with a classifier whose agreement with human coders exceeds the simulated agreement between two human coders. \emph{A design that isolates pedagogy from the model}: holding model, exercises, interface, teacher and time constant means that any difference between the generic and the adaptive condition is evidence about scaffolding, not about model quality. \emph{A measurement of the illusion of understanding}: item-level confidence separates overconfidence, absolute accuracy and discrimination, which the simulation suggests need not move together. \emph{An analysis plan validated before collection}: running the frozen plan on simulated data exposed three faults while correction was still cheap.
+
+The limitations are stated openly: a single subject domain, purposive rather than random school selection, capture confined to school devices, a three-week rather than a term-long delay, attenuation of roughly a fifth from measurement error, a single model version, and a pedagogical layer that is the author's own design rather than an independently validated product.
+
+The societal implication is tied to the moderation hypothesis. If harm from the generic tool grows as prior knowledge falls, then rolling the tool out without pedagogical scaffolding \emph{widens} the gap between students, even though narrowing it is the usual argument for adoption. The practical output is therefore not a recommendation to use or not to use, but a distinction between what is worth adopting and what is merely convenient~--- together with an instrument with which a school can tell the two apart.

@@ -1,0 +1,61 @@
+strana Prva titulova strana ...
+
+strana Strana s textom zadania DP
+
+strana Podakovania a cestne vyhlasenie
+
+strana Anotacia v slovencine (zatial idk co tam bude)
+
+strana Anotacia v anglictine (same as previous)
+
+niekolko stran Automaticky vygenerovany obsah z headrov sekci a subsekci
+
+Kapitola 1 Definicia pojmov 
+Prva vec, ktoru by sme sa chceli dotknut v tejto praci je jasne zadefinovat pojmy, s ktorymi budeme nadalej pracovat. Budeme sa zaoberat dvomi typmy nastrojov umelej inteligencie, generickymi nastrojmi UI a adaptivnymi nastrojmi UI.
+Za genericke nastroje UI povazujeme softverovy celok, aplikaciu alebo API (application programming interface), po dotaze na ktory, formou posielania pozadavky vo forme textu tak zvany prompt [...], zvuku, video alebo foto , dostaneme
+vysledok, ktory bude priamou odpovedou na polozenu ulohy z promptu, alebo riesenie zadania, ktore bolo zadane v prompte. Zvycajne na strane poskytovatelov nastroja generickej UI prompt sa spracuje pomocou black box deep learning modelu a 
+pouzivatel sice vie sa optytat ako model prisil na riesenie ale nevie ho overit determenisticky. 
+Druhym typom nastroja UI, ktorym budeme sa zauberat je adaptivne nastroje UI. Na rozdiel od generickeho nastroja, adaptivne nastroje nedavaju primu odpoved na ulohu/zadanie z promptu ale postupnostou doplnujucy a spesnujusich otazok navadzaju odosielatela 
+promptu na to aby sam si domyslel spravnu odpoved na svoju otazku a/alebo sa naucil nove pomocou learingu a nie dostal hotovy vysledok bez toho, aby si zapol mozok(todo preformulvat koniec vety). Na nizsich urovniach z technicej strany 
+adaptivne nastroje UI spracovavaju prompty vo vacsine pripadov rovnako ako genericke UI. Pri najvyznamnejsich modeloch ako ChatGPT, Codex, Claude, Geminy Adaptivna vrstva je len nadstavbou nad generickym modelom , ktora predstavuje zo seba subor
+pravidiel , obmedzenii a schopnostej RRS (rules, restrictions a skills), ktore robia s generickeho nastroja UI, adaptivny nastroj UI. 
+...(todo pridat vsetky pojmy vo full verzie)
+
+Kapitola 2 Uvod a problem
+Umela inteligencia a storjove ucenie ma svoje velmi hlboke korene. Velki prelom pre algoritmy hlbokeho ucenia nastal este v roku 2012 avsak boom pre verejnost bol v roku 2022 ked openAPI spristupnilo nastroj ChatGPT pre verejnost. Od sprístupnenia služby
+ChatGPT sa generatívne nástroje umelej inteligencie stali bežnou súčasťou práce žiakov. Casom nastroje generickej umelej inteligencie stavali copresnejsie , davali konzistentnejsie vysledky, zaciano ich pouzivat viac a viac ludi. Pristupy ku vyucbe sa vsak
+a statne organizacie sa vsak nestihali prisposobovat sa ku takemu rychlemu pokroku technologi a ako dosledok plany a pristupy ku vyucbe zostali rovnake ako pred tym. Preto potrebujeme mat jasne definovany a ohraniceny vyskum vplyvu nastrojev UI v skolskom 
+prostredi , aby sme mohli posunut vuycbovy proces na dalsiu novu uroven, zvysit effektiviu a zvysit intelektualno kognitivne schopnosti ziakov.
+
+Kapitola 3 Aktualny stav riesenej problematiky na slovensku a to co chyba
+Po dokladnom researche a preskumani tem spojenych s temou tejto prace , podarilo sa nam prist do nasledovnych podzaverov: Poprvé, dominancia self-report meraní v skúmaných štúdiách obmedzuje validitu zistení. Výskum tejto práce môže tento problém adresovať 
+integráciou behaviorálnych ukazovateľov priamo do nástroja zberu dát. Po druhe, kategórie používateľov sú vo väčšine štúdií definované veľmi hrubo. Výskum môže priniesť pridanú hodnotu detailnejšou kategorizáciou používateľov založenou navzorcoch interakcie 
+s nástrojmi. Po štvrté, slovenský kontext je v medzinárodnom výskume podreprezentovaný a existuje zreteľná potreba empirických údajov, ktoré by zohľadňovali špecifiká slovenského vzdelávacieho systému.
+
+Kapitola 4 Prvy napad Meranie kognitivnych schopnosti (toto nebude cela kapitola, asi to spomeniem potom ako subkapitolu)
+Pôvodným zámerom bolo zmerať, či používanie umelej inteligencie mení kognitívne schopnosti žiakov, konkrétne kritické myslenie a inteligenciu (IQ). Žiaci by písali test pred začatím práce s nástrojom a po nej. Od tohto zámeru sme upustili z dvoch dôvodov.
+Za taký krátky čas sa schopnosti nemenia. Inteligencia, v psychológii nazývaná fluidné uvažovanie, sa mení v horizonte rokov. Výskum tréningu kognitívnych schopností opakovane ukazuje, že tréning zlepší výkon v trénovanej úlohe, 
+ale nie všeobecné schopnosti [Sala & Gobet 2019]. Za niekoľko vyučovacích hodín ani za niekoľko mesiacov preto nemožno čakať zmenu, ktorú by test zachytil. Aj keby sa zmena ukázala, nevedeli by sme ju pripísať nástroju. 
+Pri meraní „pred a po“ bez porovnávacej skupiny sa do rozdielu premietne aj prirodzený vývoj žiakov (napriklad dospievanie) a aj to, že žiak píše rovnaký typ testu druhýkrát, a preto v ňom ide lepšie.
+
+Kapitola 5 Metriky ktore meriame
+Meriame to, čo sa mení za jednu vyučovaciu hodinu až za niekoľko týždňov:
+-vedomosti z preberanej témy, pred hodinou, hneď po hodine a znova po troch týždňoch,
+-prenos naučeného na úlohu, ktorá sa na hodine nepreberala,
+-ako presne žiak odhaduje, či odpovedal správne, (selfestimation, selfevaluating)
+-ako žiak s nástrojom pracuje: či úlohu najprv skúsi vyriešiť sám, či odpoveď nástroja len skopíruje a aké otázky mu kladie a metriky suvisiace s tym (cas do prveho promptu, pocet clickov, prve napady pri odpovedi),
+-PEQI (Prompt Epistemic Quality Index) scoring
+-zapojenost do materialu pocas vyucovacej hodiny
+
+Kapitola 6 Technicky popis nastroja (nastroj je hotovy na 80%, chyba interaktivna cast, ktora zalezi od predmetu a vyucovacej hodiny)
+Nastroj umoznuje zber metrik z 5. kapitoly , je postaveny na pythone ako aplikacia pre windows pocitace a mobilne zariadenia (dostup cez web). Vsetky zozbierane data sa posielaju na host (hlavny server), ktore nasledne po ukonceniu zberu informacie 
+prejdu analyzou a budu vyuzite na overenie stanovenych hypotez.
+
+Kapitola 7 Hypotezy , ktore chceme potvrdit alebo vyvratit
+-Ocakavame, ze pri samostatnych ziakoch a skupinach , kde je povolena genericka UI budu dosiahnute horsie vysledky na "neocakavanej" kontorle o 3 tyzdne , co moze byt sposobene kognitivnych ofloadingom a delegaceou uloh na AI pocas hodiny.
+-Líši sa vplyv klasickej výučby, výučby s generickým nástrojom umelej inteligencie a výučby s adaptívnym (sokratovským) nástrojom na trvalé osvojenie
+učiva a na jeho transfer?
+-Rozchádza sa subjektívny pocit naučenia s objektívne meraným trvalým
+osvojením, a ak áno, v ktorej podmienke najviac?
+-Vysvetľuje epistemická kvalita promptov, ktoré žiak nástroju posiela, rozdiel v trvalom osvojení medzi generickým a adaptívnym nástrojom?
+

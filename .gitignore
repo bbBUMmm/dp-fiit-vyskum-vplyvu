@@ -1,0 +1,42 @@
+# LaTeX build output
+mastersLaTeX/out/
+mastersLaTeX/.attic/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Analysis artefacts (regenerate with: python pipeline.py / power.py / figures.py)
+mastersLaTeX/analysis/out/
+__pycache__/
+*.pyc
+.venv/
+
+# Java build
+ai-prompt-monitor/target/
+
+# Captured research data — NEVER commit
+ai-prompt-monitor/captures/
+*.jsonl
+
+# Key material and school-held secrets — NEVER commit
+*.p12
+*.pem
+*.jks
+*.key
+*.crt
+ai-prompt-monitor/config/roster.local.txt
+ai-prompt-monitor/config/*.local.yaml
+
+# Archives and OS cruft
+*.zip
+.DS_Store
+Thumbs.db
+school-kit/

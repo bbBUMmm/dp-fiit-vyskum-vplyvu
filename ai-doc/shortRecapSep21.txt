@@ -1,0 +1,37 @@
+PROJECT STATE RECAP - D:\MastersFIIT - 21 Sep 2026
+
+This is the Master's thesis project of Bc. Mykyta Prykhodko at FIIT STU Bratislava, supervised by
+Ing. Miroslav Bahleda, PhD., on the impact of generic versus adaptive AI tools in the school
+environment. The repository has three real parts: the LaTeX thesis (mastersLaTeX/), the technical
+artefact (ai-prompt-monitor/), and the supervisor-meeting research groundwork (podklady/). The
+thesis uses the FIIT book-class template, written in Slovak with babel, built with pdfLaTeX plus
+biblatex/biber, and was last compiled on the Mac on 1 June 2026 under TeX Live 2026 into
+out/main.pdf at 42 pages. The only substantially written chapter is content/4-state-of-the-art.tex
+(346 lines, six sections: concept definitions, two 2025 PRISMA reviews, methodology analysis of
+five empirical studies, national approaches, benefits and risks, conclusions for own research),
+backed by 26 entries in bib/references.bib. Everything else is still scaffolding: the abstract,
+lay summary, introduction and conclusion are stubs, 4-problem-statement-and-solution.tex still
+contains the template's instruction text, the annotation uses \lipsum placeholders, and
+appendices/plan.tex is entirely commented out. Metadata placeholders also remain - the English
+title is literally "My Thesis title", the evidence number is FIIT-XXXX-XXXXX, and the English date
+says May 2027 while the Slovak one says Máj 2026. The technical artefact is a Java 17 / Maven CLI
+walking skeleton that runs a local HTTPS MITM proxy (LittleProxy + littleproxy-mitm with a
+self-signed CA trusted by Firefox), matches URLs against a YAML allow-list and writes captured
+request bodies to JSONL, with a separate report command. It was verified against ChatGPT and only
+partly works: autocomplete and conversation-prepare requests are captured (four capture files from
+19 May to 1 Jun 2026 exist), but the final send endpoint returns 400 at the proxy and WebSocket
+responses are never intercepted, because the 2019-era LittleProxy cannot handle modern HTTP/2 and
+WebSockets. The decision already recorded in the notes is to replace the interception engine with
+mitmproxy while keeping the Java layer (CLI, config, JSONL store, report, pseudonymisation) and
+bridging the two through a shared JSONL file or Unix socket - this replacement has not been
+started yet. The podklady/ folder holds six Slovak markdown documents prepared for the supervisor:
+cognitive-ability measurement options (a four-layer battery instead of buying HCTA), school
+selection (gymnázium core plus one technical SOŠ), data interpretation (ANCOVA, offloading
+mediation, profile clustering), the "AI Detektív" game concept with a runnable offline HTML/JS
+demo in hra-demo/, and the research plan for a three-group quasi-experiment with pre/post tests
+and behavioural logs. There is also podklady/koncept-metodika-kapitola.tex, a draft methodology
+chapter that is not yet included from main.tex. Loose material at the root includes four note
+files (poznamky, shortThoughts, skratky, walkingSkeletonThoughs), metodologicka_analyza.docx, two
+zip backups and leftover .DS_Store files from the Mac. Two practical gaps block work on this
+machine: D:\MastersFIIT is not a git repository, and no LaTeX toolchain is installed on Windows -
+see ai-doc/toolsToInstall.txt.

@@ -1,0 +1,232 @@
+{
+  "bank_id": "CT",
+  "instrument": "CT",
+  "title": "Krátky test kritického myslenia (vrstva B, 12 položiek)",
+  "minutes": 15,
+  "jol": false,
+  "subscales": {
+    "zdroj_a_dokaz": ["K1", "K2", "K3"],
+    "pricina_a_korelacia": ["K4", "K5", "K6"],
+    "pravdepodobnost_a_vzorka": ["K7", "K8", "K9"],
+    "uplnost_argumentu": ["K10", "K11", "K12"]
+  },
+  "note": "Rozptyľovače sú písané tak, aby zodpovedali KONKRÉTNEJ chybe uvažovania, nie aby boli náhodné; práve preto má každý z nich diagnózu. Diagnózy sú zároveň to, čo robí triednu správu použiteľnou pre učiteľa: nie „jedenásť žiakov nemá bod za K5“, ale „jedenásť žiakov považuje spoločný výskyt za dôkaz príčiny“.",
+  "items": [
+    {
+      "id": "K1",
+      "format": "mc4",
+      "expected_sec": 65,
+      "stem": "Firma predávajúca vitamíny zverejnila štúdiu, podľa ktorej jej výrobok skracuje nádchu o deň. Štúdiu financovala a vykonala tá istá firma. Čo z toho najviac oslabuje dôveru v záver?",
+      "options": [
+        "Nádcha trvá u každého inak.",
+        "Ten, kto štúdiu platil, má záujem na výsledku.",
+        "Vitamíny sú drahé.",
+        "Deň nie je veľa."
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "zamieňa variabilitu výsledku so zaujatosťou zdroja",
+        "2": "posudzuje výrobok namiesto dôkazu o ňom",
+        "3": "posudzuje veľkosť účinku namiesto dôveryhodnosti zdroja"
+      }
+    },
+    {
+      "id": "K2",
+      "format": "mc4",
+      "expected_sec": 60,
+      "stem": "Článok tvrdí: „Deväť z desiatich zubárov odporúča túto pastu.“ Čo potrebuješ vedieť predovšetkým, aby si vedel, či to niečo znamená?",
+      "options": [
+        "Koľko zubárov sa pýtali a ako ich vybrali.",
+        "Koľko pasta stojí.",
+        "Či ju používajú aj oni.",
+        "Ako dlho je na trhu."
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "posudzuje výrobok namiesto dôkazu",
+        "2": "hľadá ďalšie tvrdenie namiesto spôsobu jeho získania",
+        "3": "zamieňa dĺžku prítomnosti na trhu s dôkazom o účinku"
+      }
+    },
+    {
+      "id": "K3",
+      "format": "mc4",
+      "expected_sec": 55,
+      "stem": "Spolužiak tvrdí, že nový telefón je najlepší, lebo to píšu na stránke výrobcu. Ktorá odpoveď najlepšie vystihuje problém?",
+      "options": [
+        "Výrobca nemusí klamať.",
+        "Stránka výrobcu nie je nezávislý zdroj.",
+        "Telefóny sa rýchlo menia.",
+        "Spolužiak sa nevyzná."
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "správne odmieta obvinenie z klamstva, ale nerozpozná, že nezávislosť zdroja je samostatná otázka",
+        "2": "mení predmet na rýchlosť vývoja",
+        "3": "spochybňuje osobu namiesto zdroja"
+      }
+    },
+    {
+      "id": "K4",
+      "format": "mc4",
+      "expected_sec": 55,
+      "stem": "V mestách, kde je viac kníhkupectiev, majú žiaci lepšie známky. Z toho vyplýva:",
+      "options": [
+        "Kníhkupectvá zlepšujú známky.",
+        "Lepšie známky vedú k otváraniu kníhkupectiev.",
+        "Môže existovať tretí činiteľ, ktorý súvisí s oboma.",
+        "Je to náhoda."
+      ],
+      "key": 2,
+      "distractor_dx": {
+        "0": "číta koreláciu ako príčinu v očakávanom smere",
+        "1": "číta koreláciu ako príčinu v opačnom smere",
+        "3": "zamieňa prítomnosť neznámej príčiny s neprítomnosťou vzťahu"
+      }
+    },
+    {
+      "id": "K5",
+      "format": "mc4",
+      "expected_sec": 70,
+      "stem": "Žiaci, ktorí raňajkujú, majú lepšie výsledky. Riaditeľ chce zaviesť povinné raňajky a očakáva lepšie výsledky. Čo je na jeho úvahe najslabšie?",
+      "options": [
+        "Raňajky sú drahé.",
+        "Nevie, či raňajky výsledky spôsobujú, alebo len sprevádzajú niečo iné.",
+        "Nie každý má rád raňajky.",
+        "Výsledky sa ťažko merajú."
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "namieta náklad namiesto platnosti úsudku",
+        "2": "namieta prijateľnosť namiesto platnosti úsudku",
+        "3": "spochybňuje meranie výsledku, nie príčinný krok"
+      }
+    },
+    {
+      "id": "K6",
+      "format": "mc4",
+      "expected_sec": 70,
+      "stem": "Odkedy v škole zaviedli nový rozvrh, zhoršila sa dochádzka. Aký údaj by ti najviac pomohol rozhodnúť, či za to môže rozvrh?",
+      "options": [
+        "Dochádzka v inej škole, ktorá rozvrh nezmenila.",
+        "Názor žiakov na rozvrh.",
+        "Dochádzka vlani v tom istom mesiaci.",
+        "Počet vyučovacích hodín."
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "zamieňa vysvetlenie za dôkaz o príčine",
+        "2": "porovnanie v čase bez kontroly ostatných zmien — blízko správnej úvahy, ale bez porovnávacej skupiny",
+        "3": "uvádza opisný údaj bez vzťahu k príčinnej otázke"
+      }
+    },
+    {
+      "id": "K7",
+      "format": "mc4",
+      "expected_sec": 55,
+      "stem": "Kamarát hovorí: „Môj dedo fajčil celý život a dožil sa deväťdesiatky, takže fajčenie nie je také zlé.“ Prečo to nestačí?",
+      "options": [
+        "Dedo mal šťastie.",
+        "Jeden prípad nevypovedá o tom, čo sa deje väčšine ľudí.",
+        "Dnes sa fajčí inak.",
+        "Deväťdesiat nie je veľa."
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "správne tuší výnimku, ale neuvedie, že problémom je veľkosť vzorky",
+        "2": "mení predmet na zmenu podmienok",
+        "3": "spochybňuje údaj namiesto úsudku z neho"
+      }
+    },
+    {
+      "id": "K8",
+      "format": "mc4",
+      "expected_sec": 60,
+      "stem": "Anketa na webe športového denníka zistila, že 80 % ľudí sleduje hokej. Prečo by si tomu neveril ako údaju o celej krajine?",
+      "options": [
+        "Ľudia klamú v anketách.",
+        "Odpovedali tí, ktorí sú už na športovom webe.",
+        "Osemdesiat percent je veľa.",
+        "Hokej sa hrá len v zime."
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "namieta pravdivosť odpovedí namiesto výberu respondentov",
+        "2": "namieta veľkosť čísla namiesto spôsobu jeho získania",
+        "3": "mení predmet na sezónnosť"
+      }
+    },
+    {
+      "id": "K9",
+      "format": "mc4",
+      "expected_sec": 90,
+      "stem": "Test na chorobu, ktorú má jeden človek z tisíc, je „presný na 95 %“. Test vyšiel pozitívne. Čo je najpravdepodobnejšie?",
+      "options": [
+        "Človek chorobu takmer určite má.",
+        "Väčšina pozitívnych výsledkov bude u zdravých ľudí, lebo zdravých je oveľa viac.",
+        "Test je zbytočný.",
+        "Pravdepodobnosť je 95 %."
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "zanedbáva základný výskyt choroby",
+        "2": "z nízkej výpovednej hodnoty pozitívneho výsledku vyvodzuje nepoužiteľnosť testu",
+        "3": "zamieňa presnosť testu s pravdepodobnosťou choroby — klasická zámena podmienených pravdepodobností"
+      }
+    },
+    {
+      "id": "K10",
+      "format": "mc4",
+      "expected_sec": 60,
+      "stem": "„Táto aplikácia ti ušetrí čas, lebo za teba napíše text.“ Aký predpoklad je v tvrdení skrytý?",
+      "options": [
+        "Že text netreba kontrolovať ani upravovať.",
+        "Že aplikácia je zadarmo.",
+        "Že vieš písať.",
+        "Že máš internet."
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "uvádza podmienku použitia namiesto predpokladu úsudku",
+        "2": "uvádza podmienku použitia namiesto predpokladu úsudku",
+        "3": "uvádza technickú podmienku namiesto predpokladu úsudku"
+      }
+    },
+    {
+      "id": "K11",
+      "format": "mc4",
+      "expected_sec": 55,
+      "stem": "Niekto tvrdí: „Nikto mi nedokázal, že to nefunguje, takže to funguje.“ V čom je chyba?",
+      "options": [
+        "Nedostatok dôkazu proti nie je dôkazom za.",
+        "Nikto to neskúšal.",
+        "Dôkaz je drahý.",
+        "Tvrdenie je nejasné."
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "namieta fakt namiesto štruktúry úsudku",
+        "2": "namieta náklad namiesto štruktúry úsudku",
+        "3": "namieta formuláciu namiesto štruktúry úsudku"
+      }
+    },
+    {
+      "id": "K12",
+      "format": "mc4",
+      "expected_sec": 60,
+      "stem": "Reklama hovorí: „Až 50 % zľava!“ Čo je najdôležitejšie zistiť?",
+      "options": [
+        "Z akej ceny sa zľava počíta a na koľko tovarov platí.",
+        "Dokedy akcia trvá.",
+        "Či je obchod blízko.",
+        "Či je tovar kvalitný."
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "zisťuje podmienku nákupu namiesto obsahu tvrdenia",
+        "2": "zisťuje podmienku nákupu namiesto obsahu tvrdenia",
+        "3": "posudzuje tovar namiesto tvrdenia o cene"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "bank_id": "T1_PRECHECK",
+  "instrument": "PRECHECK",
+  "topic": "T1",
+  "title": "Predtest k téme T1 (5 položiek, pred hodinou)",
+  "minutes": 5,
+  "jol": false,
+  "note": "Príloha A pôvodne obsahovala jediný dvadsaťpoložkový vstupný test v týždni 0. Protokol (príloha F, úprava 2) ho nahradil päťpoložkovými predtestami k danej téme zadanými pár minút pred hodinou, ktorá ich potrebuje — ale položky týchto predtestov neboli nikde napísané. Tento bank ich dopisuje; dvadsaťpoložková sada zostáva ako zásobník, z ktorého sú vybrané. Meria PREDPOKLADY témy, nie tému samu: žiadna položka nemá obsah hodiny.",
+  "items": [
+    {
+      "id": "PC1-1",
+      "level": "zapamatanie",
+      "format": "mc4",
+      "skill": "usporiadanost",
+      "expected_sec": 35,
+      "stem": "Ktorá z nasledujúcich postupností je usporiadaná vzostupne?",
+      "options": ["[1, 3, 2]", "[5, 4, 3]", "[2, 2, 7]", "[9, 1, 4]"],
+      "key": 2,
+      "distractor_dx": {
+        "0": "nevšimne si jedinú inverziu na konci",
+        "1": "zamieňa vzostupné s klesajúcim usporiadaním",
+        "3": "nerozlišuje usporiadanosť od prítomnosti rôznych hodnôt"
+      }
+    },
+    {
+      "id": "PC1-2",
+      "level": "porozumenie",
+      "format": "mc4",
+      "skill": "stred_a_hranice",
+      "expected_sec": 40,
+      "stem": "Pole A = [3, 8, 1, 9, 4]. Aká je hodnota A[3] pri indexovaní od jednotky?",
+      "options": ["1", "8", "9", "3"],
+      "key": 0,
+      "distractor_dx": {
+        "1": "indexuje od nuly namiesto od jednotky",
+        "2": "posúva index o jedno nadol",
+        "3": "číta prvý prvok bez ohľadu na index"
+      }
+    },
+    {
+      "id": "PC1-3",
+      "level": "porozumenie",
+      "format": "mc4",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 40,
+      "stem": "Koľkokrát možno číslo 1000 celočíselne deliť dvomi, kým nedostaneme 0?",
+      "options": ["8", "10", "100", "500"],
+      "key": 1,
+      "distractor_dx": {
+        "0": "zastaví pri 1 namiesto pri 0, alebo odhadne",
+        "2": "delí desiatimi namiesto dvomi",
+        "3": "vykoná len jedno delenie"
+      }
+    },
+    {
+      "id": "PC1-4",
+      "level": "aplikacia",
+      "format": "mc4",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 50,
+      "stem": "Koľko porovnaní v najhoršom prípade potrebuješ, aby si v neusporiadanom poli 100 prvkov našiel danú hodnotu?",
+      "options": ["7", "50", "100", "10 000"],
+      "key": 2,
+      "distractor_dx": {
+        "0": "aplikuje logaritmus na neusporiadané pole",
+        "1": "uvádza priemerný prípad namiesto najhoršieho",
+        "3": "uvažuje o vnorenom cykle"
+      }
+    },
+    {
+      "id": "PC1-5",
+      "level": "analyza",
+      "format": "mc4",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 55,
+      "stem": "Ak algoritmus vykoná pre 10 prvkov 100 krokov a pre 20 prvkov 400 krokov, ako narastá počet krokov?",
+      "options": ["lineárne", "kvadraticky", "logaritmicky", "konštantne"],
+      "key": 1,
+      "distractor_dx": {
+        "0": "nevšimne si, že zdvojnásobenie vstupu počet krokov zoštvornásobí",
+        "2": "zamieňa rýchlejší rast s pomalším",
+        "3": "nevšimne si rast vôbec"
+      }
+    }
+  ]
+}

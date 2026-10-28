@@ -1,0 +1,6 @@
+
+A Java CLI tool that runs a local HTTPS MITM proxy (LittleProxy 1.1.2 + LittleProxy-mitm 1.1.0), terminates TLS using a self-signed root CA imported into Firefox, matches request URLs against a YAML allow-list, and persists matching request bodies to JSON-lines files.
+
+Verified against ChatGPT. Failed on POST. Data captured from autosuggestions.
+ 
+Production tool: replace the Java interception engine with mitmproxy (actively maintained), maybe still use Java for anonymization and other things . Communicate with mitmproxy via Unix socket (tu su viacero moznosti na vibes)

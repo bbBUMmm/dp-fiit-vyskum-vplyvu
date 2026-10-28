@@ -1,0 +1,523 @@
+\chapter{Súčasný stav riešenej problematiky}
+\label{chapter:sota}
+
+Téma využívania umelej inteligencie (UI) vo vzdelávaní zaznamenala od konca roku 2022, kedy bola širokej verejnosti sprístupnená služba ChatGPT, prudký nárast pozornosti zo strany výskumníkov, pedagógov, žiakov i tvorcov vzdelávacích politík. Generatívne nástroje umelej inteligencie sa stali bežnou súčasťou každodennej práce študentov a postupne prenikajú aj do pedagogickej praxe. Paralelne s nimi sa rozvíjajú aj adaptívne nástroje, ktoré nesú prísľub personalizovaného vzdelávania s reálnou možnosťou prispôsobenia učebného obsahu individuálnym potrebám každého žiaka.
+
+Cieľom tejto kapitoly je predstaviť aktuálny stav poznania v skúmanej problematike a vytvoriť teoretické a metodologické východiská pre vlastný výskum. Táto kapitola je koncipovaná tak, aby kládla dôraz na analýzu výskumných postupov~--- teda na to, akým spôsobom sa autori k prezentovaným výsledkom dopracovali, aké výskumné dizajny použili, aké meracie nástroje zvolili a aké analytické postupy aplikovali. 
+
+Kapitola je rozdelená do siedmich častí. Prvá časť (\ref{sec:vymedzenie}) vymedzuje kľúčové pojmy a klasifikuje nástroje umelej inteligencie využívané vo vzdelávacom prostredí. Druhá časť (\ref{sec:reserse}) sumarizuje výsledky dvoch rozsiahlych systematických rešerší z roku 2025, ktoré poskytujú prehľad o vývoji výskumu v posledných rokoch. Tretia časť (\ref{sec:metodologia}) podrobne analyzuje metodológie piatich vybraných empirických štúdií, ktoré predstavujú reprezentatívnu vzorku aktuálneho stavu poznania. Štvrtá časť (\ref{sec:krajiny}) opisuje národné prístupy k integrácii umelej inteligencie do vzdelávania v Slovenskej republike a v okolitých krajinách. Piata časť (\ref{sec:prinosy}) zhŕňa identifikované prínosy a riziká využívania umelej inteligencie vo vzdelávaní. Šiesta časť (\ref{sec:zavery}) sumarizuje východiská pre vlastný výskum.
+
+
+\section{Vymedzenie pojmov a klasifikácia nástrojov}
+\label{sec:vymedzenie}
+
+Súčasné nástroje umelej inteligencie využívané vo vzdelávaní možno klasifikovať podľa viacerých kritérií. Z hľadiska zamerania na používateľa rozlišujeme nástroje generické a nástroje adaptívne. Pre účely tejto práce je dôležité spomenuté dve kategórie precízne definovať, keďže ich technické vlastnosti a pedagogické dôsledky sa zásadne líšia.
+
+
+\subsection{Generické nástroje umelej inteligencie}
+
+Generické nástroje umelej inteligencie predstavujú univerzálne aplikácie, ktoré nie sú primárne navrhnuté pre vzdelávacie účely, no v dôsledku ich širokej dostupnosti sa stali masovo využívanou pomôckou žiakov a študentov. Typickými predstaviteľmi tejto kategórie sú konverzačné systémy ako ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google) či Copilot (Microsoft). Tieto nástroje sú postavené na veľkých jazykových modeloch (large language models, LLM), ktoré boli trénované na rozsiahlych korpusoch textových dát z verejne dostupných zdrojov. Ich primárnou funkciou je generovanie kontextovo relevantnej odpovede na ľubovoľný textový vstup od používateľa.
+
+Z pedagogického hľadiska sú tieto nástroje charakteristické nasledujúcimi vlastnosťami: nepoznajú konkrétneho používateľa ani jeho učebnú históriu, neprispôsobujú obsah aktuálnej úrovni vedomostí žiaka v dlhodobom horizonte, neoverujú správnosť svojich odpovedí proti autoritatívnym zdrojom a nereflektujú špecifický pedagogický kontext, v ktorom sú využívané. Zároveň však umožňujú vysokú mieru flexibility~--- žiak môže v reálnom čase formulovať otázky, žiadať vysvetlenie, navrhovať riešenia alebo overovať vlastné porozumenie.
+
+
+\subsection{Adaptívne nástroje umelej inteligencie}
+
+Adaptívne nástroje umelej inteligencie sú špecificky navrhnuté pre vzdelávacie účely a kľúčovou charakteristikou je ich schopnosť dynamicky prispôsobovať obsah, tempo a obtiažnosť úloh individuálnym potrebám každého žiaka. Príkladmi tejto kategórie sú platformy ako Khanmigo od Khan Academy, Duolingo s integrovanými prvkami umelej inteligencie, fínska platforma Eduten určená pre matematické vzdelávanie či špecializované inteligentné tutoringové systémy (intelligent tutoring systems, ITS).
+
+Z technického hľadiska adaptívne systémy typicky kombinujú niekoľko architektonických prístupov. Hariyanto a kolektív~\cite{hariyanto2025adaptive} vo svojej systematickej rešerši identifikovali tri základné kategórie technologických prístupov využívaných v súčasných adaptívnych systémoch: učenie s učiteľom (napríklad rozhodovacie stromy, support vector machines či k-najbližších susedov), učenie bez učiteľa (zhlukovacie algoritmy ako k-means alebo DBSCAN) a posilňované učenie (reinforcement learning). Tieto techniky sú často kombinované s analýzou multimodálnych dát~--- kombináciou textových odpovedí, časových údajov o trvaní úloh, klikateľných vzorov a v pokročilých systémoch aj s fyziologickými indikátormi pozornosti.
+
+Rozdiel medzi generickými a adaptívnymi nástrojmi má významné pedagogické dôsledky. Zatiaľ čo generický nástroj poskytuje žiakovi okamžitú odpoveď na otázku, adaptívny systém je navrhnutý tak, aby viedol žiaka procesom porozumenia. Empirický rozdiel medzi týmito prístupmi bol predmetom skúmania v štúdii Slijepcevica a Yaylaliho~\cite{slijepcevic2025khanmigo}, ktorá je detailne analyzovaná v časti~\ref{subsec:slijepcevic}.
+
+
+\subsection{Generatívna a prediktívna umelá inteligencia}
+
+Z hľadiska technického prístupu rozlišujeme medzi generatívnou a prediktívnou umelou inteligenciou. Generatívna umelá inteligencia vytvára nový obsah~--- text, obraz, zvuk či video~--- na základe podnetu od používateľa. Prediktívna umelá inteligencia naopak analyzuje existujúce dáta a predpovedá výsledok, klasifikuje vstup do kategórií alebo identifikuje vzory v správaní používateľa. Vo vzdelávacom kontexte je generatívna umelá inteligencia využívaná predovšetkým pri tvorbe učebných materiálov, vysvetlení a spätnej väzby, zatiaľ čo prediktívna umelá inteligencia je základom adaptívnych systémov, ktoré odhadujú úroveň vedomostí žiaka a navrhujú vhodný ďalší krok.
+
+V súčasných moderných vzdelávacích platformách sú tieto dva prístupy často kombinované. Khanmigo napríklad využíva prediktívne komponenty na sledovanie pokroku žiaka a generatívne komponenty pre formulovanie vysvetlení v sokratickom štýle. Táto kombinácia je v odbornej literatúre označovaná ako hybridný prístup.
+
+
+\section{Systematické rešerše a metaanalýzy súčasného stavu}
+\label{sec:reserse}
+
+V roku 2025 boli publikované dve rozsiahle systematické rešerše, ktoré poskytujú reprezentatívny prehľad o stave výskumu umelej inteligencie vo vzdelávaní. Garzón, Patiño a Marulanda~\cite{garzon2025systematic} analyzovali 155 empirických štúdií publikovaných v rokoch 2015 až 2025, zatiaľ čo Hariyanto a kolektív~\cite{hariyanto2025adaptive} sa zamerali špecificky na adaptívne nástroje a analyzovali 142 štúdií z rovnakého obdobia. Obidve rešerše využili metodológiu PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses), ktorá predstavuje medzinárodne uznávaný štandard pre transparentné a reprodukovateľné vykonávanie systematických rešerší.
+
+
+\subsection{Rešerš Garzón a kolektív (2025)~--- všeobecný stav výskumu}
+
+Systematická rešerš Garzóna a kolektívu~\cite{garzon2025systematic} bola publikovaná v časopise \textit{Multimodal Technologies and Interaction} a predstavuje k dátumu vypracovania tejto práce najnovšiu syntézu poznatkov o využívaní umelej inteligencie vo vzdelávaní. Autori vyhľadávali štúdie v databázach Scopus, Web of Science, ScienceDirect a IEEE Xplore za pomoci kombinácie kľúčových slov zameraných na umelú inteligenciu vo vzdelávacom kontexte. Z pôvodných niekoľko tisíc identifikovaných záznamov bolo po aplikácii inkluzívnych a exkluzívnych kritérií zaradených do finálnej analýzy 155 empirických štúdií.
+
+Z hľadiska časovej distribúcie publikácií autori zaznamenali výrazný nárast výskumnej aktivity od roku 2022, ktorý priamo súvisí so sprístupnením generatívnych nástrojov umelej inteligencie širokej verejnosti. Pred rokom 2022 boli publikované prevažne štúdie zamerané na úzko špecializované aplikácie umelej inteligencie vo vzdelávaní, najmä v oblasti automatického hodnotenia a inteligentných tutoringových systémov. Po roku 2022 sa ťažisko výskumu posunulo k skúmaniu vplyvu generatívnych konverzačných systémov na vzdelávací proces.
+
+Z hľadiska geografickej distribúcie štúdií dominovali Spojené štáty americké, Čína a krajiny Európskej únie. Zo strednej Európy boli štúdie zaradené najmä z Českej republiky a Poľska, zo Slovenska autori nenašli žiadnu empirickú štúdiu, ktorá by zodpovedala kritériám zaradenia. Tento poznatok podčiarkuje aktuálnosť výskumu zameraného na slovenský kontext.
+
+Identifikované prínosy zahŕňali zlepšenie učebných výsledkov žiakov, možnosť personalizácie vzdelávania, vyššiu mieru motivácie a angažovanosti, zníženie administratívnej záťaže pedagógov a podporu inkluzivity vzdelávania. Naopak, identifikované výzvy a obmedzenia tvorili etické otázky súvisiace s nečestným použitím nástrojov žiakmi, rezistencia pedagógov voči nasadeniu nových technológií, riziko digitálnej závislosti, problémy spojené s ochranou osobných údajov a nerovnomerný prístup k technológiám medzi rôznymi socioekonomickými skupinami.
+
+
+\subsection{Rešerš Hariyanto a kolektív (2025)~--- adaptívne vzdelávanie}
+
+Systematická rešerš Hariyanta a kolektívu~\cite{hariyanto2025adaptive} sa zamerala užšie na adaptívne nástroje umelej inteligencie a techniky pre personalizované vzdelávanie. Autori analyzovali 142 štúdií, pričom okrem databáz Scopus, Web of Science a IEEE Xplore zaradili aj špecializované databázy zamerané na vzdelávacie technológie. Metodologickým prínosom tejto rešerše je detailná klasifikácia použitých technologických prístupov.
+
+Autori identifikovali nasledujúce hlavné technické prístupy využívané v adaptívnych nástrojoch: učenie s učiteľom (využívané v 47\,\% analyzovaných štúdií), učenie bez učiteľa (18\,\%), posilňované učenie (24\,\%) a integrácia multimodálnych dát (35\,\%, často v kombinácii s inými prístupmi). Z konkrétnych algoritmov sú najčastejšie využívané rozhodovacie stromy a support vector machines pre klasifikačné úlohy, k-means a DBSCAN pre zhlukovanie študijných profilov, a hlboké neurónové siete pre komplexné personalizované odporúčania.
+
+Z pedagogického hľadiska autori identifikovali tri hlavné spôsoby, akými adaptívne nástroje podporujú personalizované vzdelávanie. Prvým je dynamické prispôsobenie obtiažnosti úloh v reálnom čase na základe výkonu žiaka. Druhým je odporúčanie vhodného obsahu na základe predchádzajúcich interakcií a porovnania s podobnými profilmi žiakov. Tretím je poskytovanie individualizovanej spätnej väzby, ktorá zohľadňuje konkrétne chyby a nedostatky žiaka.
+
+Limitácie identifikované v analyzovaných štúdiách zahŕňali predovšetkým absenciu longitudinálnych výskumov, ktoré by overovali dlhodobý vplyv adaptívnych nástrojov, nedostatočnú reprezentáciu znevýhodnených populácií, problematickú interpretovateľnosť rozhodnutí komplexných modelov a etické otázky súvisiace s profilovaním žiakov.
+
+
+\subsection{Syntéza záverov systematických rešerší}
+
+Z porovnania oboch systematických rešerší vyplýva niekoľko spoločných záverov, ktoré majú priamy dosah na formuláciu výskumných otázok tejto práce. Po prvé, výskum v oblasti umelej inteligencie vo vzdelávaní je vo fáze rýchleho vývoja, čo prináša metodologické výzvy spojené s rýchlym zastarávaním empirických zistení. Štúdia, ktorá merala efektivitu konkrétnej verzie jazykového modelu, môže byť po niekoľkých mesiacoch už neaktuálna v dôsledku publikácie novších modelov.
+
+Po druhé, prevažujúca časť výskumov sa zameriava na meranie kvantitatívnych učebných výsledkov, pričom kvalitatívne aspekty~--- vplyv na motiváciu, kritické myslenie, samostatnosť žiakov či kvalitu medziľudských vzťahov~--- sú skúmané v menšej miere a s menšou metodologickou rigoróznosťou. Po tretie, geografická distribúcia výskumu vykazuje výrazné disproporcie a stredoeurópsky kontext, vrátane slovenských špecifík, zostáva systematicky podreprezentovaný.
+
+
+\section{Metodologická analýza kľúčových empirických štúdií}
+\label{sec:metodologia}
+
+V tejto časti predstavujeme detailnú analýzu metodológie piatich vybraných empirických štúdií, ktoré reprezentujú aktuálny stav poznania v skúmanej problematike. Výber bol uskutočnený tak, aby pokrýval rôzne metodologické prístupy~--- od randomizovaných kontrolovaných experimentov cez prieskumové štúdie využívajúce reálne príklady použitia, po laboratórne experimenty s neurofyziologickým meraním. Cieľom je nielen sumarizovať výsledky každej štúdie, ale predovšetkým analyzovať, akým spôsobom autori k týmto výsledkom dospeli, a posúdiť replikovateľnosť ich postupov v slovenskom prostredí.
+
+
+\subsection{Kestin a kolektív (2025)~--- Harvardský experiment s adaptívnym tutoringom}
+
+Štúdia tímu vedeného Gregorym Kestinom z Harvardovej univerzity~\cite{kestin2025aitutoring} bola publikovaná v júni 2025 v časopise \textit{Scientific Reports} a je v súčasnosti pravdepodobne najcitovanejším experimentálnym výskumom porovnávajúcim adaptívny tutoring založený na umelej inteligencii s tradičnými pedagogickými prístupmi. Štúdia bola vykonaná na vzorke 194 vysokoškolských študentov základného kurzu fyziky v jesennom semestri 2023.
+
+Z hľadiska výskumného dizajnu autori zvolili randomizovaný kontrolovaný experiment s krížovým usporiadaním (crossover design). Tento dizajn predstavuje zlatý štandard experimentálneho výskumu, pôvodne rozvinutý v klinickej medicíne. Účastníci boli náhodne rozdelení do dvoch skupín, pričom obidve skupiny absolvovali v dvoch po sebe nasledujúcich týždňoch oba typy intervencií. V prvom týždni skupina A absolvovala lekciu s adaptívnym tutorom doma, zatiaľ čo skupina B absolvovala paralelnú lekciu prezenčnou formou s prvkami aktívneho učenia. V druhom týždni sa role obrátili. Týmto usporiadaním autori eliminovali vplyv individuálnych rozdielov medzi účastníkmi a každý účastník slúžil ako vlastná kontrola.
+
+Adaptívny tutor použitý v štúdii nebol generickým konverzačným systémom typu ChatGPT. Autori navrhli špecializovaný systém postavený na jazykovom modeli GPT-4, ktorý bol konfigurovaný v súlade so siedmimi pedagogickými princípmi: princípom riadenia kognitívnej záťaže, princípom growth mindset, princípom okamžitej spätnej väzby, princípom aktívneho zapojenia žiaka, princípom socio-konstruktivistickej interakcie, princípom personalizácie tempa a princípom postupného odhaľovania komplexnosti.
+
+Z hľadiska merania autori zaznamenávali tri typy údajov. Vedomostné zisky boli merané prostredníctvom identického pre-testu a post-testu, ktoré zahŕňali úlohy z oblastí pochopenia a aplikácie v Bloomovej taxonómii. Čas strávený na lekcii bol meraný objektívne~--- pri tutorovi prostredníctvom logov interakcie, pri prezenčnej lekcii prostredníctvom predpísanej dĺžky 60 minút. Subjektívne aspekty učenia~--- angažovanosť, motivácia, sebavedomie~--- boli merané Likertovou škálou prostredníctvom dotazníka administrovaného bezprostredne po každej lekcii.
+
+Štatistická analýza bola založená na porovnaní priemerov medzi skupinami s vyznačením štandardnej chyby priemeru (SEM). Autori uvádzajú aj effect size meraný ako Cohenovo $d$, čo umožňuje porovnanie s inými štúdiami v oblasti. Veľkosť vzorky bola dostatočná pre detekciu stredne veľkých efektov pri konvenčnej štatistickej sile 0,8 a chybe prvého druhu 0,05.
+
+Z hľadiska aplikovateľnosti metodológie na slovenský kontext možno konštatovať, že krížový experimentálny dizajn je replikovateľný na vysokoškolskej úrovni. Pre kontext stredných škôl by však bolo potrebné metodológiu adaptovať~--- krížový dizajn vyžaduje vyzretosť účastníkov dostatočnú na to, aby si počas druhého týždňa pamätali predchádzajúcu intervenciu, čo je pri mladších žiakoch problematickejšie. Najvýznamnejšou metodologickou inováciou aplikovateľnou v slovenskom kontexte je dôraz na špecifický pedagogický dizajn adaptívneho nástroja~--- ukazuje sa, že nestačí použiť všeobecne dostupný konverzačný systém, ale je potrebné ho cielene konfigurovať podľa pedagogických princípov.
+
+
+\subsection{Lee a kolektív (2025)~--- Vplyv generatívnej UI na kritické myslenie}
+
+Štúdia tímu vedeného Hao-Pingom (Hankom) Leem z Microsoft Research a Carnegie Mellon University~\cite{lee2025genai} bola prezentovaná na konferencii CHI 2025 v japonskej Jokohame v máji 2025. Zameranie štúdie je odlišné od štúdie Kestina a kolektívu~--- neporovnáva rôzne metódy výučby, ale skúma, ako vplýva používanie generatívnych nástrojov umelej inteligencie na kritické myslenie pri reálnych pracovných úlohách.
+
+Výskumný dizajn štúdie je hybridný a kombinuje kvantitatívnu prieskumovú metodológiu s kvalitatívnou analýzou. Autori oslovili 319 pracovníkov znalostných profesií (knowledge workers) zo širokého spektra profesných oblastí~--- od softvérového inžinierstva cez marketing až po výskumné pozície. Každý účastník bol požiadaný, aby opísal niekoľko konkrétnych situácií, v ktorých použil generatívny nástroj umelej inteligencie pri svojej pracovnej úlohe. Tieto opisy boli následne kódované, pričom autori získali celkovo 936 reálnych príkladov použitia, ktoré tvorili základ analýzy.
+
+Kľúčovým metodologickým prínosom tejto štúdie je odklon od laboratórneho experimentu smerom k zberu reálnych príkladov z praxe. Tento prístup výrazne zvyšuje ekologickú validitu výskumu~--- namiesto umelo navrhnutých úloh autori analyzovali, ako ľudia skutočne používajú generatívne nástroje v každodennej práci. Kompromisom je nižšia kontrola nad podmienkami, čo komplikuje formulovanie kauzálnych vzťahov.
+
+Pre každú zaznamenanú situáciu účastníci hodnotili na päťbodovej Likertovej škále šesť aspektov kognitívneho úsilia, ktoré sa vzťahujú k jednotlivým fázam kritického myslenia podľa modifikovanej Bloomovej taxonómie: identifikácia cieľa, formulovanie dopytu, vyhodnotenie odpovede, integrácia odpovede do vlastnej práce, reflexia nad procesom a transfer do iných úloh. Súčasne účastníci hodnotili svoju sebadôveru pri konkrétnej úlohe a dôveru v schopnosti generatívneho nástroja.
+
+Štatistická analýza využila pokročilé regresné modely s náhodnými intercepmi (random-intercepts logistic regression a random-intercepts linear regression). Tieto modely sú vhodné pre situácie, kedy jeden účastník poskytuje viacero opakovaných meraní, čo je presne prípad tejto štúdie~--- každý z 319 účastníkov zdieľal v priemere tri príklady použitia. Náhodný intercep pre identifikátor účastníka umožňuje modelu zohľadniť individuálne rozdiely a vyhnúť sa porušeniu predpokladu nezávislosti pozorovaní, ktorý je základom konvenčnej regresie.
+
+Z hľadiska kvalitatívnej analýzy autori aplikovali tematickú analýzu (thematic analysis) na otvorené odpovede účastníkov. Postup zahŕňal nezávislé kódovanie dvoma výskumníkmi, výpočet medzihodnotiteľskej zhody (inter-rater agreement) a iteratívnu konsolidáciu kategórií do tematických celkov.
+
+Kľúčové zistenie štúdie~--- že vyššia dôvera v schopnosti generatívneho nástroja je spojená s nižším kritickým myslením, zatiaľ čo vyššia sebadôvera používateľa je spojená s vyšším kritickým myslením~--- je z metodologického hľadiska zaujímavé, pretože ukazuje na zložitosť interakcie medzi človekom a nástrojom. Autori navyše identifikovali, že charakter kritického myslenia sa pri použití generatívnej umelej inteligencie posúva od produkcie obsahu smerom k jeho overovaniu a integrácii.
+
+Aplikácia tohto metodologického prístupu na slovenský kontext je veľmi sľubná. Zber reálnych príkladov použitia v kombinácii so štruktúrovaným hodnotením kognitívneho úsilia je prenosný do prostredia stredných a vysokých škôl. Namiesto pracovníkov znalostných profesií by cieľovou skupinou boli žiaci a študenti. Regresné modely s náhodnými intercepmi sú dostupné v štandardných štatistických nástrojoch (R, SPSS, Stata) a nepredstavujú technickú prekážku.
+
+
+\subsection{Gerlich (2025)~--- Kognitívne offloading a kritické myslenie}
+
+Štúdia Michaela Gerlicha z SBS Swiss Business School~\cite{gerlich2025offloading} bola publikovaná v časopise \textit{Societies} v januári 2025 a zameriava sa na vzťah medzi mierou používania nástrojov umelej inteligencie a úrovňou kritického myslenia, pričom skúma úlohu kognitívneho offloadingu ako mediačnej premennej. Pod kognitívnym offloadingom rozumieme prenášanie kognitívnych úloh~--- pamätania, počítania, rozhodovania~--- na externé nástroje.
+
+Výskumný dizajn štúdie je mixed-methods, čo znamená, že autori kombinovali kvantitatívnu a kvalitatívnu metodológiu. Kvantitatívna časť pozostávala z online dotazníka administrovaného 666 respondentom z Veľkej Británie, ktorí boli získaní prostredníctvom sociálnych sietí a profesných platforiem. Veková štruktúra vzorky pokrývala spektrum od 17 do 55+ rokov, čo umožnilo skúmať vekové rozdiely. Kvalitatívna časť pozostávala z 50 polostrukturovaných rozhovorov s vybranou podvzorkou respondentov.
+
+Kľúčovou metodologickou voľbou bolo použitie Halpernovho testu kritického myslenia (Halpern Critical Thinking Assessment, HCTA) ako merného nástroja. HCTA je psychometricky validovaný test pôvodne vytvorený Diane Halpern, ktorý meria päť dimenzií kritického myslenia: verbálne uvažovanie, analýzu argumentov, testovanie hypotéz, pravdepodobnostné uvažovanie a riešenie problémov. Test je dostupný v skrátenej forme s 25 otázkami, ktoré možno administrovať za 20 až 30 minút.
+
+Frekvencia používania umelej inteligencie a miera kognitívneho offloadingu boli merané prostredníctvom self-report škál. Účastníci uvádzali, ako často používajú jednotlivé typy nástrojov (konverzačné systémy, vyhľadávače, kalkulačky, navigačné aplikácie) a do akej miery sa pri kognitívnych úlohách spoliehajú na tieto nástroje. Self-report meranie predstavuje metodologickú slabinu, ktorú autori reflektujú v limitáciách~--- účastníci nemusia presne odhadnúť svoje skutočné správanie a môžu byť ovplyvnení sociálnou žiaducnosťou.
+
+Štatistická analýza kvantitatívnych dát zahŕňala analýzu rozptylu (ANOVA) pre porovnanie skupín definovaných vekom, vzdelaním a profesnou kategóriou, korelačnú analýzu pre identifikáciu súvisostí medzi premennými a viacrozmernú regresiu pre testovanie hypotéz o vplyve používania umelej inteligencie na kritické myslenie pri kontrole demografických premenných. Pre testovanie mediačného efektu kognitívneho offloadingu autori použili konvenčný postup podľa Barona a Kennyho doplnený o bootstrapping pre testovanie významnosti nepriameho efektu.
+
+Z hľadiska aplikovateľnosti predstavuje Gerlichov metodologický prístup viacero zaujímavých prvkov pre slovenský výskum. Halpernov test kritického myslenia je validovaný v anglickej jazykovej verzii a pre slovenský kontext by bolo potrebné zabezpečiť jeho prevod. Existujú však aj alternatívne nástroje merania kritického myslenia, ktoré boli adaptované pre slovanské jazyky. Najdôležitejším prínosom Gerlichovej štúdie je práve identifikácia kognitívneho offloadingu ako mediačného mechanizmu~--- slovenský výskum by mohol tento mechanizmus skúmať s vyšším metodologickým rigorom, napríklad doplnením self-report merania o priame meranie behaviorálnych ukazovateľov (čas strávený premýšľaním pred zadaním dopytu, miera úprav generovanej odpovede, frekvencia overovania správnosti).
+
+
+\subsection{Slijepcevic a Yaylali (2025)~--- Khanmigo verzus generický vyhľadávač}
+\label{subsec:slijepcevic}
+
+Štúdia Nedima Slijepcevica a Aliho Yaylaliho z Eastern Kentucky University~\cite{slijepcevic2025khanmigo} bola publikovaná v špeciálnom čísle \textit{Journal of Teaching and Learning} venovanom umelej inteligencii v transformácii vysokoškolského vzdelávania. Z hľadiska výskumných otázok tejto diplomovej práce je táto štúdia obzvlášť relevantná, pretože priamo porovnáva adaptívny nástroj (Khanmigo) s generickým nástrojom (Google) v ekvivalentnej úlohe.
+
+Výskumný dizajn štúdie je mixed-methods s tromi skupinami účastníkov. Autori rekrutovali 69 vysokoškolských študentov z verejnej univerzity v Kentucky a náhodne ich rozdelili do troch experimentálnych podmienok. Prvá skupina pracovala s Khanmigom~--- adaptívnym tutorom od Khan Academy, ktorý je špecificky navrhnutý pre vzdelávacie účely a kombinuje generatívne aj prediktívne komponenty umelej inteligencie. Druhá skupina mala k dispozícii Google vyhľadávač ako reprezentanta generického nástroja. Tretia skupina pracovala len s papierovými materiálmi a slúžila ako kontrolná podmienka.
+
+Tematickou doménou štúdie boli lunárne fázy z oblasti astronómie. Voľba domény nebola náhodná~--- autori potrebovali tému, pre ktorú existuje validovaný štandardizovaný test, a Lunar Phases Concept Inventory (LPCI) je v tejto oblasti uznávaným nástrojom merania konceptuálneho porozumenia. Tento metodologický krok je dôležitý: namiesto vytvárania vlastného merného nástroja, ktorého validita by mohla byť spochybnená, autori využili existujúci validovaný test.
+
+Štruktúra experimentu pozostávala z piatich fáz. V prvej fáze účastníci absolvovali LPCI pre-test. V druhej fáze študovali tému lunárnych fáz prostredníctvom príslušnej intervencie (Khanmigo, Google alebo papierové materiály). Trvanie štúdia bolo limitované na štandardizovaný čas, čo umožnilo porovnateľnosť. V tretej fáze boli interakcie účastníkov s digitálnymi nástrojmi automaticky zaznamenané~--- všetky otázky, odpovede, doplňujúce dopyty a časové značky. Tento postup zberu dát je metodologicky cenný a priamo aplikovateľný pre vlastný výskum tejto diplomovej práce. V štvrtej fáze účastníci absolvovali LPCI post-test. V piatej fáze prebehli polostrukturované rozhovory s vybranými účastníkmi zo skupín Khanmigo a Google.
+
+Kvantitatívna analýza spočívala v aplikácii nezávislých t-testov pre porovnanie zlepšenia medzi pre-testom a post-testom v jednotlivých skupinách. Hladina významnosti bola stanovená na 0,05. Pre štatistické výpočty autori použili softvér SPSS a Jamovi. Kvalitatívna analýza rozhovorov bola tematická.
+
+Z výsledkov štúdie z metodologického hľadiska vyplývajú dva zaujímavé poznatky. Po prvé, kvantitatívne učebné zisky medzi Khanmigom a Google neboli štatisticky významne odlišné. Po druhé, kvalitatívna analýza ukázala, že študenti vnímali pomerne odlišne kvalitu interakcie. Účastníci v Khanmigo skupine oceňovali sokratický prístup nástroja~--- to znamená kladenie navádzajúcich otázok namiesto poskytovania priamej odpovede. Tento poznatok ilustruje rozdiel medzi adaptívnymi a generickými nástrojmi, ktorý nemusí byť detekovateľný iba kvantitatívnym meraním učebných ziskov.
+
+Z hľadiska aplikovateľnosti metodológie na slovenský kontext predstavuje táto štúdia mimoriadne relevantný model. Tri-skupinový dizajn s adaptívnym nástrojom, generickým nástrojom a kontrolnou skupinou je priamo prenosný. Pre slovenský výskum by bolo potrebné vybrať doménu, pre ktorú existuje validovaný štandardizovaný test, prípadne adaptovať existujúci medzinárodný test. Najdôležitejším metodologickým prínosom pre vlastný výskum je princíp logovania všetkých interakcií s digitálnym nástrojom~--- tento prístup je v súlade s plánovaným nástrojom na systematický zber údajov o používaní umelej inteligencie, ktorý je súčasťou zadania tejto práce.
+
+
+\subsection{Kosmyna a kolektív (2025)~--- Neurofyziologické meranie kognitívnej záťaže}
+
+Štúdia tímu vedeného Nataliyou Kosmynou z MIT Media Lab~\cite{kosmyna2025brain} bola publikovaná ako preprint v júni 2025 a vzbudila značnú pozornosť odbornej i laickej verejnosti. Autori sa zamerali na neurofyziologické meranie kognitívnej aktivity počas písania esejí, pričom porovnávali tri experimentálne podmienky~--- písanie s pomocou jazykového modelu, písanie s pomocou vyhľadávača a písanie bez akejkoľvek pomoci.
+
+Výskumný dizajn štúdie je laboratórny experiment s longitudinálnym prvkom. Autori rekrutovali 54 účastníkov z univerzitných prostredí v okolí Bostonu, ktorých náhodne rozdelili do troch skupín po 18 účastníkoch. Každý účastník absolvoval tri experimentálne sedenia v rozpätí štyroch mesiacov, počas ktorých opakovane riešil úlohu písania eseje v štýle SAT testu. V štvrtom sedení boli časti účastníkov premiešaní~--- pôvodná LLM skupina pracovala bez nástrojov, a pôvodná bezpomocná skupina dostala možnosť použiť LLM. Toto manipulačné usporiadanie umožnilo testovať, či a ako sa kognitívne návyky prenášajú medzi podmienkami.
+
+Kľúčovým metodologickým prínosom tejto štúdie je použitie elektroencefalografie (EEG) ako objektívneho merania kognitívneho zapojenia. Na rozdiel od predchádzajúcich štúdií, ktoré sa spoliehali na self-report meranie, autori priamo zaznamenávali mozgovú aktivitu prostredníctvom 32-kanálového EEG zariadenia. Sledovanou metrikou bola predovšetkým funkčná konektivita medzi rôznymi mozgovými oblasťami v alfa a beta frekvenčných pásmach, ktoré sú asociované s rôznymi aspektmi kognitívneho úsilia a pozornosti.
+
+Okrem neurofyziologického merania autori aplikovali aj počítačovú analýzu prirodzeného jazyka (natural language processing) na vytvorené eseje. Analyzovali rozmanitosť pomenovaných entít (named entity recognition), vzorce n-gramov a tematickú ontológiu. Eseje boli zároveň hodnotené tak ľudskými hodnotiteľmi (učitelia z Massachusetts College of Art), ako aj automatickým systémom hodnotenia.
+
+Výsledky štúdie sú z metodologického hľadiska prelomové. Skupina pracujúca s jazykovým modelom vykazovala konzistentne najslabšiu mozgovú konektivitu, skupina s vyhľadávačom vykazovala strednú úroveň zapojenia a skupina bez nástrojov najsilnejšiu konektivitu. Tieto rozdiely sa po štyroch mesiacoch nielen nezahladili, ale prehĺbili sa, čo autori interpretujú ako akumuláciu kognitívneho dlhu (cognitive debt). Pozoruhodným pozorovaním bolo, že 83\,\% účastníkov v LLM skupine nedokázalo citovať vlastné eseje krátko po ich napísaní, čo poukazuje na zníženú integráciu obsahu do dlhodobej pamäte.
+
+Z hľadiska aplikovateľnosti metodológie na slovenský kontext je potrebné konštatovať, že EEG meranie je technicky a finančne náročné a v reálnom školskom prostredí ho nie je možné vykonávať systematicky. Princíp objektívneho merania kognitívneho zapojenia je však dôležitý a možno ho aproximovať dostupnejšími prostriedkami. Možnými alternatívami sú meranie času čítania generovaných odpovedí (proxy ukazovateľ skutočného spracovania obsahu), sledovanie miery úprav generovaných výstupov žiakmi (indikátor kritického zapojenia), zaznamenávanie frekvencie a charakteru doplňujúcich otázok (indikátor hĺbky porozumenia) a v pokročilejších výskumoch eye-tracking pre meranie pozornosti pri čítaní výstupov. Tieto behaviorálne ukazovatele sú integrovateľné do nástroja pre zber údajov, ktorý je predmetom praktickej časti tejto diplomovej práce.
+
+
+\subsection{Bastani a kolektív (2025)~--- Generatívna UI môže poškodiť učenie}
+\label{subsec:bastani}
+
+Zo všetkých analyzovaných prác je pre túto diplomovú prácu najrelevantnejšia štúdia Bastaniovej a kolektívu~\cite{bastani2025harm}, a to z troch dôvodov: bola vykonaná na stredných školách, v rámci bežného vyučovania matematiky, a jej dizajn priamo oddeľuje generický nástroj od pedagogicky konfigurovaného nástroja postaveného na rovnakom jazykovom modeli.
+
+Autori realizovali randomizovaný experiment na vzorke približne tisíc žiakov strednej školy v Turecku. Žiaci boli rozdelení do troch podmienok, ktoré sa líšili výhradne tým, aká pomôcka bola dostupná počas cvičných hodín. Podmienka \emph{GPT Base} poskytla žiakom rozhranie k jazykovému modelu bez akýchkoľvek pedagogických obmedzení~--- teda presne to, čo žiak dostane, keď si otvorí verejne dostupný konverzačný systém. Podmienka \emph{GPT Tutor} používala ten istý model, ale s pedagogickými zábradliami: systémový prompt zakazoval poskytnúť hotové riešenie, vynucoval postupné nápovedy a vyžadoval od žiaka vlastný pokus. Kontrolná podmienka pracovala bez prístupu k jazykovému modelu.
+
+Kľúčovým metodologickým rozhodnutím bolo oddelenie \emph{výkonu počas cvičenia} od \emph{výkonu na následnom teste}, ktorý žiaci písali bez prístupu k akejkoľvek pomôcke. Počas cvičných hodín obe experimentálne podmienky výrazne prekonali kontrolnú skupinu: GPT Base o približne 48\,\% a GPT Tutor o približne 127\,\% v počte správne vyriešených úloh. Na následnom teste sa však obrazec obrátil. Žiaci z podmienky GPT Base dosiahli približne o 17\,\% horší výsledok než kontrolná skupina. Žiaci z podmienky GPT Tutor neboli oproti kontrolnej skupine poškodení, hoci ani výrazne zvýhodnení.
+
+Z toho vyplýva záver, ktorý tvorí os tejto diplomovej práce: \emph{nie samotný jazykový model, ale spôsob jeho pedagogického ohraničenia rozhoduje o tom, či nástroj učenie podporí alebo poškodí}. Rovnaký model v dvoch konfiguráciách viedol k opačným výsledkom. Zároveň platí, že výkon počas hodiny je systematicky zavádzajúcim ukazovateľom~--- podmienka s najväčším zlepšením počas cvičenia nebola tou s najlepším trvalým výsledkom.
+
+Autori interpretujú zistenie ako dôsledok tzv. \emph{barličkového efektu} (crutch effect): žiak s neobmedzeným prístupom k modelu prestane generovať vlastné riešenie a namiesto toho optimalizuje postup získania hotovej odpovede. Tento mechanizmus je konzistentný s teóriou kognitívneho offloadingu~\cite{risko2016offloading}, s Gerlichovými korelačnými zisteniami~\cite{gerlich2025offloading} aj s neurofyziologickými nálezmi Kosmyny a kolektívu~\cite{kosmyna2025brain}.
+
+Z hľadiska aplikovateľnosti na slovenský kontext je štúdia priamo prenosná: stredoškolské prostredie, bežná vyučovacia hodina, dostupná technológia. Metodologické obmedzenia, ktoré vlastný výskum tejto práce adresuje, sú tri. Po prvé, autori nemerali \emph{ako} žiaci s modelom komunikovali~--- mechanizmus je odvodený, nie pozorovaný. Po druhé, následný test bol administrovaný na konci cyklu, nie po definovanom odstupe, takže nerozlišuje medzi ťažkosťou učiva a zabúdaním. Po tretie, nebola meraná subjektívna stránka~--- či si žiaci uvedomovali, že sa naučili menej.
+
+
+\subsection{Deslauriers a kolektív (2019)~--- Pocit učenia verzus skutočné učenie}
+\label{subsec:deslauriers}
+
+Štúdia Deslauriersa a kolektívu~\cite{deslauriers2019feeling} nie je o umelej inteligencii, no poskytuje meraciu logiku, bez ktorej by výsledky predchádzajúcich štúdií zostali nevysvetlené. Autori realizovali krížový experiment na kurze fyziky na Harvardovej univerzite, v ktorom tí istí študenti absolvovali obsahovo ekvivalentné lekcie raz klasickou prednáškou a raz metódou aktívneho učenia.
+
+Výsledok bol dvojaký a protichodný. Objektívne merané učebné zisky boli po aktívnom učení výrazne vyššie. Subjektívne hodnotenie~--- odpoveď na otázku „koľko som sa naučil“ a spokojnosť s hodinou~--- bolo naopak vyššie po klasickej prednáške. Študenti systematicky preferovali formát, pri ktorom sa naučili menej.
+
+Autori vysvetľujú rozpor prostredníctvom \emph{plynulosti spracovania} (processing fluency): plynulo podaná prednáška vytvára subjektívny dojem porozumenia, pretože obsah sa v momente počúvania javí zrozumiteľný. Aktívne učenie je naopak namáhavé a nepríjemné, a práve toto úsilie je zdrojom trvalého zapamätania~--- mechanizmus, ktorý Bjork a Bjorková~\cite{bjork2011desirable} označujú ako \emph{žiaduce ťažkosti} (desirable difficulties).
+
+Metodologický prínos pre túto prácu je priamy a zásadný. Ak je subjektívny pocit naučenia riadený plynulosťou a nie skutočným osvojením, potom nástroj, ktorý maximalizuje plynulosť~--- a generatívny jazykový model je najplynulejšia pomôcka, akú kedy žiak mal k dispozícii~--- musí systematicky nadhodnocovať vnímané porozumenie. Táto úvaha vedie k hypotéze o \emph{ilúzii porozumenia} pri AI-podporovanej výučbe, ktorú formulujeme v časti~\ref{sec:syntezahypotezy} a testujeme prostredníctvom kalibračných metrík opísaných v časti~\ref{subsec:metakognicia}. Zároveň z nej vyplýva praktické varovanie: spätná väzba žiakov a hodnotenie hodiny, teda nástroje, ktorými školy bežne posudzujú kvalitu výučby, sú pri zavádzaní nástrojov umelej inteligencie nielen nedostatočné, ale potenciálne systematicky zavádzajúce.
+
+
+\subsection{Súhrnná komparácia metodológií}
+
+Porovnanie analyzovaných štúdií z hľadiska metodologických parametrov je zhrnuté v tabuľke~\ref{tab:metodologie}. Komparácia umožňuje identifikovať silné a slabé stránky jednotlivých prístupov a sformulovať odporúčania pre dizajn vlastného výskumu.
+
+\begin{table}[H]
+\centering
+\caption{Porovnanie parametrov analyzovaných empirických štúdií}
+\label{tab:metodologie}
+\small
+\begin{tabularx}{\textwidth}{|l|X|c|X|X|}
+\hline
+\textbf{Štúdia} & \textbf{Výskumný dizajn} & \textbf{$N$} & \textbf{Merné nástroje} & \textbf{Aplikovateľnosť na SR} \\
+\hline
+Kestin a kol. & RCT s krížovým usporiadaním & 194 & Pre-test/post-test, čas, Likertova škála & Vysoká pre VŠ; potreba adaptácie pre SŠ \\
+\hline
+Lee a kol. & Mixed-methods prieskum reálnych príkladov & 319 & 936 príkladov, Likertove škály, kvalitatívne kódy & Vysoká; priamo prenosný dizajn \\
+\hline
+Gerlich & Mixed-methods s longitudinálnym prvkom & 666 & Halpern CTA, self-report škály & Vysoká; potreba adaptácie HCTA \\
+\hline
+Slijepcevic a Yaylali & Mixed-methods RCT s tromi skupinami & 69 & LPCI, interakčné logy, rozhovory & Veľmi vysoká; ideálny vzor \\
+\hline
+Kosmyna a kol. & Lab. experiment, 4-mesačná longitudin. štúdia & 54 & EEG, NLP analýza esejí, hodnotenie & Nízka pre EEG; princípy prenosné na behaviorálne meranie \\
+\hline
+Bastani a kol. & RCT, 3 ramená, bežné vyučovanie SŠ & $\approx$\,1000 & Výkon počas cvičenia \emph{a osobitne} následný test bez pomôcky & Veľmi vysoká; najbližší referenčný dizajn \\
+\hline
+Deslauriers a kol. & Krížový experiment, VŠ & 149 & Objektívny test \emph{a} subjektívny pocit naučenia & Vysoká; dodáva meraciu logiku disociácie \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+\section{Národné prístupy k integrácii umelej inteligencie vo vzdelávaní}
+\label{sec:krajiny}
+
+Integrácia umelej inteligencie do vzdelávacieho prostredia nie je len akademickou témou~--- je predmetom systematickej pozornosti tvorcov vzdelávacích politík v krajinách Európskej únie. V tejto časti analyzujeme prístupy Slovenskej republiky a šiestich vybraných krajín~--- Českej republiky, Poľska, Maďarska, Fínska, Estónska a Rakúska. Voľba krajín bola motivovaná tromi kritériami: geografická a kultúrna blízkosť k Slovensku (krajiny Vyšehradskej štvorky), inštitucionálna spolupráca v rámci Európskej únie (Fínsko, Rakúsko) a postavenie v rebríčkoch implementácie digitálnej transformácie vzdelávania (Estónsko ako referenčný model).
+
+
+\subsection{Slovenská republika}
+
+Slovenská republika prijala v roku 2025 zásadný strategický dokument~--- Plán zodpovedného využívania AI vo vzdelávaní na Slovensku na obdobie 2025--2027~\cite{minedu2025plan}. Tento dokument predstavuje prvý komplexný rámec pre integráciu umelej inteligencie do slovenského vzdelávacieho systému a je realizovaný Ministerstvom školstva, výskumu, vývoja a mládeže SR prostredníctvom portálu \texttt{ai.iedu.sk}. Od marca 2026 bola AI gramotnosť oficiálne začlenená do Štátneho vzdelávacieho programu pre základné školy, pričom povinná implementácia do kurikula stredných škôl je naplánovaná na školský rok 2026/2027.
+
+V máji 2026 boli Slovenská technická univerzita v Bratislave a Technická univerzita v Košiciach oficiálne určené ako národné kompetenčné centrá pre oblasť umelej inteligencie vo vzdelávaní~\cite{drucker2026competence}. V rámci spolupráce s OpenAI je plánované sprístupnenie 20\,000 licencií ChatGPT Edu pre pedagogické fakulty a postupné rozšírenie na približne 80\,000 učiteľov základných a stredných škôl. Súčasťou plánu je aj výskum vplyvu nástrojov umelej inteligencie na výsledky vzdelávania, ktorý bude realizovaný práve v rámci kompetenčných centier. Tento kontext predstavuje pre prácu významnú príležitosť pre prepojenie s národnou výskumnou agendou.
+
+Z empirických údajov o aktuálnom stave je najrelevantnejším zdrojom výskumná správa Scio Research s názvom AI Kompas 2025~\cite{scio2025aikompas}, ktorá porovnáva využívanie umelej inteligencie vo vzdelávaní v Českej a Slovenskej republike na vzorke viac ako 6\,700 respondentov. Výsledky ukazujú niekoľko zaujímavých rozdielov. Slovenskí žiaci deklarujú častejšie využívanie umelej inteligencie ako ich českí rovesníci (80\,\% v SR oproti 72\,\% v ČR vo voľnom čase; 70\,\% v SR oproti 69\,\% v ČR na školské účely). Naopak, slovenskí učitelia využívajú nástroje umelej inteligencie podstatne menej intenzívne ako českí učitelia (25\,\% v SR oproti 58\,\% v ČR). Hlavnými nástrojmi sú ChatGPT a aplikácie sociálnych sietí. Informácie o umelej inteligencii žiaci získavajú prevažne z internetu a sociálnych sietí, pričom škola je v Slovenskej republike až štvrtým zdrojom v poradí (19\,\%).
+
+Z akademického prostredia bol prvý slovenský prieskum k téme realizovaný v marci a apríli 2023 Fakultou masmediálnej komunikácie Univerzity sv. Cyrila a Metoda v Trnave na vzorke 474 žiakov a 87 učiteľov stredných škôl~\cite{vrabec2023aiskola}. Prieskum bol zameraný na základné povedomie o umelej inteligencii a jej využívaní. Z výskumu vyplynulo, že približne polovica žiakov má skúsenosť s umelou inteligenciou a približne tretina pedagógov si nebola istá, či dokáže rozpoznať úlohy vypracované žiakom s pomocou umelej inteligencie. Tento prieskum predstavuje historicky najstarší empirický záznam o stave problematiky na Slovensku, no jeho rozsah a hĺbka neumožňujú odpovedať na zložitejšie metodologické otázky, ktoré sú v centre záujmu tejto diplomovej práce.
+
+Z hľadiska identifikovaných medzier predstavujú nasledujúce skutočnosti priame motivácie pre realizáciu výskumu tejto práce. Po prvé, na Slovensku chýba akademická štúdia analogická českým prácam~\cite{kopecky2026inevitable} (popísaným v časti~\ref{subsec:cr}), ktorá by systematicky mapovala vývoj postojov a praktík slovenských pedagógov v dlhodobejšom horizonte. Po druhé, žiadna z existujúcich slovenských štúdií nepoužila validovaný psychometrický nástroj pre meranie kognitívnych efektov používania umelej inteligencie. Po tretie, na Slovensku doposiaľ neexistuje žiaden softvérový nástroj umožňujúci priamy zber údajov o reálnych interakciách žiakov s nástrojmi umelej inteligencie~--- doterajšie údaje sa opierajú výhradne o self-report meranie.
+
+
+\subsection{Česká republika}
+\label{subsec:cr}
+
+Česká republika predstavuje najbližší referenčný bod pre porovnanie so Slovenskou republikou~--- zdieľa podobnú historickú trajektóriu, blízku jazykovú situáciu a porovnateľnú štruktúru vzdelávacieho systému. Z hľadiska politík integrácie umelej inteligencie do vzdelávania je však Česká republika výrazne pokročilejšia.
+
+Vláda Českej republiky schválila v júli 2024 aktualizovanú Národnú stratégiu umelej inteligencie Českej republiky 2030 (NAIS 2030)~\cite{nais2030}, ktorá je postavená na siedmich vzájomne prepojených pilieroch. Vzdelávanie a rozvoj digitálnych kompetencií tvorí jeden z prioritných pilierov. Stratégia formuluje konkrétne ciele pre transformáciu vzdelávacieho obsahu, profesijný rozvoj pedagógov a podporu nadania v oblasti umelej inteligencie. V rámci spolupráce s privátnym sektorom bol oznámený program Microsoft AI National Skilling Plan s cieľom vyškoliť 350\,000 osôb.
+
+Empirické údaje o stave implementácie poskytujú prieskumy realizované českým akademickým prostredím. Kopecký a kolektív~\cite{kopecky2026inevitable} z Centra prevence rizikové virtuálnej komunikácie Pedagogickej fakulty Univerzity Palackého v Olomouci vykonali komparatívnu kvantitatívnu štúdiu medzi rokmi 2023 a 2025, ktorá mapuje vývoj postojov a praktík českých pedagógov vo vzťahu k umelej inteligencii. Metodologicky bol prieskum administrovaný prostredníctvom online dotazníka v platforme Google Forms, distribuovaného cez univerzitné siete a profesijné skupiny. Skúmané dimenzie zahŕňali frekvenciu a účel používania umelej inteligencie, vnímanú pripravenosť, inštitucionálnu podporu a skúsenosti so zneužívaním nástrojov žiakmi.
+
+Pôvodný výskum z roku 2023 zahŕňal vzorku 2\,145 učiteľov základných a stredných škôl, pričom 53\,\% z nich uviedlo aktívne používanie aspoň jedného nástroja umelej inteligencie. Replikácia z roku 2025 použila identický dotazník a porovnala výsledky s baseline z roku 2023. Tento longitudinálny dizajn predstavuje metodologicky cenný príklad pre slovenský výskum~--- umožňuje sledovať dynamiku zmien v relatívne krátkom časovom horizonte. Doplnkový prieskum realizovaný organizáciou STEM Research Institute pre neziskovú organizáciu Nekrachni v apríli 2024 na vzorke 1\,536 žiakov vo veku 11--19 rokov metódou CAWI (Computer Assisted Web Interviewing) ukázal, že 45\,\% českých žiakov má skúsenosť s nástrojmi umelej inteligencie, pričom medzi týmito žiakmi dominuje ChatGPT (89\,\%).
+
+Štúdia realizovaná spoločnosťami Creative Dock a Elin.ai na vzorke 1\,000 žiakov z 62 stredných škôl zistila, že 81\,\% žiakov uvádza, že ich škola nemá pravidlá pre používanie umelej inteligencie. V roku 2025 bola českou iniciatívou \texttt{AI dětem} ocenená cena AI Awards 2025 za rozsiahly metodický rámec, ktorý ponúka takmer 50 vyučovacích metodológií pre základné a stredné školy.
+
+
+\subsection{Poľsko}
+
+Poľsko zvolilo pre integráciu umelej inteligencie do vzdelávania predovšetkým infraštruktúrny prístup. Politika digitálnej transformácie vzdelávania na obdobie 2024--2035 obsahuje desať prioritných oblastí, pričom rozvoj umelej inteligencie a digitálnych kompetencií tvoria centrálne piliere. Najvýraznejším praktickým opatrením je alokácia približne 1,84 miliardy poľských zlotých na vybudovanie 16\,000 učební vybavených technológiami umelej inteligencie.
+
+Z metodologického hľadiska je obzvlášť zaujímavá štúdia Tomczyka a kolektívu~\cite{tomczyk2025polish}, publikovaná v časopise \textit{Human Behavior and Emerging Technologies}. Autori vykonali prieskum medzi 289 učiteľmi základných a stredných škôl v Podkarpatskom vojvodstve v decembri 2024 a januári 2025. Metodologickým rámcom bol Extended Educational Technology Acceptance Model (EETAM), ktorý je rozšírením štandardného modelu prijatia technológie. Model analyzuje vzťahy medzi vnímanou užitočnosťou, jednoduchosťou používania, digitálnymi kompetenciami, obavami spojenými s umelou inteligenciou, postojmi, zámerom použiť nástroje a skutočným využívaním.
+
+Kľúčovým metodologickým výstupom štúdie bola klastrová analýza, ktorá identifikovala tri profily učiteľov: intenzívnych používateľov umelej inteligencie (13,5\,\%), príležitostných používateľov (30\,\%) a nepoužívateľov (43,5\,\%). Tento typologický prístup je priamo prenosný do slovenského kontextu a poskytuje rámec pre kategorizáciu používateľov v rámci vlastného výskumu.
+
+Štúdia bola zaradená do projektu Vyšehradského fondu (grant č. 22410207) s názvom \enquote{Innovation of the Education Process Towards Implementing AI Tools}~\cite{v4ai}, ktorý integruje výskumný kontext krajín Vyšehradskej štvorky~--- Poľska, Českej republiky, Slovenska a Maďarska. Tento projektový rámec poskytuje príležitosť pre začlenenie slovenského výskumu do širšieho regionálneho kontextu.
+
+
+\subsection{Maďarsko}
+
+Maďarsko prijalo v septembri 2025 obnovenú Národnú stratégiu umelej inteligencie 2025--2030, ktorá je založená na šiestich pilieroch~\cite{hungary2025strategy}. Pre vzdelávací sektor je relevantný pilier zameraný na rozvoj kompetencií, ktorého cieľom je dosiahnuť, aby do roku 2030 minimálne 2,5 milióna obyvateľov Maďarska disponovalo základnou gramotnosťou v oblasti umelej inteligencie.
+
+Inštitucionálny rámec maďarského prístupu tvorí AI Coalition, založená v roku 2018, ktorá združuje viac ako 400 zástupcov z biznisu, vedy a štátnej správy. Tento koordinačný mechanizmus zabezpečuje prepojenie strategických rozhodnutí s implementáciou v jednotlivých sektoroch. Pre vysokoškolský sektor bola v roku 2024 prijatá novela zákona o vysokoškolskom vzdelávaní, ktorá vysokým školám uložila povinnosť do 1. septembra 2025 zrevidovať svoje vnútorné predpisy a študijné poriadky vo vzťahu k používaniu umelej inteligencie.
+
+Z hľadiska empirických údajov je relevantný prieskum realizovaný spoločnosťou Bosch v jarných mesiacoch 2025 na vzorke približne 800 maďarských stredoškolákov. Prieskum zistil, že 84\,\% žiakov považuje zručnosti v oblasti umelej inteligencie za nevyhnutné pre budúci trh práce. V porovnaní s dospelou populáciou (71\,\%) sa žiaci ukazujú ako podstatne otvorenejší voči technologickej zmene.
+
+
+\subsection{Fínsko ako referenčný model}
+
+Fínsko je v medzinárodnom porovnaní považované za jeden z referenčných modelov pre integráciu umelej inteligencie do vzdelávania. Fínsky prístup je charakterizovaný kombináciou ambiciózneho strategického rámca s dôrazom na etickú a regulačnú rovinu. Národný program AuroraAI predstavuje koncept human-centric umelej inteligencie, ktorý kladie do popredia ochranu ľudských práv a hodnôt.
+
+V roku 2025 Národná agentúra pre vzdelávanie spoločne s Ministerstvom školstva a kultúry zverejnila komplexný dokument \enquote{Artificial intelligence in education~--- legislation and recommendations}~\cite{finland2025aieducation}, ktorý pokrýva všetky stupne vzdelávania od ranej starostlivosti až po odborné vzdelávanie. Tento dokument formuluje konkrétne povinnosti a odporúčania pre poskytovateľov vzdelávania. Medzi povinnosti patrí požiadavka na vykonanie analýzy vplyvu na ochranu údajov (Data Protection Impact Assessment, DPIA) pre všetky využívané nástroje umelej inteligencie, požiadavka na zabezpečenie vysvetliteľnosti algoritmov (explainable AI) a požiadavka na zriadenie etických komisií v rámci vzdelávacích inštitúcií.
+
+Z praktického hľadiska je fínsky model implementovaný prostredníctvom platformy Eduten, ktorá je využívaná v približne 70\,\% fínskych škôl s celkovým počtom 2,1 milióna používateľov. Platforma kombinuje adaptívne prispôsobenie matematických úloh s prvkami gamifikácie. Pre rozvoj základnej gramotnosti v oblasti umelej inteligencie Univerzita v Helsinkách vytvorila bezplatný online kurz \enquote{Elements of AI}, ktorý absolvovalo viac ako 1\,\% fínskeho obyvateľstva. Kurz je dostupný v slovenskom a českom jazyku, čo z neho robí priamo využiteľný zdroj pre slovenský kontext.
+
+
+\subsection{Estónsko~--- AI Leap 2025}
+
+Estónsko predstavuje v rámci stredoeurópskeho a baltského priestoru najambicióznejší príklad rýchlej a systematickej integrácie umelej inteligencie do vzdelávania. V roku 2025 estónska vláda spustila iniciatívu AI Leap (estónsky \textit{Tehisintellekti Hüpe})~\cite{estonia2025aileap}, ktorá je koncipovaná ako kontinuálne pokračovanie historickej iniciatívy Tiger Leap z deväťdesiatych rokov, ktorá zaviedla počítače a internet do estónskych škôl.
+
+Z hľadiska implementačnej metodológie je AI Leap rozvíjaný v jasne definovaných fázach. Prvá fáza, ktorá začala 1. septembra 2025, zahŕňa 20\,000 študentov z 10. a 11. ročníkov a 3\,000 učiteľov. Títo účastníci získavajú bezplatný prístup k pokročilým nástrojom umelej inteligencie a komplexné metodické školenie. Druhá fáza, plánovaná na rok 2026, rozšíri program o odborné stredné školy a približne 38\,000 ďalších študentov spolu s 2\,000 učiteľmi. Ročný rozpočet iniciatívy je odhadovaný na 6,5 milióna eur.
+
+Kľúčovým princípom estónskeho prístupu je sekvencia \enquote{training-first, deployment-second}~--- pred sprístupnením nástrojov žiakom prebieha rozsiahle školenie pedagógov. Tento prístup adresuje jednu z najčastejšie identifikovaných prekážok efektívneho využívania umelej inteligencie vo vzdelávaní, ktorou je nedostatočná pripravenosť pedagógov. Estónsky model je realizovaný v partnerstve s vedúcimi vývojármi umelej inteligencie~--- OpenAI a Anthropic~--- ktorí poskytujú žiakom prístup k svojim produktom za zvýhodnených podmienok.
+
+
+\subsection{Rakúsko a širší kontext Európskej únie}
+
+Rakúsko zastupuje opatrný prístup k integrácii umelej inteligencie do vzdelávania, charakteristický silným dôrazom na regulačné a etické otázky. Rakúsky prístup je inšpirovaný nemeckým modelom KMK Guidelines (smernice Stálej konferencie ministrov školstva a kultúry) a vychádza z princípov transparentnosti, ľudského dohľadu a kategorizácie nástrojov na základe rizika.
+
+V širšom kontexte Európskej únie je integrácia umelej inteligencie do vzdelávania ovplyvnená najmä Európskym aktom o umelej inteligencii a iniciatívami European Education Area. Z metodologického hľadiska je významný aj prehľad OECD \enquote{Policies for the digital transformation of school education} z roku 2025~\cite{oecd2025digital}, ktorý analyzuje politiky digitálnej transformácie v 37 jurisdikciách. Z analýzy vyplýva, že hoci 81\,\% skúmaných jurisdikcií spomína umelú inteligenciu vo svojich vzdelávacích stratégiách, len 25\,\% obsahuje konkrétne implementačné iniciatívy a len 19\,\% má definované časovo viazané ciele.
+
+
+\subsection{Komparačná tabuľka národných prístupov}
+
+Porovnanie analyzovaných prístupov je v tabuľke~\ref{tab:krajiny}.
+
+\begin{table}[H]
+\centering
+\caption{Komparácia národných prístupov k integrácii UI do vzdelávania}
+\label{tab:krajiny}
+\footnotesize
+\begin{tabularx}{\textwidth}{|p{1.9cm}|X|X|X|}
+\hline
+\textbf{Krajina} & \textbf{Strategický rámec} & \textbf{Implementácia} & \textbf{Empirické dáta} \\
+\hline
+Slovensko & Plán zodpovedného využívania AI 2025--2027, AI gramotnosť v ŠVP & STU a TUKE ako kompetenčné centrá; 80\,000 ChatGPT Edu licencií & AI Kompas 2025 (Scio): 80\,\% žiakov, 25\,\% učiteľov \\
+\hline
+Česká republika & NAIS 2030 (júl 2024), 7 pilierov & Microsoft AI Skilling Plan, AI dětem & Kopecký a kol. (2026); 45\,\% žiakov používa UI \\
+\hline
+Poľsko & Politika digitálnej transformácie 2024--2035 & Infraštruktúra: 16\,000 učební, 1,84 mld. PLN & Tomczyk a kol. ($N{=}289$); 3 profily používateľov \\
+\hline
+Maďarsko & AI stratégia 2025--2030, 6 pilierov & Regulácia VŠ; AI Coalition (400 partnerov) & Bosch prieskum ($N{\approx}800$); 84\,\% SŠ za UI \\
+\hline
+Fínsko & AuroraAI program; AI v edukácii (2025) & DPIA pre nástroje; Eduten v 70\,\% škôl & Elements of AI; vendor-led pilotné štúdie \\
+\hline
+Estónsko & AI Leap 2025 (\textit{TI Hüpe}) & Fázový rollout, partnerstvo s OpenAI/Anthropic & 20\,000 žiakov + 3\,000 učiteľov v 1. fáze \\
+\hline
+Rakúsko & KMK Guidelines (nemecký model) & Risk-based klasifikácia; etika v centre & Decentralizovaný prístup \\
+\hline
+\end{tabularx}
+\end{table}
+
+Z porovnania vyplýva, že Slovenská republika v roku 2025 vstúpila do aktívnej fázy implementácie integrácie umelej inteligencie do vzdelávania prostredníctvom Plánu zodpovedného využívania AI vo vzdelávaní. Postavenie STU ako národného kompetenčného centra predstavuje pre túto diplomovú prácu významnú príležitosť pre prepojenie s národnou výskumnou agendou.
+
+
+\section{Identifikované prínosy a riziká}
+\label{sec:prinosy}
+
+Na základe predchádzajúcej analýzy systematických rešerší, kľúčových empirických štúdií a národných prístupov možno systematicky zhrnúť prínosy a riziká využívania nástrojov umelej inteligencie vo vzdelávacom prostredí.
+
+
+\subsection{Pedagogické a kognitívne prínosy}
+
+Personalizácia vzdelávania predstavuje najčastejšie citovaný prínos. Adaptívne systémy, ako ukazuje meta-analýza Hariyanta a kolektívu~\cite{hariyanto2025adaptive}, dokážu prispôsobovať obsah a tempo individuálnym potrebám žiaka, čo bolo predtým možné len v individuálnom tutoringu. Štúdia Kestina a kolektívu~\cite{kestin2025aitutoring} demonštrovala, že kvalitne navrhnutý adaptívny tutor dokáže dosiahnuť vyššie učebné zisky v kratšom čase v porovnaní s prezenčnou výučbou s prvkami aktívneho učenia.
+
+Vyššia angažovanosť a motivácia žiakov je druhým konzistentne dokumentovaným prínosom. Žiaci v experimentálnych skupinách s prístupom k adaptívnym nástrojom systematicky vykazujú vyššie subjektívne hodnotenie zaujímavosti a motivácie. Tento efekt je čiastočne pripisovaný novosti technológie a môže časom slabnúť, čo poukazuje na potrebu longitudinálnych výskumov.
+
+Zníženie administratívnej záťaže pedagógov tvorí prínos zameraný na druhú stranu vzdelávacieho vzťahu. Garzón a kolektív~\cite{garzon2025systematic} identifikovali rastúci počet štúdií, ktoré dokumentujú úsporu času pri tvorbe učebných materiálov, hodnotení testov a komunikácii s rodičmi.
+
+Podpora inkluzivity a prístupnosti vzdelávania predstavuje špecifický prínos, ktorý je relevantný pre žiakov so špeciálnymi vzdelávacími potrebami, pre žiakov z jazykových menšín a pre žiakov v geograficky odľahlých oblastiach.
+
+
+\subsection{Kognitívne a pedagogické riziká}
+
+Kognitívne offloading a zníženie nezávislého myslenia je primárnym rizikom, ktoré dokumentujú dve z analyzovaných štúdií. Gerlich~\cite{gerlich2025offloading} preukázal negatívnu koreláciu medzi mierou používania nástrojov umelej inteligencie a úrovňou kritického myslenia. Kosmyna a kolektív~\cite{kosmyna2025brain} tento mechanizmus dokumentovali na neurofyziologickej úrovni~--- používatelia jazykového modelu vykazovali konzistentne najslabšiu mozgovú konektivitu a tieto rozdiely sa v priebehu štyroch mesiacov prehlbovali.
+
+Zmenený charakter kritického myslenia bol identifikovaný štúdiou Leeho a kolektívu~\cite{lee2025genai}. Autori dokumentujú, že generatívna umelá inteligencia nepotláča kritické myslenie ako celok, ale skôr posúva jeho ťažisko od produkcie obsahu k jeho overovaniu a integrácii.
+
+Etické riziká súvisiace s nečestným použitím tvoria praktickú výzvu, ktorá je v stredoeurópskom kontexte obzvlášť aktuálna. Český výskum~\cite{kopecky2026inevitable} dokumentuje, že 81\,\% českých stredoškolákov uvádza, že ich škola nemá pravidlá pre používanie nástrojov umelej inteligencie. Podobná situácia je dokumentovaná aj v slovenskom prostredí~\cite{scio2025aikompas}.
+
+Riziká spojené s ochranou osobných údajov sú obzvlášť relevantné pri použití komerčných platforiem, ktorých dátové toky končia mimo Európskej únie. Fínsky model~\cite{finland2025aieducation} demonštruje, ako je možné tieto riziká adresovať prostredníctvom povinného vykonávania analýz vplyvu na ochranu údajov.
+
+
+\subsection{Otvorené metodologické otázky}
+
+Z metodologickej analýzy v časti~\ref{sec:metodologia} vyplýva, že súčasný stav výskumu vykazuje niekoľko systémových obmedzení, ktoré tvoria príležitosť pre originálne príspevky. Po prvé, dominancia self-report meraní v skúmaných štúdiách obmedzuje validitu zistení. Vlastný výskum tejto práce môže tento problém adresovať integráciou behaviorálnych ukazovateľov priamo do nástroja zberu dát.
+
+Po druhé, väčšina existujúcich štúdií má krátkodobý charakter. Iba štúdia Kosmyny a kolektívu~\cite{kosmyna2025brain} poskytuje longitudinálne dáta v rozsahu štyroch mesiacov. Po tretie, kategórie používateľov sú vo väčšine štúdií definované veľmi hrubo. Vlastný výskum môže priniesť pridanú hodnotu detailnejšou kategorizáciou používateľov založenou na vzorcoch interakcie s nástrojmi. Po štvrté, slovenský kontext je v aktuálnom výskume systematicky podreprezentovaný.
+
+
+\section{Závery rešerše a východiská pre vlastný výskum}
+\label{sec:zavery}
+
+
+Z analýzy systematických rešerší~\cite{garzon2025systematic,hariyanto2025adaptive} vyplýva, že integrácia umelej inteligencie do vzdelávania prešla v posledných troch rokoch fázou rýchleho rastu publikačnej aktivity, ktorý však nie je rovnomerne rozdelený medzi krajiny ani medzi tematické oblasti. Slovenský kontext je v medzinárodnom výskume podreprezentovaný a existuje zreteľná potreba empirických údajov, ktoré by zohľadňovali špecifiká slovenského vzdelávacieho systému.
+
+Z metodologickej analýzy kľúčových empirických štúdií~\cite{kestin2025aitutoring,lee2025genai,gerlich2025offloading,slijepcevic2025khanmigo,kosmyna2025brain} vyplýva, že pre vlastný výskum sa ako najvhodnejšie javí kombinovať tri prístupy. Po prvé, dizajn s tromi skupinami inšpirovaný štúdiou Slijepcevica a Yaylaliho~\cite{slijepcevic2025khanmigo}~--- porovnanie skupiny pracujúcej s adaptívnym nástrojom, skupiny pracujúcej s generickým nástrojom a kontrolnej skupiny bez digitálnej pomoci. Po druhé, systematický zber dát o interakciách s nástrojom inšpirovaný metodológiou Lee a kolektívu~\cite{lee2025genai}~--- záznam reálnych dopytov, časových údajov a vzorcov interakcie. Po tretie, doplnenie self-report meraní o behaviorálne ukazovatele inšpirované metodológiou Kosmyny a kolektívu~\cite{kosmyna2025brain}~--- meranie času čítania generovaných odpovedí, frekvencie úprav výstupov a charakteru následných dopytov.
+
+Z analýzy národných prístupov vyplýva, že Slovenská republika v roku 2025 vstúpila do aktívnej fázy implementácie integrácie umelej inteligencie do vzdelávania prostredníctvom Plánu zodpovedného využívania AI~\cite{minedu2025plan}. Postavenie STU ako národného kompetenčného centra~\cite{drucker2026competence} a existencia rozsiahlej empirickej štúdie AI Kompas 2025~\cite{scio2025aikompas} predstavujú pre tento výskum významný kontext a príležitosť. Z hľadiska metodologickej spolupráce sú obzvlášť relevantné krajiny Vyšehradskej štvorky, najmä Česká republika a Poľsko, kde sú dostupné aktuálne empirické dáta a metodológie~\cite{kopecky2026inevitable,tomczyk2025polish}.
+
+Na základe identifikovaných prínosov, rizík a metodologických medzier formulujeme nasledujúce východiská pre vlastný výskum. V oblasti výskumných otázok je cieľom skúmať tri vzájomne prepojené dimenzie: ako sa nástroje umelej inteligencie aktuálne využívajú v slovenských školách, aké typy používateľov možno identifikovať a aký je vplyv ich používania na vybrané schopnosti žiakov. V oblasti metodológie je cieľom integrovať kvantitatívny zber dát prostredníctvom navrhnutého softvérového nástroja s kvalitatívnou analýzou interakcií a so štandardizovaným meraním pred a po použití nástroja. V oblasti praktického výstupu je cieľom poskytnúť odporúčania pre efektívne a zodpovedné využívanie umelej inteligencie vo vzdelávaní, ktoré budú zakorenené v empirických dátach zo slovenského kontextu.
+
+
+\section{Ako sa nástroje umelej inteligencie v školách skutočne nasadzujú}
+\label{sec:nasadenie}
+
+Predchádzajúce časti analyzovali \emph{experimenty}. Táto analyzuje \emph{nasadenia}~--- teda to, čo sa deje, keď sa nástroj dostane do školy mimo výskumného rámca. Rozdiel je podstatný: štúdia meria, čo nástroj dokáže za kontrolovaných podmienok, nasadenie ukazuje, čo z toho zostane.
+
+\subsection{Kvantitatívne vyhodnotenie: čo nasadené riešenia preukázateľne dosiahli}
+
+\begin{table}[H]
+\centering
+\caption{Nasadené riešenia a sila dôkazu o ich účinku}
+\label{tab:nasadenia}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+\toprule
+\textbf{Riešenie} & \textbf{Typ} & \textbf{Najsilnejší dôkaz} & \textbf{Čo z neho vyplýva} \\
+\midrule
+Khanmigo (Khan Academy) & adaptívny tútor & dvojročný klastrovo randomizovaný pokus, 18~škôl & $0{,}06$--$0{,}08$~SD za školský rok; zisk \emph{porovnateľný} s používaním Khan Academy \emph{bez} UI \\
+MagicSchool & nástroj pre učiteľa & bez nezávislého pokusu & deklarované úspory času učiteľa; vplyv na žiaka nemeraný \\
+Photomath, Gauth & riešiče úloh & bez nezávislého pokusu & navrhnuté tak, aby vydali hotové riešenie \\
+ChatGPT Edu (SR, plošne) & generický asistent & bez nezávislého pokusu & nasadzuje sa skôr, než vznikne dôkaz \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Najpodstatnejší je prvý riadok a je podstatný dvakrát. Po prvé, veľkosť účinku $0{,}06$--$0{,}08$~SD presne zodpovedá rozdeleniu, ktoré Kraft~\cite{kraft2020effectsizes} zostavil zo 747~randomizovaných štúdií a ktorého medián je $0{,}10$~SD. Nejde teda o zlyhanie konkrétneho nástroja, ale o bežnú veľkosť účinku vzdelávacieho zásahu~--- čo je samo osebe argument proti očakávaniam, s ktorými sa nástroje do škôl zavádzajú.
+
+Po druhé, a dôležitejšie: zisk bol \emph{porovnateľný so ziskom z tej istej platformy bez komponentu umelej inteligencie}. Adaptívna vrstva teda v tomto nasadení nepridala merateľne nič. To je presne kontrast $A$ oproti $G$, ktorý je predmetom tejto práce, odpovedaný v teréne a odpovedaný záporne.
+
+\subsection{Kvalitatívne vyhodnotenie: čo sa pokazí pri nasadení}
+
+Kvantitatívny výsledok nehovorí, \emph{prečo}. Tri pozorovania z toho istého nasadenia hovoria:
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Nástroj sa nepoužíva.}] Prístup k nástroju malo celé experimentálne rameno; skutočne ho používalo približne 15\,\% žiakov. Účinok nameraný na celej skupine je teda účinok rozriedený ôsmimi devätinami žiakov, ktorých sa netýkal. Toto je obmedzujúci faktor, ktorý v laboratórnej štúdii neexistuje a v škole je rozhodujúci.
+    \item[\textbf{Žiaci obchádzajú sokratovskú vrstvu.}] Žiaci opakovane žiadali priamu odpoveď namiesto toho, aby odpovedali na otázku, ktorú im nástroj položil. Pedagogické ohraničenie teda nie je vlastnosťou nástroja, ale výsledkom pretláčania medzi nástrojom a žiakom~--- a žiak má k dispozícii trpezlivosť, ktorú nástroj nemá. Práve toto správanie je tým, čo index PEQI meria (časť~\ref{sec:peqi}), a tu je zdokumentované v nasadení s desaťtisícmi žiakov.
+    \item[\textbf{Dôkaz chýba, nasadenie beží.}] Pre väčšinu riadkov tabuľky~\ref{tab:nasadenia} neexistuje nezávislý randomizovaný pokus. Nasadenie teda nepredbieha dôkaz náhodou, ale systematicky.
+\end{description}
+
+\subsection{Prínosy a obmedzujúce faktory}
+
+\begin{table}[H]
+\centering
+\caption{Prínosy a obmedzujúce faktory nasadených riešení}
+\label{tab:prinosy-obmedzenia}
+\small
+\begin{tabularx}{\textwidth}{@{}X X@{}}
+\toprule
+\textbf{Doložené prínosy} & \textbf{Doložené obmedzujúce faktory} \\
+\midrule
+dostupnosť individuálnej spätnej väzby mimo vyučovacej hodiny & nízke skutočné využitie (rádovo desatina tých, ktorí majú prístup) \\
+úspora času učiteľa pri príprave materiálov & obchádzanie pedagogického ohraničenia zo strany žiaka \\
+okamžitá odozva, ktorá udržiava žiaka pri úlohe & účinok na úrovni bežného vzdelávacieho zásahu, nie na úrovni očakávaní \\
+škálovateľnosť bez nákladov na ľudského tútora & chýbajúci nezávislý dôkaz pri väčšine nasadených riešení \\
+ & neschopnosť školy zistiť, \emph{ako} žiak nástroj používal \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Posledný riadok pravého stĺpca je medzera, ktorú táto práca zapĺňa. Škola, ktorá nástroj nasadí, vie, že ho žiaci majú, a nevie, čo s ním robia. Všetky štyri riadky tabuľky~\ref{tab:nasadenia} merajú \emph{výsledok}; žiadne z nich nemeria \emph{spôsob použitia}. Pritom práve spôsob použitia je podľa zjednocujúcej hypotézy tejto práce tým, čo rozhoduje.
+
+\section{Umelá inteligencia v slovenskom školstve}
+\label{sec:slovensko}
+
+Zadanie žiada oboznámenie sa s aktuálnym stavom na Slovensku. Stav má tri črty a všetky tri sú pre návrh tejto práce podstatné.
+
+\paragraph{Žiaci nástroje už používajú, plošne.} Podiel študentov používajúcich nejakú formu generatívnej umelej inteligencie sa v slovenských a českých prieskumoch z rokov 2025--2026 pohybuje nad 90\,\%, pričom približne 43\,\% používa výhradne ChatGPT. Otázka, či nástroje do vzdelávania vstúpia, je teda bezpredmetná; vstúpili bez toho, aby o tom škola rozhodovala.
+
+\paragraph{Učitelia zaostávajú a vedia o tom.} Približne štvrtina slovenských učiteľov používa umelú inteligenciu vo vyučovaní, menej než 40\,\% na tvorbu materiálov a len okolo 5\,\% na personalizáciu výučby. Metodickú prípravu absolvovalo približne 28\,\% slovenských učiteľov oproti približne 60\,\% českých. Približne tretina učiteľov uvádza, že by nerozoznala prácu vypracovanú nástrojom od práce žiaka. Tento rozdiel medzi používaním u žiakov a pripravenosťou u učiteľov je dôvodom, prečo táto práca dopĺňa učiteľskú vetvu (časť~\ref{sec:ucitelia}).
+
+\paragraph{Systémové zavedenie prebieha teraz.} Gramotnosť v oblasti umelej inteligencie sa stáva súčasťou Štátneho vzdelávacieho programu, v školskom roku 2026/2027 sa rozširuje na stredné školy, beží národný projekt podpory zodpovedného využívania umelej inteligencie v regionálnom školstve a v spolupráci s poskytovateľom sa sprístupňuje ChatGPT~Edu rádovo osemdesiatim tisícom učiteľov. Zapojenie je dobrovoľné.
+
+\paragraph{Čo z toho vyplýva pre túto prácu.} Zavedenie prebieha rýchlejšie, než vzniká domáci dôkaz. Systematická rešerš 155~empirických štúdií~\cite{garzon2025systematic} nenašla zo Slovenska ani jednu prácu spĺňajúcu kritériá zaradenia; prehľad techník adaptívneho vzdelávania~\cite{hariyanto2025adaptive} zhŕňa 142~štúdií z rokov 2015--2025 a konštatuje rovnakú medzeru v kultúrne špecifických rámcoch. Nasadzuje sa teda plošne, dobrovoľne a bez meracieho nástroja, ktorým by škola zistila, či jej konkrétna forma zavedenia funguje. Presne taký nástroj je predmetom tejto práce.
+
+
+\section{Syntéza: zjednocujúca hypotéza a výskumná medzera}
+\label{sec:syntezahypotezy}
+
+Analyzované empirické štúdie sa na prvý pohľad vzájomne vyvracajú. Kestin a kolektív~\cite{kestin2025aitutoring} zistili, že adaptívny tutor prekonáva aktívne učenie. Bastaniová a kolektív~\cite{bastani2025harm} zistili, že generatívny nástroj \emph{znižuje} výsledky na následnom teste. Slijepcevic a Yaylali~\cite{slijepcevic2025khanmigo} nenašli medzi adaptívnym a generickým nástrojom žiadny rozdiel v učebných ziskoch. Gerlich~\cite{gerlich2025offloading} dokumentoval negatívnu koreláciu s kritickým myslením a Kosmyna s kolektívom~\cite{kosmyna2025brain} jej neurofyziologický korelát.
+
+Tvrdíme, že tieto zistenia nie sú v rozpore. Sú vzájomne konzistentné, ak prijmeme jedno rozlíšenie a jednu hypotézu.
+
+\paragraph{Rozlíšenie.} Je nutné dôsledne oddeliť tri veci, ktoré sa v literatúre bežne zamieňajú pod spoločným označením „výsledky vzdelávania“: (i)~\emph{výkon počas hodiny}, teda koľko úloh žiak vyrieši, kým má nástroj k dispozícii; (ii)~\emph{okamžité vybavenie} bezprostredne po hodine, už bez nástroja; a (iii)~\emph{trvalé vybavenie a transfer} po odstupe. Bastaniová a kolektív ukázali, že tieto tri ukazovatele sa môžu usporiadať v opačnom poradí. Štúdie, ktoré merajú len (i) alebo (ii), teda nemerajú to, čo škola chce vedieť.
+
+\paragraph{Zjednocujúca hypotéza.} Nástroj umelej inteligencie zvyšuje výkon počas hodiny a subjektívny pocit naučenia takmer za každých okolností, pretože odstraňuje úsilie. Jeho účinok na \emph{trvalé} učenie však závisí od toho, či interakcia žiaka s nástrojom zostáva \emph{generatívna}~--- žiak formuluje vlastné riešenie, vysvetlenie alebo hypotézu~--- alebo sa stáva \emph{offloadingová}, keď žiak deleguje samotný kognitívny úkon. Pedagogické ohraničenie nástroja (rozdiel medzi GPT Base a GPT Tutor) je účinné práve preto, že posúva distribúciu interakcií smerom ku generatívnemu pólu.
+
+Táto hypotéza vysvetľuje všetky štyri zdanlivo protirečivé zistenia naraz. Kestinov tutor bol pedagogicky konfigurovaný podľa siedmich princípov, teda vynucoval generatívnu interakciu. Bastaniovej GPT Base ju nevynucoval. Khanmigo v štúdii Slijepcevica a Yaylaliho síce bol adaptívny, no žiaci ho používali v jednorazovej laboratórnej úlohe, kde bola miera offloadingu v oboch skupinách podobná~--- a autori ju nemerali. Gerlichova a Kosmynina zistenia opisujú dôsledok dlhodobej offloadingovej interakcie.
+
+\paragraph{Výskumná medzera.} Zjednocujúca hypotéza má jednu vlastnosť, ktorá ju robí testovateľnou a zároveň dosiaľ neoverenou: opiera sa o veličinu~--- charakter interakcie žiaka s nástrojom~--- ktorú doteraz nikto nemeral priamo. Gerlich ju meral sebahodnotiacimi škálami, teda nástrojom, ktorý je pri správaní podliehajúcom sociálnej žiaducnosti systematicky skreslený. Kosmyna ju meral EEG, teda nástrojom, ktorý je v školskej triede nepoužiteľný. Bastaniová ju neodvodzovala z dát vôbec. Slijepcevic a Yaylali interakcie síce logovali, ale použili ich len na kvalitatívny opis, nie ako premennú v modeli.
+
+Táto práca zapĺňa uvedenú medzeru tým, že charakter interakcie operacionalizuje ako \emph{pozorovanú, automaticky vypočítateľnú veličinu} odvodenú z reálnych promptov žiakov, ktoré zachytáva nástroj vyvinutý v technickej časti práce. Táto veličina~--- index epistemickej kvality promptov (PEQI, časť~\ref{sec:peqi})~--- je následne použitá ako mediátor v kauzálnom modeli, a nie len ako doplnková deskripcia.
+
+Z uvedeného vyplývajú tri konkrétne metodologické požiadavky na vlastný výskum, ktoré žiadna z analyzovaných štúdií nespĺňa súčasne:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Oddelený generický a adaptívny nástroj nad rovnakým modelom.} Porovnanie Khanmiga s Googlom zamieňa model, rozhranie aj obsah. Manipulovať treba výhradne pedagogickú vrstvu.
+    \item \textbf{Odložené meranie a transfer.} Bez testu s odstupom nemožno rozlíšiť medzi učením a plynulosťou; bez transferových úloh nemožno rozlíšiť medzi zapamätaním postupu a porozumením princípu.
+    \item \textbf{Pozorovaný, nie sebahodnotený mechanizmus.} Mediátor musí byť odvodený zo správania, inak zostáva vysvetlenie špekulatívne.
+\end{enumerate}
+
+
+\section{Výskumné otázky a hypotézy}
+\label{sec:rqhypotezy}
+
+Na základe predchádzajúcej syntézy formulujeme štyri výskumné otázky a osem k nim priradených hypotéz. Hypotézy sú formulované smerovo a budú pred zberom dát zaregistrované vo verejnom registri~\cite{nosek2018preregistration,osf_preregistration}; ich operacionalizácia je uvedená v kapitole~\ref{chapter:metodika}.
+
+\begin{description}[leftmargin=2.1cm, style=nextline, nosep]
+    \item[VO1] Líši sa vplyv klasickej výučby, výučby s generickým nástrojom umelej inteligencie a výučby s adaptívnym (sokratovským) nástrojom na \emph{trvalé} osvojenie učiva a na jeho transfer?
+    \item[VO2] Rozchádza sa subjektívny pocit naučenia s objektívne meraným trvalým osvojením, a ak áno, v ktorej podmienke najviac?
+    \item[VO3] Vysvetľuje epistemická kvalita promptov, ktoré žiak nástroju posiela, rozdiel v trvalom osvojení medzi generickým a adaptívnym nástrojom?
+    \item[VO4] Pre ktorých žiakov je generický nástroj najrizikovejší?
+\end{description}
+
+\noindent Priradené hypotézy sú zhrnuté v tabuľke~\ref{tab:hypotezy}. Podmienky označujeme \textbf{K}~(klasická výučba), \textbf{G}~(generický nástroj) a \textbf{A}~(adaptívny nástroj).
+
+\begin{table}[H]
+\centering
+\caption{Pre\-re\-gis\-tro\-va\-né hypotézy, ich zdroj a primárny ukazovateľ}
+\label{tab:hypotezy}
+\small
+\begin{tabularx}{\textwidth}{@{}l l X l@{}}
+\toprule
+& \textbf{VO} & \textbf{Hypotéza} & \textbf{Zdroj} \\
+\midrule
+H1 & --- & Výkon počas hodiny: $G>K$, $A>K$ & \cite{bastani2025harm} \\
+H2 & VO1 & Okamžitý test: $A>K$; $A>G$ & \cite{kestin2025aitutoring} \\
+H3 & VO1 & \textbf{Odložený test (3~t.):} $A>K$ ($d\geq0{,}30$); $G\equiv K$ v pásme $\pm0{,}30$ & \cite{bastani2025harm} \\
+H4 & VO1 & Transfer: $A>G$; $G\leq K$ & \cite{bjork2011desirable} \\
+H5 & VO2 & Kalibračné skreslenie: $G>A>K$; disociácia pocitu a výkonu & \cite{deslauriers2019feeling} \\
+H6a & VO3 & \textbf{Odložený test: $A>G$} --- redukovaná forma mechanizmu & \cite{bastani2025harm} \\
+H6b & VO3 & Účinok $A$ oproti $G$ \emph{prechádza cez} PEQI (nepriamy účinok $>0$) & \cite{chi2014icap,gerlich2025offloading} \\
+H7 & VO4 & Poškodenie podmienkou $G$ rastie s klesajúcimi vstupnými vedomosťami & \cite{kalyuga2003expertise,bastani2025harm} \\
+H8 & VO3 & Vonkajšia záťaž: $G<K$; germánna záťaž: $A>G$ & \cite{leppink2013load,sweller2019twenty} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Ktoré hypotézy sú konfirmačné a prečo práve tieto.} Konfirmačnú rodinu tvoria tri tvrdenia: \textbf{H3a} ($A>K$ na odloženom teste), \textbf{H3b} ($G\equiv K$ na odloženom teste) a \textbf{H6a} ($A>G$ na odloženom teste). Spája ich jedna vlastnosť: všetky tri sú identifikované samotnou randomizáciou a všetky tri môžu zlyhať. Ostatné hypotézy sú sekundárne alebo exploratívne v zmysle vymedzenom v časti~\ref{subsec:multiplicita}.
+
+Rozdelenie pôvodnej hypotézy o mechanizme na H6a a H6b je zámerné a je dôsledkom toho, čo dizajn dokáže a nedokáže preukázať. Randomizácia prideľuje \emph{podmienku}, nie \emph{kvalitu promptov}. Tvrdenie, že účinok \emph{prechádza cez} PEQI (H6b), preto stojí na predpoklade, ktorý randomizácia nedodáva~--- na neprítomnosti nepozorovanej spoločnej príčiny kvality promptov a vybavenia. Taký predpoklad je v školskej triede takmer isto porušený: svedomitosť, záujem o predmet aj rýchlosť čítania hodnoverne pôsobia na obe veličiny. Naproti tomu H6a je obyčajný rozdiel medzi dvoma randomizovanými podmienkami, a ak by vyšiel nulový, celé mechanizmové vysvetlenie padá bez ohľadu na akýkoľvek predpoklad.
+
+Do konfirmačnej rodiny preto vstupuje len H6a. Hypotéza H6b sa testuje trojicou odhadov opierajúcich sa o tri \emph{rôzne} predpoklady a doplnených analýzou citlivosti, ktorá vyčísli, aké silné by nepozorované zmätenie muselo byť, aby zistenie zvrátilo (časť~\ref{sec:identifikacia}). Toto rozlíšenie nie je formalita: bez neho by práca vydávala za preukázané to, čo len predpokladá.
+
+Za povšimnutie stojí aj to, že H3b obsahuje tvrdenie o \emph{neprítomnosti} rozdielu. Také tvrdenie nemožno podložiť nevýznamnou $p$-hodnotou; vyžaduje test ekvivalencie oproti vopred stanovenej najmenšej zaujímavej veľkosti účinku~\cite{lakens2017tost,lakens2018equivalence}, čo má priamy dôsledok pre potrebnú veľkosť vzorky (časť~\ref{sec:sila}).

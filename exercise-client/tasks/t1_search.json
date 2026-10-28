@@ -1,0 +1,108 @@
+{
+  "topic": "vyhľadávanie v poli (lineárne a binárne)",
+  "lesson_id": "T1",
+  "skills": [
+    "usporiadanost",
+    "stred_a_hranice",
+    "ukoncenie_a_hranicne_pripady",
+    "odvodenie_zlozitosti",
+    "volba_postupu"
+  ],
+  "skill_labels": {
+    "usporiadanost": "podmienka usporiadanosti poľa",
+    "stred_a_hranice": "výpočet stredu a posun hraníc",
+    "ukoncenie_a_hranicne_pripady": "ukončovacia podmienka a hraničné prípady",
+    "odvodenie_zlozitosti": "odvodenie počtu krokov",
+    "volba_postupu": "rozhodnutie o vhodnosti postupu"
+  },
+  "tasks": [
+    {
+      "id": "U1",
+      "skill": "stred_a_hranice",
+      "level": "understand",
+      "prompt": "Pole [1, 4, 7, 9, 13, 20, 28], hľadáme 13. Vypíš postupnosť prvkov, s ktorými sa hodnota porovná.",
+      "answer": "9, 20, 13",
+      "scaffold_for": "U1s"
+    },
+    {
+      "id": "U1s",
+      "skill": "stred_a_hranice",
+      "level": "understand",
+      "prompt": "Pole [1, 4, 7, 9, 13, 20, 28] má 7 prvkov. Ktorý prvok je stredný a prečo práve ten?",
+      "answer": "9"
+    },
+    {
+      "id": "U2",
+      "skill": "ukoncenie_a_hranicne_pripady",
+      "level": "understand",
+      "prompt": "To isté pole, hľadáme 2. Čo algoritmus vráti a po koľkých porovnaniach?",
+      "answer": "nenájdené, 3 porovnania",
+      "scaffold_for": "U2s"
+    },
+    {
+      "id": "U2s",
+      "skill": "ukoncenie_a_hranicne_pripady",
+      "level": "understand",
+      "prompt": "Kedy binárne vyhľadávanie skončí s tým, že prvok v poli nie je?",
+      "answer": "keď sa interval vyprázdni, teda ľavá hranica prekročí pravú"
+    },
+    {
+      "id": "U3",
+      "skill": "stred_a_hranice",
+      "level": "apply",
+      "prompt": "Doplň tabuľku premenných lavy, pravy, stred pre všetky kroky hľadania hodnoty 28 v poli [1, 4, 7, 9, 13, 20, 28].",
+      "answer": "(1,7,4) (5,7,6) (7,7,7)",
+      "harder_variant": "U3h"
+    },
+    {
+      "id": "U3h",
+      "skill": "stred_a_hranice",
+      "level": "apply",
+      "prompt": "To isté pole, ale hľadanú hodnotu si zvoľ tak, aby algoritmus urobil čo najviac porovnaní. Ktorá to je a prečo?",
+      "answer": "hodnota na kraji intervalu, napríklad 1 alebo 28"
+    },
+    {
+      "id": "U4",
+      "skill": "odvodenie_zlozitosti",
+      "level": "analyse",
+      "prompt": "Koľko porovnaní potrebuje binárne vyhľadávanie v poli 2000 prvkov v najhoršom prípade? Zdôvodni.",
+      "answer": "11",
+      "scaffold_for": "U4s"
+    },
+    {
+      "id": "U4s",
+      "skill": "odvodenie_zlozitosti",
+      "level": "understand",
+      "prompt": "Koľkokrát vieš číslo 2000 celočíselne deliť dvomi, kým dostaneš 1?",
+      "answer": "10"
+    },
+    {
+      "id": "U5",
+      "skill": "ukoncenie_a_hranicne_pripady",
+      "level": "analyse",
+      "prompt": "V pseudokóde je podmienka cyklu while lavy < pravy namiesto while lavy <= pravy. Nájdi chybu a uveď vstup, pri ktorom sa prejaví.",
+      "answer": "jednoprvkový interval sa nepreskúma; napríklad hľadanie krajného prvku"
+    },
+    {
+      "id": "U6",
+      "skill": "stred_a_hranice",
+      "level": "apply",
+      "prompt": "Naprogramuj binárne vyhľadávanie, ktoré vráti index prvku alebo -1.",
+      "answer": "implementácia s lavy, pravy, stred"
+    },
+    {
+      "id": "U7",
+      "skill": "ukoncenie_a_hranicne_pripady",
+      "level": "apply",
+      "prompt": "Uprav svoj program tak, aby pri viacerých rovnakých hodnotách vrátil index prvého z nich.",
+      "answer": "po nájdení pokračovať doľava, alebo hľadať dolnú hranicu"
+    },
+    {
+      "id": "U8",
+      "skill": "volba_postupu",
+      "level": "evaluate",
+      "prompt": "Máš neusporiadané pole 2000 prvkov a k hľadaní. Pre aké k sa oplatí pole najprv usporiadať? Uveď úvahu, nie presné číslo.",
+      "answer": "keď k krát úspora prekročí náklad usporiadania"
+    }
+  ]
+}

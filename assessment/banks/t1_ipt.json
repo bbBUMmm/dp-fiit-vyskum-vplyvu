@@ -1,0 +1,254 @@
+{
+  "bank_id": "T1_IPT",
+  "instrument": "IPT",
+  "topic": "T1",
+  "title": "Okamžitý test, téma T1 — vyhľadávanie v poli",
+  "minutes": 16,
+  "jol": true,
+  "note": "Dvanásť položiek, nie pôvodných šestnásť. Dôvod je časový rozpočet počítaný z položiek a nie z plochého priemeru sekúnd na položku: šestnásťpoložková forma s piatimi rubrikovými položkami potrebuje 22,5 minúty a vyučovací blok na ňu nemá miesto. Skrátenie má aj metodický zisk, ktorý nebol zámerom: obe formy sú teraz rovnako dlhé, majú jednu špecifikačnú tabuľku a rovnaký pomer formátov, takže izomorfia foriem prestáva byť tvrdením a stáva sa vlastnosťou. Cena je spoľahlivosť: dvanásť položiek dáva približne 0,73 namiesto 0,78 pri šestnástich — rovnako ako odložená forma, ktorá je primárnym výstupom. Šesť kotviacich položiek (A1–A6) má ÚPLNE ROVNAKÉ znenie v oboch formách. Kotvia sa výhradne uzavreté položky: pri rubrikovej položke by do prevodu foriem na spoločnú škálu vstúpila aj chyba medzi hodnotiteľmi.",
+  "items": [
+    {
+      "id": "T1-1",
+      "level": "zapamatanie",
+      "format": "mc4",
+      "anchor": "A1",
+      "skill": "usporiadanost",
+      "expected_sec": 30,
+      "stem": "Aká podmienka musí platiť o poli, aby sa v ňom dalo použiť binárne vyhľadávanie?",
+      "options": [
+        "musí obsahovať len čísla",
+        "musí byť usporiadané",
+        "musí mať párny počet prvkov",
+        "žiadna"
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "zamieňa podmienku usporiadanosti s typom údajov",
+        "2": "domnieva sa, že polenie vyžaduje párny počet prvkov",
+        "3": "nerozlišuje predpoklady lineárneho a binárneho vyhľadávania"
+      }
+    },
+    {
+      "id": "T1-2",
+      "level": "zapamatanie",
+      "format": "mc4",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 25,
+      "stem": "Aká je časová zložitosť lineárneho vyhľadávania v najhoršom prípade?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n²)"
+      ],
+      "key": 2,
+      "distractor_dx": {
+        "0": "zamieňa najhorší prípad s najlepším",
+        "1": "pripisuje lineárnemu vyhľadávaniu logaritmický rast",
+        "3": "preceňuje rast; pravdepodobne zamieňa s vnoreným cyklom"
+      }
+    },
+    {
+      "id": "T1-4",
+      "level": "porozumenie",
+      "format": "mc4",
+      "anchor": "A2",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 45,
+      "stem": "Pole má 1024 prvkov. Koľko porovnaní potrebuje binárne vyhľadávanie v najhoršom prípade?",
+      "options": [
+        "10",
+        "11",
+        "512",
+        "1024"
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "počíta o jedno polenie viac; zrejme nesprávne ukončenie",
+        "2": "polí interval len raz a výsledok považuje za počet krokov",
+        "3": "uvažuje o lineárnom prechode namiesto polenia"
+      }
+    },
+    {
+      "id": "T1-6",
+      "level": "porozumenie",
+      "format": "mc4",
+      "anchor": "A3",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 45,
+      "stem": "Veľkosť poľa sa zdvojnásobí. O koľko sa zvýši počet krokov binárneho vyhľadávania v najhoršom prípade?",
+      "options": [
+        "o jeden",
+        "zdvojnásobí sa",
+        "nezmení sa",
+        "zvýši sa štvornásobne"
+      ],
+      "key": 0,
+      "distractor_dx": {
+        "1": "prenáša lineárnu intuíciu na logaritmický rast — najčastejšia chyba v tejto téme",
+        "2": "zamieňa logaritmický rast s konštantným",
+        "3": "zamieňa s kvadratickým rastom"
+      }
+    },
+    {
+      "id": "T1-7",
+      "level": "aplikacia",
+      "format": "mc4",
+      "skill": "stred_a_hranice",
+      "expected_sec": 50,
+      "stem": "Pole [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], hľadáme 23. Ktorý prvok sa porovná ako prvý?",
+      "options": [
+        "2",
+        "16",
+        "23",
+        "91"
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "začína od začiatku poľa — postupuje lineárne, nie binárne",
+        "2": "uvádza hľadanú hodnotu namiesto porovnávaného prvku",
+        "3": "začína od konca poľa"
+      }
+    },
+    {
+      "id": "T1-8",
+      "level": "aplikacia",
+      "format": "mc4",
+      "anchor": "A4",
+      "skill": "stred_a_hranice",
+      "expected_sec": 60,
+      "stem": "Pole [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], hľadáme 23. Koľko porovnaní celkovo urobí binárne vyhľadávanie?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "10"
+      ],
+      "key": 1,
+      "distractor_dx": {
+        "0": "domnieva sa, že hodnota je nájdená prvým porovnaním",
+        "2": "ráta aj kroky, ktoré sa po nájdení už nevykonajú",
+        "3": "ráta lineárny prechod celým poľom"
+      }
+    },
+    {
+      "id": "T1-10",
+      "level": "aplikacia",
+      "format": "mc4",
+      "anchor": "A5",
+      "skill": "ukoncenie_a_hranicne_pripady",
+      "expected_sec": 45,
+      "stem": "Pole [4, 9, 15, 20, 27], hľadáme 7. Čo vráti binárne vyhľadávanie?",
+      "options": [
+        "index 0",
+        "index 1",
+        "signál, že prvok nebol nájdený",
+        "chybu"
+      ],
+      "key": 2,
+      "distractor_dx": {
+        "0": "vracia najbližší menší prvok namiesto signálu o nenájdení",
+        "1": "vracia najbližší väčší prvok namiesto signálu o nenájdení",
+        "3": "zamieňa neúspešné hľadanie s chybovým stavom"
+      }
+    },
+    {
+      "id": "T1-11",
+      "level": "aplikacia",
+      "format": "mc4",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 35,
+      "stem": "Koľko porovnaní urobí lineárne vyhľadávanie pri hľadaní posledného prvku v poli 50 prvkov?",
+      "options": [
+        "1",
+        "25",
+        "50",
+        "6"
+      ],
+      "key": 2,
+      "distractor_dx": {
+        "0": "zamieňa najhorší prípad s najlepším",
+        "1": "uvádza priemerný prípad namiesto najhoršieho",
+        "3": "aplikuje logaritmus na lineárne vyhľadávanie"
+      }
+    },
+    {
+      "id": "T1-13",
+      "level": "analyza",
+      "format": "mc4",
+      "anchor": "A6",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 70,
+      "stem": "V poli 1 000 000 prvkov: koľkokrát viac porovnaní urobí lineárne vyhľadávanie oproti binárnemu v najhoršom prípade?",
+      "options": [
+        "približne 20-krát",
+        "približne 1000-krát",
+        "približne 50 000-krát",
+        "rovnako"
+      ],
+      "key": 2,
+      "distractor_dx": {
+        "0": "uvádza počet krokov binárneho vyhľadávania namiesto ich pomeru",
+        "1": "odhaduje rádovo nesprávne; zrejme použil odmocninu",
+        "3": "nerozlišuje rast oboch postupov"
+      }
+    },
+    {
+      "id": "T1-12",
+      "level": "analyza",
+      "format": "open",
+      "skill": "odvodenie_zlozitosti",
+      "expected_sec": 160,
+      "max_points": 2,
+      "stem": "Odvoď, prečo je počet krokov binárneho vyhľadávania približne log₂ n.",
+      "rubric": [
+        {
+          "points": 1,
+          "criterion": "rozpozná, že každý krok polí úsek na polovicu"
+        },
+        {
+          "points": 1,
+          "criterion": "spojí to s počtom polení potrebných na dosiahnutie jedného prvku"
+        }
+      ]
+    },
+    {
+      "id": "T1-14",
+      "level": "analyza",
+      "format": "open",
+      "skill": "volba_postupu",
+      "expected_sec": 150,
+      "max_points": 2,
+      "stem": "Žiak tvrdí: „Binárne vyhľadávanie je vždy rýchlejšie než lineárne.“ Uveď prípad, v ktorom to neplatí, a vysvetli prečo.",
+      "rubric": [
+        {
+          "points": 1,
+          "criterion": "uvedie konkrétny prípad (neusporiadané pole; veľmi malé pole; hľadaný prvok na začiatku)"
+        },
+        {
+          "points": 1,
+          "criterion": "vysvetlí dôvod — náklad usporiadania alebo režijné náklady pri malom n"
+        }
+      ]
+    },
+    {
+      "id": "T1-15",
+      "level": "hodnotenie",
+      "format": "open",
+      "skill": "volba_postupu",
+      "expected_sec": 170,
+      "max_points": 2,
+      "stem": "Máš neusporiadané pole 1000 prvkov a potrebuješ v ňom vykonať 5 hľadaní. Oplatí sa pole najprv usporiadať? Rozhodni a zdôvodni.",
+      "rubric": [
+        {
+          "points": 1,
+          "criterion": "rozhodne (neoplatí sa) a rozhodnutie vysloví jednoznačne"
+        },
+        {
+          "points": 1,
+          "criterion": "porovná náklad usporiadania (~10 000 krokov) s úsporou pri 5 hľadaniach (~5 000 krokov)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+    % Resume: 10\% in SK if the Thesis is written in EN
+    \addcontentsline{toc}{chapter}{Resumé}
+    \input{content/resume}
+    
+    % List of Abbreviations
+    \addcontentsline{toc}{chapter}{List of Abbreviations}
+    % \printacronyms[name=List of Abbreviations, heading=chapter*]
+    % \markboth{}{}
+    \input{appendices/abbreviation}
+
+    % List of Figures
+    % \addcontentsline{toc}{chapter}{List of Figures}
+    % \renewcommand{\listfigurename}{List of figures}
+    % \listoffigures
+    % \markboth{}{}
+
+    % List of Tables
+    % \addcontentsline{toc}{chapter}{List of Tables}
+    % \renewcommand{\listtablename}{List of tables}
+    % \listoftables
+    % \markboth{}{}
+
+    % List of Algorithms
+    % \addcontentsline{toc}{section}{List of Algorithms}
+    % \listofalgorithms
+    
+    % List of Code Samples
+    % \clearpage\null
+    % \addcontentsline{toc}{section}{List of Code Samples}
+    % \renewcommand*{\listlistingname}{List of Code Samples}
+    % \listoflistings
+
+    % Bibliography
+    % \addcontentsline{toc}{chapter}{References}
+    \printbibliography[heading=bibintoc,
+        title=References (up to 70 - recent years),
+        segment=\therefsegment,
+        resetnumbers=true]
+    \markboth{}{}

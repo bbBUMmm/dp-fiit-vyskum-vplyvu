@@ -1,0 +1,40 @@
+proxy:
+  port: 8080
+  bind: 127.0.0.1
+
+capture:
+  output_dir: ./captures
+  # Maximum body size to buffer per request, in KB. Requests with bodies larger
+  # than this are still proxied (the user's experience is unaffected), but we
+  # won't capture their body. 1 MB is far more than any plausible prompt.
+  max_body_size_kb: 1024
+
+# URL patterns — plain substring match against "host + path".
+# Any matching request gets its body captured into the JSONL store.
+url_patterns:
+  # ChatGPT (current chatgpt.com and legacy chat.openai.com)
+#  - "chatgpt.com/backend-api/conversation"
+#  - "chat.openai.com/backend-api/conversation"
+
+  - "chatgpt.com/backend-api/f/conversation"
+  - "chatgpt.com/backend-api/conversation/experimental/generate_autocompletions"
+
+
+  # Claude.ai — completion endpoint inside the org/conversation path
+  - "claude.ai/api/organizations/"
+
+  # Google Gemini (verify — Google rotates these paths fairly often)
+  - "gemini.google.com/_/BardChatUi/data/"
+
+  # Microsoft Copilot
+  - "copilot.microsoft.com/c/api/"
+
+  # OpenAI direct API (covers students using IDE plugins / their own scripts)
+  - "api.openai.com/v1/chat/completions"
+  - "api.openai.com/v1/responses"
+
+  # Anthropic direct API
+  - "api.anthropic.com/v1/messages"
+
+  # Perplexity
+  - "www.perplexity.ai/rest/sse/"

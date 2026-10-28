@@ -1,0 +1,451 @@
+\chapter{Štatistický plán analýzy}
+\label{chapter:sap}
+
+Tento plán sa uzatvára a registruje pred prvým meraním. Po zbere údajov sa nemení; každá analýza, ktorá v ňom nie je, sa označuje ako exploratívna. Plán je zároveň implementovaný ako spustiteľný kód, ktorý je súčasťou digitálneho média a ktorého podstatné časti sú uvedené v časti~\ref{sec:kod}.
+
+\section{Primárne a sekundárne ukazovatele}
+
+\begin{description}[leftmargin=2.7cm, style=nextline, nosep]
+    \item[Primárny] Raschova osobná miera odloženého vybavenia $\theta_{\mathrm{DRT}}$, meraná tri týždne po poslednej lekcii, na škále spoločnej s okamžitým testom.
+    \item[Konfirmačné] Práve tri kontrasty na tomto ukazovateli: $A>K$ (H3a), $G\equiv K$ (H3b) a $A>G$ (H6a). Nič iné.
+    \item[Sekundárne] Okamžitý test $\theta_{\mathrm{IPT}}$ (kontrola manipulácie); transfer $\theta_{\mathrm{TT}}$; kalibračné skreslenie, absolútna presnosť a rozlišovacia schopnosť; pocit naučenia; spokojnosť; tri podškály kognitívnej záťaže; PEQI a odvodené procesné ukazovatele.
+    \item[Mechanistické] Dráha PEQI $\to$ odložené vybavenie (H6b). Nie je v konfirmačnej rodine, pretože ju dizajn neidentifikuje; testuje sa trianguláciou troch odhadov a analýzou citlivosti podľa časti~\ref{sec:identifikacia}.
+    \item[Exploratívne] Interakcie s typom školy, rodom, mierou predchádzajúceho používania nástrojov; zhlukovanie profilov používania; kvalitatívna analýza rozhovorov.
+\end{description}
+
+\section{Postupnosť analýzy}
+
+\begin{enumerate}[nosep]
+    \item \textbf{Kontrola dát.} Počty pozorovaní podľa podmienky, periódy a triedy; kontrola, či sedí priradenie sekvencií; podiel chýbajúcich hodnôt podľa ukazovateľa a podľa podmienky.
+    \item \textbf{Psychometria.} Súbežná Raschova kalibrácia okamžitej a odloženej formy cez kotviace položky, aby boli obe na jednej škále; vylúčenie položiek s nevyhovujúcou zhodou s modelom (vážená aj nevážená hodnota \emph{mean-square} mimo intervalu $0{,}7$ až $1{,}3$); výpočet osobných mier a ich štandardných chýb; osobná spoľahlivosť a separácia; analýza funkčnej odlišnosti položiek medzi podmienkami $A$ a $G$; overenie, že súbežná kalibrácia obnoví veľkosť poklesu medzi príležitosťami.
+    \item \textbf{Deskriptívna štatistika.} Priemery a smerodajné odchýlky všetkých ukazovateľov podľa podmienky; rozklad rozptylu na zložku triedy, žiaka a rezidua.
+    \item \textbf{Kontrola predpokladov krížového dizajnu.} Spoločný test parametrov prenosu; test interakcie podmienky s periódou; porovnanie vstupných charakteristík medzi sekvenciami.
+    \item \textbf{Primárny model} podľa rovnice~\eqref{eq:model}.
+    \item \textbf{Konfirmačné kontrasty} ($A>K$, $A>G$, $G\equiv K$) s klastrovo robustným rozptylom a spoločnou Holmovou korekciou; test ekvivalencie metódou dvoch jednostranných testov.
+    \item \textbf{Sekundárne ukazovatele} s korekciou miery falošných objavov v rámci vlastnej rodiny.
+    \item \textbf{Mechanizmus.} Triangulácia: mediačný model s predintervenčnými kontrolami, odhad inštrumentálnou premennou s $F$-štatistikou prvého stupňa, dávková závislosť v rámci podmienky $G$; analýza citlivosti $\rho^\ast$ a jej porovnanie s vopred stanoveným prahom.
+    \item \textbf{Moderácia} vstupnými vedomosťami vrátane jednoduchých sklonov.
+    \item \textbf{Chýbajúce údaje.} Test MCAR proti vstupným vedomostiam; viacnásobná imputácia; nepriaznivý scenár.
+    \item \textbf{Robustnostné analýzy}~--- všetkých päť v poradí uvedenom v časti~\ref{sec:sap}.
+\end{enumerate}
+
+\section{Rozhodovacie pravidlá}
+
+\begin{table}[H]
+\centering
+\caption{Vopred stanovené rozhodovacie pravidlá}
+\label{tab:rozhodovacie}
+\small
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+\textbf{Situácia} & \textbf{Rozhodnutie} \\
+\midrule
+Hladina významnosti & $\alpha = 0{,}05$ obojstranne pre testy rozdielu; $\alpha = 0{,}05$ pre každý z dvoch jednostranných testov ekvivalencie \\
+Najmenšia zaujímavá veľkosť účinku & $\mathrm{SESOI} = 0{,}30$ smerodajnej odchýlky, stanovená pred zberom \\
+Stupne voľnosti & $J-1$, kde $J$ je počet tried \\
+Vylúčenie položky & \emph{mean-square} mimo $0{,}7$--$1{,}3$ alebo úspešnosť mimo $0{,}05$--$0{,}95$ \\
+Vylúčenie žiaka & účasť na menej než dvoch vyučovacích blokoch alebo odvolanie súhlasu \\
+Nedostatok tried ($<12$) & prechod na dvojpodmienkový dizajn, rozhodnutie \emph{pred} prvým meraním \\
+Zhoda kódovateľov pod $0{,}67$ & zlúčenie susedných úrovní na trojúrovňovú škálu \\
+Zhoda klasifikátora pod $0{,}75$ & ručné kódovanie náhodného podvýberu \\
+Nevyhlásenie ekvivalencie & vykazuje sa ako nerozhodnuté, nie ako dôkaz rozdielu \\
+Slabý inštrument & $F$ prvého stupňa pod 10; odhad sa vykazuje, ale neinterpretuje \\
+Krehkosť mechanizmu & $\rho^\ast < 0{,}15$: mechanizmus sa neuvádza medzi závermi, len medzi otvorenými otázkami \\
+Nezhoda troch odhadov mechanizmu & rozptyl odhadov nad $0{,}15$: vykazuje sa, ktorý predpoklad je najhodnovernejšie porušený \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Predregistrované pravidlá hodnotiaceho modulu}
+\label{sec:sap-hodnotenie}
+
+Nasledujúce hranice sú súčasťou plánu, nie implementačným detailom, a tu sú
+preto, aby existovali \emph{pred} akýmikoľvek dátami. Všetky sú v kóde
+(\texttt{assessment/}) s odvodením na mieste; táto časť ich fixuje a uvádza, čo
+sa stane, keď sa niektorá minie. Podrobné odôvodnenie je v
+prílohe~\ref{chapter:hodnotiaci-modul}.
+
+\subsection{Hranice pravidlového profilovača}
+
+Pravidlo prideľuje žiakovi profil podľa \emph{absolútnych} hraníc, nie podľa
+rozdelenia vzorky. Každá je bodom na škále, ktorá už má význam~--- nie bodom,
+kde sa vzorka delí.
+
+\begin{table}[H]
+\centering
+\caption{Predregistrované hranice pravidlového profilovača}
+\label{tab:sap-hranice}
+\small
+\begin{tabularx}{\textwidth}{@{}l c X@{}}
+\toprule
+\textbf{Ukazovateľ} & \textbf{Hranica} & \textbf{Odkiaľ sa berie} \\
+\midrule
+PEQI, dolná   & $0{,}25$ & priemerný prompt je holá žiadosť o~overenie: váha úrovne $L_1$ v~taxonómii \\
+PEQI, horná   & $0{,}50$ & priemerný prompt žiada vysvetlenie: váha úrovne $L_2$ \\
+Vlastný pokus & $0{,}50$ & „tak často ako nie“~--- jediný nearbitrárny bod na podiele \\
+Kalibračné skreslenie & $0{,}15$ & najmenšie nadhodnotenie prevyšujúce chybu merania \asmFormItems-položkového testu \\
+Spoliehanie sa & $4{,}0$ & stred vlastnej škály 1--7 \\
+Kritické myslenie & $0{,}50$ & stred pásma obtiažnosti zo špecifikačnej tabuľky \\
+\midrule
+Minimum promptov pre PEQI & 5 & pod touto hodnotou PEQI nie je meranie a ukazovateľ je \emph{neprítomný}, nie chýbajúci \\
+Minimum úloh pre vlastný pokus & 3 & pod touto hodnotou nejde o~podiel \\
+Minimum položiek kritického myslenia & 8 & po vylúčení položiek podľa zhody s~modelom \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Čo sa vykazuje vždy.} Podiel žiakov s~profilom \emph{neurčený} a
+podiel označení s~príznakom \emph{hraničný} (ukazovateľ do $0{,}05$ od hranice).
+Pravidlo, ktoré vždy vydá označenie, je pravidlo, ktoré háda.
+
+\paragraph{Citlivosť sa vykazuje, aj keď nelichotí.} Posun jednej hranice o
+$\pm$20\,\% mení zhodu s~vloženou pravdou najviac o~\asmCutSingle{} (najcitlivejšia
+je horná hranica PEQI); posun všetkých šiestich naraz a v~tom istom smere o
+\asmCutJoint{}. Druhé číslo nie je malé: pravidlo \emph{je} citlivé na spoločné
+nastavenie hraníc, a práve preto je táto tabuľka súčasťou plánu. Obe hodnoty sa
+vykazujú spolu s~typológiou.
+
+\paragraph{Pravidlo a zmes sa vykazujú obe.} Pravidlo je primárnym nástrojom
+kategorizácie, pretože je jediné použiteľné pri jednej triede. Latentná profilová
+analýza (časť~\ref{sec:kategorizacia}) sa vykazuje vedľa neho ako exploratívna
+otázka o~populácii, spolu s~ich zhodou. Ak sa rozchádzajú viac než o~$0{,}20$
+upraveného Randovho indexu, vykazuje sa to ako zistenie a nie ako chyba jedného
+z~nich: znamená to, že populácia obsahuje štruktúru, ktorú apriórne hranice
+nezachytávajú.
+
+\paragraph{Inkrementálna validita je podmienkou vykazovania.} Ak profil
+nevysvetľuje odložený výsledok nad rámec vstupnej úrovne a fluidného uvažovania
+(parciálny $F$-test, $\alpha = 0{,}05$), typológia sa vykazuje výhradne opisne a
+v~záveroch sa neuvádza. Bez tohto testu by mohla byť preznačkovanou vstupnou
+úrovňou a z~výsledku by to nikto nerozlíšil.
+
+\subsection{Úsilie pri teste}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Rýchle hádanie}] sa identifikuje tromi pravidlami a vykazujú sa
+    všetky tri: desať percent očakávaného času položky; pevná dolná hranica tri
+    sekundy; a dolina medzi dvoma vrcholmi pozorovaného rozdelenia časov tam, kde
+    nejaká je. Tretie pravidlo vracia „žiadna hranica“, keď je rozdelenie
+    jednovrcholové.
+    \item[\textbf{Výsledok platný pri všetkých troch}] je voči hranici odolný;
+    výsledok, ktorý sa objaví pri jednom, je výsledkom o~hranici, a vykazuje sa
+    tak.
+    \item[\textbf{Odpovede sa neodstraňujú.}] Hlavná analýza beží na všetkých
+    odpovediach; analýza po filtrovaní úsilia je deklarovaná robustnostná
+    kontrola. Obe sa vykazujú vždy, akokoľvek vyjdú. Odstránenie by ticho zmenilo
+    odhadovanú veličinu z~„čo žiaci dosiahli“ na „čo dosiahli, keď sa snažili“, a
+    tie dve sa líšia práve vtedy, keď na tom záleží najviac.
+    \item[\textbf{Ak sa úsilie medzi podmienkami líši}] o~viac než $0{,}02$
+    podielu zapojených položiek, hlavná analýza ho zahrnie ako kovariát a rozdiel
+    vo výsledku sa nečíta ako samotné učenie. Toto rozhodnutie je stanovené
+    vopred.
+\end{description}
+
+\subsection{Kontaminácia počas testu}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Vylúčenie}] len pri dvoch príznakoch z~\emph{rôznych} rodín nad
+    hranicou. Jedna rodina nikdy nestačí.
+    \item[\textbf{Kalibrácia}] na stretnutí T0a, kde je kontaminácia nemožná.
+    Vykazuje sa podiel príznakov tam aj v~poli; interpretuje sa \emph{len}
+    rozdiel. Ak je podiel na T0a vyšší než $0{,}10$, detektor sa z~vykazovania
+    vypúšťa a uvedie sa dôvod~--- detektor, ktorý označí desatinu nekontaminovanej
+    triedy, nehovorí o~kontaminácii nič.
+    \item[\textbf{Žiadne mená.}] Škola dostáva podiel za triedu. Príznak sa nijako
+    nedotýka známky žiaka a škole sa nikdy neoznamuje, ktorého žiaka sa týka.
+    \item[\textbf{Diferenciálna kontaminácia}] sa vykazuje ako podiel po
+    podmienkach, pretože práve jej nerovnosť medzi podmienkami je skreslením.
+\end{description}
+
+\subsection{Kódovanie rubrikových položiek}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Dvaja nezávislí kódovatelia}] na každú rubrikovú odpoveď.
+    Vykazuje sa vážená Cohenova $\kappa$ a podiel nezhôd.
+    \item[\textbf{Nezhoda sa nepriemeruje.}] Rieši sa konsenzom. Priemer dvoch
+    čítaní rubriky je číslo, ktoré by nepodpísal ani jeden z~kódovateľov.
+    \item[\textbf{Poradie kódovania je zaslepené a premiešané.}] Poradie zberu je
+    poradím podmienok; kódovateľ, ktorý by najprv ohodnotil celú podmienku~$A$,
+    by sa posunul, a posun by vyzeral ako účinok.
+    \item[\textbf{Analytický súbor sa nevytvorí}, kým je hoci jedna rubriková
+    položka nekódovaná.] Tichá nula za nekódovanú položku vyzerá ako nesprávna
+    odpoveď.
+    \item[\textbf{Pri $\kappa < 0{,}67$}] sa rubrika zlučuje na dvojúrovňovú
+    (0~=~bez dôkazu uvažovania, 1~=~s~dôkazom) a vykazuje sa, že k~tomu došlo.
+\end{description}
+
+\subsection{Kotvenie foriem a vybavovacie precvičenie}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Primárny dizajn}] je pevná sada \asmAnchors{} totožných
+    kotviacich položiek. Rozdiel medzi okamžitým a odloženým skóre sa vykazuje ako
+    \emph{kontrast medzi podmienkami}, ktorý je voči precvičeniu chránený.
+    \item[\textbf{Absolútna úroveň zadržania}] sa vykazuje s~výslovnou poznámkou,
+    že je nadhodnotená o~veľkosť precvičenia, a~nepoužíva sa na porovnanie
+    s~hodnotami z~iných štúdií.
+    \item[\textbf{Rozdiel medzi kotviacimi a novými položkami}] v~odloženom teste
+    sa vykazuje ako hrubý odhad veľkosti precvičenia. Nie je identifikovaný
+    (kotviace a nové položky sa líšia aj obsahom), a uvádza sa ako taký.
+    \item[\textbf{Rotované kotvenie}] vstupuje do plánu až po pilote, ktorý
+    nakalibruje zásobník \asmRotPool{}~položiek na tému. Dovtedy sa neuvádza medzi
+    metódami, len medzi odporúčaniami.
+\end{description}
+
+\section{Formulácie záverov}
+
+Aby sa predišlo najčastejšej chybe vo výklade výsledkov, sú formulácie záverov stanovené vopred.
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Ak $A>K$ a súčasne $G\equiv K$:}] „Adaptívny nástroj zlepšil trvalé osvojenie učiva. Generický nástroj ho nezlepšil; jeho účinok je v rámci vopred stanovenej hranice praktickej nevýznamnosti nerozlíšiteľný od klasickej výučby. Rozhodujúcim činiteľom teda nie je prítomnosť nástroja, ale jeho pedagogické ohraničenie.“
+    \item[\textbf{Ak $A>K$ a $G<K$:}] Rovnaké s doplnením, že generický nástroj trvalé osvojenie \emph{zhoršil}, a s uvedením veľkosti účinku.
+    \item[\textbf{Ak $A\equiv K$ a $G\equiv K$:}] „Ani jedna z foriem nástroja nezmenila trvalé osvojenie učiva v rozsahu, ktorý považujeme za prakticky významný. Zistenie nespochybňuje prínos nástroja v iných ohľadoch, ale nepodporuje tvrdenie o jeho vplyve na učenie.“
+    \item[\textbf{Ak nevyjde ani jedna ekvivalencia a ani jeden rozdiel:}] „Štúdia nemala dostatočnú silu na rozhodnutie. Uvádzame interval spoľahlivosti a veľkosť vzorky potrebnú na rozhodnutie.“ Tento záver sa vykazuje rovnako výrazne ako ktorýkoľvek iný.
+    \item[\textbf{Ak vyjde disociácia (H5):}] „Subjektívne hodnotenie hodiny žiakmi nie je v tomto kontexte platným ukazovateľom učenia a nemožno ho použiť na rozhodovanie o zavádzaní nástroja.“
+    \item[\textbf{Ak je mechanizmus robustný ($\rho^\ast \geq 0{,}30$):}] „Rozdiel medzi adaptívnym a generickým nástrojom prechádza prevažne cez kvalitu žiackych dopytov. Tento záver je odolný voči nepozorovanému zmäteniu do sily $\rho^\ast$ a je podporený tromi odhadmi opierajúcimi sa o rôzne predpoklady.“
+    \item[\textbf{Ak je mechanizmus krehký ($\rho^\ast < 0{,}15$):}] „Rozdiel medzi adaptívnym a generickým nástrojom je preukázaný. Tvrdenie, že prechádza cez kvalitu dopytov, nie je: bolo by vysvetliteľné nepozorovanou spoločnou príčinou strednej sily. Uvádzame ho ako hypotézu pre ďalší výskum, nie ako zistenie.“
+    \item[\textbf{Ak sa tri odhady mechanizmu rozchádzajú:}] „Odhady sa líšia o $\ldots$, čo naznačuje porušenie $\ldots$ [konkrétneho predpokladu]. Uvádzame všetky tri a nepreferujeme žiadny.“
+\end{description}
+
+\paragraph{Ako sa formuluje záver z testu ekvivalencie.} Záväzne a bez výnimky: nikdy ako „$G$ je ekvivalentné $K$“, vždy ako „\emph{rozdiel väčší než $0{,}30$ smerodajnej odchýlky na použitej škále možno vylúčiť}“. Dôvod je v časti~\ref{sec:sesoi}: pri plánovanej hranici a vzorke sa skutočný rozdiel $0{,}20$ vyhlási za nerozlíšiteľný v \eqTTwentyBThirty{} prípadov. Prvá formulácia toto zamlčuje, druhá nie. Spolu so záverom sa vykazuje tabuľka~\ref{tab:sesoi}.
+
+\paragraph{Čo sa nesmie stať.} Zoznam je krátky a záväzný. Nepridáva sa kontrolná premenná po tom, čo sa videl výsledok. Nemení sa primárny ukazovateľ. Nemení sa SESOI. Neprechádza sa od ekvivalencie k testu rozdielu ani opačne podľa toho, čo vyjde. Nepridáva sa hypotéza do konfirmačnej rodiny ani sa z nej neodoberá. Akákoľvek odchýlka od plánu sa vykazuje v samostatnom oddiele spolu s dôvodom a s výsledkom pred odchýlkou aj po nej.
+
+\section{Kľúčové časti implementácie}
+\label{sec:kod}
+
+Kód je v jazyku Python a je zámerne písaný bez diakritiky, aby bol prenosný. Semená generátorov náhodných čísel sú pevne stanovené, takže opakované spustenie dáva zhodný výsledok.
+
+\begin{table}[H]
+\centering
+\caption{Moduly analytického reťazca a poradie ich spúšťania}
+\label{tab:moduly}
+\small
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Modul} & \textbf{Výstup} & \textbf{Čo robí} \\
+\midrule
+\texttt{dgp.py} & --- & generujúci model; hypotézy H1--H8 ako explicitné parametre \\
+\texttt{pipeline.py} & \texttt{results\_J*.json} & uzavretý štatistický plán, celý \\
+\texttt{identification.py} & (volané z \texttt{pipeline}) & tri odhady mechanizmu, analýza citlivosti \\
+\texttt{measurement.py} & \texttt{measurement.json} & diferenciálna chyba mediátora, audit, korekcia \\
+\texttt{falsification.py} & \texttt{falsification.json} & negatívne kontroly a ich citlivosť \\
+\texttt{power.py} & \texttt{power\_*.csv} & sila testu a presnosť mechanizmu \\
+\texttt{validate\_plan.py} & \texttt{plan\_validation.json} & operačné charakteristiky na 1000 štúdiách \\
+\texttt{peqi.py} & \texttt{peqi\_*.json} & taxonómia, klasifikátor, zhoda kódovateľov \\
+\texttt{export\_macros.py} & \texttt{thesis\_numbers.tex} & \repoMacros{} príkazov \LaTeX{}u s hodnotami \\
+\texttt{figures.py} & \texttt{assets/images/} & deväť obrázkov práce \\
+\texttt{verify\_thesis.py} & --- & \repoChecks{} kontrol konzistentnosti \\
+\texttt{test\_analysis.py} & --- & \repoTestsAnalysis{} regresných testov analytickej vrstvy \\
+\midrule
+\texttt{run\_all.py} & všetko vyššie & prejde reťazec v správnom poradí \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Poradie nie je ozdoba. Spustenie ktoréhokoľvek modulu samostatne ponechá ostatné zastarané, a práve tak sa čísla v práci rozchádzajú. Preto existuje \texttt{run\_all.py}, ktorý pri zlyhaní ktoréhokoľvek kroku zastaví a nespustí nič, čo by z jeho výstupu vychádzalo.
+
+\paragraph{Prečo v texte nie je ručne vpísané číslo.} Hodnoty sa do textu nepíšu; generuje ich \texttt{export\_macros.py} ako príkazy \LaTeX{}u a text sa na ne odvoláva menom. Dôvod je empirický: predchádzajúci postup~--- napísať hodnoty a kontrolovať ich po každej zmene~--- zlyhal dvakrát rovnako, pridanie jednej premennej do generujúceho modelu posunulo prúd náhodných čísel a naraz znehodnotilo desiatky hodnôt. Kontrolný modul \texttt{verify\_thesis.py} preto overuje to, čo generovanie nezabezpečí: existenciu každého použitého príkazu, neprítomnosť ručne vpísaných desatinných čísel vo volatilných tabuľkách, zhodu konfirmačnej rodiny naprieč tromi časťami práce, rozlíšiteľnosť všetkých krížových odkazov a citácií, a neporušenosť samotného zdrojového textu.
+
+\paragraph{Kontroly nie sú testy.} Rozdiel je podstatný a ľahko sa prehliadne. \texttt{verify\_thesis.py} overuje, či sa \emph{text zhoduje} s výstupmi analýzy. Keby bol niektorý odhad zle naprogramovaný, práca by vytlačila zlé číslo verne a všetky kontroly by prešli. Preto existuje \texttt{test\_analysis.py}: každý jeho test buď vkladá do dát známu odpoveď a žiada ju späť (Raschova kalibrácia, inštrumentálny odhad, rozklad mediácie, korekcia na chybu merania), alebo vyslovuje vlastnosť, ktorá musí platiť pre ľubovoľný vstup (monotónnosť Holmovej korekcie, presnosť rozkladu celkový $=$ priamy $+$ nepriamy, vyváženosť latinského štvorca). Testy pomenované po už nájdených chybách sú v ňom ponechané zámerne, aby sa tie chyby nemohli vrátiť.
+
+\subsection{Generujúci model (výňatok z \texttt{dgp.py})}
+
+\begin{lstlisting}[language=Python, caption={Ukotvenie celkových účinkov: priama dráha sa dopočíta tak, aby celkový účinok zodpovedal hodnote z literatury.}, label={lst:dgp}]
+# d_del_G / d_del_A su CELKOVE ucinky -- to je to, co uvadza literatura.
+# Priama draha je preto celkovy ucinok minus to, co nesie mediator a minus to,
+# co sa prenasa cez okamzity vykon, takze plati:
+#   total = direct + 0.62 * (E[imm|c] - E[imm|K]) + b * E[PEQI_z|c]
+mz = {c: float(np.nanmean(peqi_z[cond == c])) for c in ("G", "A")}
+im = {c: float(np.mean(th_imm[cond == c])) for c in CONDITIONS}
+tgt_del = {"K": 0.0, "G": p.d_del_G, "A": p.d_del_A}
+direct_del = {c: tgt_del[c] - 0.62 * (im[c] - im["K"])
+              - p.b_peqi_on_del * mz.get(c, 0.0) for c in CONDITIONS}
+
+mod = np.where(cond == "G", p.mod_G_pre * pre,
+               np.where(cond == "A", p.mod_A_pre * pre, 0.0))
+med = np.where(ai, p.b_peqi_on_del * np.nan_to_num(peqi_z), 0.0)
+th_del = (0.62 * th_imm + 0.38 * base) - 0.55 + _map(cond, direct_del) + mod + med \
+    + rng.normal(0, np.sqrt(p.var_resid * 1.15), len(df))
+\end{lstlisting}
+
+\subsection{Hlavný kontrast a jeho rozptyl (výňatok z \texttt{pipeline.py})}
+
+\begin{lstlisting}[language=Python, caption={Vnutroindividualny kontrast s klastrovo robustnym rozptylom na urovni tried.}, label={lst:contrast}]
+def cluster_contrast(df, value, a, b, unit="student", cluster="klass"):
+    """Vnutroindividualny rozdiel a - b, CR1 robustne voci zhlukom (triedam)."""
+    w = df.pivot_table(index=[unit, cluster], columns="cond", values=value)
+    w = w.dropna(subset=[a, b])
+    d = (w[a] - w[b]).to_numpy()
+    g = w.index.get_level_values(cluster).to_numpy()
+    n, est = d.size, float(d.mean())
+    groups = np.unique(g)
+    J = groups.size
+    r = d - est
+    ssum = np.array([r[g == j].sum() for j in groups])
+    var = (J / max(J - 1, 1)) * (ssum ** 2).sum() / n ** 2
+    se = float(np.sqrt(max(var, 1e-12)))
+    df_t = J - 1                      # konzervativne pri malom pocte zhlukov
+    t = est / se
+    return dict(est=est, se=se, df=df_t, t=float(t),
+                p_two=float(2 * stats.t.sf(abs(t), df_t)),
+                p_one=float(stats.t.sf(t, df_t)))
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Test ekvivalencie (TOST) voci vopred stanovenej hranici SESOI.}, label={lst:tost}]
+def tost(res, sesoi=0.30):
+    est, se, df_t = res["est"], res["se"], res["df"]
+    p_lo = float(stats.t.sf((est + sesoi) / se, df_t))   # H0: rozdiel <= -sesoi
+    p_hi = float(stats.t.cdf((est - sesoi) / se, df_t))  # H0: rozdiel >= +sesoi
+    tcrit = stats.t.ppf(0.95, df_t)
+    return dict(p_tost=max(p_lo, p_hi),
+                equivalent=bool(max(p_lo, p_hi) < 0.05),
+                ci90_lo=float(est - tcrit * se),
+                ci90_hi=float(est + tcrit * se))
+\end{lstlisting}
+
+\subsection{Raschova kalibrácia (výňatok z \texttt{pipeline.py})}
+
+\begin{lstlisting}[language=Python, caption={Spolocna maximalizacia vierohodnosti (JMLE) s korekciou vychylenia obtiaznosti poloziek.}, label={lst:rasch}]
+def rasch_jmle(X, n_iter=200, tol=1e-6):
+    X_all = np.asarray(X, dtype=float)
+    present = (~np.isnan(X_all) & (X_all >= 0)).sum(axis=1) > 0
+    if not present.all():             # ziaci, ktori test vobec nepisali
+        th, b, se = rasch_jmle(X_all[present], n_iter, tol)
+        full_th = np.full(X_all.shape[0], np.nan)
+        full_se = np.full(X_all.shape[0], np.nan)
+        full_th[present], full_se[present] = th, se
+        return full_th, b, full_se
+    mask = ~np.isnan(X_all) & (X_all >= 0)
+    X = np.where(mask, X_all, 0.0)
+    L, N = mask.sum(axis=1).astype(float), mask.sum(axis=0).astype(float)
+    r = np.clip((X * mask).sum(axis=1), 0.3, L - 0.3)   # osetrenie extremov
+    s = np.clip((X * mask).sum(axis=0), 0.3, N - 0.3)
+    theta, b = np.log(r / (L - r)), -np.log(s / (N - s))
+    b -= b.mean()
+    for _ in range(n_iter):
+        ...                            # striedave Newtonove kroky pre theta a b
+    b *= (mask.shape[1] - 1) / mask.shape[1]   # korekcia vychylenia JMLE
+    return theta, b, se
+\end{lstlisting}
+
+\subsection{Inštrumentálna premenná (výňatok z \texttt{identification.py})}
+
+\begin{lstlisting}[language=Python, caption={Dvojstupnova metoda najmensich stvorcov so spravnym sendvicovym rozptylom. Rezidua sa pocitaju z POZOROVANEHO mediatora, nie z fitovaneho; naivna dvojkrokova implementacia tu podhodnocuje standardnu chybu.}, label={lst:iv}]
+# prvy stupen: randomizovana pedagogicka vrstva -> kvalita promptov
+Z = _design(d, [instrument] + controls)          # controls su PREDintervencne
+b1, V1, _ = _cluster_ols(d[mediator].to_numpy(float), Z, cl)
+m_hat = Z @ b1
+f_stat = (b1[1] / np.sqrt(V1[1, 1])) ** 2        # F < 10 => slaby instrument
+
+# druhy stupen
+Xhat = np.column_stack([np.ones(len(d)), m_hat] + [d[c] for c in controls])
+Xobs = _design(d, [mediator] + controls)
+bread = np.linalg.pinv(Xhat.T @ Xhat)
+beta = bread @ Xhat.T @ y
+u = y - Xobs @ beta                              # POZOROVANY mediator
+
+meat = np.zeros((k, k))
+for g in np.unique(cl):                          # zhluky = triedy
+    s = Xhat[cl == g].T @ u[cl == g]
+    meat += np.outer(s, s)
+V = scale * bread @ meat @ bread
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Analyza citlivosti: aka silna by musela byt nepozorovana spolocna pricina mediatora a vysledku, aby nepriamy ucinok zanikol.}, label={lst:sens}]
+# zvyskove rozptyly oboch rovnic
+res_m = d[mediator] - Xa @ ba;  s_m   = np.std(res_m, ddof=Xa.shape[1])
+res_y = d[outcome]  - Xb @ bb;  s_res = np.std(res_y, ddof=Xb.shape[1])
+g_hat = bb[1]                                    # pozorovana draha b
+
+# b(rho) = g_hat - rho * s_res / (sqrt(1-rho^2) * s_m)   =>  nula pri:
+k = g_hat * s_m / s_res
+rho_star = k / np.sqrt(1 + k * k)
+
+# prevod na podiel vysvetleneho rozptylu: |rho| = sqrt(R2_M * R2_Y),
+# takze symetricky bod je R2_M = R2_Y = |rho_star|
+\end{lstlisting}
+
+\subsection{Súbežná kalibrácia foriem (výňatok z \texttt{pipeline.py})}
+
+\begin{lstlisting}[language=Python, caption={Okamzita a odlozena forma na jednej skale cez kotviace polozky. Bez tohto kroku by rozdiel medzi nimi zamienal zabudanie s obtiaznostou testu.}, label={lst:equate}]
+n, k_i, k_d = xi.shape[0], xi.shape[1], xd.shape[1]
+k_unique = k_i + (k_d - n_anchor)
+
+stacked = np.full((2 * n, k_unique), np.nan)
+stacked[:n, :k_i]       = xi              # okamzite prilezitosti
+stacked[n:, :n_anchor]  = xd[:, :n_anchor]   # kotvy: TIE ISTE polozky
+stacked[n:, k_i:]       = xd[:, n_anchor:]   # polozky len v odlozenej forme
+
+theta, b, se = rasch_jmle(stacked)        # nezadane polozky = chybajuce dizajnom
+return theta[:n], theta[n:], b, se[:n], se[n:]
+\end{lstlisting}
+
+\subsection{Klasifikácia promptov (výňatok z \texttt{peqi.py})}
+
+\begin{lstlisting}[language=Python, caption={Rozhodovaci postup z kodovacieho manualu ako kod. Plati prve pravidlo, ktore sa uplatni.}, label={lst:peqi}]
+def rule_classify(text):
+    f = features(text)
+    if f["f_offtask"] and not f["f_domain"]:
+        return "X"
+    if f["f_selfexpl"]:
+        return "L4"       # vlastna uvaha + ziadost o posudenie
+    if f["f_elaborate"]:
+        return "L3"       # porovnanie, podmienky pouzitia, protipriklad
+    if f["f_explain"]:
+        return "L2"       # ziadost o vyznam
+    if f["f_verify"] or (f["f_code"] and not f["f_solve"]):
+        return "L1"       # predlozenie vlastnej prace, ziadost o verdikt
+    if f["f_solve_verb"]:
+        return "L0"       # ziadost o artefakt
+    return "L1"
+\end{lstlisting}
+
+\section{Kód analýzy sily testu}
+\label{sec:kod-sila}
+
+Simulácia sily využíva to, že v krížovom dizajne sa triedny aj žiacky intercept vo vnútroindividuálnom rozdiele vykrátia. Viazaným obmedzením preto zostáva výhradne heterogenita účinku medzi triedami, ktorú simulácia modeluje explicitne parametrom \texttt{tau2\_ct}.
+
+\begin{lstlisting}[language=Python, caption={Generovanie jedneho pokusu. Nahodny ucinok podmienky na urovni triedy (v\_ct) je jediny komponent, ktory sa vo vnutroindividualnom rozdiele nevykrati.}, label={lst:power}]
+def simulate_trial(n_classes, effects, tau2_ct, rng, period_eff=(0.0, 0.10, 0.16)):
+    sd_c, sd_s, sd_e = _components(tau2_ct)
+    ys, cls = [], []
+    for c in range(n_classes):
+        seq = SEQUENCES[c % 6]           # vsetkych 6 permutacii K, G, A
+        u_c = rng.normal(0, sd_c)        # intercept triedy  -> vykrati sa
+        v_ct = (rng.normal(0, np.sqrt(tau2_ct), 3)
+                if tau2_ct > 0 else np.zeros(3))   # ucinok x trieda -> NEvykrati sa
+        u_i = rng.normal(0, sd_s, CLASS_SIZE)      # intercept ziaka -> vykrati sa
+        y = np.full((CLASS_SIZE, 3), np.nan)
+        for p, cond in enumerate(seq):
+            k = COND_IDX[cond]
+            y[:, k] = (u_c + u_i + effects[cond] + v_ct[k] + period_eff[p]
+                       + rng.normal(0, sd_e, CLASS_SIZE))
+        y[rng.random(CLASS_SIZE) < ATTRITION, :] = np.nan
+        ys.append(y); cls.append(np.full(CLASS_SIZE, c))
+    return np.vstack(ys), np.concatenate(cls)
+\end{lstlisting}
+
+\paragraph{Overenie kalibrácie testu.} Pri skutočnom nulovom rozdiele medzi $G$ a $K$ dáva simulácia podiel zamietnutí $0{,}040$ oproti nominálnej hodnote $0{,}05$. Test je teda mierne konzervatívny, čo je pri malom počte zhlukov žiaduce a zodpovedá to voľbe $J-1$ stupňov voľnosti.
+
+\section{Plán správy údajov}
+
+\begin{table}[H]
+\centering
+\caption{Plán správy údajov}
+\label{tab:data-plan}
+\small
+\begin{tabularx}{\textwidth}{@{}l X X@{}}
+\toprule
+\textbf{Súbor} & \textbf{Obsah} & \textbf{Sprístupnenie} \\
+\midrule
+\texttt{analytic.csv} & žiak $\times$ perióda: skóre, kódy podmienok, PEQI, procesné ukazovatele; bez voľného textu & verejne, otvorená licencia \\
+\texttt{items.csv} & odpovede na jednotlivé položky a sebadôvera & verejne \\
+\texttt{prompts.jsonl} & texty promptov po pseudonymizácii & na požiadanie, po podpise dohody o mlčanlivosti \\
+\texttt{synthetic.csv} & dáta z generujúceho modelu so zhodnou štruktúrou & verejne \\
+\texttt{analysis/} & úplný kód analýzy & verejne, otvorená licencia \\
+\texttt{randomisation.json} & priradenie tried k sekvenciám a semeno generátora & verejne \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Uchovávanie: pseudonymizované údaje tri roky od obhajoby na infraštruktúre STU v šifrovanej podobe, potom odstránenie. Prepojovacia tabuľka medzi pseudonymom a identitou žiaka zostáva u školy a výskumník k nej nemá prístup; po skončení zberu ju škola odstraňuje.

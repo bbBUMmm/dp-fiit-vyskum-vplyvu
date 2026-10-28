@@ -1,0 +1,177 @@
+\chapter{Protokol zberu údajov na slovenskej škole}
+\label{chapter:protokol}
+
+Táto príloha je návod na vykonanie, nie opis zámeru. Je napísaná tak, aby podľa nej mohol zber viesť učiteľ informatiky po jednom zaškolení, a aby sa dalo skontrolovať, či prebehol podľa plánu.
+
+\section{Čo škola poskytuje a čo dostane}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Čo škola dáva.}] Tri vyučovacie bloky na výučbu (90~min každý, v rámci bežných hodín informatiky), \asmMeasureLessons{} vyučovacie hodiny na meranie, počítačovú učebňu s pripojením a jedného učiteľa, ktorý vedie všetky tri bloky v danej triede.
+    \item[\textbf{Čo škola nedáva.}] Zásah do siete, inštaláciu serverov, prístup k svojim systémom ani osobné údaje žiakov. Nástroj beží lokálne na notebookoch a po skončení sa odstráni vrátane certifikačnej autority.
+    \item[\textbf{Čo škola dostane.}] Tri pripravené hodiny informatiky s materiálmi, ktoré si ponecháva; agregovanú správu za triedu (nie za žiaka) s porovnaním voči ostatným zapojeným triedam; a po skončení štúdie prístup k celej sade úloh a testov.
+\end{description}
+
+\section{Harmonogram a jeho miesto v školskom roku}
+
+\begin{table}[H]
+\centering
+\caption{Harmonogram jednej triedy}
+\label{tab:harmonogram}
+\small
+\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+\toprule
+\textbf{Bod} & \textbf{Kedy} & \textbf{Trvanie} & \textbf{Obsah} \\
+\midrule
+S0   & 4 týždne vopred & --- & súhlasy domov cez EduPage; súhlas riaditeľa; potvrdenie termínov \\
+T0a  & týždeň 0 & \mplMinToa~min z \mplBudgetToa & ICAR (\mplGfItems{} položiek), iBobor (8 úloh) \\
+T0b  & týždeň 0 & \mplMinTob~min z \mplBudgetTob & Jr.~MAI a vstupný dotazník, \emph{cez EduPage ako domáca úloha} \\
+P1--P3 & týždne 1--3 & 2 hodiny & hodina (\instrLessonMin~min), okamžitý test s JOL (\asmFormItems), dotazník \\
+T4a  & týždeň 6 & 2 hodiny & odložený test (3 $\times$ \asmFormItems), ICAR znovu (\mplGfItems) \\
+T4b  & týždeň 6 & 1 hodina & transferový test (\instrTtItems), záverečný dotazník \\
+T5   & týždeň 7 & 30~min/žiak & rozhovory s 18~žiakmi vybranými podľa tercilu PEQI \\
+T6   & voliteľne, koniec semestra & \mplMinTsix~min z \mplBudgetTsix & iBobor (15 úloh) ako výstup semestrálneho ramena \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Prečo takto a nie inak.} Rozvrh vychádza z troch úprav, z ktorých každá je metodickým zlepšením, nie ústupkom:
+
+\begin{enumerate}[nosep]
+    \item \textbf{T0 sa delí.} Dotazník o návykoch nie je test a nepotrebuje dozor. Odchádza cez EduPage ako domáca úloha a prestáva súťažiť o hodinu s nástrojmi, ktoré merajú na čas.
+    \item \textbf{Vstupné vedomosti sa presúvajú.} Namiesto jedného dvadsaťpoložkového testu v týždni~0 sa zadá päťpoložkový predtest k \emph{danej} téme, a to na konci predchádzajúcej hodiny informatiky. Globálny test tri týždne pred treťou témou je horší kovariát než päť položiek zadaných pár dní pred hodinou, ktorá ich potrebuje, a stojí štvornásobok času. Zadanie mimo vyučovacieho bloku je nutnosť: blok na päť položiek nemá miesto (príloha~\ref{chapter:hodnotiaci-modul}, časť~\ref{sec:cas-rozpocet}).
+    \item \textbf{Blok iBobor sa v hlavnom ramene skracuje.} Tam je kovariátom, nie výstupom. V plnej dĺžke sa vracia len vo voliteľnom semestrálnom ramene, kde \emph{je} výstupom a kde horizont merania konečne zodpovedá rýchlosti zmeny konštruktu (časť~\ref{sec:konstrukty}).
+\end{enumerate}
+
+\paragraph{Umiestnenie v školskom roku.} Zber sa plánuje na október až november alebo na marec až apríl. Vylučujú sa dva týždne pred polročnou a koncoročnou klasifikáciou, lebo vtedy je ochota škôl uvoľniť hodiny najnižšia a pozornosť žiakov je viazaná na známkovanie. Termín odloženého testu sa žiakom neoznamuje; učiteľ ho má v pláne ako „opakovaciu hodinu“.
+
+\section{Role}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Učiteľ}] vedie všetky tri bloky v svojej triede. Je to tá istá osoba vo všetkých troch podmienkach~--- to je súčasť kontroly, nie organizačná náhoda. Dostáva scenár hodiny a kontrolný list vernosti.
+    \item[\textbf{Výskumník}] je prítomný pri T0a, T4a a T4b, spúšťa záchytnú vrstvu, vypĺňa kontrolný list vernosti a nezasahuje do výučby.
+    \item[\textbf{Kontaktná osoba školy}] (spravidla zástupca riaditeľa) zbiera súhlasy, drží soľ pre pseudonymizáciu a je jediná osoba, ktorá vie priradiť kód k žiakovi.
+\end{description}
+
+\section{Priebeh jednotlivých stretnutí}
+
+\subsection*{T0a --- vstupná hodina (\mplBudgetToa~min)}
+
+\begin{description}[leftmargin=1.5cm, style=nextline, nosep]
+    \item[0--5 min] Rozdanie kódov. Každý žiak dostane obálku so školským kódom. Kód nie je meno ani rodné číslo; priradenie drží kontaktná osoba školy.
+    \item[5--8 min] Vysvetlenie: čo sa meria, čo sa nezaznamenáva, že výsledok nemá vplyv na známku a že žiak môže kedykoľvek prestať bez následku. Overenie, že všetci prítomní majú súhlas; žiaci bez súhlasu absolvujú hodinu, ale ich dáta sa nezaznamenávajú.
+    \item[8--23 min] ICAR, \mplGfItems{} položiek. Na obrazovke, jedna položka naraz, bez návratu späť. Bez časového limitu na položku, celkový limit 15~minút.
+    \item[23--36 min] iBobor, 8 úloh. Návrat k predchádzajúcim úlohám povolený, ako v súťaži.
+    \item[36--45 min] Rezerva. Nepoužitá rezerva je zámer: technický problém pri prvom stretnutí je pravidlo, nie výnimka.
+\end{description}
+
+\subsection*{T0b --- zadané cez EduPage (\mplBudgetTob~min doma)}
+
+Jr.~MAI (\instrMaiItems~položiek) a vstupný dotazník o doterajšom používaní nástrojov umelej inteligencie a o programátorskej skúsenosti. Zadáva sa ako domáca úloha s týždňovým termínom. Nevyplnenie nie je dôvodom na vylúčenie; chýbajúca hodnota kovariátu sa dopĺňa viacnásobnou imputáciou.
+
+\subsection*{P1--P3 --- vyučovací blok (2 hodiny, 90~min)}
+
+Predtest k téme sa nezadáva v~tomto bloku, ale na konci \emph{predchádzajúcej} hodiny informatiky (4~min, pod dozorom, 2--3 dni vopred). Vedomosti o~predpokladoch témy sa za dva dni bez výučby nemenia, takže kovariát tým nič nestráca, a blok získa štyri minúty, ktoré v~ňom nie sú.
+
+\begin{description}[leftmargin=1.5cm, style=nextline, nosep]
+    \item[0--4 min] Spustenie prostredia. V podmienkach $G$ a $A$ sa spúšťa cvičné rozhranie s príslušným prepínačom; v podmienke $K$ to isté rozhranie bez asistenta. Výskumník overí, že sa zapisuje záchytný súbor.
+    \item[4--68 min] Hodina podľa scenára, \instrLessonMin{}~minút. Učiteľ vedie rovnakú štruktúru vo všetkých troch podmienkach: výklad, riadené cvičenie, samostatné cvičenie.
+    \item[68--84 min] Okamžitý test, \asmFormItems{}~položiek s posuvníkom sebadôvery pri každej uzavretej položke.
+    \item[84--89 min] Krátky dotazník: záťaž, pocit naučenia, spokojnosť. Uzatvorenie záchytného súboru a jeho prenos.
+\end{description}
+
+\subsection*{T4a --- odložené meranie a negatívna kontrola (2 hodiny)}
+
+Poradie je zámerné: odložený test ide prvý, kým je pozornosť najvyššia, a ICAR posledný, lebo je na únavu najodolnejší. Medzi témami sú trojminútové prestávky, ktoré držia najdlhší nepretržitý úsek testovania pod \instrFatigueCap{}~minútami~--- tridsaťšesť položiek za sebou je jedno takmer päťdesiatminútové sedenie a výkon by v~ňom klesal, a klesal by nerovnako podľa motivácie, ktorú podmienky ovplyvňujú.
+
+\begin{description}[leftmargin=1.5cm, style=nextline, nosep]
+    \item[0--5 min] Rozdanie kódov, bez upozornenia vopred.
+    \item[5--21 min] Odložený test, téma T1, \asmFormItems{}~položiek, s posuvníkom sebadôvery.
+    \item[21--24 min] Prestávka.
+    \item[24--40 min] Odložený test, téma T2.
+    \item[40--43 min] Prestávka.
+    \item[43--59 min] Odložený test, téma T3.
+    \item[59--62 min] Prestávka.
+    \item[62--77 min] ICAR znovu, \mplGfItems{} položiek~--- tých istých, v tom istom poradí.
+\end{description}
+
+\subsection*{T4b --- transferový test (1 hodina)}
+
+Oddelený od T4a. Spolu by to bolo 92~minút merania, a transfer je práve to meranie, ktorému únava uškodí najviac: \instrTtItems{}~rubrikových položiek vyžaduje odvodenie, nie vybavenie.
+
+\begin{description}[leftmargin=1.5cm, style=nextline, nosep]
+    \item[0--5 min] Rozdanie kódov.
+    \item[5--30 min] Transferový test, \instrTtItems{}~položiek, rubrika 0--3.
+    \item[30--40 min] Záverečný dotazník postojov; poďakovanie; informácia, kedy a v akej podobe dostane škola správu.
+\end{description}
+
+\paragraph{Čo tieto zmeny stoja a prečo stoja za to.} Počet meracích hodín, ktoré škola dáva, stúpa na \asmMeasureLessons. Pôvodný rozvrh sa zmestil len preto, že časový rozpočet počítal plochý priemer sekúnd na položku a tým podhodnotil rubrikové nástroje o~\asmBudgetUnderstated{}~minúty, najviac transferový test o~\asmBudgetWorstBy{}~minúty (príloha~\ref{chapter:hodnotiaci-modul}, časť~\ref{sec:cas-rozpocet}). Hodina viac je lacnejšia než meranie, ktoré sa do hodiny nevojde a skončí sa predčasne.
+
+\section{Údaje: čo vzniká, kde a v akej podobe}
+
+\begin{table}[H]
+\centering
+\caption{Toky údajov}
+\label{tab:toky}
+\small
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Zdroj} & \textbf{Formát} & \textbf{Čo obsahuje a čo nie} \\
+\midrule
+testy a dotazníky & CSV & pseudonym, kód položky, odpoveď, čas; \emph{žiadne} meno ani trieda po mene \\
+cvičné rozhranie & JSON Lines & udalosti hodiny: zobrazenie úlohy, pokus, prompt, odomknutie \\
+záchytná vrstva & JSON Lines & prompty odoslané modelu, po odstránení osobných údajov \\
+kontrolný list vernosti & PDF/CSV & či hodina prebehla podľa scenára; vypĺňa výskumník \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Pseudonym je školský kód hašovaný soľou, ktorú drží škola. Výskumník teda nemá prostriedok na spätné priradenie, a to ani pri úniku celého analytického súboru. Voľný text sa zaznamenáva len tam, kde to súhlas výslovne pokrýva: prompt a vlastné vysvetlenie. Nikde inde.
+
+\subsection*{Kontrola údajov v deň zberu}
+
+Schéma údajov je strojovo čitateľná a kontroluje sa modulom \texttt{ingest.py} \emph{v ten istý deň}, keď zber prebehol. Dôvod je vecný a v školskom výskume rozhodujúci: chýbajúci stĺpec, preklep v kóde alebo nedoručený súhlas sa pri kontrole až pri analýze objavia o niekoľko mesiacov, keď je škola nedostupná a žiaci sú inde. Vtedy sa z opraviteľnej administratívnej chyby stáva trvalo chýbajúci údaj. Telefonát v deň zberu ju odstráni; marcová analýza už nie.
+
+Kontrola rozlišuje dve triedy nálezov, a to rozlíšenie je zámerné:
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Chyby}] bránia analýze a vyžadujú zásah. Patria sem: odpoveď zaznamenaná bez úplného súhlasu (taký riadok sa maže, neanalyzuje); identifikátor, ktorý nie je 16~hexadecimálnych znakov, teda nebol hašovaný a súbor nesmie opustiť školu; pseudonym, ktorý nie je v zozname; názov nástroja mimo schémy; tá istá položka zodpovedaná dvakrát; posuvník sebadôvery na položke dotazníka, ktorá nemá správnu odpoveď; viac vykonaných krokov hodiny než plánovaných.
+    \item[\textbf{Upozornenia}] analýzu neblokujú, ale menia zaobchádzanie s blokom: vernosť pod 90\,\%, pokrytie záchytnej vrstvy pod 80\,\%, návratnosť súhlasov pod 85\,\%. Súbor je v poriadku; problém je v tom, čo opisuje.
+\end{description}
+
+Prahy sú definované na jednom mieste v kóde, takže protokol a kontrola sa nemôžu rozísť. Kontrola je sama testovaná: k schéme existuje jedenásť zámerne pokazených vzoriek a test vyžaduje, aby bola každá z nich odhalená a aby bezchybná vzorka prešla bez jedinej poznámky. Kontrola, ktorá videla len správne dáta, nie je kontrola, ale tvrdenie.
+
+\section{Súhlas a právny základ}
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Žiaci do 18~rokov}] potrebujú písomný informovaný súhlas zákonného zástupcu. Súhlas sa distribuuje cez EduPage a v papierovej forme pre rodiny bez prístupu; obe cesty sa ponúkajú súčasne.
+    \item[\textbf{Žiaci nad 18~rokov}] dávajú súhlas sami.
+    \item[\textbf{Žiak sám}] dáva súhlas vždy, bez ohľadu na vek, a jeho nesúhlas je rozhodujúci aj vtedy, keď zákonný zástupca súhlasil. Odmietnutie nemá žiadny dôsledok pre známku ani pre účasť na hodine.
+    \item[\textbf{Právny základ}] spracúvania je súhlas podľa zákona č.~18/2018~Z.\,z. a nariadenia GDPR. Súhlas je odvolateľný kedykoľvek a bez udania dôvodu; po odvolaní sa záznamy daného pseudonymu vymažú do 30~dní.
+    \item[\textbf{Schválenia}] pred začiatkom: etická komisia fakulty, riaditeľ každej zapojenej školy, a súhlas organizátorov súťaže iBobor s použitím úloh na výskumný účel.
+\end{description}
+
+\section{Čo robiť, keď niečo zlyhá}
+
+Zoznam je krátky, lebo je vopred rozhodnutý. Improvizácia počas zberu je to, čo robí dáta neporovnateľnými.
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Vypadne internet.}] Podmienka $K$ pokračuje bez zmeny. Podmienky $G$ a $A$ sa prerušia, hodina sa vedie do konca bez asistenta a \emph{celý blok danej triedy sa vyradí z analýzy podľa protokolu}; vykazuje sa medzi odchýlkami. Nenahrádza sa iným termínom, lebo perióda je súčasťou dizajnu.
+    \item[\textbf{Žiak chýba na jednej perióde.}] Zostáva v štúdii. Krížový dizajn je na neúplné bloky odolný; chýbajúca perióda sa ošetruje zmiešaným modelom.
+    \item[\textbf{Žiak chýba na T4.}] Toto je jediný výpadok, ktorý skutočne bolí (časť o citlivosti na výpadok). Náhradný termín sa ponúka do jedného týždňa a odstup sa zaznamená ako kovariát.
+    \item[\textbf{Chýba súhlas.}] Žiak absolvuje hodinu ako ktorýkoľvek iný; nezaznamenáva sa oňho nič. Počet takých žiakov sa vykazuje.
+    \item[\textbf{Učiteľ sa odchýli od scenára.}] Zaznamená sa v kontrolnom liste. Bloky s vernosťou pod 90\,\% vstupujú do citlivostnej analýzy osobitne.
+    \item[\textbf{Žiak použije vlastný telefón.}] Zachytí sa ako nesúlad medzi počtom promptov v rozhraní a v záchytnej vrstve. Vykazuje sa ako miera pokrytia; prípady sa označia a beží citlivostná analýza bez nich.
+\end{description}
+
+\section{Kontrolný list pred začiatkom zberu}
+
+\begin{enumerate}[nosep]
+    \item Etická komisia schválila, súhlas riaditeľa podpísaný, súhlas organizátorov iBoboru získaný.
+    \item Súhlasy vrátené aspoň od 85\,\% žiakov v triede; pod touto hranicou sa trieda nezaraďuje.
+    \item Pilot na jednej nezaradenej triede prebehol; položky vyradené podľa \emph{intervalového} pravidla (vyradiť len ak 90\,\% interval leží celý mimo pásma $0{,}30$--$0{,}80$) a nahradené z rezervnej sady. Bodové pravidlo sa nepoužíva: pri \pilotN{}~žiakoch by vyradilo $\pilotPointGood$\,\% dobrých položiek (časť~\ref{sec:pilot}).
+    \item Soľ pre pseudonymizáciu vygenerovaná a odovzdaná kontaktnej osobe školy; výskumník ju nemá.
+    \item Cvičné rozhranie otestované na školskom notebooku vrátane výpadku siete.
+    \item Vrstva podmienky $A$ prešla sadou 40~útočných dopytov s nulovým únikom.
+    \item Scenáre hodín a kontrolné listy vernosti vytlačené; učiteľ zaškolený.
+    \item Záložný papierový variant testov pripravený pre prípad výpadku.
+\end{enumerate}

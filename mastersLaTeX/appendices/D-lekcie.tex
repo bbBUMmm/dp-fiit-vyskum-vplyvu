@@ -1,0 +1,113 @@
+\chapter{Scenáre vyučovacích hodín}
+\label{chapter:lekcie}
+
+Scenáre sú záväzné. Ich úlohou je zabezpečiť, aby sa tri podmienky líšili \emph{výhradne} v dostupnej pomoci počas samostatnej práce a nie v obsahu, tempe, príkladoch či osobe učiteľa. Uvádzame úplný scenár pre tému~T1 vo všetkých troch podmienkach; témy~T2 a T3 majú identickú štruktúru a líšia sa len obsahom, ktorý je uvedený v skrátenej forme.
+
+\section{Spoločná štruktúra bloku (90 minút)}
+
+\begin{table}[H]
+\centering
+\caption{Časová štruktúra vyučovacieho bloku, rovnaká vo všetkých podmienkach}
+\label{tab:struktura}
+\small
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Čas} & \textbf{Blok} & \textbf{Obsah} \\
+\midrule
+0--4    & úvod            & organizačné pokyny, oznámenie témy, spustenie cvičného rozhrania \\
+4--26   & výklad          & skriptovaný výklad s tromi riešenými príkladmi a animáciou \\
+26--58  & samostatná práca& osem úloh v predpísanom poradí; tu a len tu sa podmienky líšia \\
+58--68  & zhrnutie        & spoločná diskusia troch vybraných úloh, zhrnutie princípu \\
+68--84  & test            & okamžitý test (\asmFormItems{}~položiek) so sebadôverou \\
+84--89  & dotazník        & záťaž, pocit naučenia, spokojnosť \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Čo učiteľ nesmie.} Vo všetkých podmienkach: poskytnúť úplné riešenie ktorejkoľvek úlohy zo sady; pridať príklad, ktorý nie je v scenári; predĺžiť alebo skrátiť blok o viac než päť minút; komentovať, ktorá podmienka je podľa neho lepšia. Posledný bod je dôležitý~--- očakávanie učiteľa je známym zdrojom skreslenia a scenár ho obmedzuje explicitne.
+
+\section{Téma T1 --- vyhľadávanie}
+
+\subsection{Výkladová časť (22 minút, spoločná pre K, G aj A)}
+
+\begin{description}[leftmargin=1.5cm, style=nextline, nosep]
+    \item[5--10 min] \textbf{Motivácia.} Otázka triede: „Ako by ste hľadali slovo v tlačenom slovníku?“ Vyzdvihnutie toho, že nikto nezačína od prvej strany. Prepojenie s usporiadanosťou.
+    \item[10--18 min] \textbf{Lineárne vyhľadávanie.} Pseudokód, prechod po prvkoch, počet porovnaní v najlepšom, priemernom a najhoršom prípade. Zavedenie zápisu $\mathcal{O}(n)$ ako opisu rastu, nie presného počtu.
+    \item[18--30 min] \textbf{Binárne vyhľadávanie.} Pseudokód, podmienka usporiadanosti, invariant „ak je prvok v poli, je v aktuálnom úseku“. Animácia na poli 16 prvkov. \textbf{Riešený príklad 1:} hľadanie 23 v poli \texttt{[2, 5, 8, 12, 16, 23, 38, 56, 72, 91]} s vypísaním tabuľky krokov.
+    \item[30--35 min] \textbf{Odvodenie $\log_2 n$.} \textbf{Riešený príklad 2:} koľkokrát treba deliť 1024 dvomi, kým dostaneme jeden prvok. \textbf{Riešený príklad 3:} protipríklad~--- neusporiadané pole, v ktorom binárne vyhľadávanie zlyhá. Zdôraznenie, že pri jedinom hľadaní v neusporiadanom poli sa usporiadanie neoplatí.
+\end{description}
+
+\subsection{Sada úloh (spoločná pre všetky podmienky)}
+
+Úlohy sú v predpísanom poradí od najjednoduchšej. Cvičné rozhranie zaznamenáva čas zobrazenia úlohy, prvé stlačenie klávesu, každý odoslaný pokus a odomknutie riešenia.
+
+\begin{enumerate}[nosep, label=Ú\arabic*.]
+    \item Pole \texttt{[1, 4, 7, 9, 13, 20, 28]}, hľadáme 13. Vypíš postupnosť porovnávaných prvkov.
+    \item To isté pole, hľadáme 2. Čo algoritmus vráti a po koľkých porovnaniach?
+    \item Doplň tabuľku premenných \texttt{lavy}, \texttt{pravy}, \texttt{stred} pre všetky kroky hľadania 28.
+    \item Koľko porovnaní potrebuje binárne vyhľadávanie v poli 2000 prvkov v najhoršom prípade? Zdôvodni.
+    \item Nájdi chybu v danom pseudokóde (podmienka \texttt{while lavy < pravy} namiesto \texttt{<=}) a uveď, pri akom vstupe sa prejaví.
+    \item Naprogramuj binárne vyhľadávanie, ktoré vráti index prvku alebo $-1$.
+    \item Uprav svoj program tak, aby pri viacerých výskytoch vrátil index \emph{prvého} z nich.
+    \item Máš neusporiadané pole 2000 prvkov a $k$ hľadaní. Pre aké $k$ sa oplatí pole najprv usporiadať? Uveď úvahu, nie presné číslo.
+\end{enumerate}
+
+Úlohy Ú1--Ú4 overujú porozumenie, Ú5--Ú7 aplikáciu a Ú8 hodnotenie. Úloha Ú8 je zámerne otvorená a nemá jedinú správnu odpoveď~--- je to úloha, pri ktorej sa rozdiel medzi podmienkami prejaví najzreteľnejšie v charaktere promptov.
+
+\subsection{Podmienka K --- samostatná práca}
+
+Panel asistenta je v cvičnom rozhraní skrytý. Žiaci pracujú samostatne alebo vo dvojiciach podľa bežného zvyku triedy. Učiteľ prechádza triedou a na otázky odpovedá tak, ako to robí bežne, s jediným obmedzením: neposkytne úplné riešenie. Pri opakovanej otázke na to isté odpovedá návodnou otázkou.
+
+\paragraph{Vzorové odpovede učiteľa.} Pre porovnateľnosť naprieč triedami sú v scenári uvedené odpovede na päť najčastejších otázok zistených v pilote, napríklad: „Prečo mi to nefunguje pre posledný prvok?“ $\to$ „Skús si vypísať hodnoty \texttt{lavy} a \texttt{pravy} v poslednom kroku. Čo musí platiť, aby sa cyklus ešte raz vykonal?“
+
+\subsection{Podmienka G --- samostatná práca}
+
+Panel asistenta je otvorený a bez obmedzení. Úvodná inštrukcia znie doslovne: \emph{„Počas riešenia máš k dispozícii asistenta. Môžeš ho používať tak, ako uznáš za vhodné. Na konci hodiny píšete krátky test, v ktorom asistenta k dispozícii mať nebudete.“}
+
+Posledná veta je súčasťou inštrukcie zámerne. Bez nej by sa meralo niečo iné~--- žiak, ktorý nevie o následnom teste, nemá dôvod sa čokoľvek učiť. S ňou je podmienka $G$ realistickým modelom žiaka, ktorý vie, že sa bude skúšať, a napriek tomu sa rozhodne delegovať. Práve toto rozhodnutie je predmetom merania.
+
+Učiteľ odpovedá len na organizačné otázky a na otázky k obsahu odpovedá: „Skús sa spýtať asistenta.“
+
+\subsection{Podmienka A --- samostatná práca}
+
+Panel asistenta je otvorený, ale medzi žiakom a modelom je pedagogická vrstva (príloha~\ref{sec:sysprompt}). Úvodná inštrukcia je identická s podmienkou $G$ až na jednu vetu: \emph{„Asistent ti nedá hotové riešenie, ale pomôže ti k nemu dôjsť.“} Táto veta je nutná, pretože bez nej by žiaci strácali čas opakovanými žiadosťami o riešenie, čo by zamieňalo pedagogický účinok s frustráciou z neznámeho správania nástroja.
+
+\paragraph{Adaptívna postupnosť.} Model sledovania znalostí odhaduje zvládnutie piatich čiastkových zručností: (1)~podmienka usporiadanosti, (2)~výpočet stredu a posun hraníc, (3)~ukončovacia podmienka a hraničné prípady, (4)~odvodenie počtu krokov, (5)~rozhodnutie o vhodnosti postupu. Ak je odhad zvládnutia zručnosti nad $0{,}85$, príslušná úloha sa preskočí a žiak dostane náročnejšiu variantu; ak je pod $0{,}40$, vloží sa medzikrok.
+
+\paragraph{Brána vlastného vysvetlenia.} Vzorové riešenie sa odomkne až po tom, čo žiak napíše aspoň jednu vetu o tom, prečo je jeho postup správny alebo kde predpokladá chybu. Odpovede „neviem“ a prázdny text sa neprijímajú.
+
+\subsection{Zhrnutie (10 minút, spoločné)}
+
+Učiteľ prejde úlohy Ú2, Ú5 a Ú8. Pri Ú8 zbiera dve až tri odlišné úvahy z triedy a nechá ich porovnať bez toho, aby vyhlásil jednu za správnu. Zhrnutie končí tromi vetami, ktoré sú v scenári uvedené doslovne, aby boli vo všetkých podmienkach identické.
+
+\section{Téma T2 --- triedenie (skrátene)}
+
+\paragraph{Výklad.} Motivácia usporiadaním kariet v ruke. Insertion sort: pseudokód, invariant „prvých $i$ prvkov je usporiadaných“, počet porovnaní v najlepšom a najhoršom prípade, $\mathcal{O}(n^2)$. Merge sort: rozdeľuj a panuj, zlučovanie dvoch usporiadaných úsekov ako lineárna operácia, počet úrovní $\log_2 n$, odvodenie $\mathcal{O}(n\log n)$. Riešené príklady: tri prechody insertion sortu na poli 6 prvkov; jedno zlúčenie dvoch štvorprvkových úsekov; porovnanie počtu operácií pre $n=1024$.
+
+\paragraph{Sada úloh.} Trasovanie troch prechodov insertion sortu; doplnenie stavu po prvom zlúčení; počet úrovní zlučovania pre dané $n$; nájdenie chyby v zlučovacej funkcii (nesprávne ošetrený zvyšok jedného úseku); implementácia insertion sortu; implementácia zlučovania dvoch usporiadaných polí; porovnanie pamäťovej náročnosti; rozhodnutie o voľbe postupu pre takmer usporiadané pole.
+
+\section{Téma T3 --- rekurzia a memoizácia (skrátene)}
+
+\paragraph{Výklad.} Motivácia rozprávkou o postupnosti, v ktorej každý člen závisí od dvoch predchádzajúcich. Naivná rekurzia: pseudokód, strom volaní pre \texttt{fib(5)}, identifikácia opakovane počítaných podproblémov, odhad $\mathcal{O}(2^n)$. Memoizácia: pamäť výsledkov, každý podproblém raz, $\mathcal{O}(n)$. Riešené príklady: nakreslenie stromu volaní pre \texttt{fib(4)} s vyznačením opakovaní; obsah pamäte po výpočte \texttt{fib(6)}; porovnanie času pre \texttt{fib(40)}.
+
+\paragraph{Sada úloh.} Počet volaní naivného \texttt{fib(6)}; nakreslenie stromu volaní; doplnenie obsahu pamäte; nájdenie chyby (chýbajúci základný prípad); implementácia naivnej verzie; doplnenie memoizácie do vlastnej implementácie; porovnanie pamäťovej náročnosti rekurzie a iterácie; rozhodnutie, kedy sa memoizácia neoplatí.
+
+\section{Rozvrhnutie deviatich kombinácií}
+
+\begin{table}[H]
+\centering
+\caption{Deväť kombinácií témy a podmienky; každá má vlastný záväzný scenár}
+\label{tab:kombinacie}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & \textbf{K} & \textbf{G} & \textbf{A} \\
+\midrule
+T1 vyhľadávanie & S-T1-K & S-T1-G & S-T1-A \\
+T2 triedenie    & S-T2-K & S-T2-G & S-T2-A \\
+T3 rekurzia     & S-T3-K & S-T3-G & S-T3-A \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Scenáre sa líšia výhradne v oddiele „samostatná práca“; výkladová a zhrnujúca časť sú pre danú tému doslovne identické vo všetkých troch podmienkach. Úplné znenia všetkých deviatich scenárov vrátane pracovných listov sú súčasťou digitálneho média.

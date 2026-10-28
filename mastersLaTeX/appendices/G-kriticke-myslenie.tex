@@ -1,0 +1,108 @@
+\chapter{Krátky test kritického myslenia (vrstva B)}
+\label{chapter:kriticke-myslenie}
+
+\section{Prečo vlastný nástroj}
+
+Pre vrstvu~B existujú zavedené nástroje a ani jeden nie je použiteľný tak, ako je. Halpernov test kritického myslenia (HCTA) je licencovaný, platený za administráciu a normovaný pre populáciu od 18~rokov. Watson\--Glaserov test má rovnaké obmedzenia a navyše nemá validovanú slovenskú verziu. Vzorka tejto práce je 14--19 rokov, teda z väčšej časti pod normatívnym rozsahom oboch.
+
+Použiť nástroj mimo rozsahu, v ktorom bol normovaný, a vykazovať z neho skóre znamená vykazovať číslo, ktorého význam nie je známy. Zostavujeme preto krátky vlastný nástroj a validujeme ho. Rozhodnutie má cenu aj zisk, a obe uvádzame:
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Cena.}] Nástroj nemá externé normy. Nemožno povedať „táto vzorka je na 60.~percentile slovenských žiakov v kritickom myslení“, pretože taká norma neexistuje. Použiteľný je na \emph{porovnanie podmienok v rámci štúdie}, nie na absolútne tvrdenie o úrovni.
+    \item[\textbf{Zisk.}] Je v slovenčine, je určený pre vek vzorky, je bezplatný, a~--- čo je pri licencovanom nástroji nemožné~--- dá sa zverejniť spolu s prácou a dátami, takže ho môže ktokoľvek prevziať alebo spochybniť.
+\end{description}
+
+\section{Konštrukt a špecifikácia}
+
+Test meria \emph{posúdenie tvrdenia a dôkazu}, nie všeobecnú inteligenciu. Štyri podoblasti vychádzajú z Halpernovho rámca, zúžené na to, čo je merateľné dvanástimi položkami a čo je relevantné pre prácu s nástrojom umelej inteligencie:
+
+\begin{table}[H]
+\centering
+\caption{Špecifikačná tabuľka testu kritického myslenia}
+\label{tab:ct-blueprint}
+\small
+\begin{tabularx}{\textwidth}{@{}l c X@{}}
+\toprule
+\textbf{Podoblasť} & \textbf{Položky} & \textbf{Čo musí žiak urobiť} \\
+\midrule
+Posúdenie zdroja a dôkazu & 3 & rozlíšiť tvrdenie od dôkazu; všimnúť si, že zdroj je zainteresovaný \\
+Príčina a korelácia & 3 & rozpoznať, že spoločný výskyt nie je príčinou; navrhnúť tretí činiteľ \\
+Pravdepodobnosť a vzorka & 3 & všimnúť si malú alebo vychýlenú vzorku; odolať jednotlivému príbehu \\
+Úplnosť argumentu & 3 & identifikovať chýbajúci predpoklad alebo nepoloženú otázku \\
+\midrule
+\textbf{Spolu} & \textbf{12} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Formát je uzavretý (štyri možnosti, jedna správna) z toho istého dôvodu, pre ktorý sa v tejto práci uprednostňuje uzavretý formát všade, kde je to možné: otvorená odpoveď u 330~žiakov vyžaduje dvoch kódovateľov a prináša vlastnú chybu merania. Rozptyľovače sú písané tak, aby zodpovedali \emph{konkrétnej} chybe uvažovania, nie aby boli náhodné.
+
+\section{Položky}
+
+Položky sú zasadené do bežných situácií, nie do školského učiva, aby merali prenositeľné uvažovanie a nie vedomosti z informatiky.
+
+\subsection*{Posúdenie zdroja a dôkazu}
+
+\begin{enumerate}[nosep, label=K\arabic*.]
+    \item Firma predávajúca vitamíny zverejnila štúdiu, podľa ktorej jej výrobok skracuje nádchu o deň. Štúdiu financovala a vykonala tá istá firma. Čo z toho \emph{najviac} oslabuje dôveru v záver?\\
+    \textit{(a)}~Nádcha trvá u každého inak. \quad \textit{(b)}~Ten, kto štúdiu platil, má záujem na výsledku.~$\checkmark$ \quad \textit{(c)}~Vitamíny sú drahé. \quad \textit{(d)}~Deň nie je veľa.
+
+    \item Článok tvrdí: „Deväť z desiatich zubárov odporúča túto pastu.“ Čo potrebuješ vedieť \emph{predovšetkým}, aby si vedel/a, či to niečo znamená?\\
+    \textit{(a)}~Koľko zubárov sa pýtali a ako ich vybrali.~$\checkmark$ \quad \textit{(b)}~Koľko pasta stojí. \quad \textit{(c)}~Či ju používajú aj oni. \quad \textit{(d)}~Ako dlho je na trhu.
+
+    \item Spolužiak tvrdí, že nový telefón je najlepší, lebo to píšu na stránke výrobcu. Ktorá odpoveď najlepšie vystihuje problém?\\
+    \textit{(a)}~Výrobca nemusí klamať. \quad \textit{(b)}~Stránka výrobcu nie je nezávislý zdroj.~$\checkmark$ \quad \textit{(c)}~Telefóny sa rýchlo menia. \quad \textit{(d)}~Spolužiak sa nevyzná.
+\end{enumerate}
+
+\subsection*{Príčina a korelácia}
+
+\begin{enumerate}[nosep, label=K\arabic*., start=4]
+    \item V mestách, kde je viac kníhkupectiev, majú žiaci lepšie známky. Z toho vyplýva:\\
+    \textit{(a)}~Kníhkupectvá zlepšujú známky. \quad \textit{(b)}~Lepšie známky vedú k otváraniu kníhkupectiev. \quad \textit{(c)}~Môže existovať tretí činiteľ, ktorý súvisí s oboma.~$\checkmark$ \quad \textit{(d)}~Je to náhoda.
+
+    \item Žiaci, ktorí raňajkujú, majú lepšie výsledky. Riaditeľ chce zaviesť povinné raňajky a očakáva lepšie výsledky. Čo je na jeho úvahe najslabšie?\\
+    \textit{(a)}~Raňajky sú drahé. \quad \textit{(b)}~Nevie, či raňajky výsledky \emph{spôsobujú}, alebo len sprevádzajú niečo iné.~$\checkmark$ \quad \textit{(c)}~Nie každý má rád raňajky. \quad \textit{(d)}~Výsledky sa ťažko merajú.
+
+    \item Odkedy v škole zaviedli nový rozvrh, zhoršila sa dochádzka. Aký údaj by ti \emph{najviac} pomohol rozhodnúť, či za to môže rozvrh?\\
+    \textit{(a)}~Dochádzka v inej škole, ktorá rozvrh nezmenila.~$\checkmark$ \quad \textit{(b)}~Názor žiakov na rozvrh. \quad \textit{(c)}~Dochádzka vlani v tom istom mesiaci. \quad \textit{(d)}~Počet vyučovacích hodín.
+\end{enumerate}
+
+\subsection*{Pravdepodobnosť a vzorka}
+
+\begin{enumerate}[nosep, label=K\arabic*., start=7]
+    \item Kamarát hovorí: „Môj dedo fajčil celý život a dožil sa deväťdesiatky, takže fajčenie nie je také zlé.“ Prečo to nestačí?\\
+    \textit{(a)}~Dedo mal šťastie. \quad \textit{(b)}~Jeden prípad nevypovedá o tom, čo sa deje väčšine ľudí.~$\checkmark$ \quad \textit{(c)}~Dnes sa fajčí inak. \quad \textit{(d)}~Deväťdesiat nie je veľa.
+
+    \item Anketa na webe športového denníka zistila, že 80\,\% ľudí sleduje hokej. Prečo by si tomu neveril/a ako údaju o celej krajine?\\
+    \textit{(a)}~Ľudia klamú v anketách. \quad \textit{(b)}~Odpovedali tí, ktorí sú už na športovom webe.~$\checkmark$ \quad \textit{(c)}~Osemdesiat percent je veľa. \quad \textit{(d)}~Hokej sa hrá len v zime.
+
+    \item Test na chorobu, ktorú má jeden človek z tisíc, je „presný na 95\,\%“. Test vyšiel pozitívne. Čo je najpravdepodobnejšie?\\
+    \textit{(a)}~Človek chorobu takmer určite má. \quad \textit{(b)}~Väčšina pozitívnych výsledkov bude u zdravých ľudí, lebo zdravých je oveľa viac.~$\checkmark$ \quad \textit{(c)}~Test je zbytočný. \quad \textit{(d)}~Pravdepodobnosť je 95\,\%.
+\end{enumerate}
+
+\subsection*{Úplnosť argumentu}
+
+\begin{enumerate}[nosep, label=K\arabic*., start=10]
+    \item „Táto aplikácia ti ušetrí čas, lebo za teba napíše text.“ Aký predpoklad je v tvrdení skrytý?\\
+    \textit{(a)}~Že text netreba kontrolovať ani upravovať.~$\checkmark$ \quad \textit{(b)}~Že aplikácia je zadarmo. \quad \textit{(c)}~Že vieš písať. \quad \textit{(d)}~Že máš internet.
+
+    \item Niekto tvrdí: „Nikto mi nedokázal, že to nefunguje, takže to funguje.“ V čom je chyba?\\
+    \textit{(a)}~Nedostatok dôkazu proti nie je dôkazom za.~$\checkmark$ \quad \textit{(b)}~Nikto to neskúšal. \quad \textit{(c)}~Dôkaz je drahý. \quad \textit{(d)}~Tvrdenie je nejasné.
+
+    \item Reklama hovorí: „Až 50\,\% zľava!“ Čo je najdôležitejšie zistiť?\\
+    \textit{(a)}~Z akej ceny sa zľava počíta a na koľko tovarov platí.~$\checkmark$ \quad \textit{(b)}~Dokedy akcia trvá. \quad \textit{(c)}~Či je obchod blízko. \quad \textit{(d)}~Či je tovar kvalitný.
+\end{enumerate}
+
+\section{Skórovanie a validácia}
+
+Položky sa skórujú 0/1 a kalibrujú Raschovým modelom, rovnako ako vedomostné testy. Validácia prebieha v pilote a má \emph{vopred stanovené} kritériá:
+
+\begin{description}[leftmargin=0.6cm, nosep]
+    \item[\textbf{Obtiažnosť.}] Úspešnosť položky medzi $0{,}30$ a $0{,}80$, posudzovaná intervalovým pravidlom z časti~\ref{sec:pilot}: položka sa vyradí len vtedy, ak jej 90\,\% interval leží celý mimo pásma.
+    \item[\textbf{Zhoda s modelom.}] Infit a outfit v pásme $0{,}7$--$1{,}3$.
+    \item[\textbf{Spoľahlivosť.}] Pri dvanástich položkách je očakávaná spoľahlivosť okolo $\mplRelTwelve$. To je dosť na porovnanie \emph{skupín}, nie na výrok o jednotlivom žiakovi, a nástroj sa tak aj používa: individuálne skóre sa nikomu neoznamuje.
+    \item[\textbf{Rozlišovacia validita.}] Korelácia s testom fluidného uvažovania má byť kladná, ale \emph{stredná}. Vysoká korelácia by znamenala, že test meria to isté, čo matice, a teda že vrstva~B je len druhým meraním vrstvy, ktorá sa v tejto štúdii meniť nemá.
+    \item[\textbf{Súbežná validita.}] Očakáva sa kladný vzťah k PEQI: žiak, ktorý lepšie posúdi tvrdenie v teste, by mal lepšie posudzovať aj to, čo mu odpovie nástroj. Ak taký vzťah nie je, je to informácia o jednom z oboch nástrojov a vykazuje sa.
+\end{description}
+
+\paragraph{Čo sa stane, ak test v pilote neobstojí.} Rozhodnutie je stanovené vopred. Ak po vyradení položiek zostane menej než desať, vrstva~B sa z konfirmačných analýz vypúšťa a vykazuje sa len opisne, spolu s dôvodom. Nástroj sa \emph{nedopĺňa} novými položkami po tom, čo sa videli výsledky~--- to by z pilotu urobilo spôsob ladenia testu dovtedy, kým nedá očakávanú odpoveď.

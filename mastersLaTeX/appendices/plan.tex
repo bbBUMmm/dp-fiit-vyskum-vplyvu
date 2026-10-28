@@ -1,0 +1,59 @@
+\chapter{Časový plán práce}
+\label{chapter:Work-Schedule}
+
+\section{Plán na DP1 (zimný semester) a jeho vyhodnotenie}
+\label{sec:Work-Schedule-1st-semester}
+
+\begin{table}[H]
+    \centering
+    \caption{Plán a skutočný priebeh DP1}
+    \label{tab:dp1}
+    \small
+    \begin{tabularx}{\textwidth}{@{}c X X@{}}
+    \toprule
+        \textbf{Týždeň} & \textbf{Plán} & \textbf{Skutočnosť} \\
+    \midrule
+        1--2   & Vymedzenie témy, oboznámenie sa s doménou & splnené \\
+        3--4   & Rešerš systematických prehľadov & splnené \\
+        5--6   & Metodologická analýza empirických štúdií & splnené; pôvodne plánovaných 5 štúdií rozšírených na 7 \\
+        7--8   & Analýza národných stratégií (SR, V4, referenčné krajiny) & splnené \\
+        9--10  & Návrh a implementácia overovacej kostry nástroja & splnené \\
+        11--12 & Overenie kostry voči reálnej službe & splnené s \emph{negatívnym} výsledkom; príčina analyzovaná a zdokumentovaná \\
+    \bottomrule
+    \end{tabularx}
+\end{table}
+
+\paragraph{Sebahodnotenie.} Plán bol splnený v celom rozsahu, hoci výsledok poslednej položky je negatívny: overovacia kostra postavená na knižnici LittleProxy nedokáže zachytiť komunikáciu moderných konverzačných rozhraní, pretože nepodporuje HTTP/2 ani WebSocket. Tento výsledok považujem za hodnotný, nie za neúspech~--- odhalil nevhodnosť základnej technologickej voľby v okamihu, keď ju bolo možné zmeniť, a nie po nasadení do škôl. Náklad zmeny je jeden semester; náklad rovnakého zistenia po zbere dát by bol celý výskum. Podrobnosti sú v časti~\ref{sec:riesenie}.
+
+Oproti pôvodnému plánu pribudla práca navyše: metodologická analýza bola rozšírená o dve štúdie (Bastani a kolektív, Deslauriers a kolektív), ktoré sa ukázali ako kľúčové pre formuláciu vlastnej hypotézy, a bol vypracovaný kompletný návrh experimentu vrátane simulačnej validácie analytického plánu, ktorý pôvodne nebol na tento semester plánovaný.
+
+\section{Plán na DP2 (letný semester)}
+\label{sec:Work-Schedule-2nd-semester}
+
+\begin{table}[H]
+    \centering
+    \caption{Plán na DP2}
+    \label{tab:dp2}
+    \small
+    \begin{tabularx}{\textwidth}{@{}c X l@{}}
+    \toprule
+        \textbf{Týždeň} & \textbf{Plán} & \textbf{Míľnik} \\
+    \midrule
+        $-$8 až $-$5 & Podanie na etickú komisiu STU; posúdenie vplyvu na ochranu údajov; rokovania so školami & schválenia \\
+        $-$4 až $-$3 & Výmena záchytnej vrstvy za mitmproxy; dokončenie cvičného rozhrania a adaptívnej vrstvy & funkčný nástroj \\
+        $-$2 & Pilot na jednej triede mimo vzorky; kalibrácia obtiažnosti položiek; odhad miery pokrytia & pilotná správa \\
+        $-$1 & Úprava položiek podľa pilotu; predregistrácia dizajnu a plánu analýzy & predregistrácia \\
+        1 & Vstupná batéria (T0) vo všetkých triedach & \\
+        2--4 & Tri vyučovacie bloky s okamžitými testami (P1--P3) & \\
+        5--6 & Kódovanie promptov, tréning a validácia klasifikátora & zhoda $\alpha \geq 0{,}80$ \\
+        7 & Odložený a transferový test (T4) & koniec zberu \\
+        8 & Rozhovory so stratifikovaným podvýberom žiakov (T5) & \\
+        9--10 & Spustenie uzavretého analytického plánu na skutočných dátach & výsledky \\
+        11--12 & Interpretácia, odporúčania pre prax, dopísanie práce & odovzdanie \\
+    \bottomrule
+    \end{tabularx}
+\end{table}
+
+\paragraph{Kritická cesta.} Kritickou cestou nie je implementácia, ale schvaľovacie procesy a viazanosť na školský rok. Súhlas etickej komisie a súhlasy škôl musia byť k dispozícii najneskôr šesť týždňov pred prvým meraním; zmeškanie znamená odklad o celý rok. Preto sú tieto kroky v pláne vedené so štvortýždňovou rezervou a začínajú ešte pred začiatkom semestra.
+
+\paragraph{Riziká plánu.} Ak sa do začiatku zberu nepodarí získať aspoň 12~tried, uplatní sa vopred stanovený záložný plán opísaný v časti~\ref{sec:rizika}: dizajn sa zredukuje na dve podmienky. Toto rozhodnutie musí padnúť pred prvým meraním a byť zaznamenané v predregistrácii, aby nešlo o výber podľa výsledku.

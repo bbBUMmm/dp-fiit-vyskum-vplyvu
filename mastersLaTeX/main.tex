@@ -1,0 +1,66 @@
+% SETTINGS - LATEX
+\newcommand{\myFontSize}{11pt}
+\newcommand{\mySpacing}{1.0}
+\newcommand{\myBibliography}{bib/references}
+
+\documentclass[11pt,a4paper,oneside,openany]{book}
+
+% to change name, title, supervisor etc. go to preamble/preamble.tex
+\input{preamble/preamble}
+
+% Numbers produced by the analysis pipeline. Regenerate with:
+%   cd analysis && python export_macros.py
+% Nothing in Chapters 5 and 6 is typed by hand; see analysis/README.md.
+\IfFileExists{analysis/out/thesis_numbers.tex}
+    {\input{analysis/out/thesis_numbers}}
+    {\GenericWarning{}{thesis_numbers.tex is missing -- run analysis/export_macros.py}}
+
+% Numbers about the measuring instruments, generated from assessment/banks/*.json.
+% Regenerate with:  cd assessment && python tex_export.py
+\IfFileExists{appendices/instrument-numbers.tex}
+    {\input{appendices/instrument-numbers}}
+    {\GenericWarning{}{instrument-numbers.tex is missing -- run assessment/tex_export.py}}
+
+\begin{document}
+
+\include{preamble/title}            % Title page
+\include{preamble/acknowledgements} % Acknowledgements
+\include{preamble/annotation}       % Annotation (BP2)
+
+% Table of contents (TOC)
+% \setcounter{tocdepth}{2}          % show max 2+1=3 levels in TOC
+% \renewcommand{\contentsname}{Contents of the Conceptual Part}
+\renewcommand{\contentsname}{Obsah koncepčnej časti}
+\tableofcontents{}      
+
+\begin{refsegment}
+    \input{content/1-technical-abstract}
+    \input{content/2-lay-summary}
+    \input{content/3-introduction}
+    \input{content/4-state-of-the-art}
+    \input{content/5-metodika}
+    \input{content/6-vysledky}
+    \input{content/7-problem-statement-and-solution}
+    \input{content/8-conclusion}
+    \input{content/9-references}
+\end{refsegment}
+
+
+\appendix
+% Prílohy k vlastnému výskumu
+\include{appendices/A-instrumenty}
+\include{appendices/B-kodovaci-manual}
+\include{appendices/C-sap}
+\include{appendices/D-lekcie}
+\include{appendices/E-etika}
+\include{appendices/F-protokol}
+\include{appendices/G-kriticke-myslenie}
+\include{appendices/H-hodnotiaci-modul}
+
+% Scientific Part (50pts)
+\include{appendices/scientific-part}
+
+\include{appendices/digital_medium}
+\include{appendices/plan}
+
+\end{document}

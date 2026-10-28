@@ -1,0 +1,80 @@
+*** UPDATE 21 Sep 2026, evening: the required toolchain is now INSTALLED. ***
+*** MiKTeX 25.12 (per-user) + Strawberry Perl + statsmodels + pypdfium2.     ***
+*** Build the thesis with:  cd mastersLaTeX ; .uild.ps1                    ***
+*** Everything below is kept as the record of what was missing and why.      ***
+
+TOOLS TO INSTALL ON THIS WINDOWS MACHINE (to edit + build the LaTeX thesis)
+Checked: 2026-09-21, D:\MastersFIIT
+
+WHAT YOU ALREADY HAVE
+  OK  Java 21        D:\JDK 21\bin\java.exe        (ai-prompt-monitor needs 17+)
+  OK  Maven 3.9.9    D:\Maven\...                  (builds ai-prompt-monitor)
+  OK  Python 3.13    D:\Python3.13\python.exe      (+ pygmentize already on PATH)
+  OK  Node.js        D:\NodeJS\node.exe            (podklady/hra-demo)
+  OK  Git            D:\Git\cmd\git.exe
+  OK  VS Code        D:\Microsoft VS Code\
+
+WHAT IS MISSING
+  X   pdflatex / xelatex / lualatex   - no TeX engine at all
+  X   latexmk                         - build driver the project expects (out/main.fdb_latexmk)
+  X   biber                           - bibliography backend (preamble uses backend=biber)
+  X   perl                            - latexmk is a Perl script
+  X   LaTeX Workshop VS Code extension
+
+The Mac built this with TeX Live 2026 + pdfLaTeX + biber (see mastersLaTeX/out/main.log).
+Nothing LaTeX-related is installed on Windows, so the PDF cannot be rebuilt right now.
+
+
+=== REQUIRED: 1) A TeX distribution ===
+
+Option A - TeX Live (recommended: exact parity with the Mac setup, bundles Perl + biber + latexmk,
+           no on-demand package prompts). ~8 GB, install takes 1-2 h.
+  Download: https://tug.org/texlive/acquire-netinstall.html  ->  install-tl-windows.exe
+  Run it, choose scheme-full, default paths. Not on winget.
+
+Option B - MiKTeX (lighter, ~1 GB, installs packages on demand; then you MUST also install Perl).
+  winget install --id MiKTeX.MiKTeX -e
+  winget install --id StrawberryPerl.StrawberryPerl -e
+  Then in MiKTeX Console: Settings -> "Always install missing packages on the fly" = Yes,
+  and run Updates -> Check for updates once.
+  Also make sure biber is present:  miktex packages install biber
+
+Either option gives you: pdflatex, latexmk, biber, and all packages this thesis loads
+(newpxtext/newpxmath, babel-slovak, biblatex, todonotes, algorithm/algpseudocode, pdfpages,
+dirtytalk, csquotes, sverb, pmboxdraw, tabularx, booktabs, lipsum, listing, lscape).
+
+=== REQUIRED: 2) VS Code extension ===
+  code --install-extension James-Yu.latex-workshop
+
+  Then add to VS Code settings.json so it builds into out\ like the Mac did:
+    "latex-workshop.latex.outDir": "%DIR%/out",
+    "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)",
+    "latex-workshop.latex.autoBuild.run": "onSave"
+  (latexmk already runs biber automatically - no extra recipe needed.)
+
+=== OPTIONAL BUT USEFUL ===
+  winget install --id SumatraPDF.SumatraPDF -e     PDF viewer with SyncTeX inverse search
+                                                    (VS Code's built-in viewer also works)
+  winget install --id JohnMacFarlane.Pandoc -e      convert metodologicka_analyza.docx -> .tex
+  code --install-extension ltex-plus.vscode-ltex-plus     grammar/spell check, supports sk-SK
+  code --install-extension streetsidesoftware.code-spell-checker
+
+  Not needed now: minted/Pygments (the \usepackage{minted} lines are commented out in
+  preamble/preamble.tex). If you ever uncomment them, pygmentize is already installed, but
+  you must then build with  -shell-escape.
+
+=== NOT AN INSTALL, BUT DO IT ===
+  - D:\MastersFIIT is NOT a git repository. Run:  git init  and add a .gitignore for
+    mastersLaTeX/out/, *.aux, *.bbl, *.synctex.gz, .DS_Store, target/
+  - Overleaf stays a valid fallback: zip mastersLaTeX\ and upload; it already has TeX Live
+    and biber, so it compiles with no local install.
+
+=== VERIFY AFTER INSTALL (open a NEW terminal so PATH refreshes) ===
+  pdflatex --version
+  latexmk --version
+  biber --version
+  perl --version
+
+  cd D:\MastersFIIT\mastersLaTeX
+  latexmk -pdf -outdir=out main.tex
+  -> expect out\main.pdf, ~42 pages, and a clean biber run

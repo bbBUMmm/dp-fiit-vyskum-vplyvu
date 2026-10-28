@@ -1,0 +1,31 @@
+to:
+subject: Žiadosť o spoluprácu pri výskume umelej inteligencie vo vyučovaní – FIIT STU
+copy: bahleda.miroslav@gmail.com
+text:
+
+Vážená pani riaditeľka / Vážený pán riaditeľ,
+
+volám sa Mykyta Prykhodko a som študentom inžinierskeho štúdia na Fakulte informatiky a informačných technológií Slovenskej technickej univerzity v Bratislave (FIIT STU). Pod vedením Ing. Miroslava Bahledu, PhD., píšem diplomovú prácu na tému „Výskum vplyvu generických a adaptívnych nástrojov umelej inteligencie v školskom prostredí“.
+
+Chcem zistiť, ako umelá inteligencia ovplyvňuje to, čo si žiaci z vyučovacej hodiny naozaj zapamätajú. Porovnávam tri spôsoby výučby:
+1. hodinu bez umelej inteligencie,
+2. hodinu s bežným chatbotom (napr. ChatGPT), ktorý dáva hotové odpovede,
+3. hodinu s asistentom, ktorý odpoveď neprezradí, ale otázkami vedie žiaka k tomu, aby na ňu prišiel sám.
+
+Chcel by som Vás požiadať, či by sa Vaša škola mohla do výskumu zapojiť. Výskum by začal už v novembri 2026:
+- tri triedy 2. alebo 3. ročníka,
+- v každej triede jedna vyučovacia hodina z fyziky, z matematiky a z informatiky, a to na tému, ktorú budete v tom čase aj tak preberať,
+- triedy sa medzi predmetmi vystriedajú, takže každá trieda vyskúša všetky tri spôsoby,
+- krátky test pred hodinou, hneď po nej a po troch týždňoch,
+- hodinu vedie Váš učiteľ, nástroj a podklady pripravím ja; žiaci pracujú v internetovom prehliadači na školských počítačoch,
+- údaje sú anonymné: žiaci sa prihlasujú kódom a ich mená nezbierame; informovaný súhlas pre rodičov pripravím.
+
+Po skončení výskumu poskytnem škole súhrnné výsledky.
+
+Ak Vás spolupráca zaujíma, rád by som Vám podrobnosti vysvetlil na krátkom osobnom alebo online stretnutí v termíne, ktorý Vám bude vyhovovať. V priebehu budúceho týždňa si Vás dovolím kontaktovať aj telefonicky.
+
+Ďakujem za Váš čas.
+
+S pozdravom
+
+Bc. Mykyta Prykhodko

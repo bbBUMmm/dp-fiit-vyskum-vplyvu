@@ -1,0 +1,98 @@
+{
+  // LaTeX Workshop config for this thesis.
+  //
+  // Strawberry Perl is installed, so latexmk works and is offered below. It is
+  // NOT the default, for one reason: verify_thesis.py checks the thesis against
+  // numbers produced by build.ps1, and build.ps1 runs a fixed three passes plus
+  // biber. The explicit recipes below do exactly that, so the editor and the
+  // command line cannot disagree about how many passes ran. latexmk decides for
+  // itself, which is usually better and here is one variable too many.
+  "latex-workshop.latex.outDir": "%DIR%/out",
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-synctex=1",
+        "-output-directory=out",
+        "-aux-directory=out",
+        "%DOC%.tex"
+      ],
+      "env": {}
+    },
+    {
+      "name": "biber",
+      "command": "biber",
+      "args": ["--input-directory=out", "--output-directory=out", "%DOCFILE%"],
+      "env": {}
+    },
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-synctex=1",
+        "-outdir=out",
+        "%DOC%.tex"
+      ],
+      "env": {}
+    }
+  ],
+
+  "latex-workshop.latex.recipes": [
+    {
+      // Default (Ctrl+Alt+B). Matches .\build.ps1 -- use for a real check.
+      "name": "full: pdflatex x3 + biber",
+      "tools": ["pdflatex", "biber", "pdflatex", "pdflatex"]
+    },
+    {
+      // For writing prose. Cross-references and citations will be stale;
+      // run the full recipe before believing any number or reference.
+      "name": "quick: pdflatex x1",
+      "tools": ["pdflatex"]
+    },
+    {
+      // Works now that Perl is installed. Reruns until references settle,
+      // which is fewer passes while drafting -- but it is not what
+      // verify_thesis.py assumes, so use the full recipe before checking
+      // numbers.
+      "name": "latexmk (auto passes)",
+      "tools": ["latexmk"]
+    }
+  ],
+
+  // Build on save is off on purpose: a full pass takes ~20 s and this thesis
+  // is long enough that automatic rebuilds get in the way of typing.
+  "latex-workshop.latex.autoBuild.run": "never",
+
+  // Keep the aux clutter in out/ and leave it there: the build reuses it, and
+  // a cleaned aux directory means two extra passes before refs resolve again.
+  "latex-workshop.latex.autoClean.run": "never",
+
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.afterBuild.enabled": true,
+
+  // Slovak prose: stop the editor fighting the language.
+  "[latex]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": { "comments": false, "strings": false },
+    "editor.rulers": [],
+    "files.trimTrailingWhitespace": false
+  },
+
+  // These are the files worth opening; out/ is generated and analysis/out/
+  // holds the JSON the macros come from.
+  "files.exclude": {
+    "out/**": true,
+    "**/__pycache__": true
+  },
+  "search.exclude": {
+    "out/**": true,
+    "analysis/out/**": true
+  }
+}

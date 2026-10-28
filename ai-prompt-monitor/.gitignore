@@ -1,0 +1,35 @@
+target/
+captures/
+
+# Certificates and key material — never commit
+*.jks
+*.p12
+*.pem
+*.crt
+*.key
+littleproxy_*.pem
+mitm_*.pem
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Python capture layer
+__pycache__/
+*.pyc
+.venv/
+
+# Study configuration that carries school-held secrets — never commit
+config/roster.local.txt
+config/*.local.yaml

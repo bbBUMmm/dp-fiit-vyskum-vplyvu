@@ -1,0 +1,23 @@
+Navrhujeme nástroj, ktorý loguje reálne interakcie žiakov s AI a v trojskupinovom experimente meria zmenu ich schopností pred a po použití nástroja.
+
+
+Navrhujeme výskumnú metodiku adaptovanú na slovenské školy – trojskupinový experiment s pre-testom a post-testom, ktorý meria nielen výsledky, ale aj spôsob používania AI.
+
+
+
+1. Doménovo-špecifický test (ako Slijepcevic – LPCI pre lunárne fázy)
+Vyberieš jeden konkrétny predmet/tému (napr. kvadratické rovnice, fotosyntéza, programovanie cyklov) a vytvoríš alebo adaptuješ štandardizovaný test z tejto domény. Meria vedomostný zisk – koľko sa žiak naučil. Najpoužívanejšie v slovenských školách, najľahšie obhájiteľné.
+2. Halpernov test kritického myslenia (HCTA – ako Gerlich)
+Validovaný psychometrický nástroj na meranie kritického myslenia v piatich dimenziách: verbálne uvažovanie, analýza argumentov, testovanie hypotéz, pravdepodobnostné uvažovanie a riešenie problémov. 25 otázok, 20–30 minút. Meria transferovateľnú schopnosť, nie vedomosť.
+3. Kombinácia – odporúčaný prístup pre tvoju DP
+
+Pre-test: krátky doménový test (15 min) + skrátený Halpern (15 min)
+Intervencia: žiaci riešia úlohy s AI / bez AI (logujeme prompty cez nástroj)
+Post-test: ekvivalentný doménový test + Halpern + krátky dotazník o vnímaní
+
+
+
+Walking skeleton je Java CLI nástroj s lokálnym HTTPS MITM proxy (LittleProxy + self-signed CA importovaná do Firefoxu), ktoré matchuje URL podľa YAML allow-listu a ukladá request bodies do JSONL súborov. Voči ChatGPT zachytáva autocomplete a conversation prepare, ale finálny send endpoint vráti 400 priamo na proxy a WebSocket odpovede sa neintercepujú — knižnica z roku 2019 nezvláda moderné HTTP/2 a WebSockets. Riešenie: vymeniť interception engine za mitmproxy (aktívne udržiavané, plná podpora HTTP/2/3 a WebSockets), Java aplikačná vrstva zostáva a komunikuje s mitmproxy cez zdieľaný JSONL súbor.
+
+
+Riešenie: vymeniť interception engine za mitmproxy (Python, aktívne udržiavané, plná podpora HTTP/2/3 a WebSockets), pričom Java aplikačná vrstva (CLI, config, JSONL store, report, pseudonymizácia) zostáva — komunikácia cez zdieľaný JSONL súbor, do ktorého mitmproxy addon zapisuje matchnuté requesty a Java ho tail-uje
