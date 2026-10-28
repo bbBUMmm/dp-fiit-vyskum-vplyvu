@@ -10,7 +10,7 @@ volám sa Mykyta Prykhodko a som študentom inžinierskeho štúdia na Fakulte i
 Výskum uskutočním tak, že porovnám tri spôsoby výučby:
 1. hodinu bez umelej inteligencie,
 2. hodinu s nástrojom, v ktorom je integrovaný bežný chatbot (napr. ChatGPT), ktorý dáva hotové odpovede,
-3. hodinu s asistentom, ktorý odpoveď neprezradí, ale otázkami vedie žiaka k tomu, aby na ňu prišiel sám.
+3. hodinu s nástrojom, v ktorom je integrovaný adaptívny asistent umelej inteligencie, ktorý odpoveď neprezradí, ale otázkami vedie žiaka k tomu, aby na ňu prišiel sám.
 
 Chcel by som Vás požiadať, či by sa Vaša škola mohla do výskumu zapojiť. Výskum by sa podľa plánu mal začať už v novembri 2026 a prebiehal by takto:
 - tri triedy 2. alebo 3. ročníka,
@@ -19,6 +19,7 @@ Chcel by som Vás požiadať, či by sa Vaša škola mohla do výskumu zapojiť.
 - vyučujúci dostane hotovú prípravu na hodinu k vybranej téme z daného predmetu a hodinu podľa nej odučí; pre hodiny s nástrojmi umelej inteligencie dostane aj príklady, ktoré sa začlenia do výučby,
 - žiaci napíšu krátky test pred hodinou, hneď po nej a po troch týždňoch,
 - testy dostanete tiež spolu s nástrojom, v ktorom ich žiaci budú písať a s ktorým budú pracovať aj počas vyučovacích hodín; nástroj sa používa v internetovom prehliadači na školských počítačoch,
+- nástroj bude zbierať údaje, ktoré budú následne využité na výskum vplyvu umelej inteligencie na vyučovací proces,
 - údaje sú anonymné: žiaci sa prihlasujú kódom a ich mená nezbieram; informovaný súhlas pre rodičov pripravím.
 
 Po skončení výskumu poskytnem škole súhrnné výsledky.
