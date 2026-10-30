@@ -475,3 +475,188 @@ that is in the ŠVP (e.g. loops and debugging) and recruit from any gymnázium.
 4. Unchanged from the previous consultation: schools, ethics approval, pilot vs
    full study, the `hariyanto2025adaptive` authorship question, and whether the
    physics/FCI arm is worth keeping.
+
+---
+
+## 2026-10-29 — The tool aligned with its specification (chapters 5 and 6), the interactive part, production review
+
+Context: `masters_opt.txt` (chapter 6) describes the tool as a Python application
+for Windows computers and mobile devices (web access) that sends all data to one
+host, collects the chapter-5 measures, and lacks only the interactive part, which
+depends on the subject and the lesson. This entry records what was added, the
+methodological choices behind it, and the defects found on the way.
+
+### D25. One classroom host instead of one server per laptop
+
+**Decided:** `server.py --host 0.0.0.0` serves the whole class; pupils join from
+school PCs or phones; one log per lesson on one machine. The one-laptop mode stays
+(`--host 127.0.0.1`, kit option 2) for schools whose firewall or Wi-Fi blocks it.
+
+**Why:** chapter 6 says the data go to a host; the per-laptop kit left them on
+twenty laptops. **Cost, stated:** Windows firewall must allow Python on the
+private network, and phones must be on the same network as the teacher's laptop.
+
+**Consent flag:** Appendix E tells pupils "nič z tvojho telefónu". Pupils' own
+phones need that sentence changed before use. Not changed here (author's text).
+
+### D26. The interactive part is shared by all three conditions and is data
+
+**Decided:** activities (poll, predict, order, animation, hands-on, reflect)
+belong to the exposition and the summary; nothing in them reads the condition,
+and a test asserts K, G and A pupils receive the identical activity. Activities
+are JSON packs per subject; the teacher can add one during the lesson, and its
+definition is logged.
+
+**Why:** the conditions may differ only in help during independent work
+(Appendix D). **Content rule:** activity arrays and numbers differ from every
+test item (asserted by a test); the guess-the-number game is marked "not in
+measured lessons" because it is close to transfer item TT4.
+
+### D27. New process measures, and what is NOT stored
+
+**Added:** first idea (size and latency of the pupil's own draft at their first
+move), copy/paste from the assistant panel, overlap of an answer with the
+assistant's replies, clicks/keystrokes/focus loss, active/idle/hidden time,
+activity participation and accuracy, confidence per attempt with a mechanical
+check where a task allows one, live PEQI label per prompt, reply features.
+Composite `engagement_index` = mean of active ratio, focus ratio and activity
+participation, declared before data and exported with its components.
+
+**Not stored, because Appendix E promises it:** the assistant's replies (only
+their features), and the text of answers and drafts (only their size) unless the
+server is started with `--log-answer-text` after the consent is extended.
+
+**Interim analysis:** the teacher dashboard shows technical counts only; the
+per-pupil measures are computed after collection (`metrics.py`) or in a
+researcher view that must be switched on explicitly.
+
+### D28. One pseudonym per pupil across lesson, test and capture
+
+**Found:** the lesson hashed the code as typed (so `gy-k7m4p-q` ≠ `GY-K7M4P-Q`)
+and the test runner logged the raw code — the researcher, who must not hold the
+salt, could never join a pupil's lesson to their tests, and the analysis
+contract (16-hex pseudonym) rejected the test log.
+
+**Decided:** all three producers hash the canonical code with the school's salt;
+the lesson enforces the check digit when `--school` is given; the runner requires
+`--salt`.
+
+### D29. Self-estimation sliders have no default
+
+**Found:** the test's confidence slider and the 0–10 scales started at 50 / 5
+and were recorded as answers when untouched — calibration would partly measure
+the default. **Decided:** no default value and no visible position until the
+pupil sets it; the runner refuses a JOL item without a confidence.
+
+### D30. Defects fixed in the production review (would have failed in the field)
+
+1. Test runner: after `/api/item` a browser's reused connection sent the answer as
+   `{}POST` → 501; the pupil was stuck on item 1. Every POST body is now consumed.
+2. School kit: the data check (`ingest.py`) needed numpy/pandas and a module the
+   kit did not contain, and checked files the kit does not produce. Replaced by
+   `assessment/datacheck.py` (standard library).
+3. School kit: the build script wrote Slovak text from a BOM-less PowerShell 5.1
+   script (mojibake) and put a BOM in front of every `.cmd`. Texts now live in
+   `kit/`, copied byte for byte; launchers are ASCII with CRLF. `chcp 65001`
+   moved after the prompts (it breaks `set /p`).
+4. `scoring.finalise()` referenced a field that did not exist; it could never have
+   written the analytic file. `export_for_coding` used `hash()`, which Python
+   randomises, so the blinded order changed every run.
+5. Post-lesson questionnaire: the assistant items (N1–N7) were shown in condition
+   K although the bank said they are skipped there. Items now carry `conditions`.
+6. Exercise client: a mastered pupil looped forever on a completed harder variant;
+   an unknown task id in condition A bypassed the system prompt and guard; the
+   hint level came from the browser; any event kind from the browser was written
+   to the research log; the gate unlocked nothing; no locks on shared state.
+
+### D31. Mathematics and physics lesson files and activity packs are drafts
+
+`tasks/m1_interest.json`, `tasks/f1_circuits.json` and the matching activity
+packs follow `drafts/temy-troch-predmetov.md` and are marked NÁVRH. All numbers
+were checked by computation; the content must be reviewed with the subject
+teachers before a pilot.
+
+### Open — flagged, not changed
+
+- **Worked example = test item.** Appendix D's worked example 1 (array
+  `[2, 5, 8, 12, 16, 23, 38, 56, 72, 91]`, target 23) is exactly items T1-7/T1-8
+  and anchor A4 (D1-5); worked example 2 (1024 → steps) is anchor A2. Equal across
+  conditions, so the contrast is unbiased, but these items then measure recall of
+  the lesson's example rather than learning.
+- **Thesis text now out of date** in places that describe the kit (one server per
+  laptop, `RUN.cmd` prompts, `ingest.py` as the same-day check) — chapter 7 and
+  Appendix H. Not edited (author's text).
+
+## 2026-10-30 — Paper tests T1, T3, T4 for the three subjects (supervisor's notes)
+
+### D32. Nine paper tests are proposed in place of the 12-item banks — draft
+
+`testy/` holds T1 (before the lesson, "nulové vedomosti"), T3 (right after it)
+and T4 (unannounced, three weeks after T3) for informatics, mathematics and
+physics, as plain UTF-8 text: a pupil part and a scorer part to cut off (key,
+specification, what each wrong option reveals, rubrics). Method and the answers
+to expected committee questions: `testy/00-metodika-a-specifikacia.txt`.
+
+- **Why:** the supervisor asked for closed items where more than one answer can
+  be correct, more complex tests, "not only tests" for T1 and T3, and a more
+  complex text in T4.
+- **Structure.** T1 and T3: 6 single-answer items (a–e), 4 multiple-response
+  items (2 or 3 keys, count not disclosed, scored 2/1/0), 4 open items with
+  3-criterion rubrics — 14 items, 26 points, about 30 min. T4: 8 + 5 + 4 items
+  plus 2 six-point testlets (near and far transfer) — 19 items, 42 points,
+  45 min. Every test ends with an unscored part D: per-item confidence, a
+  self-estimate of the score and Paas mental effort (calibration, H3).
+- **Parallel forms and anchors.** T1 and T3 never share an item; each T1 item
+  has a twin in the same specification cell. T4 repeats six T3 items character
+  for character at the same positions (A1, A3, A4, A5, B2, B3; 8 points) for
+  T3–T4 linking. Checked by text comparison on 2026-10-30. No item reuses the
+  lesson's worked examples, `tasks/*.json` or the activity packs (physics B2
+  and C4 were moved off the numbers in `f1_circuits.json` and `fyzika.json`).
+- **Time budget — for the author and supervisor.** The new T1 and T3 take about
+  30 min against the 4 and 16 min planned in `assessment/sessions.py`. Options:
+  T1 in its own lesson slot; shorten T3 by one open item (−3 points, about
+  −3 min). See section 8 of the methodology.
+- **Not done:** content-validity panel (CVR), cognitive interviews and a pilot
+  (thresholds in section 9) — until then reliability is unknown. The digital
+  runner still uses the old banks in `assessment/banks/`; the paper tests are
+  not imported. Thesis chapters and appendices that describe the old
+  instruments are not edited (author's text).
+- **References:** the 25 DOIs in the methodology resolve on Crossref to the
+  cited works (checked 2026-10-30); Krebs (1997) stays [UNVERIFIED]. Run
+  `/ars-citation-check` before the tests leave the folder.
+
+### D33. Consent on screen, in the lesson and in the test
+
+**Decided:** after the code, every pupil sees a consent screen (shared component
+`exercise-client/static/consent.js`; wording and rules in `assessment/consent.py`)
+in the lesson app and in the test runner. **Nothing about a pupil is written
+until they say yes** — the log's gate drops their events, the login included. A
+pupil who says no works exactly like the others; nothing marks the choice on
+screen, and the teacher's dashboard never shows it. The "Súhlas" button lets
+the pupil agree later or withdraw at any time; a withdrawal deletes what that
+lesson or test recorded at once and leaves only a marker (pseudonym, time).
+Each yes is logged with the version (hash) of the exact text shown.
+
+**Why:** the kit promised "Chýba súhlas → nezaznamenáva sa o ňom nič", but
+nothing in the software enforced it. Appendix E promises a visible notice at
+every lesson and withdrawal without explanation; going through the teacher is
+the power imbalance Appendix E names as a risk. Art. 7(1) GDPR: the controller
+must be able to show what was agreed to.
+
+**The paper consent stays the legal basis.** `data\suhlasy-XX.txt` (codes with
+BOTH signatures, no names) makes the servers never record any other code, and
+those pupils are told so on screen; a yes on screen cannot overrule a parent's
+no. Without the file the screen is the only gate, and both servers print a
+warning. The data check now flags any record that has no yes before it, and a
+withdrawal whose data are still there (`datacheck.py --vymaz` deletes them).
+
+**Costs, stated:** a "no" is held in memory only, so after a server restart the
+pupil is asked again. A pupil who agrees in the middle of a lesson has no record
+of what came before. Withdrawal on screen covers this lesson or test; deleting
+other sessions still goes through the contact person (paper consent).
+
+**Open — for the author:** the on-screen text (`consent.py`) must match
+Appendix E. Appendix E still describes three informatics lessons and "nič
+z tvojho telefónu" (see D25); the screen says "nič mimo tejto stránky". The
+ethics board should see the screen text. The capture layer (mitmproxy) is not
+gated by this consent.

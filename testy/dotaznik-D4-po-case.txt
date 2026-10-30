@@ -1,0 +1,104 @@
+==========================================================================
+DOTAZNÍK D4 · k odloženému testu T4 (po troch týždňoch)
+časť Q pred testom, časť Z po teste · približne 3 minúty
+==========================================================================
+Forma:      D4
+Predmet:    všetky
+Test:       D4 · dotazník k testu T4
+Rozsah:     8 + 3 položky · približne 3 minúty
+
+POKYNY
+• Toto nie je test. Neexistujú správne ani nesprávne odpovede. Odpovede
+  neuvidí vyučujúci a nikto ich neuvidí pri tvojom mene.
+• Odpovedaj, prosím, úprimne: to, či si si tému opakoval/a, nie je dobré
+  ani zlé, potrebujeme to len správne započítať.
+
+
+ČASŤ Q — Pred testom
+--------------------------------------------------------------------------
+Otázky sa týkajú hodiny {predmetu} na tému „{tema}“ spred troch týždňov.
+
+Q1  Opakoval/a si si túto tému od tej hodiny?
+      a) nie
+      b) áno, raz
+      c) áno, viackrát
+
+Q2  Ak áno, ako? (môžeš označiť viac možností)
+      a) sám/sama z poznámok alebo z učebnice
+      b) s niekým (spolužiak, rodič, doučovanie)
+      c) s pomocou nástroja umelej inteligencie
+      d) na inej hodine v škole
+      e) neopakoval/a som
+
+Q3  Čakal/a si, že dnes budete písať test z tejto témy?
+      a) nie
+      b) tušil/a som
+      c) áno, vedel/a som
+
+Q4  Používal/a si za posledné tri týždne nástroj umelej inteligencie pri
+    úlohách z tejto témy?
+      a) nie
+      b) raz
+      c) viackrát
+
+Q5  Učenie sa {predmetu} ma baví.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q6  Hodiny {predmetu} sú pre mňa nudné.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q7  Učenie sa {predmetu} by som opísal/a ako veľmi zaujímavé.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q8  Pri učení sa {predmetu} sa nedokážem sústrediť, lebo ma to neupúta.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+
+ČASŤ Z — Po teste
+--------------------------------------------------------------------------
+Test je za tebou. Ešte tri krátke otázky.
+
+Z1  Koľko bodov zo 72 si podľa teba v teste získal/a?
+    Odpoveď: ________ (číslo 0 – 72)
+
+Z2  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+    (1 veľmi, veľmi malé · 2 veľmi malé · 3 malé · 4 skôr malé · 5 ani
+    malé, ani veľké · 6 skôr veľké · 7 veľké · 8 veľmi veľké · 9 veľmi,
+    veľmi veľké)
+    veľmi, veľmi malé  1   2   3   4   5   6   7   8   9  veľmi, veľmi veľké
+
+Z3  Ako veľmi si sa v tomto teste snažil/a?
+    vôbec som sa nesnažil/a  1   2   3   4   5   6   7  veľmi som sa snažil/a
+
+                              KONIEC DOTAZNÍKA
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV
+##########################################################################
+
+ŠKÁLY
+  opakovanie  Q1, Q2   opakovanie témy medzi T3 a T4 (kovariát)
+  ocakavanie_testu  Q3   či žiak test čakal (kovariát, neohlásený termín)
+  ui_medzi_testami  Q4   kontaminácia: práca s UI na téme po hodine
+  zaujem_predmet  Q5, Q6R, Q7, Q8R   záujem o predmet, priemer 1–7
+  postdikcia  Z1   odhad počtu bodov po teste
+  usilie_test  Z2   duševné úsilie pri teste, 1–9
+  snaha_test  Z3   snaha v teste s nízkou stávkou, 1–7
+
+ČO MERAJÚ POLOŽKY A PREČO SÚ TU
+  Q1–Q4  Kontrola hrozieb validity odloženého merania: opakovanie,
+      očakávaný test a práca s UI medzi T3 a T4 menia to, čo T4 meria
+      (trvalé osvojenie z hodiny). Vstupujú ako kovariáty; žiaci, ktorí si
+      tému opakovali viackrát, sa vykazujú aj v citlivostnej analýze.
+  Q5–Q8  Tie isté položky záujmu ako D1 (Q2–Q5): zmena záujmu od T1 po T4
+      (Hidi & Renninger 2006; IMI, Ryan 1982).
+  Z1  Postdikcia: s výsledkom T4 a s predpoveďou z D3-Q17 dáva priamy test
+      hypotézy H3 (pocit naučenia verzus trvalé osvojenie).
+  Z2, Z3  Ako v D1.
+
+TLAČ
+  „python testy.py --tlac D4 --pre F1-T4“ doplní predmet a tému.
+
+ZDROJE
+  ako v D1 a D3; úplné záznamy v 00-metodika-a-specifikacia.txt.

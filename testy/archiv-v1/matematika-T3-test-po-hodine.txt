@@ -1,0 +1,252 @@
+==========================================================================
+MATEMATIKA — Zložené úrokovanie a exponenciálny rast
+T3 · TEST PO HODINE · píše sa HNEĎ po hodine
+Forma M-T3 · 14 úloh · 26 bodov · približne 30 minút
+==========================================================================
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Skús každú úlohu; aj čiastočná úvaha sa počíta.
+• Časť A: zakrúžkuj JEDNU odpoveď.
+• Časť B: zakrúžkuj VŠETKY správne odpovede (koľko ich je, sa neuvádza).
+• Časť C: odpovedaj vlastnými slovami a píš aj postup.
+• Pri každej úlohe v častiach A a B zakrúžkuj, nakoľko si si istý/á,
+  že je tvoja odpoveď správna.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku
+  nepotrebuješ — na konci zadania je pomôcka s mocninami.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Úrok sa pripisuje raz ročne, na konci roka. Daň z úroku neuvažujeme.
+• Ak úloha neuvádza inak, vklad sa počas sporenia nevyberá ani nedopĺňa.
+• Sumy zaokrúhľuj na centy.
+
+
+ČASŤ A — vyber jednu odpoveď (každá úloha 1 bod)
+--------------------------------------------------------------------------
+A1  Vklad K₀ sa úročí so zloženým úročením pri ročnej úrokovej miere p
+    (napríklad p = 0,04). Ktorý vzťah vyjadruje sumu Kₙ po n rokoch?
+      a) Kₙ = K₀ · (1 + p)ⁿ
+      b) Kₙ = K₀ · (1 + n · p)
+      c) Kₙ = K₀ · pⁿ
+      d) Kₙ = K₀ + n · p
+      e) Kₙ = K₀ · (1 + p) · n
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Čím sa líši zložené úročenie od jednoduchého?
+      a) pri zloženom sa úrok počíta len z pôvodného vkladu
+      b) pri zloženom sa úrok každý rok počíta aj z už pripísaných úrokov
+      c) pri zloženom je úroková miera vždy vyššia
+      d) pri zloženom sa úrok vypláca až na konci celej doby sporenia
+      e) pri zloženom sa úroková miera každý rok zdvojnásobí
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Vklad sa úročí 20 % ročne so zloženým úročením. O koľko percent narastie
+    za 2 roky?
+      a) 4 %      b) 20 %     c) 40 %       d) 44 %       e) 144 %
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Pri stálej ročnej úrokovej miere so zloženým úročením sa vklad
+    zdvojnásobí za 9 rokov. Za koľko rokov sa zväčší štvornásobne?
+      a) 13,5     b) 18       c) 27         d) 36         e) 81
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Vložíš 2 000 € pri 3 % ročne so zloženým úročením. Koľko budeš mať po
+    2 rokoch?
+      a) 2 060,00 €   b) 2 120,00 €   c) 2 121,80 €   d) 2 185,45 €
+      e) 3 380,00 €
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Chceš na 12 rokov uložiť 2 000 €. Ktorá ponuka ti dá na konci NAJVIAC?
+      a) 10 % ročne, jednoduché úročenie
+      b) 9 % ročne, jednoduché úročenie
+      c) 8 % ročne, jednoduché úročenie
+      d) 6 % ročne, zložené úročenie
+      e) 7 % ročne, zložené úročenie
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — označ všetky správne odpovede (každá úloha 2 body)
+--------------------------------------------------------------------------
+B1  Ktoré tvrdenia o jednoduchom a zloženom úročení sú pravdivé?
+      a) Pri jednoduchom úročení pribudne každý rok rovnaký úrok.
+      b) Pri zloženom úročení pribudne každý rok rovnaký úrok.
+      c) Zložené úročenie dá viac ako jednoduché s tou istou mierou už po
+         prvom roku.
+      d) Po prvom roku dajú jednoduché aj zložené úročenie s rovnakou mierou
+         rovnakú sumu.
+      e) Pri zloženom úročení rastie suma s časom lineárne.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Vklad 5 000 €, 4 % ročne, zložené úročenie. Ktoré údaje sú správne?
+      a) Po 2 rokoch bude na účte 5 400,00 €.
+      b) Po 1 roku bude na účte 5 200,00 €.
+      c) Po 3 rokoch bude na účte 5 600,00 €.
+      d) Po 2 rokoch bude na účte 5 408,00 €.
+      e) Po 3 rokoch bude na účte približne 5 624,32 €.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Žiak počíta: „Pri 5 % ročne so zloženým úročením narastie vklad za
+    4 roky o 20 %, lebo 4 · 5 = 20.“ Ktoré tvrdenia sú pravdivé?
+      a) Výsledok je správny, lebo percentá sa pri zloženom úročení sčítavajú.
+      b) Skutočný nárast je väčší ako 20 %.
+      c) Skutočný nárast je približne 21,55 %.
+      d) Jeho výpočet by bol správny pri zloženom úročení s mesačným
+         pripisovaním úrokov.
+      e) Skutočný nárast je menší ako 20 %, lebo sa úroky zaokrúhľujú.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Rodina chce na 15 rokov odložiť peniaze. Ktoré úvahy sú správne?
+      a) Pri zloženom úročení 6 % ročne sa vklad za 15 rokov viac ako
+         zdvojnásobí.
+      b) Ponuka 7 % ročne s jednoduchým úročením je na 15 rokov výhodnejšia
+         ako 6 % ročne so zloženým úročením.
+      c) Ponuka 6 % ročne so zloženým úročením je na 15 rokov výhodnejšia
+         ako 8 % ročne s jednoduchým úročením.
+      d) Čím dlhšia je doba sporenia, tým menší je rozdiel medzi zloženým
+         a jednoduchým úročením.
+      e) Pri rovnakej úrokovej miere dá zložené úročenie po 15 rokoch viac
+         ako jednoduché.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — odpovedz vlastnými slovami (každá úloha 3 body)
+--------------------------------------------------------------------------
+C1  Vložíš 1 200 € na 3 roky pri 5 % ročne so zloženým úročením. Vypočítaj
+    rok po roku sumu na konci každého roka a urči, koľko eur spolu tvoria
+    úroky.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Mária počíta: „Mám 4 000 € na 5 rokov pri 3 % ročne so zloženým
+    úročením. Úrok za rok je 3 % zo 4 000 €, teda 120 €, za 5 rokov
+    5 · 120 = 600 €, takže budem mať 4 600 €.“ Kde je chyba? Vypočítaj
+    správnu sumu.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Banka ponúka na 20 rokov dve možnosti:
+    (A) na konci jednorazový bonus 50 % z vkladu;
+    (B) 2,5 % ročne so zloženým úročením.
+    Ktorá možnosť je výhodnejšia? Zdôvodni výpočtom a vysvetli, prečo
+    jednoduchý odhad „20 · 2,5 % = 50 %, teda rovnako“ nesedí.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Vymysli a vyrieš príklad, na ktorom by si spolužiakovi ukázal/a, že pri
+    zloženom úročení neplatí „dvojnásobná doba = dvojnásobný úrok“. Zvoľ
+    vklad, úrokovú mieru a dve doby (jedna je dvojnásobkom druhej), vypočítaj
+    úrok za obe doby a vysvetli, prečo ich pomer nie je 2.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+POMÔCKA — niektoré mocniny (nie všetky budeš potrebovať)
+  1,03² = 1,0609      1,03³ ≈ 1,0927      1,03⁵ ≈ 1,1593      1,04² = 1,0816
+  1,04³ ≈ 1,1249      1,05² = 1,1025      1,05³ ≈ 1,1576      1,05⁴ ≈ 1,2155
+  1,06¹² ≈ 2,0122     1,06¹⁵ ≈ 2,3966     1,07¹² ≈ 2,2522     1,025²⁰ ≈ 1,6386
+
+
+ČASŤ D — o tebe (nezapočítava sa do bodov; neexistujú správne odpovede)
+--------------------------------------------------------------------------
+D1  Koľko si sa dnes na hodine naučil/a?
+      1 nič     2     3     4     5     6     7 veľmi veľa
+D2  Koľko z dnešného učiva si budeš podľa teba pamätať o tri týždne?
+      0 %    25 %    50 %    75 %    100 %
+D3  Koľko z 10 úloh v častiach A a B máš podľa teba správne?   ____ z 10
+D4  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+      1 veľmi, veľmi malé   2 veľmi malé   3 malé   4 skôr malé
+      5 ani malé, ani veľké   6 skôr veľké   7 veľké   8 veľmi veľké
+      9 veľmi, veľmi veľké
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+1. KĽÚČ A ŠPECIFIKÁCIA
+   Zručnosti: S1 výpočet rok po roku, S2 vzťah K₀ · (1 + p)ⁿ, S3 jednoduché
+   verzus zložené úročenie, S4 odhalenie lineárnej (sčítacej) chyby,
+   S5 doba zdvojnásobenia, S6 rozhodnutie medzi ponukami.
+
+   pol.  kľúč    úroveň         zručnosť   dvojča v T1   kotva v T4
+   A1    a       zapamätanie    S2         M-T1 A1       ÁNO → M-T4 A1
+   A2    b       zapamätanie    S3         M-T1 A2       –
+   A3    d       porozumenie    S4         M-T1 A3       ÁNO → M-T4 A3
+   A4    b       porozumenie    S5         M-T1 A4       ÁNO → M-T4 A4
+   A5    c       aplikácia      S1         M-T1 A5       ÁNO → M-T4 A5
+   A6    e       aplikácia      S6         M-T1 A6       –
+   B1    a,d     porozumenie    S3         M-T1 B1       –
+   B2    b,d,e   aplikácia      S1, S2     M-T1 B2       ÁNO → M-T4 B2
+   B3    b,c     analýza        S4         M-T1 B3       ÁNO → M-T4 B3
+   B4    a,c,e   hodnotenie     S6         M-T1 B4       –
+   C1    rubrika aplikácia      S1         M-T1 C1       –
+   C2    rubrika analýza        S4         M-T1 C2       –
+   C3    rubrika hodnotenie     S6         M-T1 C3       –
+   C4    rubrika tvorenie       S5         M-T1 C4       –
+
+   Kotvy (6 položiek) sa v T4 opakujú ZNAK PO ZNAKU a na rovnakej pozícii.
+   Rozloženie kľúčov v časti A: a 1×, b 2×, c 1×, d 1×, e 1×.
+
+2. ČO PREZRÁDZA NESPRÁVNA VOĽBA
+   A1  b) jednoduché úročenie; c) umocňuje len mieru; d) sčíta sumu
+       a percentá (chyba jednotiek); e) lineárne násobí počtom rokov.
+   A2  a) opisuje jednoduché úročenie; c)–e) nesprávna predstava o pojme.
+   A3  a) násobí percentá (0,2 · 0,2); b) jeden rok; c) SČÍTANIE PERCENT
+       (ústredná mylná predstava témy); e) zamieňa rastový faktor 1,44
+       s prírastkom.
+   A4  a) pridá polovicu doby; c) trojnásobok doby; d) LINEÁRNE: 4 · 9;
+       e) kvadratická predstava (9²).
+   A5  a) jeden rok; b) jednoduché úročenie; d) tri roky (započíta rok
+       vkladu); e) chyba pri prevode percent (1,3 namiesto 1,03).
+   A6  a) vyberie najvyššie číslo percent bez ohľadu na spôsob úročenia
+       (4 400 € — najsilnejší rozptyľovač); b) 4 160 €; c) 3 920 €;
+       d) 4 024,39 €. Správne e) 2 000 · 1,07¹² ≈ 4 504,38 €.
+   B1  b), e) zamieňa zložené úročenie s lineárnym rastom; c) nevie, že po
+       prvom roku sú obe rovnaké.
+   B2  a), c) jednoduché úročenie (stále 200 € ročne).
+   B3  a) SČÍTANIE PERCENT; d) mesačné pripisovanie dá ešte viac, nie
+       presne 20 %; e) nesprávny smer chyby.
+   B4  b) 7 % jednoduché = 2,05-násobok < 2,40-násobok; d) rozdiel s časom
+       rastie, nie klesá.
+
+3. BODOVANIE ČASTI B
+   2 b. — všetkých päť možností posúdených správne; 1 b. — jedna chyba
+   (jedna správna chýba ALEBO jedna nesprávna navyše); 0 b. — dve a viac
+   chýb. Pre dichotomický model: správne = 2 b.
+
+4. RUBRIKY ČASTI C (každé kritérium 1 bod)
+   C1  K1 správny postup: každý rok · 1,05 (úrok z aktuálnej sumy)
+       K2 správne medzivýsledky: 1 260 €, 1 323 €, 1 389,15 €
+       K3 úroky spolu 189,15 €
+       Ukážka 0 b.: „1 260, 1 320, 1 380, úroky 180 €“ (lineárny postup).
+   C2  K1 identifikuje chybu: úrok sa počíta stále zo 4 000 €, chýba úrok
+          z úroku (Mária počíta jednoduché úročenie)
+       K2 správny postup: 4 000 · 1,03⁵ alebo rok po roku
+       K3 správny výsledok 4 637,10 € (± 1 €)
+   C3  K1 porovnáva rastové faktory: A 1,5, B 1,025²⁰
+       K2 správny výpočet: 1,025²⁰ ≈ 1,6386 → B dá ≈ 63,9 % navyše
+       K3 záver B so zdôvodnením, prečo odhad 20 · 2,5 % neplatí (úrok sa
+          počíta aj z pripísaných úrokov)
+   C4  K1 platný návrh (rovnaký vklad a miera, doby T a 2T, zložené úročenie)
+       K2 správne vypočítané úroky za obe doby
+       K3 vysvetlenie: v druhej dobe sa úročí aj úrok z prvej doby,
+          preto je pomer väčší ako 2
+       Ukážka 3 b.: „100 € pri 10 %: za 1 rok úrok 10 €, za 2 roky 21 €;
+                    21 > 2 · 10, lebo druhý rok sa úročí aj prvých 10 €.“
+
+5. SÚHRN
+   Body: A 6 + B 8 + C 12 = 26. Čas: približne 30 minút.
+   Body podľa úrovne: zapamätanie 2, porozumenie 4, aplikácia 7, analýza 5,
+   hodnotenie 5, tvorenie 3.
+   H3: D1 (pocit naučenia) a D2 (predpoveď zapamätania) sa porovnajú
+   s výsledkom v T4.

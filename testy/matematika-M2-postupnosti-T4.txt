@@ -1,0 +1,575 @@
+==========================================================================
+MATEMATIKA · M2 Aritmetická a geometrická postupnosť
+T4 · ODLOŽENÝ TEST · tri týždne po hodine, bez ohlásenia termínu
+==========================================================================
+Forma:      M2-T4
+Predmet:    matematika
+Téma:       M2 · Aritmetická a geometrická postupnosť
+Test:       T4 · odložený test po troch týždňoch
+Kotvy:      M2-T3 (A1, A3, A4, A5, A6, A9 sú znak po znaku rovnaké)
+Dotazník:   D4 (pred testom časť Q, po teste časť Z)
+Rozsah:     32 úloh · 72 bodov · približne 65 minút (dve vyučovacie hodiny
+            s prestávkou po časti B) + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Skús každú úlohu; aj čiastočná úvaha sa počíta.
+• Test má dve polovice: časti P, A, B a po prestávke časti C, D.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku môžeš
+  použiť (vedeckú, nie v mobile).
+• Ak úlohu nevieš, napíš „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Členy postupnosti číslujeme od 1: a₁ je prvý člen, aₙ je n-tý člen.
+• d je diferencia aritmetickej postupnosti (aₙ₊₁ − aₙ), q je kvocient
+  geometrickej postupnosti (aₙ₊₁ : aₙ).
+• Sₙ je súčet prvých n členov postupnosti.
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš rozhodnúť, či je postupnosť
+    aritmetická, geometrická alebo ani jedna z nich?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš vypočítať n-tý člen aritmetickej
+    alebo geometrickej postupnosti?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš vypočítať súčet prvých n členov
+    aritmetickej alebo geometrickej postupnosti?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš z dvoch známych členov zistiť
+    diferenciu alebo kvocient postupnosti?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš opísať skutočnú situáciu (plat,
+    sedadlá, šírenie správy) vhodnou postupnosťou?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ktorý vzorec udáva n-tý člen aritmetickej postupnosti s prvým členom a₁
+    a diferenciou d?
+      a) aₙ = a₁ + (n − 1) · d
+      b) aₙ = a₁ + n · d
+      c) aₙ = a₁ · dⁿ⁻¹
+      d) aₙ = n · a₁ + d
+      e) aₙ = a₁ + d / n
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré tvrdenia o postupnosti 64, 32, 16, 8, … sú pravdivé?
+      a) Je geometrická s kvocientom 1/2.
+      b) Je aritmetická s diferenciou −32.
+      c) Všetky jej členy sú kladné.
+      d) Jej 7. člen je 1.
+      e) Od istého člena sú všetky jej členy záporné.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Ktorá z týchto postupností je aritmetická?
+      a) 2, 4, 8, 16
+      b) 1, 4, 9, 16
+      c) 1, 1, 2, 3, 5
+      d) 5, 2, −1, −4
+      e) 3, −3, 3, −3
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Ktoré z týchto postupností sú geometrické?
+      a) 5, 10, 20, 40
+      b) 81, 27, 9, 3
+      c) 2, 5, 8, 11
+      d) 4, 8, 12, 16
+      e) 1, 2, 4, 7
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  V aritmetickej postupnosti je a₁ = 7 a d = 4. Aký je jej 20. člen?
+      a) 76          b) 80          c) 83          d) 87          e) 140
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Geometrická postupnosť má prvý člen a₁ = 2 a kvocient q = 3. Ktoré
+    údaje sú správne?
+      a) a₅ = 162
+      b) a₅ = 486
+      c) Súčet prvých piatich členov je 242.
+      d) a₄ = 54
+      e) a₄ = 11
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Koľko je súčet 1 + 2 + 3 + … + 100?
+      a) 100         b) 1 000       c) 5 000       d) 5 050       e) 10 100
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Postupnosť je daná pravidlom aₙ = 3n + 2. Ktoré tvrdenia sú pravdivé?
+      a) Je aritmetická s diferenciou 3.
+      b) Jej prvý člen je 2.
+      c) Jej prvý člen je 5.
+      d) Číslo 100 je jej členom.
+      e) Číslo 101 je jej členom.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Divadlo má v prvom rade 20 sedadiel a v každom ďalšom rade o 2 sedadlá
+    viac. Koľko sedadiel je spolu v prvých 15 radoch?
+      a) 48          b) 300         c) 510         d) 525         e) 720
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Žiaci počítajú súčet 1 + 2 + 4 + 8 + … + 2⁹ (desať členov). Ktoré
+    výsledky a postupy sú správne?
+      a) Súčet je 2¹⁰ − 1 = 1 023.
+      b) Súčet je 2¹⁰ = 1 024.
+      c) Súčet je 10 · 2⁹ = 5 120.
+      d) Súčet je (1 + 2⁹) · 10 / 2 = 2 565.
+      e) Súčet je 2⁹ = 512.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A11  Nástupný mesačný plat je 1 000 €. Zamestnávateľ ponúka dve možnosti
+    zvyšovania: (A) každý rok o 60 €, (B) každý rok o 5 %. Ktoré hodnotenia
+    sú správne?
+      a) Za prvých 5 rokov zarobí zamestnanec viac pri možnosti A.
+      b) V 5. roku je mesačný plat pri možnosti B vyšší ako pri A.
+      c) Možnosť B je výhodnejšia vždy, lebo percentá rastú.
+      d) Pri dlhom zamestnaní (od 10. roka) je mesačný plat pri možnosti B
+         vyšší ako pri A.
+      e) V 2. roku dávajú obe možnosti rovnaký plat.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A12  Aplikácia má 10 000 používateľov a jej počet rastie o 20 % mesačne.
+    Prečo nemožno počet používateľov na niekoľko rokov dopredu predpovedať
+    geometrickou postupnosťou? Ktoré argumenty sú správne?
+      a) Geometrická postupnosť s q > 1 rastie bez hranice, ale počet ľudí je
+         obmedzený, takže rast sa musí spomaliť.
+      b) Geometrická postupnosť rastie pomalšie ako aritmetická.
+      c) Percentá sa nedajú použiť na počet ľudí.
+      d) Geometrická postupnosť nemôže mať kvocient väčší ako 1.
+      e) Rast o 20 % mesačne je to isté ako rast o 240 % ročne.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka alebo slovo. Postup nemusíš písať.
+Pri úlohách s viacerými políčkami dostaneš 1 bod, ak je chybné len jedno
+políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Postupnosť 0,2; 0,6; 1,8; 5,4; … je (1) ____________ (napíš
+    aritmetická, geometrická alebo ani jedna). Jej ďalší člen je (2) ____.
+    Odpoveď:   (1) ____________________     (2) ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Aritmetická postupnosť má a₁ = −8 a d = 2,5. Aký je jej 17. člen?
+    Odpoveď:   a₁₇ = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Súčet 3 + 7 + 11 + 15 + … + 79.
+    Odpoveď:   počet sčítancov = __________     súčet = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Geometrická postupnosť má a₁ = 1 000 a q = 0,8. Aký je jej 4. člen?
+    Odpoveď:   a₄ = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  V aritmetickej postupnosti je a₅ = 23 a súčet prvých piatich členov je
+    S₅ = 75.
+    Odpoveď:   a₁ = __________          d = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Geometrická postupnosť má a₁ = 2, q = 3 a jej posledný člen je 486.
+    Koľko má členov?
+    Odpoveď:   n = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B7  Lopta padá z výšky 2 m a po každom odraze vyskočí do 3/4 výšky, z ktorej
+    padala.
+    Odpoveď:   výška po 3. odraze = __________ m
+               dráha, ktorú lopta prejde, kým sa tretíkrát dotkne zeme =
+               __________ m
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B8  Obec má 12 000 obyvateľov a ich počet každý rok stúpne o 1 500. Po
+    koľkých rokoch bude mať obec 30 000 obyvateľov?
+    Odpoveď:   __________ rokov
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Cyklista v prvom týždni najazdí 40 km a v každom ďalšom týždni o 6 km
+    viac ako v predchádzajúcom. Koľko najazdí v 10. týždni a koľko spolu za
+    prvých 10 týždňov? V ktorom týždni najazdí prvýkrát viac ako 100 km?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Spolužiak počíta súčet prvých 20 členov geometrickej postupnosti
+    3, 6, 12, … takto: „S₂₀ = 20 · (3 + a₂₀) / 2, lebo tak sa počíta súčet.“
+    Posúď jeho postup, vysvetli, kedy ten vzorec platí, a vypočítaj súčet
+    správne.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  V obchode stavajú pyramídu z plechoviek: v najvyššom rade je
+    1 plechovka a v každom nižšom rade o 2 plechovky viac (1, 3, 5, …).
+    Koľko radov bude mať pyramída zo 169 plechoviek a koľko plechoviek bude
+    v spodnom rade? Zapíš postup.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Bankár tvrdí: „Zložené úročenie je vlastne geometrická postupnosť
+    a jednoduché úročenie aritmetická postupnosť.“ Posúď jeho tvrdenie.
+    Urči, čo je v oboch prípadoch prvý člen, diferencia a kvocient,
+    a ukáž to na príklade s číslami.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Reťazová správa: „Pošli túto správu piatim priateľom a nech ju každý
+    pošle ďalším piatim. Po 10 kolách ju dostane 50 ľudí.“ Posúď tvrdenie
+    výpočtom a vysvetli, prečo je takýto rast v skutočnosti nemožný.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Dlh 1 200 € chceš splatiť v 8 mesačných splátkach. Každá ďalšia
+    splátka má byť o rovnakú sumu menšia ako predchádzajúca a posledná má
+    byť 45 €. Navrhni splátkový kalendár (všetkých 8 splátok) a over ho.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+ČASŤ D — Práca s textom (spolu 14 bodov)
+--------------------------------------------------------------------------
+Prečítaj si text. Úlohy D1 – D6 sa ho týkajú; k textu sa môžeš kedykoľvek
+vrátiť. Pri D1 a D2 označ všetky správne odpovede (ako v časti A), pri D3
+a D4 doplň krátku odpoveď, pri D5 a D6 odpovedaj vlastnými slovami.
+
+TEXT: Šachovnica, ryža a virálne videá
+| Podľa starej legendy si vynálezca šachu od panovníka vypýtal odmenu: na
+| prvé políčko šachovnice jedno zrnko ryže, na druhé dve, na tretie štyri
+| a na každé ďalšie dvojnásobok predchádzajúceho. Panovník sa zasmial,
+| aká skromná je to prosba -- kým mu dvorní počtári neoznámili, že toľko
+| ryže nie je v celej ríši. Šachovnica má 64 políčok; na poslednom by bolo
+| 2⁶³ zrniek, teda viac ako 9 · 10¹⁸.
+|
+| Počty zrniek na políčkach tvoria geometrickú postupnosť s kvocientom 2.
+| Súčet prvých n jej členov je 2ⁿ − 1: na prvých 10 políčkach je spolu
+| 1 023 zrniek, na prvých 20 už vyše milióna. Jedno zrnko ryže váži
+| približne 0,025 g.
+|
+| Podobne sa niekedy šíria videá na sociálnych sieťach. Predstavme si, že
+| video v prvý deň uvidí 64 nových divákov a každý ďalší deň ho uvidí
+| 1,5-krát viac nových divákov ako v predchádzajúci deň. Počty nových
+| divákov po dňoch tvoria geometrickú postupnosť 64, 96, 144, … Takýto rast
+| však netrvá dlho: ľudí, ktorí video ešte nevideli, ubúda, a rast sa
+| spomalí. Analytici preto rozlišujú „virálnu fázu“, v ktorej je kvocient
+| väčší ako 1, a „fázu nasýtenia“, v ktorej klesne pod 1.
+|
+| Aritmetická postupnosť naproti tomu opisuje rast o stále rovnaký
+| prírastok. Ak youtuberka získava každý deň 40 nových odberateľov, počty
+| jej odberateľov po dňoch tvoria aritmetickú postupnosť s diferenciou 40.
+|
+|   deň                              1       2       3       4       5
+|   noví diváci videa                64      96      144     ?       ?
+|   odberatelia youtuberky           2 040   2 080   2 120   ?       ?
+
+D1  Ktoré z postupností spomenutých v texte sú aritmetické?
+      a) počty zrniek na jednotlivých políčkach šachovnice
+      b) počty nových divákov videa po dňoch
+      c) počty odberateľov youtuberky po dňoch
+      d) súčty zrniek na prvých n políčkach
+      e) počty nových divákov vo fáze nasýtenia
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D2  Ktoré tvrdenia vyplývajú z textu?
+      a) Na 11. políčku šachovnice je 1 024 zrniek.
+      b) Na prvých 11 políčkach je spolu 2 047 zrniek.
+      c) Na 64. políčku je 2⁶⁴ zrniek.
+      d) Na prvých 10 políčkach je spolu 1 024 zrniek.
+      e) Vo virálnej fáze je kvocient väčší ako 1.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D3  Doplň chýbajúce údaje v tabuľke z textu.
+    Odpoveď:   noví diváci v 4. deň = ________   v 5. deň = ________
+               odberatelia v 5. deň = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D4  Video z textu:
+    (1) Koľko nových divákov ho spolu uvidí za prvých 5 dní?
+    (2) V ktorý deň by bolo nových divákov prvýkrát viac ako 1 000, keby
+        virálna fáza pokračovala?
+    Odpoveď:   (1) __________        (2) __________. deň
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D5  Panovníkov poradca navrhuje: „Daj mu namiesto toho na prvé políčko
+    1 000 zrniek a na každé ďalšie o 1 000 zrniek viac ako na
+    predchádzajúce.“ Porovnaj túto odmenu (pre všetkých 64 políčok)
+    s odmenou z legendy. Vypočítaj, koľko by vážila ryža podľa návrhu
+    poradcu, a vysvetli, prečo sú obe odmeny také rozdielne.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+D6  Navrhni jednoduchý model počtu nových divákov videa na 10 dní, ktorý má
+    virálnu fázu aj fázu nasýtenia tak, ako ich opisuje text. Zapíš
+    pravidlo, vypočítaj počty nových divákov pre všetkých 10 dní a celkový
+    počet divákov. Zdôvodni, prečo je tvoj model realistickejší ako čistá
+    geometrická postupnosť.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  rozpoznanie postupnosti: stály rozdiel (aritmetická) alebo stály
+      podiel (geometrická)
+  S2  n-tý člen: aₙ = a₁ + (n − 1) · d, aₙ = a₁ · qⁿ⁻¹
+  S3  súčet prvých n členov: Sₙ = n · (a₁ + aₙ) / 2,
+      Sₙ = a₁ · (qⁿ − 1) / (q − 1)
+  S4  lineárny verzus exponenciálny rast; chyba o jedna (n namiesto n − 1)
+  S5  určenie a₁, d alebo q z iných údajov
+  S6  modelovanie skutočných situácií a rozhodovanie
+
+ČO T4 MERIA
+  Trvalé osvojenie (kotvy A1, A3, A4, A5, A6, A9 sú totožné s T3) a prenos:
+  pravidlo aₙ = 3n + 2, odrazy lopty, splátkový kalendár, súvis
+  s úročením (téma M1), modely rastu. Časť D je súvislý text s tabuľkou.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+
+A1  Kľúč: a
+    Úroveň: zapamätanie · Zručnosť: S2 · Dvojča: M2-T3 A1 · Kotva: K1
+    b) CHYBA O JEDNA (n namiesto n − 1)
+    c) zamieňa s geometrickou postupnosťou
+    d) nesprávna štruktúra vzorca
+    e) nesprávna štruktúra vzorca
+
+A2  Kľúč: a, c, d
+    Úroveň: porozumenie · Zručnosť: S1, S2
+    Výpočet: a₇ = 64 · (1/2)⁶ = 1.
+    b) z prvého rozdielu usudzuje na celú postupnosť
+    e) zamieňa klesajúcu geometrickú postupnosť s aritmetickou
+
+A3  Kľúč: d
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M2-T3 A3 · Kotva: K2
+    a) geometrická -- zamieňa typy
+    b) štvorce: „pravidelný rast“ pokladá za aritmetický
+    c) Fibonacciho postupnosť
+    e) geometrická s q = −1
+
+A4  Kľúč: a, b
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M2-T3 A4 · Kotva: K3
+    c) aritmetická -- zamieňa typy
+    d) aritmetická, hoci sa začína násobkami
+    e) rozdiely rastú o 1 -- nie je ani jedna
+
+A5  Kľúč: c
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: M2-T3 A5 · Kotva: K4
+    Výpočet: 7 + 19 · 4 = 83.
+    a) 19 · 4 -- zabudne na a₁
+    b) 20 · 4
+    d) CHYBA O JEDNA: 7 + 20 · 4
+    e) 7 · 20
+
+A6  Kľúč: a, c, d
+    Úroveň: aplikácia · Zručnosť: S2, S3 · Dvojča: M2-T3 A6 · Kotva: K5
+    Výpočet: a₄ = 2 · 3³ = 54; a₅ = 2 · 3⁴ = 162; S₅ = 2 · (3⁵ − 1) / 2 = 242.
+    b) CHYBA O JEDNA (2 · 3⁵)
+    e) zamieňa s aritmetickou (2 + 3 · 3)
+
+A7  Kľúč: d
+    Úroveň: aplikácia · Zručnosť: S3
+    Výpočet: 100 · (1 + 100) / 2 = 5 050.
+    a) posledný člen
+    b) odhad bez výpočtu
+    c) 100 · 100 / 2 -- posledný člen namiesto súčtu krajných
+    e) zabudne deliť dvoma
+
+A8  Kľúč: a, c, e
+    Úroveň: analýza · Zručnosť: S1, S2, S5
+    Výpočet: a₁ = 5, a₂ = 8; 3n + 2 = 101 pre n = 33; 3n + 2 = 100 nemá
+    prirodzené riešenie.
+    b) dosadí n = 0 (číslovanie od nuly)
+    d) nesprávne overenie (len odhad, nie riešenie rovnice)
+
+A9  Kľúč: c
+    Úroveň: analýza · Zručnosť: S3, S6 · Dvojča: M2-T3 A9 · Kotva: K6
+    Výpočet: a₁₅ = 20 + 14 · 2 = 48; S₁₅ = 15 · (20 + 48) / 2 = 510.
+    a) len posledný rad
+    b) 15 · 20 -- prehliadne prírastok
+    d) CHYBA O JEDNA (a₁₅ = 50)
+    e) n · aₙ -- nesprávny vzorec súčtu
+
+A10  Kľúč: a
+    Úroveň: analýza · Zručnosť: S3, S1
+    b) CHYBA O JEDNA vo vzorci súčtu
+    c) n · aₙ
+    d) vzorec pre súčet ARITMETICKEJ postupnosti
+    e) posledný člen namiesto súčtu
+
+A11  Kľúč: a, d
+    Úroveň: hodnotenie · Zručnosť: S4, S6
+    Výpočet (mesačný plat v 1. až 5. roku): A 1 000, 1 060, 1 120, 1 180,
+    1 240 (súčet 5 600); B 1 000, 1 050, 1 102,50, 1 157,63, 1 215,51
+    (súčet ≈ 5 525,63). V 9. roku A 1 480 a B ≈ 1 477,46; v 10. roku A 1 540
+    a B ≈ 1 551,33.
+    b) predpoklad, že percentá „vždy“ prevládnu hneď
+    c) nevidí, že pri malej miere trvá, kým exponenciálny rast predbehne
+       lineárny
+    e) zamieňa 5 % z 1 000 € s 60 €
+
+A12  Kľúč: a
+    Úroveň: hodnotenie · Zručnosť: S6, S4
+    b) opak
+    c) nesúvisiace tvrdenie
+    d) nepozná geometrické postupnosti s q > 1
+    e) LINEÁRNE sčítanie percent (skutočný ročný faktor 1,2¹² ≈ 8,9)
+
+B1  Kľúč: (1) = "geometrická" | "geometricka"; (2) = 16,2
+    Úroveň: porozumenie · Zručnosť: S1
+    Typická chyba: aritmetická (z prvého rozdielu 0,4), 9 (5,4 + 3,6).
+
+B2  Kľúč: a₁₇ = 32
+    Úroveň: aplikácia · Zručnosť: S2
+    Výpočet: −8 + 16 · 2,5 = 32.
+    Typická chyba: 34,5 (chyba o jedna).
+
+B3  Kľúč: počet sčítancov = 20; súčet = 820
+    Úroveň: aplikácia · Zručnosť: S2, S3
+    Výpočet: (79 − 3) / 4 + 1 = 20; 20 · (3 + 79) / 2 = 820.
+    Typická chyba: 19 sčítancov (chyba o jedna).
+
+B4  Kľúč: a₄ = 512
+    Úroveň: aplikácia · Zručnosť: S2
+    Výpočet: 1 000 · 0,8³ = 512.
+    Typická chyba: 409,6 (chyba o jedna).
+
+B5  Kľúč: a₁ = 7; d = 4
+    Úroveň: analýza · Zručnosť: S5, S3
+    Výpočet: S₅ = 5 · (a₁ + 23) / 2 = 75, a₁ = 7; d = (23 − 7) / 4 = 4.
+
+B6  Kľúč: n = 6
+    Úroveň: analýza · Zručnosť: S2, S5
+    Výpočet: 2 · 3ⁿ⁻¹ = 486, 3ⁿ⁻¹ = 243 = 3⁵.
+    Typická chyba: 5 (chyba o jedna).
+
+B7  Kľúč: výška po 3. odraze = 0,84 m ± 0,01; dráha, ktorú lopta prejde, kým sa tretíkrát dotkne zeme = 7,25 m ± 0,01
+    Úroveň: analýza · Zručnosť: S2, S6
+    Výpočet: 2 · (3/4)³ ≈ 0,84 m; 2 + 2 · 1,5 + 2 · 1,125 = 7,25 m.
+    Typická chyba: dráha 4,625 m (len pády nadol).
+
+B8  Kľúč: 12 rokov
+    Úroveň: aplikácia · Zručnosť: S2, S6
+    Výpočet: (30 000 − 12 000) / 1 500 = 12.
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S2, S3
+    K1  v 10. týždni 40 + 9 · 6 = 94 km
+    K2  spolu 10 · (40 + 94) / 2 = 670 km
+    K3  viac ako 100 km prvýkrát v 12. týždni (a₁₁ = 100, a₁₂ = 106)
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S3, S1
+    K1  vzorec n · (a₁ + aₙ) / 2 platí len pre ARITMETICKÚ postupnosť
+        (stály rozdiel, „páry“ od krajov majú rovnaký súčet)
+    K2  správny vzorec pre geometrickú: Sₙ = a₁ · (qⁿ − 1) / (q − 1)
+    K3  S₂₀ = 3 · (2²⁰ − 1) = 3 145 725
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S3, S6, S5
+    K1  model: aritmetická postupnosť a₁ = 1, d = 2
+    K2  Sₙ = n · (1 + 2n − 1) / 2 = n² = 169, n = 13 (alebo postupné
+        sčítanie)
+    K3  spodný rad a₁₃ = 25 a overenie
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S1, S6
+    K1  tvrdenie je správne
+    K2  zložené: prvý člen K₀ · (1 + p) (alebo K₀), kvocient 1 + p;
+        jednoduché: diferencia K₀ · p
+    K3  príklad s číslami, napr. 1 000 € pri 5 %: 1 050; 1 102,50;
+        1 157,63 (q = 1,05) a 1 050; 1 100; 1 150 (d = 50)
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S4, S6
+    K1  chyba: počty sa násobia, nie sčítavajú (LINEÁRNA úvaha 5 · 10)
+    K2  v 10. kole 5¹⁰ = 9 765 625 ľudí (spolu za 10 kôl 12 207 030)
+    K3  v skutočnosti nemožné: obmedzený počet ľudí, ľudia sa opakujú, nie
+        každý pošle ďalej -- rast sa spomalí
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S3, S5
+    K1  zostaví S₈ = 8 · (a₁ + 45) / 2 = 1 200
+    K2  a₁ = 255 €, d = −30 €
+    K3  kalendár 255, 225, 195, 165, 135, 105, 75, 45 a overenie súčtu
+        1 200 €
+
+D1  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S1
+    a) geometrická (q = 2)
+    b) geometrická (q = 1,5)
+    d) súčty 1, 3, 7, 15 -- ani jedna
+    e) v texte geometrická s q < 1
+
+D2  Kľúč: a, b, e
+    Úroveň: analýza · Zručnosť: S2, S3, S4
+    Výpočet: a₁₁ = 2¹⁰ = 1 024; S₁₁ = 2¹¹ − 1 = 2 047.
+    c) CHYBA O JEDNA (text uvádza 2⁶³)
+    d) zamieňa súčet s ďalším členom
+
+D3  Kľúč: noví diváci v 4. deň = 216; v 5. deň = 324; odberatelia v 5. deň = 2200
+    Úroveň: aplikácia · Zručnosť: S2
+    Typická chyba: 192 a 240 (pokračuje lineárne o +48).
+
+D4  Kľúč: (1) = 844; (2) = 8
+    Úroveň: analýza · Zručnosť: S3, S2
+    Výpočet: 64 + 96 + 144 + 216 + 324 = 844 (= 64 · (1,5⁵ − 1) / 0,5);
+    a₇ = 64 · 1,5⁶ ≈ 729, a₈ = 64 · 1,5⁷ ≈ 1 094.
+
+D5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S3, S4, S6
+    K1  návrh poradcu: aritmetická postupnosť, S₆₄ = 64 · (1 000 + 64 000) / 2
+        = 2 080 000 zrniek
+    K2  hmotnosť 2 080 000 · 0,025 g = 52 000 g = 52 kg
+    K3  porovnanie s 2⁶⁴ − 1 ≈ 1,8 · 10¹⁹ zrniek (stovky miliárd ton)
+        a vysvetlenie: lineárny verzus exponenciálny rast
+
+D6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S6, S2, S3
+    K1  model s dvoma fázami v súlade s textom (napr. 1. až 5. deň q = 1,5,
+        6. až 10. deň q = 0,5) s jasným pravidlom
+    K2  správne vypočítané denné počty podľa zvoleného pravidla
+    K3  celkový súčet a zdôvodnenie realistickosti (ubúda ľudí, ktorí video
+        nevideli; rast nemôže trvať donekonečna)
+
+SÚHRN
+  Body: A 12 × 2 = 24, B 8 × 2 = 16, C 6 × 3 = 18, D 2 + 2 + 2 + 2 + 3 + 3
+  = 14, spolu 72. Čas: približne 65 minút, dve hodiny s prestávkou po B.
+  Položky s viacerými správnymi odpoveďami: A2, A4, A6, A8, A11 a D2.
+  Kotvy (totožné s T3): A1, A3, A4, A5, A6, A9.
+  Testlet D sa v analýze berie ako jedna polytómna položka (0–14 b.).

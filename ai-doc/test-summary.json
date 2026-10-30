@@ -1,6 +1,6 @@
 {
     "generated_by":  "run-all-tests.ps1",
-    "generated_at":  "2026-10-09",
+    "generated_at":  "2026-10-30",
     "suites":  {
                    "thesis consistency":  {
                                               "passed":  199,
@@ -18,19 +18,23 @@
                                           "passed":  149,
                                           "status":  "PASS"
                                       },
+                   "interaction features":  {
+                                                "passed":  57,
+                                                "status":  "PASS"
+                                            },
                    "assessment layer":  {
-                                            "passed":  75,
+                                            "passed":  117,
                                             "status":  "PASS"
                                         },
                    "pedagogy":  {
-                                    "passed":  67,
+                                    "passed":  88,
                                     "status":  "PASS"
                                 },
                    "exercise client e2e":  {
-                                               "passed":  36,
+                                               "passed":  120,
                                                "status":  "PASS"
                                            }
                },
-    "n_suites":  7,
-    "total_passed":  600
+    "n_suites":  8,
+    "total_passed":  804
 }

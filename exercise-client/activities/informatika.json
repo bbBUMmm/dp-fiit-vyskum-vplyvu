@@ -1,0 +1,101 @@
+{
+  "pack": "informatika",
+  "title": "Informatika — vyhľadávanie v poli (T1)",
+  "subject": "informatika",
+  "note": "Polia a čísla sú zámerne iné než v položkách predtestu, okamžitého, odloženého a transferového testu, aby aktivita precvičovala princíp, a nie testové položky.",
+  "activities": [
+    {
+      "id": "INF-ANIM-16",
+      "type": "animation",
+      "phase": "vyklad",
+      "title": "Binárne vyhľadávanie na poli 16 prvkov",
+      "intro": "Sleduj, ako sa interval zmenšuje. Pred každým porovnaním tipni, ktorý prvok algoritmus porovná — klikni naň.",
+      "widget": "binary-search",
+      "params": {"array": [3, 7, 11, 14, 19, 23, 27, 31, 38, 42, 47, 53, 58, 64, 71, 79], "target": 58, "predict": true}
+    },
+    {
+      "id": "INF-ANIM-LIN",
+      "type": "animation",
+      "phase": "vyklad",
+      "title": "Lineárne vyhľadávanie krok za krokom",
+      "intro": "Lineárne vyhľadávanie nepotrebuje usporiadané pole. Spočítaj, koľko porovnaní urobí.",
+      "widget": "binary-search",
+      "params": {"array": [14, 3, 27, 8, 19, 42, 5, 31], "target": 5, "mode": "linear"}
+    },
+    {
+      "id": "INF-RACE",
+      "type": "handson",
+      "phase": "vyklad",
+      "title": "Preteky: lineárne verzus binárne",
+      "intro": "Meň veľkosť poľa a sleduj, koľko porovnaní potrebuje každý postup v najhoršom prípade.",
+      "widget": "search-race",
+      "params": {"start": 16},
+      "ask": "Čo si si všimol/všimla? Napíš jednou vetou."
+    },
+    {
+      "id": "INF-PRED-30K",
+      "type": "predict",
+      "phase": "vyklad",
+      "title": "Koľko porovnaní na 30 000 mien?",
+      "question": "Zoznam má 30 000 mien zoradených podľa abecedy. Koľko porovnaní najviac potrebuje binárne vyhľadávanie?",
+      "input": {"kind": "number", "tolerance": 0},
+      "answer": 15,
+      "confidence": true,
+      "widget": "search-race",
+      "params": {"start": 30000},
+      "explain_prompt": "Ako si k číslu prišiel/prišla?",
+      "explain": "Každé porovnanie rozpolí zvyšok zoznamu. 2¹⁴ = 16 384 < 30 000 ≤ 32 768 = 2¹⁵, takže po 14 rozpoleniach ešte môže zostať viac ako jedno meno a v najhoršom prípade treba 15 porovnaní."
+    },
+    {
+      "id": "INF-PRED-UNSORTED",
+      "type": "predict",
+      "phase": "vyklad",
+      "title": "Protipríklad: neusporiadané pole",
+      "question": "Spustíme binárne vyhľadávanie čísla 9 v NEusporiadanom poli [12, 3, 9, 1, 7, 15, 4]. Čo sa stane?",
+      "input": {"kind": "choice", "options": ["nájde 9", "nenájde 9, hoci v poli je", "program spadne", "nájde iné číslo"]},
+      "answer": 1,
+      "confidence": true,
+      "widget": "binary-search",
+      "params": {"array": [12, 3, 9, 1, 7, 15, 4], "target": 9, "allowUnsorted": true},
+      "explain": "Algoritmus zahodí polovicu poľa podľa porovnania so stredom. To je správne len vtedy, keď je pole usporiadané. Tu po prvom porovnaní (A[3] = 1 < 9) zahodí ľavú polovicu — a s ňou aj deviatku."
+    },
+    {
+      "id": "INF-POLL-SORTED",
+      "type": "poll",
+      "phase": "vyklad",
+      "title": "Dá sa to použiť?",
+      "question": "Naše binárne vyhľadávanie predpokladá vzostupne usporiadané pole. V ktorom z týchto polí ho môžeme použiť bez úprav?",
+      "options": ["[4, 9, 2, 15, 7]", "[30, 22, 18, 9, 4]", "[2, 2, 5, 8, 13]", "[1, 3, 2, 4, 5]"],
+      "key": 2,
+      "confidence": true,
+      "explain": "Binárne vyhľadávanie potrebuje pole usporiadané v smere, s ktorým algoritmus počíta. [2, 2, 5, 8, 13] je usporiadané vzostupne; opakovaná hodnota nevadí."
+    },
+    {
+      "id": "INF-ORDER-PSEUDO",
+      "type": "order",
+      "phase": "zhrnutie",
+      "title": "Zoraď pseudokód",
+      "question": "Zoraď riadky pseudokódu binárneho vyhľadávania do správneho poradia.",
+      "items": [
+        "lavy ← 0;  pravy ← n − 1",
+        "kým lavy ≤ pravy:",
+        "    stred ← (lavy + pravy) div 2",
+        "    ak A[stred] = x: vráť stred",
+        "    inak ak A[stred] < x: lavy ← stred + 1",
+        "    inak: pravy ← stred − 1",
+        "vráť −1"
+      ]
+    },
+    {
+      "id": "INF-HRA",
+      "type": "handson",
+      "phase": "uvod",
+      "title": "Hádaj číslo",
+      "intro": "Hra na rozohriatie: koľko pokusov potrebuješ, ak ti počítač po každom tipe povie „viac“ alebo „menej“?",
+      "widget": "guess-number",
+      "params": {"max": 100},
+      "ask": "Akú stratégiu si použil/a?",
+      "note": "Hra precvičuje hľadanie v rozsahu hodnôt, čo je blízke transferovej položke TT4 (binárne vyhľadávanie na odpovedi). V meraných hodinách ju nepoužívajte; vhodná je na pilot alebo mimo štúdie."
+    }
+  ]
+}

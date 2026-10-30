@@ -1,0 +1,80 @@
+{
+  "pack": "matematika",
+  "title": "Matematika — zložené úrokovanie a exponenciálny rast",
+  "subject": "matematika",
+  "note": "Návrh. Testová banka pre matematiku zatiaľ neexistuje, takže prekryv aktivít s testovými položkami treba skontrolovať, keď vznikne.",
+  "activities": [
+    {
+      "id": "MAT-SIM",
+      "type": "handson",
+      "phase": "vyklad",
+      "title": "Jednoduché verzus zložené úročenie",
+      "intro": "Meň úrokovú mieru a počet rokov alebo prehraj rast rok po roku. Kedy sa krivky začnú výrazne rozchádzať?",
+      "widget": "interest",
+      "params": {"principal": 1000, "rate": 5, "years": 20},
+      "ask": "Čo spôsobuje, že zložené úročenie rastie čoraz rýchlejšie?"
+    },
+    {
+      "id": "MAT-PRED-QUAD",
+      "type": "predict",
+      "phase": "vyklad",
+      "title": "Zdvojnásobenie a zoštvornásobenie",
+      "question": "Pri 6 % ročne so zloženým úročením sa vklad zhruba zdvojnásobí za 12 rokov. Za koľko rokov sa zoštvornásobí?",
+      "input": {"kind": "choice", "options": ["za 24 rokov", "za 36 rokov", "za 48 rokov", "za 18 rokov"]},
+      "answer": 0,
+      "confidence": true,
+      "widget": "interest",
+      "params": {"principal": 1000, "rate": 6, "years": 24},
+      "explain": "Pri zloženom úročení sa za rovnaký čas suma vynásobí vždy tým istým číslom: za 12 rokov ×2, za ďalších 12 rokov znova ×2, spolu ×4 za 24 rokov (1,06²⁴ ≈ 4,05)."
+    },
+    {
+      "id": "MAT-POLL-BANKS",
+      "type": "poll",
+      "phase": "vyklad",
+      "title": "Ktorá banka?",
+      "question": "Vklad 1 000 € na 20 rokov. Banka A dáva 10 % ročne jednoduchým úročením, banka B 8 % ročne zloženým úročením. Kde budeš mať na konci viac?",
+      "options": ["v banke A", "v banke B", "rovnako", "nedá sa určiť bez výšky vkladu"],
+      "key": 1,
+      "confidence": true,
+      "explain": "A: 1 000 · (1 + 20 · 0,10) = 3 000 €. B: 1 000 · 1,08²⁰ ≈ 4 661 €. Pri dlhej dobe vyhrá exponenciálny rast aj s nižšou sadzbou."
+    },
+    {
+      "id": "MAT-PRED-72",
+      "type": "predict",
+      "phase": "vyklad",
+      "title": "Pravidlo 72",
+      "question": "Podľa pravidla 72: za koľko rokov sa zdvojnásobí vklad pri 9 % ročnom zloženom úročení?",
+      "input": {"kind": "number", "tolerance": 0.5, "unit": "roky"},
+      "answer": 8,
+      "confidence": true,
+      "widget": "interest",
+      "params": {"principal": 1000, "rate": 9, "years": 12},
+      "explain": "72 / 9 = 8 rokov. Presne: ln 2 / ln 1,09 ≈ 8,04 roka. Pravidlo 72 je dobrý odhad pre bežné sadzby."
+    },
+    {
+      "id": "MAT-ORDER-OFFERS",
+      "type": "order",
+      "phase": "zhrnutie",
+      "title": "Zoraď ponuky",
+      "question": "Vklad 1 000 € na 10 rokov. Zoraď ponuky od NAJMENŠEJ konečnej sumy po NAJVÄČŠIU.",
+      "items": [
+        "zložené úročenie 4 % ročne",
+        "jednoduché úročenie 5 % ročne",
+        "zložené úročenie 5 % ročne",
+        "jednoduché úročenie 7 % ročne",
+        "zložené úročenie 6 % ročne"
+      ]
+    },
+    {
+      "id": "MAT-POLL-LINEAR",
+      "type": "poll",
+      "phase": "zhrnutie",
+      "title": "Kde je chyba?",
+      "question": "Žiak počíta: „5 % ročne počas 3 rokov je 15 %, takže z 2 000 € bude pri zloženom úročení 2 300 €.“ Čo platí?",
+      "options": ["má pravdu", "suma bude o niečo vyššia, asi 2 315 €", "suma bude o niečo nižšia", "pri zloženom úročení sa to nedá vypočítať"],
+      "key": 1,
+      "confidence": true,
+      "explain": "2 000 · 1,05³ = 2 315,25 €. Sčítať percentá je lineárna úvaha; úrok sa však každý rok počíta aj z predchádzajúcich úrokov."
+    }
+  ]
+}

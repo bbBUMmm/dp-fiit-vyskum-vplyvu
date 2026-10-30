@@ -1,0 +1,42 @@
+{
+  "pack": "vseobecne",
+  "title": "Všeobecné — pre každý predmet",
+  "subject": "",
+  "note": "Rovnaké znenie vo všetkých predmetoch a podmienkach. Výstupný lístok a predpoveď výkonu merajú SUBJEKTÍVNY pocit porozumenia, ktorý hypotéza 3 porovnáva s objektívnym výkonom v odloženom teste.",
+  "activities": [
+    {
+      "id": "VS-PREDICT-SELF",
+      "type": "predict",
+      "phase": "vyklad",
+      "title": "Odhad vlastného výkonu",
+      "question": "Za chvíľu budeš samostatne riešiť 8 úloh. Koľko z nich podľa teba vyriešiš správne?",
+      "input": {"kind": "number", "tolerance": 0, "unit": "z 8"},
+      "confidence": false
+    },
+    {
+      "id": "VS-PULSE",
+      "type": "poll",
+      "phase": "samostatna",
+      "title": "Ako to ide?",
+      "question": "Ako sa ti práve darí s úlohami?",
+      "options": ["rozumiem a idem ďalej", "rozumiem, ale idem pomaly", "zasekol/zasekla som sa na jednej úlohe", "nerozumiem zadaniu"]
+    },
+    {
+      "id": "VS-MUDDY",
+      "type": "reflect",
+      "phase": "vyklad",
+      "title": "Najmenej jasné miesto",
+      "question": "Ktorá časť doterajšieho výkladu ti bola najmenej jasná?",
+      "placeholder": "Napríklad: nerozumiem, prečo…"
+    },
+    {
+      "id": "VS-EXIT",
+      "type": "reflect",
+      "phase": "zhrnutie",
+      "title": "Výstupný lístok",
+      "question": "Čo z dnešnej hodiny by si vedel/a vysvetliť spolužiakovi? A čo ti ešte nie je jasné?",
+      "confidence": true,
+      "confidence_label": "Nakoľko si myslíš, že dnešnému učivu rozumieš?"
+    }
+  ]
+}

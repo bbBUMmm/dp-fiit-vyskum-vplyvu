@@ -1,0 +1,412 @@
+METODIKA A ŠPECIFIKÁCIA TESTOV T1, T3, T4
+Výskum vplyvu generických a adaptívnych nástrojov UI vo vyučovaní
+Verzia: návrh 1, 29. 10. 2026 — na posúdenie školiteľom a odborníkmi pred pilotom
+
+Obsah priečinka
+  00-metodika-a-specifikacia.txt   tento dokument
+  informatika-T1-vstupny-test.txt  fyzika-T1-...   matematika-T1-...
+  informatika-T3-test-po-hodine.txt  ...
+  informatika-T4-odlozeny-test.txt   ...
+Každý test má dve časti: zadanie pre žiaka a ČASŤ PRE HODNOTITEĽA (kľúč,
+diagnostika rozptyľovačov, rubriky, špecifikácia). Pred tlačou pre žiakov sa
+druhá časť odstrihne.
+
+
+1. MIESTO TESTOV V DIZAJNE (podľa diagramu basicDiagram.png a 02APrykhodko.drawio)
+-----------------------------------------------------------------------------
+  T1  test vedomostí PRED výučbou novej témy („nulové vedomosti“)
+  T2  vyučovacia hodina: skupina s generickou UI, s adaptívnou UI, bez UI
+  T3  test HNEĎ PO hodine T2
+  T4  „neočakávaný“ test O TRI TÝŽDNE po T3
+
+Cyklus sa opakuje v troch predmetoch (fyzika, matematika, informatika) a
+skupiny sa striedajú tak, aby každá prešla každou podmienkou (krížový dizajn).
+Pre každý predmet sú preto tri testy: T1, T3, T4 — spolu deväť.
+
+Témy (prvé témy z diagramu, zhodné s drafts/temy-troch-predmetov.md):
+  F  jednosmerný elektrický prúd: sériové a paralelné zapojenie
+  M  zložené úrokovanie a exponenciálny rast
+  I  lineárne a binárne vyhľadávanie v poli
+
+Testy sú vo všetkých troch podmienkach identické. Žiadna položka sa
+nezmieňuje o asistentovi ani o spôsobe výučby.
+
+
+2. ČO TESTY MERAJÚ A AKO SA SKÓRE INTERPRETUJE
+---------------------------------------------
+Validita nie je vlastnosť testu, ale tvrdenia, ktoré na skóre stavíme
+(Messick 1995; Kane 2013; AERA/APA/NCME 2014). Tvrdenia, ktoré tu obhajujeme:
+
+  T1  „Skóre opisuje vedomosti a prekoncepcie žiaka o téme pred výučbou.“
+      Použitie: kovariát v analýze, kontrola rovnocennosti skupín, overenie,
+      že téma nebola prebraná. Očakáva sa nízke skóre (efekt podlahy) — to je
+      zámer, nie chyba. Otvorené položky C zachytia aj INTUITÍVNE stratégie
+      (lineárna/sčítacia intuícia), na ktorých sú všetky tri témy postavené.
+  T3  „Skóre opisuje okamžité osvojenie učiva hodiny.“ → H2.
+  T4  „Skóre opisuje trvalé osvojenie po troch týždňoch a schopnosť preniesť
+      ho do nového kontextu.“ → H1, H2, H3.
+  D   Metakognitívna časť (istota pri položkách, odhad vlastného výkonu,
+      pocit naučenia, vynaložené úsilie) → sebahodnotenie z kapitoly 5 a H3
+      (rozchádza sa subjektívny pocit naučenia s objektívnym výsledkom?).
+
+Toto je odpoveď na poznámku „T1 a T3 by nemali byť len testy; niečo pre
+psychológiu“: každý test meria aj to, ako presne žiak odhaduje vlastnú
+správnosť (kalibrácia; Schraw 2009; Hacker et al. 2000) a koľko úsilia
+vynaložil (Paas 1992).
+
+
+3. FORMÁT A ROZSAH
+------------------
+T1 a T3 (paralelné formy, 14 položiek, 26 bodov, približne 30 minút)
+  A  6 položiek, výber JEDNEJ správnej z piatich (a–e)        6 × 1 b. =  6
+  B  4 položky, výber VŠETKÝCH správnych z piatich (a–e);
+     správne sú 2 alebo 3, počet sa žiakovi neuvádza          4 × 2 b. =  8
+  C  4 otvorené položky s analytickou rubrikou                4 × 3 b. = 12
+  D  metakognitívna časť (nezapočítava sa do skóre)
+
+T4 (19 položiek, 42 bodov, približne 45 minút = jedna vyučovacia hodina)
+  A  8 položiek (z toho 4 kotviace, zhodné s T3)              8 × 1 b. =  8
+  B  5 položiek (z toho 2 kotviace)                           5 × 2 b. = 10
+  C  4 nové otvorené položky v novom kontexte                 4 × 3 b. = 12
+  E  2 komplexné úlohy (testlety) so spoločným zadaním:
+     E1 blízky prenos, E2 vzdialený prenos                    2 × 6 b. = 12
+  D  metakognitívna časť + kontrola, či si žiak tému opakoval
+
+Prečo päť možností (a–e), hoci metaanalýza odporúča tri (Rodriguez 2005):
+  pri krátkom teste znižuje päť možností pravdepodobnosť uhádnutia z 33 % na
+  20 % a každý rozptyľovač je naviazaný na doloženú mylnú predstavu, takže
+  chybná odpoveď je diagnostická. Cena: rozptyľovač, ktorý v pilote zvolí
+  menej ako 5 % žiakov, je nefunkčný a nahradí sa (Haladyna & Downing 1993).
+
+Prečo položky s viacerými správnymi odpoveďami bez uvedenia ich počtu:
+  žiak musí posúdiť každú možnosť zvlášť (formát blízky „multiple true-false“),
+  čo dáva viac informácie na položku a vyššiu spoľahlivosť ako výber jednej
+  možnosti (Albanese & Sabers 1988; Frisbie 1992). Neuvedený počet zabraňuje
+  stratégii „označ dve najpravdepodobnejšie“. Počet správnych sa strieda
+  (2 alebo 3) a správne písmená sú v teste rozložené rovnomerne.
+
+Prečo otvorené položky, hoci nesú chybu hodnotiteľa:
+  úrovne analýza, hodnotenie a tvorenie sa výberom z možností merajú len
+  obmedzene; rubrika s ukážkovými odpoveďami a dvojité hodnotenie chybu
+  hodnotiteľa kontrolujú a merajú (Jonsson & Svingby 2007).
+
+
+4. ŠPECIFIKAČNÁ TABUĽKA (revidovaná Bloomova taxonómia; Anderson & Krathwohl 2001)
+----------------------------------------------------------------------------------
+T1 a T3 — rovnaká pre všetky tri predmety:
+
+  pozícia  formát  úroveň          body
+  A1       A       zapamätanie      1
+  A2       A       zapamätanie      1
+  A3       A       porozumenie      1
+  A4       A       porozumenie      1
+  A5       A       aplikácia        1
+  A6       A       aplikácia        1
+  B1       B       porozumenie      2
+  B2       B       aplikácia        2
+  B3       B       analýza          2
+  B4       B       hodnotenie       2
+  C1       C       aplikácia        3
+  C2       C       analýza          3
+  C3       C       hodnotenie       3
+  C4       C       tvorenie         3
+
+  súčet podľa úrovne (body): zapamätanie 2, porozumenie 4, aplikácia 7,
+  analýza 5, hodnotenie 5, tvorenie 3 → 50 % bodov je na vyšších úrovniach
+  (analýza, hodnotenie, tvorenie). To je odpoveď na požiadavku
+  „spraviť testy komplexnejšie“.
+
+T4: A1 zap., A2 zap., A3 por., A4 por., A5 apl., A6 apl., A7 analýza,
+    A8 hodnotenie; B1 por., B2 apl., B3 analýza, B4 analýza, B5 hodnotenie;
+    C1 apl., C2 analýza, C3 hodnotenie, C4 tvorenie; E1 aplikácia→analýza
+    (blízky prenos); E2 analýza→hodnotenie (vzdialený prenos).
+
+Obsahová dimenzia: každý test pokrýva všetky čiastkové zručnosti témy
+(zoznam a priradenie položiek je v kľúči každého testu). Zručnosti sú tie
+isté, ktoré používa cvičný klient (tasks/*.json), takže skóre sa dá rozložiť
+na zručnosti a porovnať s priebehom hodiny.
+
+
+5. PARALELNÉ FORMY, KOTVY A PREČO NIE TIE ISTÉ POLOŽKY
+------------------------------------------------------
+T1 a T3 sú paralelné: každá položka T1 má v T3 „dvojča“ v tej istej bunke
+špecifikácie (tá istá zručnosť, úroveň a formát, iné čísla a kontext).
+Identické položky v T1 a T3 sa zámerne nepoužívajú: žiak by na hodine
+hľadal odpovede na otázky, ktoré už videl (senzibilizácia predtestom;
+Campbell & Stanley 1963; Willson & Putnam 1982).
+
+T3 a T4 zdieľajú šesť kotviacich položiek (4 × A, 2 × B), znak po znaku
+rovnakých, na rovnakých pozíciách. Kotvy spájajú obe formy na spoločnú
+škálu (návrh so spoločnými položkami; Kolen & Brennan 2014). Pravidlá
+prevzaté z rozhodnutí D2–D4 (decisions.md): kotvy sú len uzavreté položky,
+pokrývajú aspoň tri kognitívne úrovne a tvoria aspoň 20 % dĺžky testu
+(tu 6 z 19 položiek). Deklarované obmedzenie: žiak sa s kotvami stretne
+druhýkrát, čo je samo osebe opakovanie (testing effect; Roediger &
+Karpicke 2006). Kontrast medzi podmienkami to neskresľuje — všetci žiaci
+píšu obe formy —, absolútna miera zabúdania je však podhodnotená (D4).
+
+Žiadna položka nepoužíva čísla, polia ani príklady z výkladu (príloha D),
+z úloh cvičného klienta (tasks/*.json) ani z interaktívnych aktivít
+(activities/*.json). Test tak meria princíp, nie zapamätaný príklad.
+
+„Neočakávaný“ T4: termín testu sa žiakom vopred neoznamuje. Že po troch
+týždňoch bude test, vedia zo súhlasu (príloha E) — nejde teda o utajenie,
+ale o neohlásený termín. Položka D2 v T4 meria, či žiaci test čakali, a
+položka D1, či si medzitým tému opakovali; oboje sú kovariáty.
+
+
+6. PRAVIDLÁ TVORBY POLOŽIEK, KTORÉ SA UPLATNILI
+-----------------------------------------------
+Podľa súhrnu Haladyna, Downing & Rodriguez (2002) a Haladyna & Rodriguez (2013):
+  • jedna myšlienka v kmeni; kmeň je otázka alebo neúplná veta, ktorú
+    možnosti dopĺňajú; podstatné informácie sú v kmeni, nie v možnostiach;
+  • bez negatívnych formulácií v kmeni; bez „všetky uvedené“ a „žiadna
+    z uvedených“;
+  • možnosti sú homogénne (dĺžka, gramatika, druh odpovede), číselné
+    možnosti sú zoradené vzostupne;
+  • každý rozptyľovač zodpovedá doloženej chybe (lineárna extrapolácia,
+    sčítanie percent, „prúd sa míňa“, chyba o jedna pri strede a pod.) —
+    diagnóza každej voľby je v kľúči;
+  • správne písmená sú rozložené po pozíciách a–e;
+  • bez „chytákov“, bez nápovedí v gramatike, bez opakovania slov kmeňa
+    v správnej odpovedi;
+  • jednotné dohody (indexy od 0, stred = (ľavý + pravý) div 2; úrok sa
+    pripisuje raz ročne; rovnaké žiarovky so stálym odporom) sú uvedené
+    v záhlaví, aby odpoveď nezávisela od toho, akú dohodu žiak pozná
+    (odstránenie rozptylu nesúvisiaceho s konštruktom).
+Porušenie týchto pravidiel preukázateľne znižuje kvalitu testu a poškodzuje
+lepších žiakov (Downing 2005).
+
+
+7. HODNOTENIE
+-------------
+A  1 bod za správnu možnosť.
+B  2 body, ak je každá z piatich možností posúdená správne (označené práve
+   správne); 1 bod pri jednej chybe (jedna chýbajúca alebo jedna navyše);
+   0 bodov pri dvoch a viac chybách. Ide o bodovanie „K-prim“ používané
+   pri formáte multiple true-false (Krebs 1997). Pre dichotomický model
+   (Rasch) sa B počíta ako správna len pri 2 bodoch; obe verzie sa
+   vykazujú.
+C  0–3 body podľa analytickej rubriky v kľúči; každé kritérium 1 bod.
+   Rubrika má ukážkové odpovede, aby hodnotitelia čítali kritériá rovnako.
+E  0–6 bodov podľa čiastkových otázok testletu. V analýze sa testlet
+   berie ako jedna polytómna položka, aby lokálna závislosť čiastkových
+   otázok nenafúkla odhad spoľahlivosti (Wainer & Kiely 1987).
+D  sa do skóre nezapočítava.
+
+Otvorené odpovede hodnotia dvaja hodnotitelia nezávisle, naslepo voči
+podmienke aj voči tomu, či ide o T1, T3 alebo T4. Zhoda sa vykazuje ako
+kvadraticky vážená kappa (Cohen 1960; vážená verzia); rozdiely sa
+neprimerujú, ale riešia konsenzom (assessment/scoring.py už takto pracuje).
+
+Istota pri položkách A a B (0, 25, 50, 75, 100 %) sa porovná so
+správnosťou: odchýlka (priemerná istota − podiel správnych), absolútna
+presnosť, Brierovo skóre a gama koeficient (Schraw 2009).
+assessment/calibration.py tieto miery počíta.
+
+
+8. ČASOVÝ ROZPOČET — DÔSLEDOK, KTORÝ TREBA ROZHODNÚŤ
+----------------------------------------------------
+  T1, T3: A 6 × ~1,25 min + B 4 × ~1,75 min + C 4 × ~3 min + D ~2 min
+          ≈ 30 minút
+  T4:     A 8 × ~1,25 + B 5 × ~1,75 + C 4 × ~3 + E 2 × ~6 + D ~2
+          ≈ 45 minút (celá hodina; na hranici únavového stropu)
+
+  Doterajší plán (assessment/sessions.py) počítal s predtestom 4 minúty na
+  konci predchádzajúcej hodiny a s okamžitým testom 16 minút vo
+  vyučovacom bloku. Nové T1 a T3 sú takmer dvojnásobné:
+    • T1 potrebuje samostatnú časť hodiny (napr. prvých 30 minút
+      predchádzajúcej hodiny predmetu);
+    • T3 sa do 90-minútového bloku nezmestí bez skrátenia samostatnej
+      práce alebo bez odloženia dotazníka po hodine. Alternatíva je
+      skrátiť T3 na tri položky C (−3 b., ~−3 min).
+  Rozhodnutie patrí autorovi a školiteľovi; zapísané v decisions.md (D32).
+
+
+9. OVERENIE PRED ZBEROM (pilot) — kritériá stanovené vopred
+-----------------------------------------------------------
+Obsahová validita
+  Panel aspoň piatich odborníkov na predmet (2 učitelia predmetu, didaktik,
+  autor zadania úloh, ďalší učiteľ) posúdi každú položku: „podstatná /
+  užitočná, ale nie podstatná / nepotrebná“. Pre každú položku sa vypočíta
+  CVR (Lawshe 1975) a porovná s kritickou hodnotou pre danú veľkosť panelu
+  (Ayre & Scally 2014). Položka pod kritickou hodnotou sa prepíše.
+
+Proces odpovedania
+  Kognitívne interview („mysli nahlas“) s 3–5 žiakmi na test: čítajú
+  položky tak, ako boli zamýšľané? (AERA/APA/NCME 2014, dôkaz z procesu
+  odpovedania). Upravia sa nejasné formulácie.
+
+Psychometrický pilot (jedna trieda na predmet, mimo hlavného výskumu)
+  • obťažnosť položky p: prijateľné 0,20–0,90, cieľ 0,30–0,80
+    (pre T1 sa nízka obťažnosť očakáva a nie je dôvodom vyradenia);
+  • rozlišovanie: korigovaná bodovo-biseriálna korelácia ≥ 0,20
+    (Ebel & Frisbie 1991: ≥ 0,40 veľmi dobrá, 0,30–0,39 dobrá,
+    0,20–0,29 hraničná, < 0,20 položka sa reviduje);
+  • funkčnosť rozptyľovačov: každý zvolí aspoň 5 % žiakov a jeho
+    korelácia so skóre je záporná;
+  • spoľahlivosť: KR-20 / Cronbachova alfa ≥ 0,70 pre porovnávanie skupín
+    (Kuder & Richardson 1937; Cronbach 1951; Nunnally & Bernstein 1994);
+    vykazuje sa zvlášť uzavretá (A+B) a otvorená (C+E) časť;
+  • zhoda hodnotiteľov: kvadraticky vážená kappa ≥ 0,70 na každej
+    otvorenej položke; pod touto hodnotou sa rubrika spresní a hodnotitelia
+    preškolia.
+Po pilote sa testy už nemenia (zmrazenie pred zberom); každá zmena po pilote
+sa zapíše do decisions.md aj s dôvodom.
+
+Preklad škál: Paasova škála úsilia je tu v slovenskom preklade, ktorý nebol
+overený spätným prekladom. Pred pilotom sa odporúča postup podľa ITC (2017).
+
+
+10. OTÁZKY, KTORÉ MÔŽE POLOŽIŤ KOMISIA, A ODPOVEDE
+--------------------------------------------------
+„Načo test pred výučbou, keď žiaci tému nepoznajú?“
+  Lebo „nepoznajú“ je predpoklad, ktorý treba overiť, nie dosadiť. Pri
+  fyzike časť učiva poznajú zo základnej školy. T1 navyše meria prekoncepcie
+  (lineárna intuícia), ktoré môžu moderovať účinok podmienky, a slúži ako
+  kovariát, čo zvyšuje silu testu porovnania podmienok.
+
+„Prečo nie ten istý test pred a po?“
+  Senzibilizácia predtestom (kap. 5). Paralelné formy s dvojčatami
+  v rovnakých bunkách špecifikácie merajú ten istý konštrukt bez nej.
+
+„Ako viete, že formy T3 a T4 sú porovnateľné?“
+  Šesť identických kotiev a spoločná špecifikácia; formy sa spájajú
+  metódou spoločných položiek (Kolen & Brennan 2014).
+
+„Nie sú päťmožnostné položky prehnané?“
+  Viď časť 3; rozhoduje pilot — nefunkčné rozptyľovače sa vymenia.
+
+„Neskresľuje výsledok uhádnutie pri položkách B?“
+  Pri náhodnom označovaní piatich nezávislých možností je pravdepodobnosť
+  plného počtu bodov 1/32 ≈ 3 % a aspoň jedného bodu 6/32 ≈ 19 %.
+
+„Nemeria test len pamäť?“
+  Len 2 z 26 bodov (T1, T3) sú na úrovni zapamätanie; polovica bodov je na
+  úrovni analýza, hodnotenie a tvorenie. T4 má navyše úlohy na prenos.
+
+„Dá sa porovnávať medzi predmetmi?“
+  Nie úroveň vedomostí — testy majú spoločnú štruktúru, nie obsah.
+  Porovnáva sa účinok podmienky v rámci predmetu (drafts/temy-troch-
+  predmetov.md, bod 4).
+
+„Prečo istota pri každej položke?“
+  Kapitola 5 meria, ako presne žiak odhaduje vlastnú správnosť; hypotéza
+  H3 sa pýta, či sa subjektívny pocit rozchádza s objektívnym výsledkom.
+  Bez istoty pri položkách sa to zmerať nedá.
+
+
+11. OBMEDZENIA
+--------------
+• Testy sú návrh. Pred použitím musia prejsť posúdením panelom, kognitívnymi
+  interview a pilotom (časť 9); dovtedy nemajú overenú spoľahlivosť.
+• Testy pre matematiku a fyziku sa opierajú o návrh tém, ktorý ešte nie je
+  v texte práce (drafts/temy-troch-predmetov.md).
+• Informatická téma nie je v ŠVP gymnázia (decisions.md, D24); test
+  predpokladá školu, kde sa téma vyučuje.
+• Časový rozpočet (časť 8) si vyžaduje zmenu štruktúry bloku.
+• Papierová verzia; do digitálneho zberača (assessment/banks/*.json) sa
+  testy prenesú až po pilote — formát B (viac správnych) už zberač podporuje.
+
+
+LITERATÚRA
+----------
+AERA, APA, & NCME. (2014). Standards for educational and psychological
+  testing. Washington, DC: American Educational Research Association.
+Albanese, M. A., & Sabers, D. L. (1988). Multiple true-false items: A study of
+  interitem correlations, scoring alternatives, and reliability estimation.
+  Journal of Educational Measurement, 25(2), 111–123.
+  https://doi.org/10.1111/j.1745-3984.1988.tb00296.x
+Anderson, L. W., & Krathwohl, D. R. (Eds.). (2001). A taxonomy for learning,
+  teaching, and assessing: A revision of Bloom's taxonomy of educational
+  objectives. New York: Longman.
+Ayre, C., & Scally, A. J. (2014). Critical values for Lawshe's content
+  validity ratio: Revisiting the original methods of calculation. Measurement
+  and Evaluation in Counseling and Development, 47(1), 79–86.
+  https://doi.org/10.1177/0748175613513808
+Campbell, D. T., & Stanley, J. C. (1963). Experimental and quasi-experimental
+  designs for research. Chicago: Rand McNally.
+Cohen, J. (1960). A coefficient of agreement for nominal scales. Educational
+  and Psychological Measurement, 20(1), 37–46.
+  https://doi.org/10.1177/001316446002000104
+Cronbach, L. J. (1951). Coefficient alpha and the internal structure of tests.
+  Psychometrika, 16(3), 297–334. https://doi.org/10.1007/BF02310555
+Downing, S. M. (2005). The effects of violating standard item writing
+  principles on tests and students: The consequences of using flawed test
+  items on achievement examinations in medical education. Advances in Health
+  Sciences Education, 10(2), 133–143. https://doi.org/10.1007/s10459-004-4019-5
+Ebel, R. L., & Frisbie, D. A. (1991). Essentials of educational measurement
+  (5th ed.). Englewood Cliffs, NJ: Prentice Hall.
+Engelhardt, P. V., & Beichner, R. J. (2004). Students' understanding of direct
+  current resistive electrical circuits. American Journal of Physics, 72(1),
+  98–115. https://doi.org/10.1119/1.1614813
+Frisbie, D. A. (1992). The multiple true-false item format: A status review.
+  Educational Measurement: Issues and Practice, 11(4), 21–26.
+  https://doi.org/10.1111/j.1745-3992.1992.tb00259.x
+Hacker, D. J., Bol, L., Horgan, D. D., & Rakow, E. A. (2000). Test prediction
+  and performance in a classroom context. Journal of Educational Psychology,
+  92(1), 160–170. https://doi.org/10.1037/0022-0663.92.1.160
+Haladyna, T. M., & Downing, S. M. (1993). How many options is enough for a
+  multiple-choice test item? Educational and Psychological Measurement,
+  53(4), 999–1010. https://doi.org/10.1177/0013164493053004013
+Haladyna, T. M., Downing, S. M., & Rodriguez, M. C. (2002). A review of
+  multiple-choice item-writing guidelines for classroom assessment. Applied
+  Measurement in Education, 15(3), 309–333.
+  https://doi.org/10.1207/S15324818AME1503_5
+Haladyna, T. M., & Rodriguez, M. C. (2013). Developing and validating test
+  items. New York: Routledge. https://doi.org/10.4324/9780203850381
+International Test Commission. (2017). The ITC guidelines for translating and
+  adapting tests (2nd ed.). https://www.intestcom.org
+Jonsson, A., & Svingby, G. (2007). The use of scoring rubrics: Reliability,
+  validity and educational consequences. Educational Research Review, 2(2),
+  130–144. https://doi.org/10.1016/j.edurev.2007.05.002
+Kane, M. T. (2013). Validating the interpretations and uses of test scores.
+  Journal of Educational Measurement, 50(1), 1–73.
+  https://doi.org/10.1111/jedm.12000
+Kolen, M. J., & Brennan, R. L. (2014). Test equating, scaling, and linking:
+  Methods and practices (3rd ed.). New York: Springer.
+  https://doi.org/10.1007/978-1-4939-0317-7
+Krebs, R. (1997). The Swiss way to score multiple true-false items:
+  Theoretical and empirical evidence. In A. J. J. A. Scherpbier et al. (Eds.),
+  Advances in medical education (pp. 158–161). Dordrecht: Springer.
+  [UNVERIFIED — overiť strany a editorov]
+Kuder, G. F., & Richardson, M. W. (1937). The theory of the estimation of test
+  reliability. Psychometrika, 2(3), 151–160. https://doi.org/10.1007/BF02288391
+Lawshe, C. H. (1975). A quantitative approach to content validity. Personnel
+  Psychology, 28(4), 563–575. https://doi.org/10.1111/j.1744-6570.1975.tb01393.x
+McDermott, L. C., & Shaffer, P. S. (1992). Research as a guide for curriculum
+  development: An example from introductory electricity. Part I: Investigation
+  of student understanding. American Journal of Physics, 60(11), 994–1003.
+  https://doi.org/10.1119/1.17003
+Messick, S. (1995). Validity of psychological assessment: Validation of
+  inferences from persons' responses and performances as scientific inquiry
+  into score meaning. American Psychologist, 50(9), 741–749.
+  https://doi.org/10.1037/0003-066X.50.9.741
+Nunnally, J. C., & Bernstein, I. H. (1994). Psychometric theory (3rd ed.).
+  New York: McGraw-Hill.
+Paas, F. G. W. C. (1992). Training strategies for attaining transfer of
+  problem-solving skill in statistics: A cognitive-load approach. Journal of
+  Educational Psychology, 84(4), 429–434. https://doi.org/10.1037/0022-0663.84.4.429
+Roediger, H. L., & Karpicke, J. D. (2006). Test-enhanced learning: Taking
+  memory tests improves long-term retention. Psychological Science, 17(3),
+  249–255. https://doi.org/10.1111/j.1467-9280.2006.01693.x
+Rodriguez, M. C. (2005). Three options are optimal for multiple-choice items:
+  A meta-analysis of 80 years of research. Educational Measurement: Issues and
+  Practice, 24(2), 3–13. https://doi.org/10.1111/j.1745-3992.2005.00006.x
+Schraw, G. (2009). A conceptual analysis of five measures of metacognitive
+  monitoring. Metacognition and Learning, 4(1), 33–45.
+  https://doi.org/10.1007/s11409-008-9031-3
+Stango, V., & Zinman, J. (2009). Exponential growth bias and household
+  finance. The Journal of Finance, 64(6), 2807–2849.
+  https://doi.org/10.1111/j.1540-6261.2009.01518.x
+Wainer, H., & Kiely, G. L. (1987). Item clusters and computerized adaptive
+  testing: A case for testlets. Journal of Educational Measurement, 24(3),
+  185–201. https://doi.org/10.1111/j.1745-3984.1987.tb00274.x
+Willson, V. L., & Putnam, R. R. (1982). A meta-analysis of pretest
+  sensitization effects in experimental design. American Educational Research
+  Journal, 19(2), 249–258. https://doi.org/10.3102/00028312019002249
+
+Všetkých 25 DOI bolo 2026-10-30 overených v Crossref (autori, názov, časopis,
+ročník, strany sedia). Knihy bez DOI sú uvedené úplným bibliografickým
+záznamom; Krebs (1997) zostáva [UNVERIFIED].
+Pred odoslaním mimo priečinka prejsť /ars-citation-check (pravidlo 3 v CLAUDE.md).

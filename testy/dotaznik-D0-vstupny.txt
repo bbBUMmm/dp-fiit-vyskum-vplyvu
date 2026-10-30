@@ -1,0 +1,119 @@
+==========================================================================
+DOTAZNÍK D0 · vstupný dotazník (raz, pred prvým testom T1)
+približne 4 minúty · v sedení spolu s dotazníkom Jr. MAI
+==========================================================================
+Forma:      D0
+Predmet:    všetky
+Test:       D0 · vstupný dotazník
+Rozsah:     12 položiek · približne 4 minúty
+
+POKYNY
+• Toto nie je test. Neexistujú správne ani nesprávne odpovede; zaujíma
+  nás, ako sa učíš a čo si myslíš. Odpovede nikto neuvidí pri tvojom mene.
+• Pri každej položke zakrúžkuj jednu odpoveď (ak nie je uvedené inak).
+
+
+ČASŤ Q — O tebe a o nástrojoch umelej inteligencie
+--------------------------------------------------------------------------
+Nástrojmi umelej inteligencie (UI) myslíme napríklad ChatGPT, Gemini,
+Copilot alebo Claude.
+
+Q1  Ako často používaš nástroje UI pri učení?
+      a) denne
+      b) niekoľkokrát týždenne
+      c) niekoľkokrát mesačne
+      d) zriedka
+      e) nikdy
+
+Q2  Na čo ich pri učení najčastejšie používaš? (môžeš označiť viac
+    možností)
+      a) vysvetlenie učiva
+      b) napísanie riešenia úlohy
+      c) kontrola môjho riešenia
+      d) zhrnutie alebo preklad textu
+      e) nápady
+      f) nepoužívam ich
+
+Q3  Nakoľko dôveruješ tomu, čo ti takýto nástroj odpovie?
+    vôbec  1   2   3   4   5   6   7  úplne
+
+Q4  Nakoľko si istý/á, že vieš rozpoznať, keď sa takýto nástroj mýli?
+    vôbec  1   2   3   4   5   6   7  úplne
+
+Q5  Keď mi úloha nejde, najprv to skúsim sám/sama a až potom hľadám pomoc.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+Q6  Radšej sa spýtam nástroja UI, ako by som mal/a nad úlohou dlho
+    premýšľať.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+Q7  Radšej riešim zložité problémy ako jednoduché.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+Q8  Rád/rada mám na starosti situácie, ktoré si vyžadujú veľa premýšľania.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+Q9  Premýšľanie nie je moja predstava zábavy.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+Q10  Radšej robím niečo, čo si vyžaduje málo premýšľania, ako niečo, čo
+    určite preverí, ako dobre viem myslieť.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+Q11  Naozaj ma baví úloha, pri ktorej treba vymýšľať nové riešenia
+    problémov.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+Q12  Radšej mám úlohu, ktorá je náročná na myslenie, ťažká a dôležitá, ako
+    úlohu, ktorá je trochu dôležitá, ale nevyžaduje veľa premýšľania.
+    vôbec ma to nevystihuje  1   2   3   4   5  úplne ma to vystihuje
+
+                              KONIEC DOTAZNÍKA
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV
+##########################################################################
+
+ŠKÁLY
+  ui_frekvencia  Q1   frekvencia používania UI pri učení
+  ui_ucel  Q2   účely používania (viac možností)
+  ui_dovera  Q3   dôvera v odpovede UI, 1–7
+  ui_kontrola  Q4   sebaistota v rozpoznaní chyby UI, 1–7
+  sklon_offloading  Q5R, Q6   sklon presúvať premýšľanie na nástroj, 1–5
+  nfc6  Q7, Q8, Q9R, Q10R, Q11, Q12   potreba kognície (NFC-6), priemer 1–5
+
+ČO MERAJÚ POLOŽKY A PREČO SÚ TU
+  Q1–Q4  Doterajšie skúsenosti s UI a dôvera v ne (rovnaký obsah ako
+      položky U1, U3, U6, U7 nástroja BACKGROUND v assessment/banks).
+      Dôvera a sebaistota merané PRED akoukoľvek podmienkou sú jediné
+      hodnoty, ktoré podmienka neovplyvnila.
+  Q5, Q6  Sklon k presúvaniu kognitívnej práce na nástroj (cognitive
+      offloading; Risko & Gilbert 2016; v kontexte UI Gerlich 2025).
+      VLASTNÉ položky bez overenej škály -- používajú sa len opisne
+      a ako prieskumný moderátor; v práci sa tak aj označia.
+  Q7–Q12  Potreba kognície (need for cognition), šesťpoložková verzia
+      NFC-6 (Lins de Holanda Coelho, Hanel & Wolf 2020) pôvodnej škály
+      (Cacioppo & Petty 1982; Cacioppo, Petty & Kao 1984). Teoretický
+      dôvod: ľudia s nízkou potrebou kognície častejšie prenechávajú
+      premýšľanie nástroju, takže NFC môže moderovať rozdiel medzi
+      podmienkami G a A (H1, H4). Q9 a Q10 sa skórujú obrátene
+      (6 − odpoveď).
+      POZOR: znenie položiek je pracovný preklad autora; pred použitím ho
+      treba porovnať s originálnym znením v Lins de Holanda Coelho et al.
+      (2020) a podrobiť spätnému prekladu (ITC 2018).
+
+ZADÁVANIE
+  Raz za celú štúdiu, pred prvým testom T1 (alebo cez EduPage ako domácu
+  úlohu, ako to robí doterajší protokol s nástrojmi BACKGROUND a JRMAI).
+  Dotazník metakognitívnej uvedomelosti Jr. MAI (Sperling et al. 2002)
+  ostáva samostatným nástrojom (assessment/banks/jrmai.json, 18 položiek).
+
+ZDROJE
+  Cacioppo & Petty (1982) https://doi.org/10.1037/0022-3514.42.1.116
+  Cacioppo, Petty & Kao (1984) https://doi.org/10.1207/s15327752jpa4803_13
+  Gerlich (2025) https://doi.org/10.3390/soc15010006
+  Lins de Holanda Coelho, Hanel & Wolf (2020) https://doi.org/10.1177/1073191118793208
+  Risko & Gilbert (2016) https://doi.org/10.1016/j.tics.2016.07.002
+  Sperling, Howard, Miller & Murphy (2002) https://doi.org/10.1006/ceps.2001.1091
+  úplné záznamy v 00-metodika-a-specifikacia.txt.

@@ -1,0 +1,627 @@
+==========================================================================
+INFORMATIKA · I1 Vyhľadávanie v poli: lineárne a binárne
+T4 · ODLOŽENÝ TEST · tri týždne po hodine, bez ohlásenia termínu
+==========================================================================
+Forma:      I1-T4
+Predmet:    informatika
+Téma:       I1 · Vyhľadávanie v poli: lineárne a binárne
+Test:       T4 · odložený test po troch týždňoch
+Kotvy:      I1-T3 (A1, A3, A4, A5, A6, A9 sú znak po znaku rovnaké)
+Dotazník:   D4 (pred testom časť Q, po teste časť Z)
+Rozsah:     32 úloh · 72 bodov · približne 65 minút (dve vyučovacie hodiny
+            s prestávkou po časti B) + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Skús každú úlohu; aj čiastočná úvaha sa počíta.
+• Test má dve polovice: časti P, A, B a po prestávke časti C, D.
+• Nepoužívaj mobil, internet, poznámky, počítač ani asistenta.
+• Ak úlohu nevieš, napíš „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Indexy poľa sa číslujú od 0 (prvý prvok má index 0).
+• „div“ je celočíselné delenie, výsledok sa zaokrúhli nadol: 9 div 2 = 4.
+• Počet porovnaní = počet prvkov poľa, s ktorými sa hľadaná hodnota porovná.
+• Mocniny dvoch: 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256,
+  2⁹=512, 2¹⁰=1 024, 2¹¹=2 048, 2¹²=4 096, 2¹³=8 192, 2¹⁴=16 384,
+  2²⁰ = 1 048 576, 2²⁵ = 33 554 432, 2²⁶ = 67 108 864.
+• Referenčný postup -- binárne vyhľadávanie x v USPORIADANOM poli A s n
+  prvkami. Slovami: porovnaj x s prvkom v strede úseku. Ak sa rovnajú,
+  skonči. Ak je x väčšie, pokračuj v pravej polovici úseku, inak v ľavej.
+  Ak úsek zostane prázdny, x v poli nie je.
+        lavy ← 0;  pravy ← n − 1
+        kým lavy ≤ pravy:
+            stred ← (lavy + pravy) div 2
+            ak A[stred] = x: vráť stred
+            ak A[stred] < x: lavy ← stred + 1
+            inak: pravy ← stred − 1
+        vráť −1                  (−1 znamená „x v poli nie je“)
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vysvetliť, kedy sa dá použiť
+    binárne vyhľadávanie a kedy nie?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš krok po kroku odsimulovať binárne
+    vyhľadávanie na konkrétnom poli?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš určiť, koľko porovnaní potrebuje
+    binárne vyhľadávanie v najhoršom prípade pre pole s daným počtom
+    prvkov?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš nájsť chybu v programe, ktorý
+    binárne vyhľadávanie implementuje nesprávne?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš rozhodnúť, či je v danej situácii
+    lepšie lineárne alebo binárne vyhľadávanie?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ktorá podmienka musí byť splnená, aby binárne vyhľadávanie v poli vždy
+    fungovalo správne?
+      a) pole musí byť usporiadané (napríklad vzostupne)
+      b) pole musí mať párny počet prvkov
+      c) hľadaná hodnota musí byť v poli
+      d) pole nesmie obsahovať rovnaké hodnoty
+      e) pole musí obsahovať len kladné čísla
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré tvrdenia o najlepšom a najhoršom prípade sú pravdivé?
+      a) Ak sa veľkosť usporiadaného poľa zväčší 1 000-krát, počet porovnaní
+         binárneho vyhľadávania v najhoršom prípade sa zväčší približne o 10.
+      b) Pre pole s jediným prvkom urobí binárne vyhľadávanie 0 porovnaní.
+      c) Ak hľadaná hodnota v neusporiadanom poli nie je, lineárne
+         vyhľadávanie musí porovnať všetky prvky.
+      d) Najlepší prípad binárneho vyhľadávania nastane, keď je hľadaný prvok
+         v strede poľa.
+      e) Najlepší prípad lineárneho vyhľadávania nastane, keď je hľadaný
+         prvok posledný.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Pole A = [3, 8, 15, 21, 27, 34, 40, 46, 52] (indexy 0 až 8). Hľadáme
+    x = 40 referenčným postupom. S ktorým prvkom sa x porovná ako s PRVÝM?
+      a) 3           b) 21          c) 27          d) 34          e) 40
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Binárne vyhľadávanie v usporiadanom poli s 1 000 prvkami potrebuje
+    v najhoršom prípade 10 porovnaní. Ktoré tvrdenia sú pravdivé?
+      a) V usporiadanom poli s 2 000 prvkami potrebuje v najhoršom prípade
+         11 porovnaní.
+      b) V usporiadanom poli s 2 000 prvkami potrebuje v najhoršom prípade
+         20 porovnaní.
+      c) Lineárne vyhľadávanie v poli s 1 000 prvkami potrebuje v najhoršom
+         prípade 1 000 porovnaní.
+      d) V usporiadanom poli s 1 000 000 prvkami potrebuje binárne
+         vyhľadávanie v najhoršom prípade 10 000 porovnaní.
+      e) V usporiadanom poli s 500 prvkami potrebuje binárne vyhľadávanie
+         v najhoršom prípade 5 porovnaní.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Pole A = [2, 6, 11, 17, 24, 30, 35, 41, 49, 56, 60, 68, 75, 83] má 14
+    prvkov. Koľko porovnaní urobí referenčný postup pri hľadaní x = 49?
+      a) 1           b) 2           c) 3           d) 4           e) 9
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Pole A = [5, 12, 19, 26, 33, 40, 47], hľadáme x = 30 referenčným
+    postupom. Čo postup vráti a po koľkých porovnaniach?
+      a) vráti 3 (index prvku 26, ktorý je najbližšie menší) po 1 porovnaní
+      b) vráti 4 (miesto, kam by 30 patrilo) po 3 porovnaniach
+      c) vráti −1 po 7 porovnaniach, lebo musí prejsť všetky prvky
+      d) postup sa nikdy neskončí, lebo 30 v poli nie je
+      e) vráti −1 po 3 porovnaniach
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Lineárne vyhľadávanie potrebuje v poli s n prvkami v najhoršom prípade
+    n porovnaní, binárne ⌊log₂ n⌋ + 1 porovnaní. Pre ktoré NAJMENŠIE
+    z ponúkaných n urobí lineárne vyhľadávanie v najhoršom prípade aspoň
+    500-krát viac porovnaní ako binárne?
+      a) 100         b) 500         c) 1 000       d) 10 000      e) 100 000
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Školská aplikácia uchováva zoznam 30 000 žiakov zoradený podľa
+    priezviska. Každú sekundu sa však na KONIEC zoznamu pridá nový záznam,
+    takže zoznam prestane byť zoradený, a vyhľadáva sa v ňom len raz za
+    deň. Ktoré postupy sú najrozumnejšie?
+      a) po každom pridaní záznamu celý zoznam znova zoradiť a hľadať
+         binárne
+      b) hľadať binárne bez zoraďovania, lebo zoznam bol na začiatku
+         zoradený
+      c) pred každým hľadaním zoznam zoradiť a potom v ňom hľadať lineárne
+      d) hľadať binárne, ale len v prvej polovici zoznamu
+      e) hľadať lineárne
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Žiak napísal binárne vyhľadávanie s jedinou chybou: podmienka cyklu je
+    lavy < pravy namiesto lavy ≤ pravy. Pole A = [10, 20, 30, 40, 50, 60, 70].
+    Pri hľadaní ktorých hodnôt vráti jeho program −1, hoci hodnota v poli JE?
+      a) 20          b) 30          c) 40          d) 60          e) 70
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Ktoré zmeny v referenčnom postupe spôsobia, že pre niektoré vstupy
+    nebude fungovať správne (vráti zlý výsledok, zacyklí sa alebo siahne
+    mimo poľa)?
+      a) lavy ← stred  namiesto  lavy ← stred + 1
+      b) výmena poradia testov: najprv „ak A[stred] < x: lavy ← stred + 1“,
+         potom „inak ak A[stred] = x: vráť stred“, inak pravy ← stred − 1
+      c) lavy ← stred + 2  namiesto  lavy ← stred + 1
+      d) stred ← (lavy + pravy + 1) div 2  namiesto
+         stred ← (lavy + pravy) div 2
+      e) na začiatku pravy ← n  namiesto  pravy ← n − 1
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A11  Elektronický slovník má 200 000 hesiel zoradených podľa abecedy a mení
+    sa raz ročne. Ktoré zdôvodnenia, prečo v ňom hľadať binárne, sú
+    správne?
+      a) Binárne vyhľadávanie potrebuje v najhoršom prípade najviac
+         18 porovnaní a slovník sa mení zriedka, takže zostáva zoradený.
+      b) Binárne vyhľadávanie je rýchle aj v nezoradenom slovníku.
+      c) Lineárne vyhľadávanie by potrebovalo v najhoršom prípade len
+         18 porovnaní, binárne ešte menej.
+      d) Binárne vyhľadávanie potrebuje najviac 100 000 porovnaní, čo je
+         dvakrát menej ako lineárne.
+      e) Binárne vyhľadávanie je vhodné preto, lebo hesiel je párny počet.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A12  Ktoré rady o výbere vyhľadávania sú správne?
+      a) Ak sa v malom poli (napríklad 10 prvkov) hľadá raz, lineárne
+         vyhľadávanie úplne stačí.
+      b) Binárne vyhľadávanie sa dá použiť len na čísla, nie na slová.
+      c) Ak sa údaje často menia a hľadá sa v nich zriedka, udržiavať ich
+         zoradené sa nemusí oplatiť.
+      d) Binárne vyhľadávanie vždy nájde prvý výskyt opakujúcej sa hodnoty.
+      e) V zoradenom zozname, v ktorom sa hľadá veľa ráz, je binárne
+         vyhľadávanie výhodnejšie ako lineárne.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka. Postup nemusíš písať. Pri úlohách
+s viacerými políčkami dostaneš 1 bod, ak je chybné len jedno políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Lineárne vyhľadávanie (od začiatku po jednom prvku) v poli so 60
+    prvkami.
+    Odpoveď:   najlepší prípad = ______ porovnaní
+               ak x v poli nie je = ______ porovnaní
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Pole A = [5, 12, 17, 23, 30, 38, 41, 49, 56, 62, 70, 77, 85, 93] má 14
+    prvkov. Hľadáme x = 85 referenčným postupom.
+    Odpoveď:   počet porovnaní = ______        vrátená hodnota = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Databáza je zoradená. Urči najväčší možný počet porovnaní binárneho
+    vyhľadávania pri dvoch veľkostiach databázy.
+    Odpoveď:   4 000 prvkov: ______         50 000 000 prvkov: ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Hra „Hádaj číslo“ s číslom od 1 do 500 (po každom tipe sa dozvieš
+    „viac“, „menej“ alebo „uhádol si“).
+    Odpoveď:   najviac tipov pri najlepšej stratégii = ______
+               tvoj prvý tip pri najlepšej stratégii = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Programátor potrebuje, aby hľadanie v zoradenom zozname nikdy
+    nepotrebovalo viac ako 20 porovnaní. Koľko záznamov najviac môže
+    zoznam mať?
+    Odpoveď:   __________ záznamov
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Pole A = [2, 4, 7, 11, 16, 22, 29, 37] má 8 prvkov. Hľadáme x = 30
+    referenčným postupom.
+    Odpoveď:   počet porovnaní = ______        vrátená hodnota = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B7  Pole má 1 000 prvkov (indexy 0 až 999) a hľadané x je väčšie ako všetky
+    prvky poľa. Aké hodnoty majú lavy a pravy po prvých troch porovnaniach
+    referenčného postupu?
+    Odpoveď:   lavy = ______        pravy = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B8  Pre ktoré počty prvkov n potrebuje binárne vyhľadávanie v najhoršom
+    prípade presne 10 porovnaní?
+    Odpoveď:   najmenšie také n = ______      najväčšie také n = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Meteostanica ukladá 12 nameraných teplôt zoradených vzostupne:
+    A = [−8, −5, −1, 0, 3, 6, 9, 12, 15, 19, 22, 26] (indexy 0–11). Program
+    hľadá referenčným postupom hodnotu 19. Zapíš tabuľku krokov (lavy,
+    pravy, stred, A[stred], rozhodnutie), urči, čo program vráti a koľko
+    porovnaní urobí.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Firma má databázu 1 000 000 zoradených čísel objednávok. Systém povolí
+    na jedno vyhľadanie najviac 25 porovnaní. (1) Stačí to binárnemu
+    vyhľadávaniu? (2) Stačí to aj vtedy, keď databáza narastie na
+    50 000 000 záznamov? Obe odpovede zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  V neusporiadanom poli 10 000 čísel treba zodpovedať otázky typu „je číslo
+    x v poli?“. Peter navrhuje pole najprv zoradiť (to stojí približne
+    140 000 krokov) a potom hľadať binárne. Jana navrhuje hľadať zakaždým
+    lineárne. Kto má pravdu, ak sú otázky 3? A kto, ak ich je 1 000?
+    Zdôvodni výpočtom alebo odhadom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Spolužiak tvrdí: „Binárne vyhľadávanie sa nedá použiť na zoznam mien,
+    lebo s menami sa nedá počítať stred.“ Posúď toto tvrdenie. Čo sa pri
+    binárnom vyhľadávaní v skutočnosti „delí na polovice“ a čo treba vedieť
+    o menách, aby postup fungoval?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Archív je uložený na magnetickej páske: 2 048 záznamov zoradených podľa
+    dátumu. Čítacia hlava sa posúva len po jednom zázname a posun o jeden
+    záznam trvá 1 sekundu; prečítanie záznamu pod hlavou je okamžité. Hlava
+    začína pri prvom zázname. Hľadaný záznam je posledný. Posúď, či je na
+    páske binárne vyhľadávanie lepšie ako lineárne: porovnaj počet
+    porovnaní aj odhad času posúvania hlavy.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  V usporiadanom poli chceme nájsť NAJMENŠÍ prvok, ktorý je väčší alebo
+    rovný x (napríklad pre A = [3, 8, 14, 20] a x = 10 je to 14). Navrhni
+    úpravu binárneho vyhľadávania, ktorá ho nájde rovnako rýchlo. Zapíš ju
+    (pseudokódom alebo slovami) a ukáž jej beh na A = [3, 8, 14, 20], x = 10.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+ČASŤ D — Práca s textom (spolu 14 bodov)
+--------------------------------------------------------------------------
+Prečítaj si text. Úlohy D1 – D6 sa ho týkajú; k textu sa môžeš kedykoľvek
+vrátiť. Pri D1 a D2 označ všetky správne odpovede (ako v časti A), pri D3
+a D4 doplň krátku odpoveď, pri D5 a D6 odpovedaj vlastnými slovami.
+
+TEXT: Ako programátori hľadajú chybu: git bisect
+| Programátori ukladajú vývoj programu v systéme Git ako postupnosť verzií
+| (commitov). Niekedy zistia, že program, ktorý kedysi fungoval, už
+| nefunguje -- niekde v histórii vznikla chyba. Ak má história stovky
+| verzií, skúšať ich jednu po druhej by trvalo celé dni.
+|
+| Git preto ponúka príkaz git bisect. Programátor označí jednu verziu,
+| o ktorej vie, že je dobrá (good), a jednu, o ktorej vie, že je zlá (bad).
+| Git potom vyberie verziu v strede medzi nimi a programátor ju otestuje.
+| Ak je zlá, chyba vznikla v nej alebo skôr; ak je dobrá, chyba vznikla
+| neskôr. Úsek, v ktorom chyba vznikla, sa tak pri každom teste zmenší
+| približne na polovicu, až zostane jediná verzia -- tá, v ktorej sa chyba
+| objavila prvýkrát.
+|
+| Postup funguje len vtedy, keď platí dôležitý predpoklad: ak je niektorá
+| verzia zlá, sú zlé aj všetky ďalšie (chyba sa po vzniku neopravila
+| a znova neobjavila). Ak test niekedy zlyhá náhodne, napríklad pre
+| preťažený server, bisect môže ukázať na nesprávnu verziu.
+|
+| Príklad: tím má verzie 1 až 200. Verzia 1 je dobrá, verzia 200 zlá.
+| Git vyberá verziu v strede tak, že sčíta čísla poslednej dobrej
+| a poslednej zlej verzie a výsledok vydelí dvoma (zaokrúhli nadol).
+| Test jednej verzie trvá 6 minút. Záznam práce:
+|
+|   krok   testovaná verzia   výsledok
+|   1      100                dobrá
+|   2      150                zlá
+|   3      125                zlá
+|   4      112                dobrá
+|   5      118                ?
+|
+| Postupným testovaním od verzie 2 by tím v najhoršom prípade potreboval
+| 198 testov, teda takmer 20 hodín.
+
+D1  Aký predpoklad musí podľa textu platiť, aby git bisect našiel správnu
+    verziu, v ktorej chyba vznikla?
+      a) Po prvej zlej verzii sú zlé aj všetky ďalšie.
+      b) Verzií musí byť párny počet.
+      c) Chyba musí vzniknúť v niektorej strednej verzii.
+      d) Test jednej verzie musí trvať menej ako 6 minút.
+      e) Prvá verzia musí byť zlá.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D2  Ktoré tvrdenia o príklade z textu sú pravdivé?
+      a) Po kroku 3 môže chyba vzniknúť len vo verziách 101 až 125.
+      b) Po kroku 4 zostáva 13 verzií, v ktorých mohla chyba vzniknúť.
+      c) Bisect potrebuje pri 200 verziách v najhoršom prípade 100 testov.
+      d) Bisect potrebuje pri 200 verziách v najhoršom prípade 8 testov.
+      e) Keby bola verzia 112 zlá, chyba by musela vzniknúť práve vo
+         verzii 112.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D3  Odpoveď:   ak je verzia 118 dobrá, v kroku 6 sa testuje verzia ______
+               kroky 1 až 4 trvali spolu ______ minút
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D4  Odpoveď:   najväčší počet testov pri 200 verziách z textu = ______
+               najväčší počet testov pri 5 000 verziách (verzia 1 dobrá,
+               verzia 5 000 zlá) = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D5  Testy v tíme niekedy zlyhajú náhodne, asi v 1 z 20 spustení. Kolega
+    navrhuje: „Bisect je rýchly, jeho výsledok budeme brať ako istý.“ Posúď
+    tento návrh. Odhadni, aké veľké je riziko chyby pri ôsmich testoch,
+    a navrhni, ako výsledok bisectu zabezpečiť.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+D6  Tím môže naraz spustiť tri testy na troch počítačoch. Navrhni, ako
+    upraviť postup bisect, aby využil všetky tri počítače. Koľko kôl
+    testovania by potreboval pri 200 verziách z textu? Zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  usporiadanosť poľa ako podmienka binárneho vyhľadávania
+  S2  stred úseku a posun hraníc (simulácia krokov)
+  S3  ukončenie, hraničné prípady a chyby v implementácii
+  S4  počet krokov a jeho rast (lineárny verzus logaritmický)
+  S5  voľba postupu podľa situácie (veľkosť dát, počet hľadaní, zmeny)
+
+ČO T4 MERIA
+  Trvalé osvojenie (kotvy A1, A3, A4, A5, A6, A9 sú totožné s T3) a prenos:
+  zmeny v kóde, páska, slovník, mená, hranica „najmenší ≥ x“. Časť D je
+  súvislý text o skutočnom použití binárneho vyhľadávania (git bisect).
+  Všetky výsledky položiek s poľami sú overené simuláciou.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+
+A1  Kľúč: a
+    Úroveň: zapamätanie · Zručnosť: S1 · Dvojča: I1-T3 A1 · Kotva: K1
+    b) delenie na polovice si spája s párnym počtom
+    c) zamieňa podmienku použitia s výsledkom hľadania
+    d) myslí si, že opakované hodnoty postup pokazia
+    e) nesúvisiaca vlastnosť dát
+
+A2  Kľúč: a, c, d
+    Úroveň: porozumenie · Zručnosť: S4
+    b) aj jednoprvkové pole vyžaduje jedno porovnanie
+    e) zamieňa najlepší a najhorší prípad
+
+A3  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S2 · Dvojča: I1-T3 A3 · Kotva: K2
+    Simulácia: stred = (0 + 8) div 2 = 4, A[4] = 27.
+    a) začína od začiatku (lineárne myslenie)
+    b) chyba o jedna nadol (index 3)
+    d) chyba o jedna nahor
+    e) myslí si, že postup „skočí“ rovno na x
+
+A4  Kľúč: a, c
+    Úroveň: porozumenie · Zručnosť: S4 · Dvojča: I1-T3 A4 · Kotva: K3
+    Výpočet: najhorší prípad = ⌊log₂ n⌋ + 1: 2 000 → 11, 10⁶ → 20, 500 → 9.
+    b) LINEÁRNA EXTRAPOLÁCIA -- ústredná mylná predstava témy
+    d) LINEÁRNA EXTRAPOLÁCIA (1 000-krát viac prvkov = 1 000-krát viac
+       krokov)
+    e) polovica prvkov = polovica krokov
+
+A5  Kľúč: c
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: I1-T3 A5 · Kotva: K4
+    Simulácia: porovná s 35, 60, 49.
+    a) zásah hneď v strede
+    b) nezapočíta posledné (úspešné) porovnanie
+    d) započíta porovnanie navyše
+    e) počíta lineárne (index 8 → 9 porovnaní)
+
+A6  Kľúč: e
+    Úroveň: aplikácia · Zručnosť: S3 · Dvojča: I1-T3 A6 · Kotva: K5
+    Simulácia: porovná s 26, 40, 33; potom lavy = 4 > pravy = 3.
+    a) vráti najbližší menší prvok
+    b) vráti miesto vloženia (to je hodnota lavy, ale postup vracia −1)
+    c) „nenájdené“ podľa žiaka vyžaduje prejsť celé pole
+    d) nevie, kedy postup končí (prázdny úsek)
+
+A7  Kľúč: d
+    Úroveň: aplikácia · Zručnosť: S4
+    Výpočet: 100/7 ≈ 14; 500/9 ≈ 56; 1 000/10 = 100; 10 000/14 ≈ 714.
+    a) odhad bez výpočtu
+    b) zamieňa n s pomerom
+    c) najbližšie „okrúhle“ číslo; 100-násobok nestačí
+    e) nie je najmenšie z vyhovujúcich
+
+A8  Kľúč: e
+    Úroveň: analýza · Zručnosť: S5, S1
+    a) zoradenie po každom pridaní (každú sekundu) je mnohonásobne drahšie
+       ako jedno lineárne hľadanie denne
+    b) ignoruje, že zoznam už nie je zoradený
+    c) zoradenie pred lineárnym hľadaním nič neprinesie
+    d) svojvoľné obmedzenie, nové záznamy by sa nenašli
+
+A9  Kľúč: b, e
+    Úroveň: analýza · Zručnosť: S3 · Dvojča: I1-T3 A9 · Kotva: K6
+    Simulácia: chybný cyklus zlyhá pre 10, 30, 50 a 70 (z možností 30 a 70)
+    -- vtedy zostane jednoprvkový úsek, ktorý chybný cyklus už neskúma.
+    a) pri 20 program funguje; žiak nesimuloval
+    c) pri 40 program funguje (nájde ho hneď v strede)
+    d) pri 60 program funguje
+
+A10  Kľúč: a, c, e
+    Úroveň: analýza · Zručnosť: S3
+    Simulácia (overené na poli 1 až 7): a) zacyklí sa; c) preskočí prvky
+    (nenájde 3, 5, 7); e) pre x väčšie ako všetky siahne na A[n]; b) a d)
+    fungujú správne.
+    b) poradie testov nemení výsledok -- žiak hodnotí formu, nie správanie
+    d) „horný“ stred tiež správne zmenšuje úsek
+
+A11  Kľúč: a
+    Úroveň: hodnotenie · Zručnosť: S5, S4
+    Výpočet: ⌊log₂ 200 000⌋ + 1 = 18.
+    b) ignoruje podmienku usporiadanosti
+    c) zamieňa lineárne a binárne
+    d) LINEÁRNA predstava (polovica)
+    e) nesúvisiaca vlastnosť
+
+A12  Kľúč: a, c, e
+    Úroveň: hodnotenie · Zručnosť: S5
+    b) porovnávať sa dajú aj slová (abeceda)
+    d) referenčný postup vráti výskyt, na ktorý narazí, nie nutne prvý
+
+B1  Kľúč: najlepší prípad = 1 porovnaní; ak x v poli nie je = 60 porovnaní
+    Úroveň: porozumenie · Zručnosť: S4
+
+B2  Kľúč: počet porovnaní = 3; vrátená hodnota = 12
+    Úroveň: aplikácia · Zručnosť: S2
+    Simulácia: stred 6 (41), stred 10 (70), stred 12 (85).
+    Typická chyba: vráti 85 (hodnotu namiesto indexu).
+
+B3  Kľúč: 4 000 prvkov = 12; 50 000 000 prvkov = 26
+    Úroveň: aplikácia · Zručnosť: S4
+    Výpočet: 2¹¹ = 2 048 ≤ 4 000 < 4 096; 2²⁵ ≤ 5 · 10⁷ < 2²⁶.
+
+B4  Kľúč: najviac tipov pri najlepšej stratégii = 9; tvoj prvý tip pri najlepšej stratégii = 250,5 ± 0,5
+    Úroveň: aplikácia · Zručnosť: S4, S2
+    Výpočet: 2⁸ − 1 = 255 < 500 ≤ 2⁹ − 1 = 511; prvý tip v strede (250 alebo
+    251 sa uzná).
+
+B5  Kľúč: 1048575 záznamov
+    Úroveň: analýza · Zručnosť: S4
+    Výpočet: 2²⁰ − 1.
+    Typická chyba: 1 048 576 (chyba o jedna), 20 · 2 = 40.
+
+B6  Kľúč: počet porovnaní = 4; vrátená hodnota = −1
+    Úroveň: analýza · Zručnosť: S2, S3
+    Simulácia: stred 3 (11), 5 (22), 6 (29), 7 (37), potom lavy = 7 > pravy = 6.
+
+B7  Kľúč: lavy = 875; pravy = 999
+    Úroveň: analýza · Zručnosť: S2
+    Simulácia: stred 499, 749, 874; lavy = 500, 750, 875.
+
+B8  Kľúč: najmenšie také n = 512; najväčšie také n = 1023
+    Úroveň: aplikácia · Zručnosť: S4
+    Výpočet: ⌊log₂ n⌋ = 9 pre 512 ≤ n ≤ 1 023.
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S2, S3
+    K1  kroky: (0, 11, 5, 6 < 19) → lavy 6; (6, 11, 8, 15 < 19) → lavy 9
+    K2  (9, 11, 10, 22 > 19) → pravy 9; (9, 9, 9, 19) → nájdené
+    K3  vráti 9, počet porovnaní 4
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S4
+    K1  pre 10⁶ treba najviac 20 porovnaní (2²⁰ > 10⁶), 25 stačí
+    K2  pre 5 · 10⁷ treba najviac 26 porovnaní (2²⁵ ≈ 3,4 · 10⁷ < 5 · 10⁷ ≤
+        2²⁶ − 1), 25 nestačí
+    K3  zdôvodnenie cez mocniny dvoch alebo polenie
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S5, S4
+    K1  3 otázky: lineárne najviac 30 000 krokov, Peter 140 000 + 3 · 14 --
+        má pravdu Jana
+    K2  1 000 otázok: lineárne až 10 000 000 krokov, Peter asi 140 000 +
+        14 000 -- má pravdu Peter
+    K3  záver: rozhoduje počet otázok; triedenie sa oplatí, keď sa
+        rozloží na veľa hľadaní (hranica rádovo 14 až 15 otázok)
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S1, S2
+    K1  tvrdenie je nesprávne
+    K2  stred sa počíta z INDEXOV (pozícií v zozname), nie z hodnôt mien
+    K3  mená sa dajú porovnávať (abeceda, „skôr/neskôr“), zoznam musí byť
+        zoradený podľa abecedy; potom postup funguje rovnako
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S5, S4
+    K1  porovnania: binárne asi 11 až 12, lineárne 2 048
+    K2  posuvy hlavy: binárne asi 1 024 + 512 + 256 + … ≈ 2 047 sekúnd,
+        lineárne 2 047 sekúnd -- čas je prakticky rovnaký
+    K3  záver: na páske rozhoduje posúvanie, nie porovnávanie, takže binárne
+        vyhľadávanie tu výhodu nemá (výhodu by malo len pri drahom
+        porovnávaní alebo pri pamäti s priamym prístupom)
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S2, S3
+    K1  úprava: pri A[stred] ≥ x si stred zapamätaj (kandidát) a pokračuj
+        vľavo (pravy ← stred − 1); inak lavy ← stred + 1; na konci vráť
+        kandidáta (alebo lavy)
+    K2  beh: lavy 0, pravy 3, stred 1 (8 < 10) → lavy 2; stred 2 (14 ≥ 10),
+        kandidát 2, pravy 1; koniec → index 2, hodnota 14
+    K3  zdôvodnenie, prečo je rovnako rýchla (polenie úseku) a čo vráti,
+        ak taký prvok neexistuje
+
+D1  Kľúč: a
+    Úroveň: porozumenie · Zručnosť: S1
+    b) delenie na polovice si spája s párnym počtom
+    c) zamieňa predpoklad s výsledkom
+    d) nesúvisiaci údaj z textu
+    e) opak toho, čo text uvádza
+
+D2  Kľúč: a, b, d
+    Úroveň: analýza · Zručnosť: S2, S4
+    Výpočet: po kroku 4 je dobrá 112 a zlá 125, kandidáti 113 až 125
+    (13); kandidátov na začiatku je 199, ⌈log₂ 199⌉ = 8.
+    c) LINEÁRNA predstava (polovica)
+    e) zlá verzia 112 znamená, že chyba vznikla v 101 až 112
+
+D3  Kľúč: ak je verzia 118 dobrá, v kroku 6 sa testuje verzia = 121; kroky 1 až 4 trvali spolu = 24 minút
+    Úroveň: aplikácia · Zručnosť: S2
+    Výpočet: (118 + 125) div 2 = 121; 4 · 6 = 24.
+
+D4  Kľúč: najväčší počet testov pri 200 verziách z textu = 8; najväčší počet testov pri 5 000 verziách (verzia 1 dobrá, verzia 5 000 zlá) = 13
+    Úroveň: analýza · Zručnosť: S4
+    Výpočet: 199 kandidátov → 8 (2⁷ < 199 ≤ 2⁸); 4 999 → 13.
+
+D5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S3, S5
+    K1  riziko: jeden náhodne zlyhaný test pošle hľadanie do nesprávnej
+        polovice a bisect skončí na zlej verzii
+    K2  odhad: pravdepodobnosť aspoň jedného náhodného zlyhania pri 8
+        testoch je 1 − 0,95⁸ ≈ 0,34 (uzná sa aj kvalitatívny odhad
+        „asi tretina“)
+    K3  zabezpečenie: každý test opakovať (napr. trikrát, väčšina rozhodne),
+        nájdenú verziu a verziu pred ňou overiť, opraviť nestabilné testy
+
+D6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S2, S4
+    K1  návrh: tri testy rozdelia úsek na štyri časti (napr. verzie
+        v štvrtinách), po kole zostane štvrtina úseku
+    K2  počet kôl pri 199 kandidátoch: 199 → 50 → 13 → 4 → 1, teda 4 kolá
+        (oproti 8 testom bisectu)
+    K3  zdôvodnenie (logaritmus so základom 4, 4⁴ = 256 ≥ 199) alebo
+        simulácia; poznámka, že testov je spolu viac (12), ale čas kratší
+
+SÚHRN
+  Body: A 12 × 2 = 24, B 8 × 2 = 16, C 6 × 3 = 18, D 2 + 2 + 2 + 2 + 3 + 3
+  = 14, spolu 72. Čas: približne 65 minút, dve hodiny s prestávkou po B.
+  Položky s viacerými správnymi odpoveďami: A2, A4, A9, A10, A12 a D2.
+  Kotvy (totožné s T3): A1, A3, A4, A5, A6, A9.
+  Testlet D sa v analýze berie ako jedna polytómna položka (0–14 b.).

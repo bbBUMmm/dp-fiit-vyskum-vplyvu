@@ -2,71 +2,157 @@
 <html lang="sk">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cvičenie — informatika</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%233f3cbb%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22Arial%22 font-size=%2213%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EAI%3C/text%3E%3C/svg%3E">
+<title>Hodina — cvičenie</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="gate" class="gate">
-  <div class="gate-card">
-    <h1>Cvičenie z informatiky</h1>
-    <p class="muted">Zadaj kód, ktorý si dostal od učiteľa. Nie je to tvoje meno
-       — slúži len na to, aby sa tvoje odpovede nepomiešali s cudzími.</p>
-    <input id="code" placeholder="napr. 2A-07" autocomplete="off">
-    <button id="start">Začať</button>
-    <p id="banner" class="banner"></p>
-  </div>
-</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-<main id="app" hidden>
-  <header>
-    <span id="topic"></span>
-    <span class="spacer"></span>
-    <span id="progress" class="muted"></span>
+<!-- ============================================================== login -->
+<section id="login" class="login">
+  <div class="card login-card">
+    <div class="brand"><span class="logo" aria-hidden="true">AI</span><span>Výskum vo výučbe</span></div>
+    <h1>Prihlásenie na hodinu</h1>
+    <p class="lead" id="login-lead">Zadaj kód, ktorý si dostal od učiteľa. Nie je to tvoje meno —
+      slúži len na to, aby sa tvoje odpovede nepomiešali s cudzími.</p>
+    <label for="code">Tvoj kód</label>
+    <input id="code" class="code-input" type="text" autocomplete="off" autocapitalize="characters"
+           spellcheck="false" inputmode="text" placeholder="napr. GY-K7M4P-Q" maxlength="40">
+    <p id="login-error" class="field-error" role="alert"></p>
+    <button id="start" class="btn btn-primary btn-lg btn-block">Začať</button>
+    <p class="fineprint">Táto hodina je súčasťou výskumu. Po zadaní kódu ti ukážeme, čo presne sa
+      zaznamenáva, a spýtame sa ťa, či súhlasíš. Tvoje meno sa nikde neukladá. Nemá to vplyv na známku.</p>
+  </div>
+</section>
+
+<!-- ================================================================ app -->
+<div id="app" hidden>
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="logo" aria-hidden="true">AI</span>
+      <div style="min-width:0">
+        <div class="eyebrow" id="subject"></div>
+        <div class="title" id="topic"></div>
+      </div>
+    </div>
+    <div class="topbar-progress">
+      <div class="progress" role="progressbar" aria-label="Postup" aria-valuemin="0" id="progress"><i id="progress-bar"></i></div>
+      <div class="progress-text" id="progress-text"></div>
+    </div>
+    <div class="topbar-right">
+      <span id="net" class="net" aria-live="polite">online</span>
+      <button id="consent-btn" class="btn btn-ghost btn-sm" type="button" aria-haspopup="dialog">Súhlas</button>
+      <button id="logout" class="btn btn-ghost btn-sm" type="button">Odhlásiť</button>
+    </div>
   </header>
 
-  <section class="work">
-    <article class="task">
-      <h2>Úloha <span id="task-id"></span></h2>
-      <p id="task-prompt"></p>
+  <main id="workspace" class="workspace">
+    <!-- ------------------------------------------------------- task -->
+    <section id="panel-task" class="card panel task-panel active" aria-labelledby="task-title">
+      <div id="task-area">
+        <div class="task-head">
+          <span class="chip" id="task-title">Úloha</span>
+          <span class="chip chip-warn" id="task-kind" hidden></span>
+          <span class="task-skill" id="task-skill"></span>
+        </div>
+        <p class="task-prompt" id="task-prompt"></p>
 
-      <label for="answer">Tvoja odpoveď</label>
-      <textarea id="answer" rows="5" placeholder="Píš sem…"></textarea>
-      <div class="row">
-        <button id="submit">Odovzdať pokus</button>
-        <button id="unlock" class="secondary">Ukázať riešenie</button>
-        <span id="feedback" class="feedback"></span>
-      </div>
+        <label for="answer">Tvoja odpoveď</label>
+        <textarea id="answer" class="answer-box" rows="7" placeholder="Píš sem svoj postup a výsledok…"></textarea>
+        <div class="actions">
+          <button id="submit" class="btn btn-primary" type="button">Odovzdať pokus</button>
+          <button id="solution" class="btn btn-secondary" type="button">Ukázať riešenie</button>
+          <span class="spacer"></span>
+          <button id="skip" class="btn btn-ghost" type="button">Preskočiť úlohu</button>
+        </div>
 
-      <div id="gate-explain" class="explain" hidden>
-        <p><strong>Predtým, než ti ukážem riešenie:</strong> napíš vlastnými
-           slovami, prečo je tvoj postup správny alebo kde predpokladáš chybu.</p>
-        <textarea id="explanation" rows="3"
-                  placeholder="Myslím si, že… lebo…"></textarea>
-        <div class="row">
-          <button id="send-explanation">Odoslať</button>
-          <span id="explain-feedback" class="feedback"></span>
+        <!-- self-assessment: replaces a blocking confirm() dialog -->
+        <div id="selfcheck" class="selfcheck" hidden>
+          <h3>Ako hodnotíš svoju odpoveď?</h3>
+          <div class="segmented" role="radiogroup" aria-label="Hodnotenie odpovede" id="self-choice">
+            <button type="button" data-v="1" aria-pressed="false">Myslím, že je správna</button>
+            <button type="button" data-v="0" aria-pressed="false">Nie som si istý/á alebo nie je správna</button>
+          </div>
+          <label for="conf" class="label">Nakoľko si si istý/á, že je správna? <output id="conf-val" class="value">—</output></label>
+          <input id="conf" type="range" min="0" max="100" step="5" value="50" class="unset" aria-describedby="conf-scale">
+          <div class="slider-scale" id="conf-scale"><span>0 % určite nie</span><span>100 % určite áno</span></div>
+          <div class="actions">
+            <button id="selfcheck-ok" class="btn btn-primary" type="button" disabled>Potvrdiť</button>
+            <button id="selfcheck-cancel" class="btn btn-ghost" type="button">Späť k odpovedi</button>
+          </div>
+        </div>
+
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+        <div id="gate-explain" class="callout callout-primary" style="margin-top:16px" hidden>
+          <p style="margin-bottom:10px"><strong>Predtým, než ti ukážem riešenie:</strong> napíš vlastnými
+            slovami, prečo je tvoj postup správny alebo kde predpokladáš chybu.</p>
+          <textarea id="explanation" rows="3" placeholder="Myslím si, že… lebo…"></textarea>
+          <div class="actions">
+            <button id="send-explanation" class="btn btn-primary" type="button">Odoslať vysvetlenie</button>
+            <span id="explain-feedback" class="feedback" style="margin-top:0"></span>
+          </div>
+        </div>
+
+        <div id="solution-box" class="callout callout-good solution-box" style="margin-top:16px" hidden>
+          <h3>Vzorové riešenie</h3>
+          <p id="solution-text" class="solution-text"></p>
         </div>
       </div>
-    </article>
 
-    <aside id="assistant" class="assistant" hidden>
-      <h2>Asistent</h2>
-      <div id="chat" class="chat"></div>
-      <textarea id="prompt" rows="3" placeholder="Napíš asistentovi…"></textarea>
-      <button id="send">Poslať</button>
-      <p class="muted tiny">Na konci hodiny píšete krátky test, v ktorom
-         asistenta k dispozícii mať nebudete.</p>
+      <div id="done" class="done" hidden>
+        <div class="big" aria-hidden="true">✓</div>
+        <h2>Hotovo</h2>
+        <p class="muted" id="done-text">Zavri notebook a počkaj na pokyn učiteľa.</p>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------- assistant -->
+    <aside id="panel-assistant" class="card panel assistant-panel" aria-label="Asistent" hidden>
+      <div class="assistant-head">
+        <span class="avatar" aria-hidden="true">AI</span>
+        <h2>Asistent</h2>
+      </div>
+      <div id="chat" class="chat" aria-live="polite">
+        <p class="chat-empty" id="chat-empty">Sem môžeš napísať otázku k úlohe, na ktorej práve pracuješ.</p>
+      </div>
+      <div class="composer">
+        <label for="prompt" class="sr-only">Správa asistentovi</label>
+        <textarea id="prompt" rows="1" placeholder="Napíš asistentovi…"></textarea>
+        <button id="send" class="btn btn-primary" type="button" aria-label="Poslať">Poslať</button>
+      </div>
+      <p class="fineprint">Na konci hodiny píšete krátky test, v ktorom asistenta k dispozícii mať nebudete.</p>
     </aside>
-  </section>
+  </main>
 
-  <footer class="muted tiny">
-    Táto hodina je súčasťou výskumu. Zaznamenáva sa, čo napíšeš asistentovi
-    a kedy si čo robil s úlohami. Tvoje meno sa nikde neukladá.
-  </footer>
-</main>
+  <nav id="tabbar" class="tabbar" aria-label="Prepínanie panelov">
+    <button type="button" data-tab="panel-task" aria-selected="true"><span class="ico" aria-hidden="true">✎</span>Úloha</button>
+    <button type="button" data-tab="panel-assistant" aria-selected="false"><span class="ico" aria-hidden="true">💬</span>Asistent</button>
+  </nav>
 
+  <button id="activity-pill" class="activity-pill" type="button" hidden>Interaktívna úloha</button>
+
+  <div id="activity-layer" class="sheet-layer" hidden>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="activity-title">
+      <div class="sheet-head">
+        <span class="chip chip-accent" id="activity-type"></span>
+        <h2 id="activity-title"></h2>
+        <button id="activity-hide" class="btn btn-ghost btn-sm" type="button">Skryť</button>
+      </div>
+      <div id="activity-body" class="sheet-body"></div>
+    </div>
+  </div>
+
+  <p class="fineprint consent-note">Táto hodina je súčasťou výskumu. Čo sa zaznamenáva a ako zmeniť svoje
+    rozhodnutie, nájdeš pod tlačidlom Súhlas hore. Tvoje meno sa nikde neukladá.</p>
+</div>
+
+<script src="widgets.js"></script>
+<script src="consent.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

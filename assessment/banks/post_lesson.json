@@ -33,12 +33,12 @@
     {"id": "S5", "format": "likert7", "expected_sec": 11, "stem": "Dnešný spôsob práce bol pre mňa nový."},
     {"id": "S6", "format": "likert7", "expected_sec": 11, "stem": "Počas hodiny som sa sústredil na učivo."},
     {"id": "S7", "format": "likert7", "expected_sec": 14, "stem": "Myslím si, že dnešné učivo si budem pamätať aj o mesiac."},
-    {"id": "N1", "format": "likert7", "expected_sec": 12, "stem": "Asistent mi dnes pomohol pochopiť učivo."},
-    {"id": "N2", "format": "likert7", "expected_sec": 13, "stem": "Bez asistenta by som dnešné úlohy nezvládol."},
-    {"id": "N3", "format": "likert7", "expected_sec": 14, "stem": "Overoval som si, či je to, čo mi asistent napísal, správne."},
-    {"id": "N4", "format": "likert7", "expected_sec": 14, "stem": "Skôr než som sa spýtal asistenta, skúsil som to sám."},
-    {"id": "N5", "format": "likert7", "expected_sec": 11, "stem": "Dôverujem tomu, čo mi asistent odpovedal."},
-    {"id": "N6", "format": "likert7", "expected_sec": 15, "stem": "Asistent ma nútil premýšľať viac, než keby som riešil úlohu sám."},
-    {"id": "N7", "format": "likert7", "expected_sec": 14, "stem": "Keby som mal na výber, používal by som asistenta aj na ďalších hodinách."}
+    {"id": "N1", "format": "likert7", "expected_sec": 12, "conditions": ["G", "A"], "stem": "Asistent mi dnes pomohol pochopiť učivo."},
+    {"id": "N2", "format": "likert7", "expected_sec": 13, "conditions": ["G", "A"], "stem": "Bez asistenta by som dnešné úlohy nezvládol."},
+    {"id": "N3", "format": "likert7", "expected_sec": 14, "conditions": ["G", "A"], "stem": "Overoval som si, či je to, čo mi asistent napísal, správne."},
+    {"id": "N4", "format": "likert7", "expected_sec": 14, "conditions": ["G", "A"], "stem": "Skôr než som sa spýtal asistenta, skúsil som to sám."},
+    {"id": "N5", "format": "likert7", "expected_sec": 11, "conditions": ["G", "A"], "stem": "Dôverujem tomu, čo mi asistent odpovedal."},
+    {"id": "N6", "format": "likert7", "expected_sec": 15, "conditions": ["G", "A"], "stem": "Asistent ma nútil premýšľať viac, než keby som riešil úlohu sám."},
+    {"id": "N7", "format": "likert7", "expected_sec": 14, "conditions": ["G", "A"], "stem": "Keby som mal na výber, používal by som asistenta aj na ďalších hodinách."}
   ]
 }

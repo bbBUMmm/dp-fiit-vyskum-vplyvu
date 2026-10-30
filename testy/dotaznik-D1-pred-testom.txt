@@ -1,0 +1,120 @@
+==========================================================================
+DOTAZNÍK D1 · k vstupnému testu T1 (pred hodinou)
+časť Q pred testom, časť Z po teste · približne 3 minúty
+==========================================================================
+Forma:      D1
+Predmet:    všetky
+Test:       D1 · dotazník k testu T1
+Rozsah:     6 + 3 položky · približne 3 minúty
+
+POKYNY
+• Toto nie je test. Neexistujú správne ani nesprávne odpovede; zaujíma
+  nás, ako to vidíš ty. Odpovede nikto neuvidí pri tvojom mene.
+• Pri každej položke zakrúžkuj jednu odpoveď (ak nie je uvedené inak).
+
+
+ČASŤ Q — Pred testom
+--------------------------------------------------------------------------
+Najprv niekoľko otázok o tebe a o predmete {predmet}.
+
+Q1  Stretol/a si sa už s témou „{tema}“?
+      a) nie, je pre mňa nová
+      b) áno, na základnej škole
+      c) áno, na strednej škole na hodinách
+      d) áno, mimo školy (video, kurz, sám/sama)
+      e) neviem
+
+Q2  Učenie sa {predmetu} ma baví.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q3  Hodiny {predmetu} sú pre mňa nudné.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q4  Učenie sa {predmetu} by som opísal/a ako veľmi zaujímavé.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q5  Pri učení sa {predmetu} sa nedokážem sústrediť, lebo ma to neupúta.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q6  Ako často používaš nástroje umelej inteligencie (ChatGPT, Gemini,
+    Copilot, Claude a podobne), keď sa učíš {predmet_akuz}?
+      a) denne
+      b) niekoľkokrát týždenne
+      c) niekoľkokrát mesačne
+      d) zriedka
+      e) nikdy
+
+
+ČASŤ Z — Po teste
+--------------------------------------------------------------------------
+Test je za tebou. Ešte tri krátke otázky.
+
+Z1  Koľko bodov z 50 si podľa teba v teste získal/a?
+    Odpoveď: ________ (číslo 0 – 50)
+
+Z2  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+    (1 veľmi, veľmi malé · 2 veľmi malé · 3 malé · 4 skôr malé · 5 ani
+    malé, ani veľké · 6 skôr veľké · 7 veľké · 8 veľmi veľké · 9 veľmi,
+    veľmi veľké)
+    veľmi, veľmi malé  1   2   3   4   5   6   7   8   9  veľmi, veľmi veľké
+
+Z3  Ako veľmi si sa v tomto teste snažil/a?
+    vôbec som sa nesnažil/a  1   2   3   4   5   6   7  veľmi som sa snažil/a
+
+                              KONIEC DOTAZNÍKA
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV
+##########################################################################
+
+ŠKÁLY
+  zaujem_predmet  Q2, Q3R, Q4, Q5R   záujem o predmet, priemer 1–7
+  postdikcia  Z1   odhad počtu bodov po teste
+  usilie_test  Z2   duševné úsilie pri teste, 1–9
+  snaha_test  Z3   snaha v teste s nízkou stávkou, 1–7
+
+ČO MERAJÚ POLOŽKY A PREČO SÚ TU
+  Q1  Kontrola predpokladu T1: téma ešte nebola prebratá. Žiak, ktorý tému
+      preberal, ostáva v analýze, ale Q1 vstupuje ako kovariát a T1 sa pri
+      ňom interpretuje inak.
+  Q2–Q5  Záujem o predmet (individuálny záujem; Hidi & Renninger 2006).
+      Položky sú prispôsobené podškále „záujem/radosť“ dotazníka IMI
+      (Intrinsic Motivation Inventory; Ryan 1982; McAuley, Duncan & Tammen
+      1989), ktorá sa podľa autorov prispôsobuje konkrétnej činnosti --
+      tu „učenie sa predmetu“. Rovnaké štyri položky sa v D4 opakujú, takže
+      vidno, či sa záujem po troch týždňoch zmenil. Q3 a Q5 sa skórujú
+      obrátene (8 − odpoveď).
+  Q6  Návyk používať UI práve v tomto predmete -- moderátor účinku
+      podmienky G a A (H1, H4).
+  Z1  Globálna postdikcia (Hacker et al. 2000). S výsledkom testu dáva
+      kalibráciu na úrovni testu; s istotou pri položkách (časti A, B) dáva
+      kalibráciu na úrovni položiek (Schraw 2009).
+  Z2  Paasova škála duševného úsilia (Paas 1992), deväť stupňov.
+  Z3  Snaha v teste: test nemá vplyv na známku, a pri testoch s nízkou
+      stávkou je snaha zdrojom chyby, ktorý treba merať (Wise & DeMars
+      2005). Spolu s časmi odpovedí (assessment/effort.py) slúži na
+      citlivostnú analýzu.
+
+TLAČ
+  Na obrazovke sa {predmet}, {predmetu}, {predmet_akuz} a {tema} doplnia
+  samy podľa testu. Papierový hárok pre konkrétny test vytlačí príkaz
+  „python testy.py --tlac D1 --pre F1-T1“ (v priečinku assessment).
+
+PREKLAD A OVERENIE
+  Slovenské znenie je pracovný preklad autora. Pred pilotom: nezávislý
+  spätný preklad, porovnanie s originálom a kognitívne interview s 3–5
+  žiakmi (ITC 2018; Brislin 1970). Spoľahlivosť škály zaujem_predmet sa
+  v pilote vykáže (Cronbachova alfa, cieľ ≥ 0,70).
+
+ZDROJE
+  Brislin (1970) https://doi.org/10.1177/135910457000100301
+  Hacker, Bol, Horgan & Rakow (2000) https://doi.org/10.1037/0022-0663.92.1.160
+  Hidi & Renninger (2006) https://doi.org/10.1207/s15326985ep4102_4
+  International Test Commission (2018) https://doi.org/10.1080/15305058.2017.1398166
+  McAuley, Duncan & Tammen (1989) https://doi.org/10.1080/02701367.1989.10607413
+  Paas (1992) https://doi.org/10.1037/0022-0663.84.4.429
+  Ryan (1982) https://doi.org/10.1037/0022-3514.43.3.450
+  Schraw (2009) https://doi.org/10.1007/s11409-008-9031-3
+  Wise & DeMars (2005) https://doi.org/10.1207/s15326977ea1001_1
+  Úplné záznamy sú v 00-metodika-a-specifikacia.txt.

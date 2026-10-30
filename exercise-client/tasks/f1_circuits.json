@@ -1,0 +1,113 @@
+{
+  "topic": "jednosmerný prúd: sériové a paralelné zapojenie",
+  "lesson_id": "F1",
+  "subject": "fyzika",
+  "grade": "druhého alebo tretieho ročníka",
+  "status": "NÁVRH — úlohy podľa drafts/temy-troch-predmetov.md; pred pilotom overiť s učiteľom fyziky",
+  "skills": [
+    "prud_sa_zachovava",
+    "ohmov_zakon",
+    "seria",
+    "paralel",
+    "nahradny_odpor",
+    "volba_zapojenia"
+  ],
+  "skill_labels": {
+    "prud_sa_zachovava": "prúd sa v obvode nespotrebúva",
+    "ohmov_zakon": "Ohmov zákon a výkon",
+    "seria": "sériové zapojenie",
+    "paralel": "paralelné zapojenie",
+    "nahradny_odpor": "náhradný odpor",
+    "volba_zapojenia": "voľba zapojenia pre použitie"
+  },
+  "tasks": [
+    {
+      "id": "F1",
+      "skill": "seria",
+      "level": "apply",
+      "prompt": "Dve rovnaké žiarovky s odporom 6 Ω sú v sérii pripojené na zdroj 12 V. Aký prúd tečie obvodom a aké napätie je na každej žiarovke?",
+      "answer": "1 A; 6 V",
+      "check": {"type": "all", "values": [1, 6]},
+      "solution": "Celkový odpor R = 6 + 6 = 12 Ω, prúd I = U / R = 12 / 12 = 1 A.\nNa každej žiarovke U = I · R = 1 · 6 = 6 V (spolu 12 V).",
+      "scaffold_for": "F1s"
+    },
+    {
+      "id": "F1s",
+      "skill": "ohmov_zakon",
+      "level": "understand",
+      "prompt": "Aký je celkový odpor dvoch rezistorov 6 Ω zapojených v sérii a aký prúd nimi potečie pri napätí 12 V?",
+      "answer": "12 Ω, 1 A",
+      "check": {"type": "all", "values": [12, 1]},
+      "solution": "V sérii sa odpory sčítajú: 6 + 6 = 12 Ω. I = U / R = 12 V / 12 Ω = 1 A."
+    },
+    {
+      "id": "F2",
+      "skill": "paralel",
+      "level": "apply",
+      "prompt": "Tie isté dve žiarovky (6 Ω) zapojíš paralelne na zdroj 12 V. Aký prúd tečie každou žiarovkou a aký prúd dodáva zdroj?",
+      "answer": "2 A každou, 4 A zo zdroja",
+      "check": {"type": "all", "values": [2, 4]},
+      "solution": "Každá vetva má napätie 12 V: I = 12 / 6 = 2 A. Zdroj dodáva súčet vetiev: 2 + 2 = 4 A."
+    },
+    {
+      "id": "F3",
+      "skill": "nahradny_odpor",
+      "level": "apply",
+      "prompt": "Rezistory 4 Ω a 12 Ω sú zapojené paralelne. Vypočítaj náhradný odpor.",
+      "answer": "3 Ω",
+      "check": {"type": "number", "value": 3, "tolerance": 0.05},
+      "solution": "1/R = 1/4 + 1/12 = 3/12 + 1/12 = 4/12, teda R = 3 Ω — menej než najmenší z odporov.",
+      "harder_variant": "F3h"
+    },
+    {
+      "id": "F3h",
+      "skill": "nahradny_odpor",
+      "level": "analyse",
+      "prompt": "Rezistor 3 Ω je zapojený v sérii s paralelnou dvojicou rezistorov 6 Ω a 6 Ω. Aký je náhradný odpor celého zapojenia?",
+      "answer": "6 Ω",
+      "check": {"type": "number", "value": 6, "tolerance": 0.05},
+      "solution": "Paralelná dvojica: 6 · 6 / (6 + 6) = 3 Ω. V sérii s 3 Ω: 3 + 3 = 6 Ω."
+    },
+    {
+      "id": "F4",
+      "skill": "prud_sa_zachovava",
+      "level": "analyse",
+      "prompt": "Spolužiak tvrdí: „Žiarovka prúd spotrebuje, preto za žiarovkou tečie menší prúd ako pred ňou.“ Nájdi chybu v jeho úvahe.",
+      "answer": "prúd sa nespotrebúva; v sériovom obvode je všade rovnaký",
+      "solution": "Prúd je tok náboja a náboj sa v obvode nehromadí ani nestráca: koľko ho do žiarovky vtečie, toľko vytečie. Žiarovka „spotrebúva“ energiu (mení ju na svetlo a teplo), nie prúd. Ampérmeter pred žiarovkou aj za ňou ukáže rovnakú hodnotu."
+    },
+    {
+      "id": "F5",
+      "skill": "seria",
+      "level": "analyse",
+      "prompt": "V sérii svietia tri rovnaké žiarovky. Jedna vyhorí. Čo sa stane s ostatnými? Čo by sa stalo, keby boli zapojené paralelne?",
+      "answer": "v sérii zhasnú všetky, paralelne ostatné svietia ďalej",
+      "solution": "V sérii je jediná cesta pre prúd: vyhorená žiarovka obvod preruší, prúd klesne na nulu a zhasnú všetky. Paralelne má každá žiarovka vlastnú vetvu s plným napätím, takže ostatné svietia ďalej rovnako jasne."
+    },
+    {
+      "id": "F6",
+      "skill": "paralel",
+      "level": "analyse",
+      "prompt": "Žiarovka Ž1 je zapojená v sérii s paralelnou dvojicou žiaroviek Ž2 a Ž3 (všetky sú rovnaké). Zoraď žiarovky podľa jasu a zdôvodni.",
+      "answer": "Ž1 svieti najjasnejšie, Ž2 a Ž3 rovnako a slabšie",
+      "solution": "Celý prúd I prechádza cez Ž1; v uzle sa delí na dve rovnaké polovice I/2 pre Ž2 a Ž3. Výkon P = I²·R, preto Ž1 má štvornásobný výkon oproti Ž2 a Ž3: Ž1 > Ž2 = Ž3."
+    },
+    {
+      "id": "F7",
+      "skill": "ohmov_zakon",
+      "level": "apply",
+      "prompt": "Žiarovkou s odporom 8 Ω tečie prúd 0,75 A. Aké je na nej napätie a aký výkon?",
+      "answer": "6 V; 4,5 W",
+      "check": {"type": "all", "values": [6, 4.5]},
+      "solution": "U = I · R = 0,75 · 8 = 6 V. P = U · I = 6 · 0,75 = 4,5 W."
+    },
+    {
+      "id": "F8",
+      "skill": "volba_zapojenia",
+      "level": "evaluate",
+      "prompt": "Navrhuješ osvetlenie chodby s piatimi svetlami. Zvolíš sériové alebo paralelné zapojenie? Zdôvodni aspoň dvoma argumentmi.",
+      "answer": "paralelné: plné napätie na každom svetle, porucha jedného nevypne ostatné",
+      "solution": "Paralelné: každé svetlo má plné napätie siete, takže svieti naplno; pri poruche jedného ostatné svietia ďalej; svetlá sa dajú spínať samostatne. V sérii by sa napätie delilo a jedna porucha by vypla celú chodbu."
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+VYSKUM VPLYVU NASTROJOV UMELEJ INTELIGENCIE VO VYUCBE
+=====================================================
+
+Co je v tomto priecinku a v akom poradi to pouzit.
+
+  RUN.cmd          spustenie HODINY (cvicne rozhranie + panel ucitela)
+  TEST.cmd         spustenie TESTU alebo DOTAZNIKA
+  KODY.cmd         vydanie kodov ziakom -- robi SKOLA, raz
+  kontrola\        SKONTROLUJ.cmd -- kontrola dat v den zberu
+  data\            sem sa ukladaju vsetky zaznamy
+  tlac\            co treba vytlacit
+
+
+AKO TO FUNGUJE
+--------------
+Jeden pocitac v triede (napr. ucitelsky) spusti server. Ziaci otvoria jeho
+adresu v prehliadaci -- na skolskom pocitaci aj na mobile -- a zadaju svoj
+kod z obalky. Vsetky zaznamy sa ukladaju na ten jeden pocitac do data\.
+
+Ucitel otvori na tom istom serveri PANEL UCITELA (adresa .../teacher, PIN sa
+zobrazi v okne servera). V paneli:
+  - vidi QR kod a adresu, cez ktoru sa ziaci pripoja,
+  - vidi, kolko ziakov je pripojenych a na ktorej ulohe su (anonymne),
+  - prepina fazu hodiny (uvod, vyklad, samostatna praca, zhrnutie),
+  - spusta INTERAKTIVNE AKTIVITY: animacie, rychle otazky, predpovede,
+    prakticke simulacie, zoradovanie krokov, vystupny listok. Aktivita
+    sa naraz zobrazi vsetkym ziakom; ucitel vidi odpovede triedy spolu
+    a rozhodne, kedy vysledky zverejni.
+  - moze pocas hodiny pridat vlastnu rychlu otazku.
+
+Aktivity su rovnake vo vsetkych troch podmienkach a patria do vykladu a
+zhrnutia, nie do samostatnej prace. Panel zamerne nezobrazuje texty otazok,
+ktore ziaci pisu asistentovi, ani ich vysledky -- tak to slubuje suhlas.
+
+
+PRED ZBEROM
+-----------
+1. Vytlacte vsetko z priecinka  tlac\
+   - suhlas pre zakonneho zastupcu (jeden na ziaka)
+   - suhlas ziaka
+   - pokyny pre ucitela
+   - kontrolny list vernosti (jeden na kazdy vyucovaci blok)
+
+2. Rozdajte suhlasy. Trieda sa zaraduje len ak sa vrati aspon 85 % suhlasov.
+
+3. Vygenerujte sol pre pseudonymizaciu a ULOZTE JU V SKOLE.
+   Sol drzi skola. Vyskumnik ju nema a nesmie mat -- bez nej sa kody
+   ziakov neda spatne priradit k menam, a to je zamer.
+   Ta ista sol sa zadava pri HODINE aj pri TESTE, inak sa zaznamy
+   jedneho ziaka nedaju spojit.
+
+4. Spustite  KODY.cmd  (dvojklik). Toto robi SKOLA, nie vyskumnik.
+
+   Zadajte dvojznakovy kod skoly (vymyslite si, napr. GY) a pocet
+   ziakov s rezervou. Vzniknu dva subory v priecinku  data\ :
+
+     kody-XX.txt          len kody            -> ide vyskumnikovi
+     ZOZNAM-kody-XX.csv   kod + miesto na meno -> ZOSTAVA V SKOLE
+
+   Druhy subor je jediny most medzi kodom a ziakom. Nikdy ho
+   neposielajte vyskumnikovi. Vytlacte ho, rozstrihajte na obalky,
+   a kopiu s menami si ulozte.
+
+   Kody su navrhnute tak, aby sa preklep odmietol hned pri zadavani:
+   nie su v nich znaky, ktore sa zamienaju (O/0, I/1/L, S/5, Z/2, B/8),
+   a posledny znak je kontrolny. Ziak teda nemoze omylom zadat kod
+   niekoho ineho -- prepise si svoj.
+
+   Ked su suhlasy vratene: osoba, ktora ich zbiera (nie vyucujuci),
+   zapise do suboru  data\suhlasy-XX.txt  kody ziakov, ktori maju
+   podpisane OBA suhlasy (zakonny zastupca aj ziak) -- jeden kod na
+   riadok, bez mien. RUN.cmd aj TEST.cmd ho najdu samy. Kod, ktory
+   v nom nie je, sa nikdy nezaznamena: ziak pracuje normalne a na
+   obrazovke sa dozvie, ze sa o nom nic neuklada. Bez tohto suboru
+   rozhoduje len volba ziaka na obrazovke -- okno servera na to
+   upozorni.
+
+5. Vyskusajte si pripojenie VOPRED, na tom istom mieste a v tej istej
+   sieti (pozri "KED NIECO NEFUNGUJE").
+
+
+POCAS ZBERU
+-----------
+HODINA a TEST su dva rozne spustace. Nie je to zbytocne: pocas testu
+musi byt asistent nedostupny, a jeden spustac pre oboje by znamenal, ze
+jeden zly stisk klavesy znehodnoti meranie.
+
+6. HODINA -- na pocitaci ucitela spustite  RUN.cmd  (dvojklik).
+   Zadajte predmet, podmienku, oznacenie hodiny, kod skoly a sol.
+   Rezim 1 = cela trieda cez siet (odporucane), rezim 2 = len tento
+   pocitac (potom treba RUN.cmd spustit na kazdom pocitaci zvlast).
+   Okno vypise adresu pre ziakov a PIN pre panel ucitela.
+   Ucitel vedie hodinu podla pokynov a priebezne vyplna kontrolny list.
+
+7. TEST -- spustite  TEST.cmd  (dvojklik).
+   Volba 0 = SEKCIA TESTY: testy k temam (vsetky tri predmety, kazda
+   tema ma T1 pred hodinou, T3 hned po hodine a T4 po troch tyzdnoch)
+   a dotazniky. V okne sa zobrazi zoznam; zadajte cislo testu. Pri T3
+   sa okno spyta aj na podmienku hodiny (K, G, A) -- v skupine K sa
+   otazky o asistentovi vynechaju. Volby 1 az 8 su povodne nastroje.
+   Potom zadajte oznacenie stretnutia, kod skoly a sol.
+
+   Sekcia testov nema ziadneho asistenta ani ziadne prisposobovanie:
+   vsetci ziaci dostanu tie iste polozky v tom istom poradi. Kazde
+   sedenie ma tri casti: kratky dotaznik, test, a na konci tri otazky
+   (odhad bodov, usilie). Pri kazdej ulohe moze ziak stlacit "Neviem".
+   T1 a T3 trvaju asi 45 minut (cela vyucovacia hodina), T4 asi
+   70 minut (dve hodiny s prestavkou po casti B).
+   Ziaci otvoria adresu tohto pocitaca s portom 5174.
+   Ziak zada svoj kod z obalky. Ak sa preklepne, nastroj to povie a
+   necha ho prepisat -- preto sa kod nezadava za ucitela.
+   Ak ziakovi spadne pocitac, zada kod na inom a pokracuje tam, kde
+   skoncil (po dvoch minutach necinnosti povodneho pocitaca).
+
+   POCAS TESTU:
+     - asistent musi byt nedostupny (server hodiny musi byt vypnuty)
+     - ziaci nemaju mat pri sebe telefon ani poznamky
+     - vysledok sa ziakovi nezobrazi; je to zamer, nie chyba.
+       Test, ktory dava spatnu vazbu, je ucebna udalost, a tento
+       sedi medzi dvoma meraniami ucenia.
+
+   Predtest k teme sa pise na konci PREDCHADZAJUCEJ hodiny
+   informatiky, nie v tomto bloku -- v bloku na neho nie je miesto.
+   (Plati pre povodne nastroje. Novy vstupny test T1 je dlhsi a pise
+   sa na samostatnej hodine pred vyucovacou hodinou.)
+
+   PAPIEROVA ZALOHA: v priecinku  tlac\testy  su vsetky testy
+   a dotazniky pre ziakov (bez klucov) pripravene na tlac. Vyucujuci
+   testy pred hodinou neotvara a ziakom ich neukazuje: test, ktory
+   ucitel pozna vopred, prestava merat, co sa ziaci naucili.
+
+
+PO ZBERE -- ESTE TEN ISTY DEN
+-----------------------------
+8. Spustite  kontrola\SKONTROLUJ.cmd
+
+   Toto je najdolezitejsi krok celeho postupu. Kontrola najde
+   poskodeny zaznam, kod ziaka namiesto pseudonymu, duplicitu alebo
+   nedokonceny test, kym je trieda este dostupna. Ta ista chyba
+   najdena pri analyze o niekolko mesiacov uz opravit neda.
+
+   Kontrola rozlisuje:
+     CHYBA        treba zasiahnut skor, nez data opustia skolu
+     UPOZORNENIE  zber je v poriadku, ale niekto by o tom mal vediet
+
+9. Z priecinka  data\  odovzdajte vsetko OKREM suboru
+   ZOZNAM-kody-XX.csv. Ten zostava v skole.
+   Odovzdavane subory neobsahuju mena ani triedy po mene.
+
+
+CO SA ZAZNAMENAVA A CO NIE
+--------------------------
+Zaznamenava sa:  pseudonym (kod hasovany solou), odpovede v testoch a
+                 dotaznikoch, casy, prompty odoslane asistentovi, vlastne
+                 vysvetlenia ziaka, odpovede v interaktivnych aktivitach,
+                 a pocty (kliknutia, stlacenia klaves, kopirovanie z
+                 asistenta, kolko casu bolo okno aktivne) -- nie ich obsah.
+
+Nezaznamenava sa: meno, rodne cislo, trieda po mene, text odpovedi
+                 asistenta, text ziakovych odpovedi v ulohach (len ich
+                 dlzka), nic z toho, co ziak robi mimo cvicneho rozhrania.
+
+Ak sa ziaci pripajaju z VLASTNYCH mobilov: suhlas (priloha E) dnes hovori
+"nic z tvojho telefonu". Pred takym pouzitim treba text suhlasu upravit.
+
+Po zadani kodu sa nastroj kazdeho ziaka na obrazovke spyta, ci suhlasi
+so zaznamom -- na hodine aj pri teste. Kym neodpovie "Suhlasim",
+nezapise sa o nom nic. Kto odpovie "Nesuhlasim", pracuje uplne rovnako
+ako ostatni. Tlacidlom "Suhlas" moze rozhodnutie kedykolvek zmenit;
+ked suhlas odvola, zaznam z danej hodiny alebo testu sa hned vymaze.
+Panel ucitela volbu ziaka nezobrazuje.
+
+Ziak moze kedykolvek prestat bez akehokolvek nasledku pre znamku.
+Suhlas je odvolatelny; po odvolani sa zaznamy daneho pseudonymu
+vymazu do 30 dni.
+
+
+KED NIECO NEFUNGUJE
+-------------------
+Ziaci sa nevedia pripojit na adresu ucitelskeho pocitaca
+  - Windows sa pri prvom spusteni pyta, ci povolit Python v sieti:
+    povolte "Sukromne siete". Bez administratorskych prav to nemusi
+    ist -- vtedy pouzite rezim 2 na kazdom pocitaci.
+  - Mobily byvaju v inej (hostovskej) Wi-Fi, ktora nevidi skolske
+    pocitace. Pripojte ich do tej istej siete ako pocitac ucitela.
+  - Adresa je ta, ktoru vypise okno servera, nie 127.0.0.1.
+
+Server sa omylom zavrel alebo restartoval
+  Spustite RUN.cmd znova s rovnakym oznacenim hodiny. Ziaci sa
+  prihlasia rovnakym kodom a pokracuju tam, kde boli. Nic sa nestrati.
+
+Vypadne internet
+  Podmienka K pokracuje bez zmeny.
+  Podmienky G a A sa prerusia, hodina sa dovedie do konca bez asistenta
+  a cely blok triedy sa vyradi z analyzy podla protokolu. Nenahradza sa
+  inym terminom -- perioda je sucastou dizajnu.
+
+Ziak chyba na jednej periode
+  Zostava v studii. Chybajuca perioda sa osetri v analyze.
+
+Ziak chyba na odlozenom teste
+  Ponuknite nahradny termin do jedneho tyzdna a zapiste odstup.
+
+Chyba suhlas
+  Ziak absolvuje hodinu ako ktorykolvek iny; nezaznamenava sa onho nic.
+  Zaistuje to subor data\suhlasy-XX.txt: jeho kod v nom nesmie byt.
+
+Kontrola hlasi, ze ziak odvolal suhlas, ale zaznamy nie su vymazane
+  Subor bol v tej chvili otvoreny inym programom. V priecinku kontrola\
+  spustite:  python datacheck.py --vymaz ..\data
+
+Python nie je nainstalovany
+  RUN.cmd aj TEST.cmd to povedia a skoncia. Nainstalujte Python 3.11+
+  z python.org a zaskrtnite "Add Python to PATH".
+
+Ziak stratil obalku s kodom
+  Kontaktna osoba skoly najde jeho kod v  ZOZNAM-kody-XX.csv  a vypise
+  mu ho znova. Vyskumnik to urobit nemoze a nema mat ako.
+
+Ziak zada kod a nastroj ho odmietne
+  Nechajte ho prepisat kod znak po znaku. Nastroj povie, co je zle --
+  napriklad ze v kodoch nie je pismeno O, takze to ma byt nula.
+  Nezadavajte kod za ziaka a nehadajte: zle zadany kod znamena, ze sa
+  jeho vysledok neda spojit s jeho ostatnymi hodinami.

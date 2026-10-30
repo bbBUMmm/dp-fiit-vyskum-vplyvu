@@ -1,0 +1,200 @@
+==========================================================================
+DOTAZNÍK D3 · k testu T3 (hneď po hodine)
+časť Q pred testom, časť Z po teste · približne 6 minút
+==========================================================================
+Forma:      D3
+Predmet:    všetky
+Test:       D3 · dotazník k testu T3
+Rozsah:     17 položiek (v skupinách s asistentom 26) + 3 položky ·
+            približne 6 minút
+
+POKYNY
+• Toto nie je test. Neexistujú správne ani nesprávne odpovede; zaujíma
+  nás, ako si dnešnú hodinu prežil/a ty. Odpovede neuvidí vyučujúci a nikto
+  ich neuvidí pri tvojom mene.
+• Pri každej položke zakrúžkuj jednu odpoveď.
+
+
+ČASŤ Q — O dnešnej hodine (pred testom)
+--------------------------------------------------------------------------
+Odpovedaj o hodine, ktorá sa práve skončila.
+
+Q1  Koľko duševného úsilia si vynaložil/a počas dnešnej hodiny?
+    (1 veľmi, veľmi malé · 2 veľmi malé · 3 malé · 4 skôr malé · 5 ani
+    malé, ani veľké · 6 skôr veľké · 7 veľké · 8 veľmi veľké · 9 veľmi,
+    veľmi veľké)
+    veľmi, veľmi malé  1   2   3   4   5   6   7   8   9  veľmi, veľmi veľké
+
+Q2  Téma dnešnej hodiny bola veľmi zložitá.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q3  Na hodine boli vzorce alebo postupy, ktoré mi pripadali veľmi zložité.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q4  Na hodine boli pojmy a definície, ktoré mi pripadali veľmi zložité.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q5  Pokyny a vysvetlenia počas hodiny boli veľmi nejasné.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q6  Pokyny a vysvetlenia mi pri učení veľmi nepomohli.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q7  Pokyny a vysvetlenia boli plné nejasných formulácií.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q8  Hodina naozaj zlepšila moje porozumenie téme.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q9  Hodina naozaj zlepšila moje vedomosti z {predmetu}.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q10  Hodina naozaj zlepšila moje porozumenie vzorcom alebo postupom, ktoré
+    sme preberali.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q11  Hodina naozaj zlepšila moje porozumenie pojmom a definíciám.
+    vôbec nesúhlasím  0   1   2   3   4   5   6   7   8   9   10  úplne súhlasím
+
+Q12  Dnešná hodina ma veľmi bavila.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q13  Dnešná hodina bola nudná.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q14  Dnešnú hodinu by som opísal/a ako veľmi zaujímavú.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q15  Dnešná hodina vôbec neudržala moju pozornosť.
+    vôbec to neplatí  1   2   3   4   5   6   7  úplne to platí
+
+Q16  Koľko si sa dnes na hodine naučil/a?
+    nič  1   2   3   4   5   6   7  veľmi veľa
+
+Q17  Koľko percent z dnešného učiva si budeš podľa teba pamätať o tri
+    týždne?
+    nič  0   10   20   30   40   50   60   70   80   90   100  všetko
+
+Q18 [G, A]  Asistent mi dnes pomohol pochopiť učivo.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q19 [G, A]  Bez asistenta by som dnešné úlohy nezvládol/nezvládla.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q20 [G, A]  Overoval/a som si, či je to, čo mi asistent napísal, správne.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q21 [G, A]  Skôr než som sa spýtal/a asistenta, skúsil/a som úlohu vyriešiť
+    sám/sama.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q22 [G, A]  Dôverujem tomu, čo mi asistent odpovedal.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q23 [G, A]  Asistent ma nútil premýšľať viac, než keby som riešil/a úlohu
+    sám/sama.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q24 [G, A]  Keby som mal/a na výber, používal/a by som asistenta aj na
+    ďalších hodinách.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q25 [G, A]  Asistent mi dával hotové riešenia úloh.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+Q26 [G, A]  Asistent mi namiesto odpovede kládol otázky, ktoré ma viedli
+    k riešeniu.
+    vôbec nesúhlasím  1   2   3   4   5   6   7  úplne súhlasím
+
+
+ČASŤ Z — Po teste
+--------------------------------------------------------------------------
+Test je za tebou. Ešte tri krátke otázky.
+
+Z1  Koľko bodov z 50 si podľa teba v teste získal/a?
+    Odpoveď: ________ (číslo 0 – 50)
+
+Z2  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+    (1 veľmi, veľmi malé · 2 veľmi malé · 3 malé · 4 skôr malé · 5 ani
+    malé, ani veľké · 6 skôr veľké · 7 veľké · 8 veľmi veľké · 9 veľmi,
+    veľmi veľké)
+    veľmi, veľmi malé  1   2   3   4   5   6   7   8   9  veľmi, veľmi veľké
+
+Z3  Ako veľmi si sa v tomto teste snažil/a?
+    vôbec som sa nesnažil/a  1   2   3   4   5   6   7  veľmi som sa snažil/a
+
+                              KONIEC DOTAZNÍKA
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV
+##########################################################################
+
+ŠKÁLY
+  usilie_hodina  Q1   duševné úsilie počas hodiny (Paas), 1–9
+  vnutorna_zataz  Q2, Q3, Q4   vnútorná kognitívna záťaž, priemer 0–10
+  vonkajsia_zataz  Q5, Q6, Q7   vonkajšia (zbytočná) záťaž, priemer 0–10
+  germanna_zataz  Q8, Q9, Q10, Q11   záťaž v prospech učenia, priemer 0–10
+  zaujem_hodina  Q12, Q13R, Q14, Q15R   záujem a radosť z hodiny, 1–7
+  pocit_naucenia  Q16   pocit naučenia, 1–7
+  predpoved_zapamatania  Q17   úsudok o zapamätaní (JOL), 0–100 %
+  asistent_pomoc  Q18, Q19, Q22, Q24   vnímaný prínos a závislosť, 1–7
+  overovanie  Q20, Q21   vlastná aktivita pri práci s asistentom, 1–7
+  kontrola_manipulacie  Q23, Q25, Q26   G a A sa majú líšiť, 1–7
+  postdikcia  Z1   odhad počtu bodov po teste
+  usilie_test  Z2   duševné úsilie pri teste, 1–9
+  snaha_test  Z3   snaha v teste s nízkou stávkou, 1–7
+
+ČO MERAJÚ POLOŽKY A PREČO SÚ TU
+  Q1  Paasova škála (Paas 1992): celkové duševné úsilie počas hodiny.
+  Q2–Q11  Kognitívna záťaž, tri zložky podľa Leppink et al. (2013):
+      vnútorná (zložitosť učiva), vonkajšia (zložitosť podania) a záťaž
+      prispievajúca k učeniu. Desať položiek a škála 0–10 zodpovedajú
+      originálu; znenie je prispôsobené na ľubovoľný predmet (originál
+      hovorí o štatistike). Ide o rovnaký nástroj, aký práca uvádza ako
+      POST_LESSON (assessment/banks/post_lesson.json), zovšeobecnený na tri
+      predmety. Očakávanie z teórie: podmienka G môže znížiť vnímanú
+      záťaž, a predsa zhoršiť trvalé osvojenie (H1, H3).
+  Q12–Q15  Záujem a radosť z hodiny, prispôsobená podškála IMI (Ryan 1982;
+      McAuley et al. 1989). Rovnaké položky ako v D1 (Q2–Q5), ale
+      o konkrétnej hodine (situačný záujem; Hidi & Renninger 2006).
+      Q13 a Q15 sa skórujú obrátene (8 − odpoveď).
+  Q16, Q17  Pocit naučenia a úsudok o zapamätaní (judgment of learning;
+      Koriat 1997). Hypotéza H3: pocit naučenia sa rozchádza s výsledkom
+      v T4, najviac v podmienke G (ilúzia plynulosti; Bjork, Dunlosky &
+      Kornell 2013). Q17 sa porovná priamo s podielom bodov kotiev v T4
+      oproti T3.
+  Q18–Q24  Vnímanie asistenta (len G a A); rovnaké položky ako N1–N7
+      v POST_LESSON. Q19 a Q21 súvisia s presunom kognitívnej práce na
+      nástroj (cognitive offloading; Risko & Gilbert 2016; Gerlich 2025).
+  Q25, Q26  Kontrola manipulácie: v podmienke A má byť Q25 nižšie a Q26
+      vyššie ako v G. Ak sa nelíšia, manipulácia sa z pohľadu žiakov
+      neprejavila a výsledky podmienok sa interpretujú opatrne.
+      Q23 patrí sem tiež (A má nútiť premýšľať).
+  Z1–Z3  Ako v D1: postdikcia (Hacker et al. 2000), úsilie (Paas 1992),
+      snaha v teste s nízkou stávkou (Wise & DeMars 2005).
+
+PORADIE V SEDENÍ
+  D3-Q (o hodine) → časť P testu (sebadôvera) → časti A, B, C → D3-Z.
+  Otázky o hodine idú pred test zámerne: ťažkosť testu by inak ovplyvnila
+  hodnotenie hodiny aj pocit naučenia. Na obrazovke runner položky
+  označené [G, A] v skupine K vynechá; na papieri sa pre skupinu K
+  vytlačí hárok bez nich.
+
+TLAČ
+  „python testy.py --tlac D3 --pre F1-T3“ doplní predmet a tému.
+
+PREKLAD A OVERENIE
+  Pracovný preklad autora. Pred pilotom spätný preklad a porovnanie
+  s originálmi (ITC 2018; Brislin 1970), kognitívne interview, v pilote
+  alfa pre každú viacpoložkovú škálu (cieľ ≥ 0,70) a pre kognitívnu záťaž
+  aj konfirmačná faktorová analýza troch zložiek, ak to veľkosť vzorky
+  dovolí.
+
+ZDROJE
+  Bjork, Dunlosky & Kornell (2013) https://doi.org/10.1146/annurev-psych-113011-143823
+  Gerlich (2025) https://doi.org/10.3390/soc15010006
+  Koriat (1997) https://doi.org/10.1037/0096-3445.126.4.349
+  Leppink et al. (2013) https://doi.org/10.3758/s13428-013-0334-1
+  Risko & Gilbert (2016) https://doi.org/10.1016/j.tics.2016.07.002
+  ďalšie ako v D1; úplné záznamy v 00-metodika-a-specifikacia.txt.

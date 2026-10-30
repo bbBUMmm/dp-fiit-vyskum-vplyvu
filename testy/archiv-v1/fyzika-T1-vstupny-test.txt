@@ -1,0 +1,259 @@
+==========================================================================
+FYZIKA — Jednosmerný elektrický prúd: sériové a paralelné zapojenie
+T1 · VSTUPNÝ TEST („nulové vedomosti“) · píše sa PRED hodinou
+Forma F-T1 · 14 úloh · 26 bodov · približne 30 minút
+==========================================================================
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Tému ste možno ešte nepreberali alebo si ju
+  pamätáš zo základnej školy — oboje je v poriadku, test zisťuje, z čoho
+  bude hodina vychádzať. Skús každú úlohu; aj odhad sa počíta.
+• Časť A: zakrúžkuj JEDNU odpoveď.
+• Časť B: zakrúžkuj VŠETKY správne odpovede (koľko ich je, sa neuvádza).
+• Časť C: odpovedaj vlastnými slovami a píš aj postup.
+• Pri každej úlohe v častiach A a B zakrúžkuj, nakoľko si si istý/á,
+  že je tvoja odpoveď správna.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku
+  nepotrebuješ.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Žiarovky v jednej úlohe sú rovnaké (ak nie je uvedené inak) a správajú
+  sa ako rezistory so stálym odporom.
+• Vodiče majú zanedbateľný odpor, zdroj má stále napätie.
+• Čím väčší je výkon žiarovky, tým jasnejšie svieti.
+
+
+ČASŤ A — vyber jednu odpoveď (každá úloha 1 bod)
+--------------------------------------------------------------------------
+A1  Ktorý vzťah medzi napätím U na rezistore, prúdom I, ktorý ním
+    prechádza, a jeho odporom R je správny?
+      a) U = I / R
+      b) R = I / U
+      c) I = U · R
+      d) R = U · I
+      e) U = R · I
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Dva rezistory s rôznymi odpormi sú zapojené vedľa seba (paralelne).
+    Ich náhradný (celkový) odpor je
+      a) menší, ako je odpor menšieho z nich
+      b) väčší, ako je odpor väčšieho z nich
+      c) rovnaký ako odpor menšieho z nich
+      d) niekde medzi odpormi oboch rezistorov
+      e) rôzny podľa toho, ktorý rezistor je bližšie k zdroju
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  V obvode sú za sebou zapojené zdroj, ampérmeter A₁, motorček a ampérmeter
+    A₂ (A₁ je pred motorčekom, A₂ za ním). A₁ ukazuje 0,2 A. Čo ukazuje A₂?
+      a) 0 A
+      b) 0,1 A
+      c) 0,2 A
+      d) 0,4 A
+      e) závisí to od výkonu motorčeka
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  V byte svieti lampa v izbe a svetlo v kuchyni. V izbe vyhorí žiarovka.
+    Čo sa stane so svetlom v kuchyni?
+      a) zhasne
+      b) bude svietiť slabšie
+      c) bude svietiť jasnejšie
+      d) bude svietiť rovnako
+      e) bude blikať
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Rezistory 2 Ω a 4 Ω sú zapojené sériovo na zdroj 12 V. Aké napätie je na
+    rezistore 4 Ω?
+      a) 4 V      b) 6 V      c) 8 V        d) 12 V       e) 48 V
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Tri rezistory 18 Ω, 9 Ω a 6 Ω sú zapojené paralelne. Aký je ich
+    náhradný odpor?
+      a) 0,03 Ω   b) 3 Ω      c) 6 Ω        d) 11 Ω       e) 33 Ω
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — označ všetky správne odpovede (každá úloha 2 body)
+--------------------------------------------------------------------------
+B1  Ktoré tvrdenia sú pravdivé?
+      a) Ak sú dve rovnaké žiarovky zapojené za sebou, žiarovka bližšie
+         k zdroju dostane celé napätie zdroja.
+      b) Ak sú dve žiarovky zapojené za sebou, tečie nimi rovnaký prúd.
+      c) Ak k dvom žiarovkám zapojeným za sebou pridáme za ne tretiu, všetky
+         budú svietiť jasnejšie.
+      d) Spotrebiče zapojené do zásuviek v byte majú všetky rovnaké napätie
+         (230 V).
+      e) Čím viac spotrebičov v byte zapneme naraz, tým väčší prúd tečie
+         prívodom do bytu.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Dve žiarovky s odpormi 3 Ω a 6 Ω sú paralelne pripojené na zdroj 6 V.
+    Ktoré údaje sú správne?
+      a) Prúd žiarovkou 6 Ω je 2 A.
+      b) Náhradný odpor je 9 Ω.
+      c) Prúd žiarovkou 3 Ω je 2 A.
+      d) Zdroj dodáva prúd 3 A.
+      e) Väčší výkon má žiarovka s odporom 6 Ω.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Štyri rovnaké žiarovky: Ž1 a Ž2 sú zapojené za sebou v jednej vetve,
+    Ž3 a Ž4 za sebou v druhej vetve; obe vetvy sú paralelne pripojené na
+    zdroj. Ktoré tvrdenia sú pravdivé?
+      a) Všetky štyri žiarovky svietia rovnako.
+      b) Ak vyhorí Ž1, zhasnú všetky štyri žiarovky.
+      c) Ak vyhorí Ž1, zhasne aj Ž2.
+      d) Ž1 svieti jasnejšie ako Ž2, lebo je zapojená bližšie k zdroju.
+      e) Zdroj dodáva dvakrát väčší prúd, ako tečie žiarovkou Ž1.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Bicykel má predné a zadné svetlo napájané jednou batériou 6 V; obe svetlá
+    sú určené na 6 V. Výrobca ich zapojil paralelne. Ktoré tvrdenia sú
+    pravdivé?
+      a) Na každom svetle je napätie 6 V.
+      b) Pri sériovom zapojení by na každom svetle bolo tiež 6 V.
+      c) Pri sériovom zapojení by svetlá svietili jasnejšie.
+      d) Paralelné zapojenie odoberá z batérie menší prúd ako sériové.
+      e) Ak sa zadné svetlo pokazí (preruší sa), predné svieti ďalej.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — odpovedz vlastnými slovami (každá úloha 3 body)
+--------------------------------------------------------------------------
+C1  Rezistory 1 Ω, 2 Ω a 3 Ω sú zapojené sériovo na zdroj 12 V. Vypočítaj
+    prúd v obvode a napätie na každom rezistore. Over, že súčet napätí sa
+    rovná napätiu zdroja.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Žiak tvrdí: „Batéria vyrába prúd a žiarovka ho cestou spotrebúva. Keď sa
+    prúd minie, batéria sa vybije.“ Čo je na jeho úvahe správne a čo
+    nesprávne? Vysvetli.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Do jednej predlžovačky (230 V, najviac 10 A) chceš zapojiť naraz radiátor
+    s výkonom 1 500 W a sušič vlasov s výkonom 1 000 W. Je to bezpečné?
+    Zdôvodni výpočtom a ak to bezpečné nie je, navrhni riešenie.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Máš tri rezistory po 12 Ω. Navrhni zapojenie všetkých troch s náhradným
+    odporom 18 Ω a zapojenie všetkých troch s náhradným odporom 8 Ω. Každé
+    zapojenie nakresli alebo presne opíš a over výpočtom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+ČASŤ D — o tebe (nezapočítava sa do bodov; neexistujú správne odpovede)
+--------------------------------------------------------------------------
+D1  Preberali ste už túto tému v škole, alebo si sa ju učil/a inde?
+      ( ) áno     ( ) čiastočne     ( ) nie     ( ) neviem
+D2  Ako dobre podľa seba poznáš túto tému?
+      1 vôbec      2      3      4      5 veľmi dobre
+D3  Koľko z 10 úloh v častiach A a B máš podľa teba správne?   ____ z 10
+D4  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+      1 veľmi, veľmi malé   2 veľmi malé   3 malé   4 skôr malé
+      5 ani malé, ani veľké   6 skôr veľké   7 veľké   8 veľmi veľké
+      9 veľmi, veľmi veľké
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+1. KĽÚČ A ŠPECIFIKÁCIA
+   Zručnosti: S1 prúd sa nespotrebúva (zachovanie prúdu), S2 Ohmov zákon
+   a výkon, S3 sériové zapojenie, S4 paralelné zapojenie, S5 náhradný odpor,
+   S6 voľba zapojenia pre použitie.
+
+   pol.  kľúč    úroveň         zručnosť   dvojča v T3
+   A1    e       zapamätanie    S2         F-T3 A1
+   A2    a       zapamätanie    S5         F-T3 A2
+   A3    c       porozumenie    S1         F-T3 A3
+   A4    d       porozumenie    S4         F-T3 A4
+   A5    c       aplikácia      S3, S2     F-T3 A5
+   A6    b       aplikácia      S5         F-T3 A6
+   B1    b,d,e   porozumenie    S3, S4     F-T3 B1
+   B2    c,d     aplikácia      S4, S2     F-T3 B2
+   B3    a,c,e   analýza        S1, S3, S4 F-T3 B3
+   B4    a,e     hodnotenie     S6         F-T3 B4
+   C1    rubrika aplikácia      S2, S3     F-T3 C1
+   C2    rubrika analýza        S1         F-T3 C2
+   C3    rubrika hodnotenie     S6, S2     F-T3 C3
+   C4    rubrika tvorenie       S5         F-T3 C4
+
+   Rozloženie kľúčov v časti A: a 1×, b 1×, c 2×, d 1×, e 1×.
+
+2. ČO PREZRÁDZA NESPRÁVNA VOĽBA (mylné predstavy podľa Shipstone 1984,
+   McDermott & Shaffer 1992, Engelhardt & Beichner 2004)
+   A1  a)–d) algebraicky zamenené vzťahy medzi U, I a R; d) navyše
+       pripomína vzťah pre výkon (P = U · I).
+   A2  b) sériová intuícia (pridaný rezistor odpor vždy zväčší); c) prúd
+       ide „len cestou najmenšieho odporu“; d) priemer; e) SEKVENČNÁ úvaha.
+   A3  a) PRÚD SA SPOTREBUJE úplne; b) prúd sa spotrebuje sčasti
+       (ústredná mylná predstava témy); d) prúd sa zväčší; e) prúd závisí
+       od miesta merania podľa spotrebiča.
+   A4  a) myslí si, že domáce svetlá sú v sérii; b), c) „lokálna“ úvaha
+       o rozdeľovaní prúdu medzi spotrebiče; e) nesúvisiaca predstava.
+   A5  a) napätie na druhom rezistore; b) napätie sa delí rovnako bez
+       ohľadu na odpor; d) celé napätie (paralelná úvaha); e) U · R.
+       Správne: I = 12 / 6 = 2 A, U = 2 · 4 = 8 V.
+   A6  a) 1 / (R₁ + R₂ + R₃); c) náhradný odpor = najmenší rezistor;
+       d) priemer; e) sériové zapojenie.
+       Správne: 1/18 + 2/18 + 3/18 = 1/3 → 3 Ω.
+   B1  a) SEKVENČNÁ úvaha — prvá žiarovka „dostane všetko“; c) pridanie
+       sériového odporu zväčší prúd (opak pravdy).
+   B2  a) 6 / 6 = 1 A, nie 2 A; b) sériový vzťah; e) pri rovnakom napätí má
+       väčší výkon MENŠÍ odpor (P = U² / R: 12 W proti 6 W).
+   B3  b) myslí si, že všetky sú v jednej sérii; d) sekvenčná úvaha.
+       e) pravdivé: každá vetva má prúd U / 2R, spolu U / R.
+   B4  b) myslí si, že sériové zapojenie zachová napätie na každom
+       spotrebiči; c) opak; d) opak (paralelne je odpor menší, prúd väčší).
+
+3. BODOVANIE ČASTI B
+   2 b. — všetkých päť možností posúdených správne; 1 b. — jedna chyba
+   (jedna správna chýba ALEBO jedna nesprávna navyše); 0 b. — dve a viac
+   chýb. Pre dichotomický model: správne = 2 b.
+
+4. RUBRIKY ČASTI C (každé kritérium 1 bod)
+   C1  K1 náhradný odpor 6 Ω a prúd 2 A
+       K2 napätia 2 V, 4 V, 6 V
+       K3 overenie 2 + 4 + 6 = 12 V
+       Ukážka 1 b.: správny prúd, napätie rozdelené rovnako (4, 4, 4 V).
+   C2  K1 nesprávne: prúd sa nespotrebúva — do žiarovky vtečie rovnaký prúd,
+          ako z nej vytečie
+       K2 správne opíše, čo sa mení: žiarovka premieňa elektrickú energiu
+          na svetlo a teplo; batéria dodáva energiu (napätie)
+       K3 batéria sa vybije, lebo sa minie jej (chemická) energia, nie
+          „prúd“; uzná, že na úvahe je správne, že batéria je zdrojom
+       Odpoveď „všetko je správne“: 0 b.
+   C3  K1 spotrebiče v predlžovačke sú paralelne, prúdy (výkony) sa sčítajú
+       K2 I = 2 500 / 230 ≈ 10,9 A (alebo 6,52 A + 4,35 A); uzná sa aj
+          porovnanie výkonov 2 500 W > 10 · 230 = 2 300 W
+       K3 záver: nie je to bezpečné, prúd presahuje 10 A; riešenie —
+          zapojiť jeden spotrebič do inej zásuvky (iného okruhu) alebo ich
+          nezapínať naraz
+   C4  K1 18 Ω: 12 Ω sériovo s paralelnou dvojicou 12 Ω ‖ 12 Ω (12 + 6 = 18)
+       K2 8 Ω: (12 + 12) Ω paralelne s 12 Ω (24 · 12 / 36 = 8)
+       K3 zrozumiteľné schémy alebo presné opisy oboch zapojení
+       Ukážka 1 b.: len všetky tri sériovo (36 Ω) a všetky paralelne
+       (4 Ω), presne opísané — K3.
+
+5. SÚHRN
+   Body: A 6 + B 8 + C 12 = 26. Čas: približne 30 minút.
+   Body podľa úrovne: zapamätanie 2, porozumenie 4, aplikácia 7, analýza 5,
+   hodnotenie 5, tvorenie 3.
+   Na rozdiel od informatiky a matematiky časť tejto témy žiaci poznajú zo
+   základnej školy; T1 tu meria skutočné predchádzajúce vedomosti.
+   Prekoncepcie: e) v A2, a), b) v A3, a) v B1, d) v B3 a „spotrebúva“
+   v C2 — evidovať zvlášť (moderátor účinku podmienky).

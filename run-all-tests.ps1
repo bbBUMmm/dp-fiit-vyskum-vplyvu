@@ -24,6 +24,7 @@ $suites = @(
     @{ Name = "capture layer";       Dir = "ai-prompt-monitor";     Cmd = "python"; Args = @("mitm\test_capture.py") },
     @{ Name = "PEQI analysis (Java)"; Dir = "ai-prompt-monitor";    Cmd = "mvn";    Args = @("-B", "test") },
     @{ Name = "pedagogy";            Dir = "exercise-client";       Cmd = "python"; Args = @("test_pedagogy.py") },
+    @{ Name = "interaction features"; Dir = "exercise-client";      Cmd = "python"; Args = @("test_features.py") },
     @{ Name = "exercise client e2e"; Dir = "exercise-client";       Cmd = "python"; Args = @("test_server.py") },
     @{ Name = "assessment layer";    Dir = "assessment";            Cmd = "python"; Args = @("test_assessment.py") }
 )

@@ -104,6 +104,12 @@ def render_item(it: Item, n: int) -> str:
         L.append("        \\hfill " + " \\quad ".join(opts))
     elif it.format == "choice":
         L.append("        \\hfill (" + " / ".join(esc(o) for o in it.options) + ")")
+    elif it.format == "multi" and isinstance(it.key, list):
+        opts = []
+        for i, o in enumerate(it.options):
+            mark = "~$\\checkmark$" if i in it.key else ""
+            opts.append(f"({chr(97 + i)})~{esc(o)}{mark}")
+        L.append("        \\hfill (označ všetky správne) " + " \\quad ".join(opts))
     elif it.format == "multi":
         L.append("        \\hfill (viac možností: "
                  + " / ".join(esc(o) for o in it.options) + ")")

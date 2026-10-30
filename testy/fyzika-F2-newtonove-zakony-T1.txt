@@ -1,0 +1,429 @@
+==========================================================================
+FYZIKA · F2 Sila a pohyb: Newtonove pohybové zákony
+T1 · VSTUPNÝ TEST · píše sa pred hodinou
+==========================================================================
+Forma:      F2-T1
+Predmet:    fyzika
+Téma:       F2 · Sila a pohyb: Newtonove pohybové zákony
+Test:       T1 · vstupný test pred hodinou („nulové vedomosti“)
+Dvojča:     F2-T3
+Dotazník:   D1 (pred testom časť Q, po teste časť Z)
+Rozsah:     22 úloh · 50 bodov · približne 40 minút + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Téma sa ešte len bude preberať, takže je úplne
+  v poriadku, ak veľa vecí nevieš. Zaujíma nás, ako o nich uvažuješ.
+• Skús každú úlohu; aj čiastočná úvaha sa počíta. Ak úlohu nevieš, napíš
+  „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku môžeš
+  použiť (jednoduchú, nie v mobile).
+
+DOHODY PLATNÉ V CELOM TESTE
+• Tiažové zrýchlenie na Zemi je g = 10 m/s² (tiažová sila G = m · g).
+• Ak nie je uvedené inak, odpor vzduchu zanedbávame.
+• „Výsledná sila“ je súčet (výslednica) všetkých síl, ktoré na teleso
+  pôsobia.
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vysvetliť, prečo sa teleso môže
+    pohybovať aj vtedy, keď naň nepôsobí žiadna výsledná sila?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš vypočítať zrýchlenie telesa, ak
+    poznáš jeho hmotnosť a sily, ktoré naň pôsobia?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš určiť všetky sily, ktoré pôsobia
+    na teleso (napríklad na knihu ležiacu na stole)?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš pri zrážke dvoch telies určiť, ako
+    veľkými silami na seba navzájom pôsobia?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš vypočítať silu lana vo výťahu,
+    ktorý sa rozbieha alebo brzdí?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ako sa nazýva jednotka sily a ako sa vyjadrí pomocou základných
+    jednotiek sústavy SI?
+      a) joule, kg · m²/s²
+      b) newton, kg · m/s²
+      c) newton, kg · m/s
+      d) watt, kg · m²/s³
+      e) pascal, kg/(m · s²)
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré z týchto opisov sú v súlade so zákonom zotrvačnosti (prvým
+    Newtonovým zákonom)?
+      a) Kozmická sonda ďaleko od všetkých hviezd a planét letí
+         s vypnutými motormi stále rovnakou rýchlosťou.
+      b) Aby sa vozík na podlahe bez trenia pohyboval stálou rýchlosťou,
+         treba ho stále tlačiť.
+      c) Na teleso, ktoré sa pohybuje rovnomerne priamočiaro, buď nepôsobí
+         žiadna sila, alebo sa sily navzájom rušia.
+      d) Každé pohybujúce sa teleso sa samo od seba časom zastaví, aj keď
+         naň nič nepôsobí.
+      e) Cestujúci v autobuse sa pri prudkom rozbehu zakloní dozadu, lebo
+         jeho telo zotrváva v pôvodnom pohybovom stave.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Muž s hmotnosťou 90 kg a chlapec s hmotnosťou 30 kg stoja na korčuliach
+    na ľade oproti sebe a odtlačia sa od seba dlaňami. Ako veľká je sila,
+    ktorou chlapec pôsobí na muža, v porovnaní so silou, ktorou muž pôsobí
+    na chlapca?
+      a) rovnako veľká
+      b) trikrát menšia
+      c) trikrát väčšia
+      d) nulová, lebo chlapec tlačí slabšie
+      e) závisí od toho, kto tlačí rukami aktívnejšie
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Jablko visí na konári. Ktoré tvrdenia o silách sú pravdivé?
+      a) Tiažová sila, ktorou Zem pôsobí na jablko, a sila, ktorou stopka
+         pôsobí na jablko, sú dvojicou akcie a reakcie.
+      b) Stopka nepôsobí na jablko žiadnou silou, lebo jablko je v pokoji.
+      c) Sila, ktorou stopka drží jablko, je väčšia ako tiažová sila, inak
+         by jablko spadlo.
+      d) Reakciou na tiažovú silu, ktorou Zem pôsobí na jablko, je sila,
+         ktorou jablko priťahuje Zem.
+      e) Na jablko nepôsobí žiadna sila, lebo je v pokoji.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Na debnu s hmotnosťou 4 kg pôsobí vodorovná sila 30 N a proti pohybu
+    trecia sila 6 N. Aké zrýchlenie má debna?
+      a) 0,13 m/s²   b) 1,5 m/s²   c) 6 m/s²   d) 7,5 m/s²   e) 9 m/s²
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Závažie s hmotnosťou 3 kg visí na lanku vo výťahu. Výťah ide nahor
+    a brzdí so spomalením 2 m/s². Ktoré údaje sú správne?
+      a) Lanko pôsobí na závažie silou 36 N.
+      b) Tiažová sila pôsobiaca na závažie je 30 N.
+      c) Výsledná sila pôsobiaca na závažie je 6 N smerom nadol.
+      d) Lanko pôsobí na závažie silou 30 N.
+      e) Lanko pôsobí na závažie silou 24 N.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Sila 15 N udelí telesu zrýchlenie 5 m/s². Aké zrýchlenie udelí tomu
+    istému telesu sila 6 N (iné sily na teleso nepôsobia)?
+      a) 0,4 m/s²    b) 2 m/s²    c) 5 m/s²    d) 12,5 m/s²    e) 30 m/s²
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Kameň hodíme šikmo nahor. Ktoré tvrdenia o silách, ktoré naň pôsobia
+    v najvyššom bode jeho dráhy, sú pravdivé?
+      a) Nepôsobí naň žiadna sila, lebo sa v tom okamihu nepohybuje nahor
+         ani nadol.
+      b) Pôsobí naň tiažová sila nadol a sila hodu vodorovne v smere
+         pohybu.
+      c) Pôsobí naň len sila hodu, ktorá ho nesie dopredu.
+      d) Pôsobí naň tiažová sila nadol a sila hodu nahor; tieto sily sú
+         v rovnováhe.
+      e) Pôsobí naň len tiažová sila smerom nadol.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Parašutista klesá s otvoreným padákom STÁLOU rýchlosťou. Ktoré tvrdenia
+    sú pravdivé?
+      a) Výsledná sila pôsobiaca na parašutistu (s padákom) je nulová.
+      b) Odporová sila vzduchu je väčšia ako tiažová sila, inak by
+         parašutista zrýchľoval.
+      c) Odporová sila vzduchu je rovnako veľká ako tiažová sila.
+      d) Keby náhle zmizla tiažová sila, parašutista by sa okamžite
+         zastavil.
+      e) Parašutista je v rovnováhe síl, hoci sa pohybuje.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Výrobca chce, aby sa poháre v krabici nerozbili, keď krabica spadne
+    zo stola. Ktoré z týchto opatrení zmenšia priemernú silu, ktorá pri
+    dopade pôsobí na poháre?
+      a) obaliť každý pohár bublinkovou fóliou
+      b) vyložiť krabicu polystyrénom, ktorý sa pri náraze stlačí
+      c) použiť krabicu z tvrdého, nepoddajného plastu bez výplne
+      d) uložiť poháre tesne vedľa seba bez výplne, aby sa nepohli
+      e) vložiť medzi poháre a stenu krabice mäkkú penu
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka (jednotka je uvedená za ním) alebo
+slovo. Postup nemusíš písať. Pri úlohách s viacerými políčkami dostaneš
+1 bod, ak je chybné len jedno políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Astronaut má na Zemi hmotnosť 70 kg. Na Zemi je g = 10 N/kg, na Marse
+    g = 3,7 N/kg.
+    Odpoveď:   tiažová sila na Zemi = ______ N
+               tiažová sila na Marse = ______ N
+               hmotnosť na Marse = ______ kg
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Nákupný vozík (spolu s nákupom 25 kg) tlačíš vodorovnou silou 60 N.
+    Trecia sila je 10 N. Vozík na začiatku stojí.
+    Odpoveď:   zrýchlenie = ______ m/s²     rýchlosť po 3 s = ______ m/s
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Aká výsledná sila je potrebná, aby motocykel s jazdcom (spolu 300 kg)
+    zrýchlil rovnomerne z pokoja na rýchlosť 15 m/s za 5 s?
+    Odpoveď:   __________ N
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Na loďku s hmotnosťou 50 kg pôsobia na hladine naraz dve vodorovné
+    sily, ktoré sú navzájom kolmé: 30 N a 40 N. Odpor vody zanedbaj.
+    Odpoveď:   veľkosť výslednej sily = ______ N     zrýchlenie = ______ m/s²
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Človek s hmotnosťou 50 kg stojí vo výťahu na osobnej váhe. Výťah sa
+    rozbieha nadol so zrýchlením 2 m/s². Koľko ukazuje váha? (Váha meria
+    silu, ktorou na ňu človek tlačí; ak ukazuje kilogramy, je to táto sila
+    vydelená číslom 10.)
+    Odpoveď:   sila = __________ N        údaj váhy = __________ kg
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Vozík s hmotnosťou 4 kg stojí na vodorovnom stole bez trenia. Lanko
+    vedie cez kladku na kraji stola a na jeho druhom konci visí závažie
+    s hmotnosťou 1 kg. Sústavu pustíme.
+    Odpoveď:   zrýchlenie = ______ m/s²        sila v lanku = ______ N
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Cyklista s bicyklom (spolu 80 kg) ide rýchlosťou 10 m/s. Začne brzdiť
+    a spomaľuje stálou brzdnou silou 200 N. Vypočítaj spomalenie, čas do
+    zastavenia a brzdnú dráhu.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Ťaháš sane po vodorovnom snehu lanom, ktoré je vodorovné, a sane sa
+    pohybujú STÁLOU rýchlosťou. Vymenuj (alebo nakresli) všetky sily, ktoré
+    pôsobia na sane, a urči ich smer. Ktoré z nich sú v rovnováhe a prečo?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Spolužiak tvrdí: „Lietadlo letí vodorovne stálou rýchlosťou, lebo ťah
+    motorov je väčší ako odpor vzduchu. Keby boli rovnaké, lietadlo by sa
+    zastavilo.“ Nájdi chybu v jeho úvahe a vysvetli podľa Newtonových
+    zákonov, ako to je.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Spolužiak tvrdí: „Keď na teleso pôsobí dvakrát väčšia sila, pohybuje sa
+    dvakrát väčšou rýchlosťou.“ Posúď jeho tvrdenie a vysvetli, čo
+    dvojnásobná výsledná sila naozaj spôsobí.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Spolužiak tvrdí: „Kôň nemôže pohnúť vozom, lebo podľa tretieho
+    Newtonovho zákona voz ťahá koňa rovnako veľkou silou dozadu, takže sa
+    tieto sily vyrušia.“ Posúď toto tvrdenie a vysvetli, prečo sa kôň aj
+    voz predsa pohnú.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Navrhni pokus s pomôckami, ktoré bežne nájdeš v škole, ktorým overíš,
+    že pri rovnakej hmotnosti je zrýchlenie telesa priamo úmerné výslednej
+    sile. Opíš, čo budeš meniť, čo udržíš rovnaké, čo a ako budeš merať
+    a aký výsledok očakávaš.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  zotrvačnosť: prvý Newtonov zákon (pohyb bez výslednej sily)
+  S2  druhý Newtonov zákon: F = m · a, výsledná sila
+  S3  tretí Newtonov zákon: akcia a reakcia
+  S4  sily pôsobiace na teleso (tiaž, tlaková sila podložky, trenie, ťah)
+      a ich skladanie
+  S5  hmotnosť a tiaž; zrýchlenie, rýchlosť a dráha pri stálom zrýchlení
+  S6  aplikácie: výťah, brzdenie, bezpečnosť
+
+ČO T1 MERIA
+  Vedomosti a PREKONCEPCIE pred výučbou. Rozptyľovače zodpovedajú
+  doloženým mylným predstavám (Force Concept Inventory, Hestenes et al.
+  1992): „pohyb vyžaduje silu“, impetus, „väčší pôsobí väčšou silou“,
+  rýchlosť úmerná sile. Aj chybná odpoveď teda hovorí, ako žiak uvažuje.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+
+A1  Kľúč: b
+    Úroveň: zapamätanie · Zručnosť: S2 · Dvojča: F2-T3 A1
+    a) zamieňa silu s prácou (energiou)
+    c) zamieňa zrýchlenie s rýchlosťou (rozmer hybnosti)
+    d) zamieňa silu s výkonom
+    e) zamieňa silu s tlakom
+
+A2  Kľúč: a, c, e
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: F2-T3 A2
+    b) „POHYB VYŽADUJE SILU“
+    d) IMPETUS / „pohyb sa sám míňa“
+
+A3  Kľúč: a
+    Úroveň: porozumenie · Zručnosť: S3 · Dvojča: F2-T3 A3
+    b) „väčší pôsobí väčšou silou“ (pomer hmotností)
+    c) pomer hmotností obrátene; zamieňa silu so zrýchlením
+    d) slabšieho pokladá za pasívneho
+    e) aktivitu pokladá za mieru sily
+
+A4  Kľúč: d
+    Úroveň: porozumenie · Zručnosť: S3, S4 · Dvojča: F2-T3 A4
+    a) NAJČASTEJŠIA CHYBA: dve sily na to isté teleso pokladá za akciu
+       a reakciu
+    b) teleso v pokoji podľa žiaka „nepotrebuje“ silu
+    c) nevidí, že pri pokoji sú sily v rovnováhe
+    e) pokoj stotožňuje s neprítomnosťou síl
+
+A5  Kľúč: c
+    Úroveň: aplikácia · Zručnosť: S2, S4 · Dvojča: F2-T3 A5
+    Výpočet: a = (30 − 6) / 4 = 6 m/s².
+    a) 4 / 30 -- delí hmotnosť silou
+    b) 6 / 4 -- počíta len s trením
+    d) 30 / 4 -- zanedbá trenie
+    e) (30 + 6) / 4 -- trenie pripočíta
+
+A6  Kľúč: b, c, e
+    Úroveň: aplikácia · Zručnosť: S2, S6 · Dvojča: F2-T3 A6
+    Výpočet: brzdenie pri pohybe nahor = zrýchlenie nadol; G = 30 N;
+    T = 3 · (10 − 2) = 24 N; výsledná sila 3 · 2 = 6 N nadol.
+    a) zlý smer zrýchlenia (pripočíta ho)
+    d) statická úvaha
+
+A7  Kľúč: b
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: F2-T3 A7
+    Výpočet: m = 15 / 5 = 3 kg; a = 6 / 3 = 2 m/s².
+    a) 6 / 15 -- delí sily
+    c) zrýchlenie nezávisí od sily
+    d) 5 · 15 / 6 -- nepriama úmernosť namiesto priamej
+    e) 6 · 5 -- násobí
+
+A8  Kľúč: e
+    Úroveň: analýza · Zručnosť: S4, S1 · Dvojča: F2-T3 A8
+    a) okamžitý stav pohybu zamieňa s neprítomnosťou síl
+    b) IMPETUS v smere pohybu
+    c) IMPETUS bez tiaže
+    d) IMPETUS a rovnováha
+
+A9  Kľúč: a, c, e
+    Úroveň: analýza · Zručnosť: S1, S4 · Dvojča: F2-T3 A9
+    b) „POHYB VYŽADUJE SILU“ (prebytok sily v smere pohybu)
+    d) bez tiaže by odpor vzduchu parašutistu brzdil postupne; zastavenie
+       „okamžite“ znamená, že rýchlosť pokladá za úmernú sile
+
+A10  Kľúč: a, b, e
+    Úroveň: hodnotenie · Zručnosť: S2, S6 · Dvojča: F2-T3 A10
+    Zdôvodnenie: rovnaká zmena rýchlosti za dlhší čas (na dlhšej dráhe)
+    znamená menšie spomalenie, a teda menšiu priemernú silu.
+    c) „pevnejšie je bezpečnejšie“
+    d) bez výplne sa poháre zastavia na veľmi krátkej dráhe
+
+B1  Kľúč: tiažová sila na Zemi = 700 N; tiažová sila na Marse = 259 N; hmotnosť na Marse = 70 kg
+    Úroveň: porozumenie · Zručnosť: S5 · Dvojča: F2-T3 B1
+    Typická chyba: hmotnosť na Marse 25,9 kg (zamieňa hmotnosť a tiaž).
+
+B2  Kľúč: zrýchlenie = 2 m/s²; rýchlosť po 3 s = 6 m/s
+    Úroveň: aplikácia · Zručnosť: S2, S5 · Dvojča: F2-T3 B2
+
+B3  Kľúč: 900 N
+    Úroveň: aplikácia · Zručnosť: S2, S5 · Dvojča: F2-T3 B3
+    Výpočet: a = 15 / 5 = 3 m/s²; F = 300 · 3 = 900 N.
+
+B4  Kľúč: veľkosť výslednej sily = 50 N; zrýchlenie = 1 m/s²
+    Úroveň: aplikácia · Zručnosť: S4, S2 · Dvojča: F2-T3 B4
+    Typická chyba: 70 N (sčíta veľkosti kolmých síl).
+
+B5  Kľúč: sila = 400 N; údaj váhy = 40 kg
+    Úroveň: analýza · Zručnosť: S2, S6 · Dvojča: F2-T3 B5
+    Výpočet: zrýchlenie nadol, N = m · (g − a) = 50 · 8 = 400 N.
+
+B6  Kľúč: zrýchlenie = 2 m/s²; sila v lanku = 8 N
+    Úroveň: analýza · Zručnosť: S2, S4 · Dvojča: F2-T3 B6
+    Výpočet: a = 10 / (4 + 1) = 2 m/s²; T = 4 · 2 = 8 N.
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S2, S5 · Dvojča: F2-T3 C1
+    K1  spomalenie a = 200 / 80 = 2,5 m/s²
+    K2  čas t = 10 / 2,5 = 4 s
+    K3  brzdná dráha s = v · t / 2 = 20 m (alebo v² / 2a)
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S4, S1 · Dvojča: F2-T3 C2
+    K1  štyri sily so správnym smerom: tiažová (nadol), tlaková sila snehu
+        (nahor), ťahová sila lana (v smere pohybu), trecia sila (proti
+        pohybu); bez vymyslenej „sily pohybu“
+    K2  dvojice v rovnováhe: tiaž a tlaková sila snehu; ťah lana a trenie
+    K3  zdôvodnenie: stála rýchlosť znamená nulovú výslednú silu (1. NZ)
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S1, S2 · Dvojča: F2-T3 C3
+    K1  chyba: pri stálej rýchlosti je ťah motorov ROVNAKO veľký ako odpor
+        vzduchu (výsledná sila je nulová)
+    K2  ak by bol ťah väčší, lietadlo by zrýchľovalo (2. NZ)
+    K3  ak sú sily rovnaké, lietadlo sa nezastaví, ale letí ďalej stálou
+        rýchlosťou (1. NZ); na zastavenie treba výslednú silu proti pohybu
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S2, S5 · Dvojča: F2-T3 C4
+    K1  tvrdenie je nesprávne: sila neurčuje rýchlosť, ale zmenu rýchlosti
+    K2  dvojnásobná výsledná sila dá (pri tej istej hmotnosti) dvojnásobné
+        zrýchlenie (a = F / m)
+    K3  dôsledok: rýchlosť rastie dvakrát rýchlejšie, nie je dvakrát väčšia
+        od začiatku; teleso s danou rýchlosťou môže mať aj nulovú výslednú
+        silu (1. NZ)
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S3, S2 · Dvojča: F2-T3 C5
+    K1  tvrdenie je nesprávne
+    K2  akcia a reakcia pôsobia na RÔZNE telesá (kôň na voz, voz na koňa),
+        preto sa nemôžu vyrušiť
+    K3  o pohybe koňa rozhoduje výsledná sila NA KOŇA: zem tlačí kopytá
+        dopredu (trenie) viac, ako voz ťahá koňa dozadu; voz sa pohne,
+        lebo ťah koňa je väčší ako trenie na voz
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S2, S5 · Dvojča: F2-T3 C6
+    K1  riadenie premenných: tá istá hmotnosť vozíka, mení sa ťahová sila
+        (napr. počet závaží cez kladku -- s presunom závaží z vozíka na
+        lanko, aby celková hmotnosť zostala rovnaká -- alebo silomer)
+    K2  meranie zrýchlenia: dráha a čas z pokoja (a = 2s / t²) alebo
+        rýchlosť v dvoch bodoch, opakované merania
+    K3  očakávaný výsledok a spôsob overenia: dvojnásobná sila dá
+        dvojnásobné zrýchlenie; pomer a / F je stály, graf a od F je
+        priamka cez počiatok
+
+SÚHRN
+  Body: A 10 × 2 = 20, B 6 × 2 = 12, C 6 × 3 = 18, spolu 50.
+  Položky s viacerými správnymi odpoveďami: A2, A6, A9, A10 (žiakovi sa
+  neoznačujú). Kľúče položiek s jednou správnou: b, a, d, c, b, e.

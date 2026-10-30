@@ -1,0 +1,451 @@
+==========================================================================
+FYZIKA · F1 Jednosmerný elektrický prúd: sériové a paralelné zapojenie
+T3 · TEST PO HODINE · píše sa hneď po hodine
+==========================================================================
+Forma:      F1-T3
+Predmet:    fyzika
+Téma:       F1 · Jednosmerný elektrický prúd: sériové a paralelné zapojenie
+Test:       T3 · test hneď po hodine
+Dvojča:     F1-T1
+Dotazník:   D3 (pred testom časť Q, po teste časť Z)
+Rozsah:     22 úloh · 50 bodov · približne 40 minút + dotazník 6 minút
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Skús každú úlohu; aj čiastočná úvaha sa počíta.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku môžeš
+  použiť (jednoduchú, nie v mobile).
+• Ak úlohe nerozumieš alebo ju nevieš, napíš „neviem“ alebo ju nechaj
+  prázdnu a pokračuj ďalej.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Žiarovky v jednej úlohe sú rovnaké (ak nie je uvedené inak) a správajú
+  sa ako rezistory so stálym odporom.
+• Vodiče majú zanedbateľný odpor, zdroj má stále napätie.
+• Čím väčší je výkon žiarovky, tým jasnejšie svieti.
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vysvetliť, prečo sa elektrický
+    prúd v obvode „nespotrebúva“?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš vypočítať prúd a napätia
+    v obvode s rezistormi zapojenými sériovo?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš vypočítať prúdy vo vetvách
+    paralelného zapojenia?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš určiť náhradný odpor obvodu,
+    v ktorom je sériové aj paralelné zapojenie?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš rozhodnúť, či je bezpečné zapnúť
+    naraz niekoľko spotrebičov na jednom okruhu?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ktorý vzťah vyjadruje Ohmov zákon pre rezistor (U napätie, I prúd,
+    R odpor)?
+      a) I = U · R
+      b) I = R / U
+      c) U = I / R
+      d) R = U · I
+      e) I = U / R
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré tvrdenia o zapojení rovnakých žiaroviek sú pravdivé?
+      a) V sériovom zapojení dostane žiarovka najbližšie k zdroju celé
+         napätie zdroja.
+      b) V sériovom zapojení tečie každou žiarovkou rovnaký prúd.
+      c) Ak do série pridáme ďalšiu rovnakú žiarovku, ostatné budú svietiť
+         jasnejšie.
+      d) V paralelnom zapojení je na každej žiarovke rovnaké napätie.
+      e) Ak paralelne pridáme ďalšiu žiarovku, celkový prúd zo zdroja sa
+         zväčší.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Do série sú zapojené zdroj, ampérmeter A₁, žiarovka a ampérmeter A₂
+    (A₁ je pred žiarovkou, A₂ za ňou). A₁ ukazuje 0,3 A. Čo ukazuje A₂?
+      a) 0 A
+      b) 0,15 A
+      c) 0,3 A
+      d) 0,6 A
+      e) závisí to od toho, či je žiarovka nová
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Na zdroj 9 V sú paralelne pripojené dve rovnaké žiarovky. Jednu z nich
+    vyskrutkuješ. Ktoré tvrdenia sú potom pravdivé?
+      a) Druhá žiarovka zhasne, lebo sa prerušil obvod.
+      b) Druhá žiarovka svieti slabšie, lebo celkový odpor obvodu sa
+         zväčšil.
+      c) Druhá žiarovka svieti jasnejšie, lebo dostane aj prúd, ktorý
+         predtým tiekol prvou.
+      d) Druhá žiarovka svieti rovnako a zdroj dodáva polovičný prúd.
+      e) Druhá žiarovka svieti rovnako a zdroj dodáva rovnaký prúd ako
+         predtým.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Rezistory 4 Ω a 8 Ω sú zapojené sériovo na zdroj 6 V. Aké napätie je na
+    rezistore 8 Ω?
+      a) 2 V      b) 3 V      c) 4 V        d) 6 V        e) 48 V
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Dve žiarovky s odpormi 10 Ω a 40 Ω sú paralelne pripojené na zdroj 40 V.
+    Ktoré údaje sú správne?
+      a) Prúd žiarovkou 40 Ω je 4 A.
+      b) Náhradný odpor je 50 Ω.
+      c) Prúd žiarovkou 10 Ω je 4 A.
+      d) Zdroj dodáva prúd 5 A.
+      e) Väčší výkon má žiarovka s odporom 40 Ω.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Máš rezistory 6 Ω, 3 Ω a 2 Ω a zapojíš ich všetky tri. Ktoré zapojenia
+    majú náhradný odpor menší ako 2 Ω?
+      a) všetky tri paralelne
+      b) všetky tri sériovo
+      c) 6 Ω a 3 Ω paralelne, k tejto dvojici sériovo 2 Ω
+      d) 6 Ω a 3 Ω sériovo, k tejto dvojici paralelne 2 Ω
+      e) 3 Ω a 2 Ω sériovo, k tejto dvojici paralelne 6 Ω
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Tri rovnaké žiarovky: Ž1 je zapojená v hlavnej vetve a za ňou sú
+    paralelne Ž2 a Ž3. Ktoré tvrdenia sú pravdivé?
+      a) Všetky tri svietia rovnako, lebo sú rovnaké.
+      b) Ž1 svieti najjasnejšie, Ž2 a Ž3 svietia rovnako.
+      c) Ž2 a Ž3 svietia jasnejšie ako Ž1, lebo každá z nich má celé
+         napätie zdroja.
+      d) Ž1 a Ž2 svietia rovnako, Ž3 slabšie, lebo je ďalej od zdroja.
+      e) Ž1 svieti najslabšie, lebo prúd ju prechádza ako prvú.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Tri rovnaké žiarovky: Ž1 a Ž2 sú zapojené za sebou v jednej vetve,
+    Ž3 je sama v druhej vetve; obe vetvy sú paralelne pripojené na zdroj.
+    Ktoré tvrdenia sú pravdivé?
+      a) Ž3 svieti najjasnejšie.
+      b) Ak vyhorí Ž1, zhasne aj Ž3.
+      c) Ž1 a Ž2 svietia rovnako.
+      d) Ak vyhorí Ž3, zhasnú aj Ž1 a Ž2.
+      e) Prúd žiarovkou Ž3 je dvakrát väčší ako prúd žiarovkou Ž1.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Vianočná reťaz má 20 rovnakých žiaroviek zapojených sériovo do zásuvky
+    230 V. Jedna žiarovka vyhorí (preruší sa) a celá reťaz zhasne. Žiaci to
+    vysvetľujú. Ktoré tvrdenia sú pravdivé?
+      a) Reťaz zhasla, lebo vyhorená žiarovka prerušila jedinú cestu prúdu.
+      b) Reťaz zhasla, lebo napätie zásuvky sa teraz rozdelí na 19 žiaroviek
+         a to im nestačí.
+      c) Keby boli tie isté žiarovky zapojené paralelne, každá by mala
+         napätie 11,5 V.
+      d) Ak vyhorenú žiarovku nahradíme kúskom drôtu, ostatné budú svietiť
+         rovnako ako predtým.
+      e) Keby výrobca pridal do série 21. žiarovku, každá by svietila
+         jasnejšie.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka (jednotka je uvedená za ním) alebo
+slovo. Postup nemusíš písať. Pri úlohách s viacerými políčkami dostaneš
+1 bod, ak je chybné len jedno políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Doplň chýbajúce slová.
+    V sériovom zapojení majú všetky spotrebiče rovnakú hodnotu
+    (1) ________________. V paralelnom zapojení majú všetky vetvy rovnakú
+    hodnotu (2) ________________.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Na rezistore je napätie 4,5 V a tečie ním prúd 0,3 A. Aký má odpor a aký
+    výkon sa na ňom premieňa?
+    Odpoveď:   R = __________ Ω        P = __________ W
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Rezistor 6 Ω je zapojený sériovo s dvojicou rezistorov 12 Ω a 12 Ω,
+    ktoré sú navzájom zapojené paralelne. Obvod je pripojený na zdroj 24 V.
+    Odpoveď:   náhradný odpor = __________ Ω     prúd zo zdroja = _______ A
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Rezistory 4 Ω a 6 Ω sú paralelne pripojené na zdroj 12 V.
+    Odpoveď:   prúd rezistorom 4 Ω = ______ A     prúd rezistorom 6 Ω = ______ A
+               prúd zo zdroja = ______ A
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Rezistory 20 Ω a 10 Ω sú paralelne pripojené na zdroj, ktorého napätie
+    nepoznáš. Ampérmeter v hlavnej vetve (pri zdroji) ukazuje 0,9 A. Koľko
+    ukazuje ampérmeter zapojený vo vetve s rezistorom 20 Ω?
+    Odpoveď:   __________ A
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Žiarovky Ž1 (12 V / 6 W) a Ž2 (12 V / 12 W) sú zapojené SÉRIOVO na zdroj
+    12 V. Údaje na žiarovkách platia pre napätie 12 V; odpor žiaroviek
+    považuj za stály.
+    (1) Ktorá žiarovka svieti jasnejšie? Napíš Ž1 alebo Ž2.
+    (2) Aký výkon má jasnejšia žiarovka v tomto zapojení?
+    Odpoveď:   (1) ______        (2) __________ W
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Rezistory 2 Ω, 4 Ω a 6 Ω sú zapojené sériovo na zdroj 24 V. Vypočítaj
+    prúd v obvode a napätie na každom rezistore. Over, že súčet napätí sa
+    rovná napätiu zdroja.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Spolužiak vysvetľuje: „V sériovom obvode s dvoma rovnakými žiarovkami
+    svieti jasnejšie tá, ktorá je bližšie ku kladnému pólu, lebo prúd ju
+    dosiahne ako prvú a druhej už zostane menej.“ Nájdi chyby v jeho úvahe
+    a vysvetli, ako to v skutočnosti je.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Zdroj 12 V. Rezistor R₁ = 4 Ω je zapojený sériovo s dvojicou rezistorov
+    R₂ = 6 Ω a R₃ = 3 Ω, ktoré sú navzájom zapojené paralelne. Vypočítaj
+    prúd zo zdroja, napätie na R₁ a prúdy rezistormi R₂ a R₃. Zapíš postup.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  V kuchyni sú na jednom okruhu 230 V zapojené rýchlovarná kanvica
+    (2 000 W), mikrovlnka (1 200 W) a hriankovač (900 W). Istič okruhu vypne
+    pri prúde väčšom ako 16 A. Môžu bežať všetky tri spotrebiče naraz?
+    Zdôvodni výpočtom a navrhni riešenie.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Spolužiak tvrdí: „Keď v byte zapneme ďalší spotrebič, celkový odpor
+    elektrickej siete v byte sa zväčší, lebo pribudol ďalší odpor. Preto
+    potom prívodom do bytu tečie menší prúd.“ Posúď obe časti tohto tvrdenia
+    a svoj názor zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Máš tri rezistory po 30 Ω. Navrhni zapojenie všetkých troch s náhradným
+    odporom 45 Ω a zapojenie všetkých troch s náhradným odporom 20 Ω. Každé
+    zapojenie nakresli alebo presne opíš a over výpočtom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  zachovanie prúdu: prúd sa v obvode nespotrebúva
+  S2  Ohmov zákon a elektrický výkon
+  S3  sériové zapojenie: rovnaký prúd, napätie sa delí podľa odporov
+  S4  paralelné zapojenie: rovnaké napätie, prúdy vetiev sa sčítajú
+  S5  náhradný odpor a kombinované obvody
+  S6  zapojenie a bezpečnosť v praxi (okruh, istič, reťaz)
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+(mylné predstavy podľa Shipstone 1984, McDermott & Shaffer 1992,
+Engelhardt & Beichner 2004)
+
+A1  Kľúč: e
+    Úroveň: zapamätanie · Zručnosť: S2 · Dvojča: F1-T1 A1 · Kotva: K1
+    a) zamieňa delenie násobením
+    b) prevrátený vzťah (prúd = odpor / napätie)
+    c) algebraicky zamenené veličiny
+    d) pripomína vzťah pre výkon (P = U · I); zamieňa odpor s výkonom
+
+A2  Kľúč: b, d, e
+    Úroveň: porozumenie · Zručnosť: S3, S4 · Dvojča: F1-T1 A2
+    a) SEKVENČNÁ úvaha: prvá žiarovka „dostane všetko“
+    c) opak: ďalšia žiarovka v sérii zväčší odpor a zmenší prúd
+
+A3  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: F1-T1 A3 · Kotva: K2
+    a) PRÚD SA SPOTREBUJE úplne
+    b) prúd sa spotrebuje sčasti -- ústredná mylná predstava témy
+    d) prúd sa v spotrebiči zväčší
+    e) prúd závisí od vlastnosti spotrebiča, nie od obvodu ako celku
+
+A4  Kľúč: d
+    Úroveň: porozumenie · Zručnosť: S4 · Dvojča: F1-T1 A4 · Kotva: K3
+    Výpočet: napätie na druhej žiarovke zostáva 9 V; prúd zo zdroja je
+    súčtom prúdov vetiev, teda klesne na polovicu.
+    a) myslí si, že žiarovky sú v sérii
+    b) sériová úvaha: väčší celkový odpor, menší prúd -- prenáša ju aj na
+       vetvu, ktorá má stále celé napätie zdroja
+    c) zdroj ako zdroj stáleho prúdu: prúd, ktorý tiekol prvou, sa presunie
+    e) nevie, že prúd zo zdroja je súčtom prúdov vetiev
+
+A5  Kľúč: c
+    Úroveň: aplikácia · Zručnosť: S3, S2 · Dvojča: F1-T1 A5 · Kotva: K4
+    Výpočet: I = 6 / 12 = 0,5 A; U = 0,5 · 8 = 4 V.
+    a) napätie na druhom rezistore (4 Ω)
+    b) napätie sa delí rovnako bez ohľadu na odpor
+    d) celé napätie (paralelná úvaha)
+    e) U · R
+
+A6  Kľúč: c, d
+    Úroveň: aplikácia · Zručnosť: S4, S2 · Dvojča: F1-T1 A6 · Kotva: K5
+    Výpočet: I₁₀ = 40 / 10 = 4 A; I₄₀ = 40 / 40 = 1 A; spolu 5 A;
+    náhradný odpor 8 Ω; výkony 160 W a 40 W.
+    a) zamieňa prúdy vetiev
+    b) sériový vzťah pre náhradný odpor
+    e) pri rovnakom napätí má väčší výkon MENŠÍ odpor (P = U² / R)
+
+A7  Kľúč: a, d
+    Úroveň: aplikácia · Zručnosť: S5 · Dvojča: F1-T1 A7
+    Výpočet: a) 1 Ω; b) 11 Ω; c) 2 + 2 = 4 Ω; d) 9 · 2 / 11 ≈ 1,64 Ω;
+    e) 5 · 6 / 11 ≈ 2,73 Ω.
+    b) sériový súčet; žiak nepozná pravidlo pre paralelné zapojenie
+    c) chyba vo výpočte paralelnej dvojice (6 ‖ 3 = 2 Ω) alebo zabúda
+       pripočítať sériový rezistor
+    e) myslí si, že každé zapojenie s paralelnou časťou má menší odpor ako
+       najmenší rezistor v obvode -- platí to len pre rezistory zapojené
+       priamo paralelne
+
+A8  Kľúč: b
+    Úroveň: analýza · Zručnosť: S1, S3, S4 · Dvojča: F1-T1 A8
+    Výpočet: Ž1 vedie celý prúd I, Ž2 a Ž3 po I/2 -- ich výkon je štvrtinový.
+    a) „rovnaké žiarovky svietia rovnako“ bez ohľadu na zapojenie
+    c) myslí si, že paralelné žiarovky majú celé napätie zdroja
+    d) SEKVENČNÁ úvaha (poradie od zdroja rozhoduje)
+    e) sekvenčná úvaha opačným smerom
+
+A9  Kľúč: a, c, e
+    Úroveň: analýza · Zručnosť: S1, S3, S4 · Dvojča: F1-T1 A9 · Kotva: K6
+    Výpočet: vetva Ž1-Ž2 má odpor 2R, teda polovičný prúd ako vetva so Ž3;
+    Ž3 má celé napätie, Ž1 a Ž2 po polovici (štvrtinový výkon).
+    b) nevidí, že vetvy sú nezávislé
+    d) nevidí, že vetvy sú nezávislé
+
+A10  Kľúč: a
+    Úroveň: hodnotenie · Zručnosť: S3, S6 · Dvojča: F1-T1 A10
+    b) zhasnutie vysvetľuje nedostatkom napätia, nie prerušeným obvodom
+    c) zamieňa: 11,5 V by mali žiarovky v SÉRII; paralelne by mala každá
+       230 V a zhoreli by
+    d) nevidí, že s 19 žiarovkami pripadne na každú väčšie napätie
+       (12,1 V) -- svietia jasnejšie
+    e) opak: ďalšia žiarovka v sérii zmenší prúd, každá svieti slabšie
+
+B1  Kľúč: (1) = "prúdu" | "prúd" | "elektrického prúdu" | "elektrický prúd"; (2) = "napätia" | "napätie" | "elektrického napätia" | "elektrické napätie"
+    Úroveň: porozumenie · Zručnosť: S3, S4 · Dvojča: F1-T1 B1
+    Typická chyba: zamenené poradie (napätie, prúd); „odpor“.
+
+B2  Kľúč: R = 15 Ω; P = 1,35 W
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: F1-T1 B2
+    Typické chyby: R = 1,35 (U · I), P = 15; R = 0,067 (I / U).
+
+B3  Kľúč: náhradný odpor = 12 Ω; prúd zo zdroja = 2 A
+    Úroveň: aplikácia · Zručnosť: S5 · Dvojča: F1-T1 B3
+    Výpočet: 12 ‖ 12 = 6 Ω; 6 + 6 = 12 Ω; 24 / 12 = 2 A.
+    Typická chyba: 30 Ω a 0,8 A (všetko sériovo).
+
+B4  Kľúč: prúd rezistorom 4 Ω = 3 A; prúd rezistorom 6 Ω = 2 A; prúd zo zdroja = 5 A
+    Úroveň: aplikácia · Zručnosť: S4, S2 · Dvojča: F1-T1 B4
+    Typická chyba: 1,2 A všade (sériová úvaha: 12 / 10).
+
+B5  Kľúč: 0,3 A
+    Úroveň: analýza · Zručnosť: S4, S5 · Dvojča: F1-T1 B5
+    Výpočet: náhradný odpor 20 · 10 / 30 = 20/3 Ω; U = 0,9 · 20/3 = 6 V;
+    I₂₀ = 6 / 20 = 0,3 A (prúd sa delí v obrátenom pomere odporov).
+    Typické chyby: 0,45 A (delí na polovicu), 0,6 A (zamenené vetvy).
+
+B6  Kľúč: (1) = "Ž1" | "Z1" | "prvá" | "6 W"; (2) = 2,67 W ± 0,02
+    Úroveň: analýza · Zručnosť: S2, S3 · Dvojča: F1-T1 B6
+    Výpočet: R₁ = 12² / 6 = 24 Ω; R₂ = 12² / 12 = 12 Ω; I = 12 / 36 = 1/3 A;
+    P₁ = (1/3)² · 24 ≈ 2,67 W; P₂ ≈ 1,33 W. V sérii svieti jasnejšie
+    žiarovka s VÄČŠÍM odporom, teda s menším menovitým výkonom.
+    Typická chyba: Ž2, „lebo má väčší výkon“ (prenáša údaj zo štítku).
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S2, S3 · Dvojča: F1-T1 C1
+    K1  náhradný odpor 12 Ω a prúd 2 A
+    K2  napätia 4 V, 8 V a 12 V
+    K3  overenie 4 + 8 + 12 = 24 V
+    Ukážka 1 b.: správny prúd, napätie rozdelené rovnako (8 V, 8 V, 8 V).
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S1, S3 · Dvojča: F1-T1 C2
+    K1  identifikuje chybu: prúd sa nespotrebúva, v sérii je všade rovnaký
+        (aj prvá, aj druhá žiarovka má ten istý prúd)
+    K2  rovnaké žiarovky s rovnakým prúdom majú rovnaký výkon, svietia
+        rovnako
+    K3  vysvetlí, prečo sa prúd „neminie“: obvod sa správa ako celok (prúd sa
+        ustáli v celom obvode naraz), mení sa energia, nie množstvo náboja;
+        alebo navrhne overenie dvoma ampérmetrami
+    Ukážka 1 b.: „Svietia rovnako, lebo sú rovnaké.“ (záver bez príčiny)
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S5, S4 · Dvojča: F1-T1 C3
+    K1  R₂₃ = 6 · 3 / 9 = 2 Ω, náhradný odpor 6 Ω, prúd zo zdroja 2 A
+    K2  U₁ = 8 V a napätie na paralelnej dvojici 4 V
+    K3  I₂ = 4 / 6 ≈ 0,67 A a I₃ = 4 / 3 ≈ 1,33 A (súčet 2 A)
+    Ukážka 1 b.: správne 2 A, ale na R₂ aj R₃ použije celých 12 V.
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S6, S2 · Dvojča: F1-T1 C4
+    K1  spotrebiče sú paralelne, prúdy (výkony) sa sčítajú
+    K2  celkový výkon 4 100 W, I = 4 100 / 230 ≈ 17,8 A (alebo
+        8,70 + 5,22 + 3,91 A); uzná sa aj porovnanie výkonov
+        4 100 W > 16 · 230 = 3 680 W
+    K3  záver: nemôžu, istič vypne (17,8 A > 16 A); riešenie -- nezapínať
+        všetky naraz (napr. kanvica + mikrovlnka ≈ 13,9 A) alebo použiť iný
+        okruh
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S4, S5, S6 · Dvojča: F1-T1 C5
+    K1  obe časti tvrdenia sú nesprávne; spotrebiče v byte sú zapojené
+        paralelne
+    K2  zdôvodnenie: paralelne pripojená vetva náhradný odpor ZMENŠÍ
+        (pribudne cesta pre prúd; 1/R = 1/R₁ + 1/R₂ + ...), napätie na
+        každom spotrebiči zostáva 230 V
+    K3  dôsledok: prúd v prívode sa zväčší (je súčtom prúdov vetiev), preto
+        pri mnohých spotrebičoch vypne istič
+    Ukážka 1 b.: „Odpor sa zmenší, lebo je to paralelne.“ (bez prúdu
+    a bez zdôvodnenia)
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S5 · Dvojča: F1-T1 C6
+    K1  45 Ω: 30 Ω sériovo s paralelnou dvojicou 30 Ω ‖ 30 Ω (30 + 15 = 45)
+    K2  20 Ω: (30 + 30) Ω paralelne s 30 Ω (60 · 30 / 90 = 20)
+    K3  zrozumiteľné schémy alebo presné opisy oboch zapojení
+    Ukážka 1 b.: len všetky tri sériovo (90 Ω) a všetky paralelne (10 Ω),
+    presne opísané (K3).
+
+SÚHRN
+  Body: A 10 × 2 = 20, B 6 × 2 = 12, C 6 × 3 = 18, spolu 50.
+  Úrovne (body): zapamätanie 2, porozumenie 8, aplikácia 15, analýza 14,
+  hodnotenie 8, tvorenie 3; analýza + hodnotenie + tvorenie = 25 z 50.
+  Položky s viacerými správnymi odpoveďami: A2, A6, A7, A9 (žiakovi sa
+  neoznačujú). Kľúče položiek s jednou správnou: e, c, d, c, b, a.
+  Kotvy pre T4 (znak po znaku rovnaké, rovnaká pozícia): A1, A3, A4, A5,
+  A6, A9.
+  H3: dotazník D3 (pocit naučenia, predpoveď zapamätania) sa porovná
+  s výsledkom v T4.

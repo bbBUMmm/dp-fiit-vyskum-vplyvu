@@ -239,6 +239,30 @@ def test_scoring_boundaries():
     ok("every open item in every bank comes back pending",
        all(s.pending and s.points is None for s in sc), f"{len(sc)} open items")
 
+    # multiple response, the number of correct options not disclosed
+    m = bank.Item(id="M1", format="multi", stem="Ktoré polia sú usporiadané?",
+                  level="porozumenie", options=["[1, 2]", "[2, 1]", "[3, 3]", "[5, 4]"],
+                  key=[0, 2], distractor_dx={"1": "zamieňa smer", "3": "zamieňa smer"})
+    b = bank.Bank("X_IPT", "CT", "x", 5, [m])
+    try:
+        bank.validate(b)
+        ok("a keyed multiple-response item validates", True)
+    except bank.BankError as e:
+        ok("a keyed multiple-response item validates", False, str(e))
+    for bad_key in (None, [], [0, 0], [9]):
+        bad = bank.Item(**{**m.__dict__, "key": bad_key})
+        try:
+            bank.validate(bank.Bank("X_IPT", "CT", "x", 5, [bad]))
+            ok(f"a multiple-response key {bad_key!r} is refused", False, "accepted")
+        except bank.BankError:
+            ok(f"a multiple-response key {bad_key!r} is refused", True)
+    r_ok = scoring.score_one(m, scoring.Response("P", "P1", "CT", "M1", "2,0", 20.0))
+    r_part = scoring.score_one(m, scoring.Response("P", "P1", "CT", "M1", "0,1", 20.0))
+    ok("the full correct set scores, in any order", r_ok.correct == 1 and r_ok.points == 1)
+    ok("a partly correct set does not, and says what was wrong",
+       r_part.correct == 0 and "zamieňa smer" in r_part.diagnosis and "chýba" in r_part.note,
+       f"{r_part.diagnosis} / {r_part.note}")
+
 
 def test_effort_and_integrity():
     section("effort and integrity: measured, not asserted")
@@ -384,7 +408,7 @@ def test_runner_end_to_end():
     p = subprocess.Popen(
         [sys.executable, str(HERE / "runner.py"), "--bank", "T1_IPT",
          "--session", "P1", "--school", "GY", "--codes", str(cf),
-         "--log", str(log), "--port", str(port)],
+         "--salt", "test-salt", "--log", str(log), "--port", str(port)],
         cwd=HERE, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         started = False
@@ -425,6 +449,11 @@ def test_runner_end_to_end():
         ok("a valid code starts a sitting", st == 200 and "token" in body,
            str(body))
         tok = body["token"]
+        ok("the start asks for consent before the first item",
+           body.get("consent", {}).get("state") == "pending", str(body.get("consent", {}))[:80])
+        st, _ = _post(port, "/api/item", {}, {"X-Sitting": tok})
+        ok("no item is served before the pupil decides", st == 403, str(st))
+        _post(port, "/api/consent", {"choice": "yes"}, {"X-Sitting": tok})
 
         # one code, one sitting -- the error a check digit cannot catch
         st2, body2 = _post(port, "/api/start", {"code": codes[0]})
@@ -465,9 +494,19 @@ def test_runner_end_to_end():
         ok("the finished sitting cannot be restarted",
            _post(port, "/api/start", {"code": codes[0]})[0] == 409)
 
+        text = log.read_text(encoding="utf-8")
+        ok("the log never contains the pupil's code",
+           all(linkage.normalise(c) not in text.replace("-", "") and c not in text
+               for c in codes))
+        import runner
+        ok("it carries the salted pseudonym, the same as the lesson log",
+           all(r["pseudonym"] == runner.pseudonymise("test-salt", codes[0]) for r in ans))
+        ok("every answer carries an ISO timestamp, as the analysis contract requires",
+           all("T" in r.get("timestamp", "") for r in ans))
+
         # and the log feeds the scorer with no translation layer
         banks = bank.load_all()
-        resp = [scoring.Response(r["code"], r["session"], "IPT", r["item_id"],
+        resp = [scoring.Response(r["pseudonym"], r["session"], "IPT", r["item_id"],
                                  r["raw"], r["seconds"], r["jol"])
                 for r in ans]
         sc = scoring.score(resp, banks)
@@ -482,6 +521,268 @@ def test_runner_end_to_end():
             p.kill()
 
 
+def _start_runner(port, args):
+    p = subprocess.Popen([sys.executable, str(HERE / "runner.py"), *args, "--port", str(port)],
+                         cwd=HERE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    for _ in range(80):
+        try:
+            _get(port, "/api/info")
+            return p
+        except Exception:
+            if p.poll() is not None:
+                break
+            time.sleep(0.1)
+    return p
+
+
+def _stop(p):
+    p.terminate()
+    try:
+        p.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        p.kill()
+
+
+def _raw_http(port, requests):
+    """Requests over ONE keep-alive connection, as a browser sends them."""
+    import socket
+    s = socket.create_connection(("127.0.0.1", port))
+    s.settimeout(5)
+    out = []
+    try:
+        for method, path, headers, body in requests:
+            b = body.encode("utf-8")
+            hdr = "".join(f"{k}: {v}\r\n" for k, v in headers.items())
+            s.sendall(f"{method} {path} HTTP/1.1\r\nHost: x\r\n{hdr}"
+                      f"Content-Length: {len(b)}\r\n\r\n".encode() + b)
+            buf = b""
+            while b"\r\n\r\n" not in buf:
+                buf += s.recv(4096)
+            head, rest = buf.split(b"\r\n\r\n", 1)
+            lines = head.decode("latin-1").split("\r\n")
+            n = next((int(l.split(":")[1]) for l in lines
+                      if l.lower().startswith("content-length")), 0)
+            while len(rest) < n:
+                rest += s.recv(4096)
+            out.append(int(lines[0].split()[1]))
+    except (OSError, ValueError, IndexError):
+        out.append(None)
+    finally:
+        s.close()
+    return out
+
+
+def test_runner_as_a_browser_uses_it():
+    section("runner: what a browser and a school day do to it")
+    import tempfile
+    tmp = Path(tempfile.mkdtemp())
+    codes = linkage.issue("GY", 4, seed=21)
+    cf = tmp / "codes.txt"
+    cf.write_text("\n".join(codes), encoding="utf-8")
+    log = tmp / "r.jsonl"
+    args = ["--bank", "T1_IPT", "--session", "P2", "--school", "GY", "--codes", str(cf),
+            "--salt", "s", "--log", str(log)]
+    port = 5893
+    p = _start_runner(port, args)
+    try:
+        _, body = _post(port, "/api/start", {"code": codes[0]})
+        tok = body["token"]
+        _post(port, "/api/consent", {"choice": "yes"}, {"X-Sitting": tok})
+        H = {"Content-Type": "application/json", "X-Sitting": tok}
+        _, it = _post(port, "/api/item", {}, {"X-Sitting": tok})
+        first = it["item"]["id"]
+        # THE defect: /api/item never read its "{}" body, so the browser's next
+        # request on the same connection -- the answer -- came back 501
+        sts = _raw_http(port, [
+            ("POST", "/api/item", H, "{}"),
+            ("POST", "/api/answer", H, json.dumps({"item_id": first, "raw": "1", "jol": 55})),
+            ("POST", "/api/item", H, "{}")])
+        ok("item, answer, item on one keep-alive connection all succeed",
+           sts == [200, 200, 200], str(sts))
+
+        _, it = _post(port, "/api/item", {}, {"X-Sitting": tok})
+        cur = it["item"]
+        st, b = _post(port, "/api/answer", {"item_id": cur["id"], "raw": "1"}, {"X-Sitting": tok})
+        ok("an item with a confidence slider needs the confidence", st == 400, str(b))
+        st, b = _post(port, "/api/answer", {"item_id": cur["id"], "raw": "1", "jol": 150},
+                      {"X-Sitting": tok})
+        ok("a confidence outside 0-100 is refused", st == 400, str(b))
+        st, b = _post(port, "/api/answer", {"item_id": "T1-15", "raw": "x", "jol": 50},
+                      {"X-Sitting": tok})
+        ok("an item that is not on the screen cannot be answered", st == 400, str(b))
+        st, b = _post(port, "/api/answer", {"item_id": cur["id"], "raw": "1", "jol": "abc"},
+                      {"X-Sitting": tok})
+        ok("garbage is a 400 with a message, not a dead connection", st == 400, str(b))
+        _post(port, "/api/answer", {"item_id": cur["id"], "raw": "2", "jol": 40},
+              {"X-Sitting": tok})
+    finally:
+        _stop(p)
+
+    # the laptop running the test crashes; the server is restarted
+    p = _start_runner(port, args)
+    try:
+        st, body = _post(port, "/api/start", {"code": codes[0]})
+        ok("after a restart the pupil continues their own sitting",
+           st == 200 and body.get("resumed") and body.get("answered") == 2, str(body))
+        _, it = _post(port, "/api/item", {}, {"X-Sitting": body["token"]})
+        check_idx = it.get("index")
+        ok("at the item they were on, with their answers kept", check_idx == 3, str(check_idx))
+        rows = [json.loads(L) for L in log.read_text(encoding="utf-8").splitlines()]
+        dup = [r for r in rows if r.get("ev") == "answer"]
+        ok("and no answer is written twice", len({r["item_id"] for r in dup}) == len(dup))
+        st, _ = _post(port, "/api/start", {"code": codes[0]})
+        ok("while they work, the same code is still refused elsewhere", st == 409)
+    finally:
+        _stop(p)
+
+    # the post-lesson questionnaire in condition K: no questions about an assistant
+    for cond, port2 in (("K", 5894), ("G", 5895)):
+        p = _start_runner(port2, ["--bank", "POST_LESSON", "--session", "P1", "--school", "GY",
+                                  "--salt", "s", "--condition", cond,
+                                  "--log", str(tmp / f"q{cond}.jsonl")])
+        try:
+            info = _get(port2, "/api/info")
+            ok(f"condition {cond}: {info['items']} questionnaire items",
+               info["items"] == (17 if cond == "K" else 24), str(info["items"]))
+        finally:
+            _stop(p)
+    res = subprocess.run([sys.executable, str(HERE / "runner.py"), "--bank", "POST_LESSON",
+                          "--session", "P1", "--school", "GY", "--salt", "s", "--port", "5896"],
+                         cwd=HERE, capture_output=True, timeout=20)
+    ok("the questionnaire refuses to start without knowing the condition",
+       res.returncode == 2)
+    res = subprocess.run([sys.executable, str(HERE / "runner.py"), "--bank", "T1_IPT",
+                          "--session", "P1", "--school", "GY", "--port", "5897"],
+                         cwd=HERE, capture_output=True, timeout=20)
+    ok("the runner refuses to start without the school's salt", res.returncode == 2)
+
+
+def test_results_and_calibration():
+    section("results: from the runner's log to the analysis files")
+    import calibration
+    import results
+    import tempfile
+    ok("calibration self-test passes", not calibration.self_test())
+    tmp = Path(tempfile.mkdtemp())
+    banks = bank.load_all()
+    ipt = banks["T1_IPT"]
+    log = tmp / "odpovede_P1_T1_IPT.jsonl"
+    rows = []
+    for k, pupil in enumerate(("a" * 16, "b" * 16, "c" * 16)):
+        for it in ipt.items:
+            if it.format.startswith("mc"):
+                raw = str(it.key) if k < 2 else str((it.key + 1) % len(it.options))
+            else:
+                raw = "polí sa interval na polovicu"
+            rows.append(dict(ev="answer", pseudonym=pupil, session="P1", bank="T1_IPT",
+                             instrument="IPT", item_id=it.id, raw=raw, seconds=20.0 + k,
+                             jol=(90 if it.jol else None), paste_events=0, blur_seconds=0.0,
+                             revisions=0, timestamp="2026-10-07T10:00:00+00:00"))
+    log.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n",
+                   encoding="utf-8")
+    s = results.run([str(log)], tmp / "out")
+    ok("every response is scored or left for the coders",
+       s["responses"] == 36 and s["open_pending"] == 9, str(s))
+    ok("responses.csv is withheld while open items are uncoded", s["finalised"] is None)
+    pupils = list(__import__("csv").DictReader((tmp / "out" / "pupils.csv").open(encoding="utf-8")))
+    by = {r["pseudonym"]: r for r in pupils}
+    ok("a pupil who is always right at 90 % is slightly underconfident",
+       float(by["a" * 16]["calib_bias"]) < 0)
+    ok("a pupil who is always wrong at 90 % is overconfident by 0.9",
+       abs(float(by["c" * 16]["calib_bias"]) - 0.9) < 1e-9)
+    # both coders fill the sheet identically -> the analytic file appears
+    sheet = list(__import__("csv").DictReader((tmp / "out" / "coding.csv").open(encoding="utf-8")))
+    for r in sheet:
+        r["coder_a"] = r["coder_b"] = "1"
+    with (tmp / "coding.csv").open("w", encoding="utf-8", newline="") as f:
+        w = __import__("csv").DictWriter(f, fieldnames=list(sheet[0]))
+        w.writeheader()
+        w.writerows(sheet)
+    s2 = results.run([str(log)], tmp / "out2", codings=str(tmp / "coding.csv"))
+    ok("once both coders agree, responses.csv is written",
+       s2["finalised"] and s2["finalised"]["rows"] == 36, str(s2.get("finalised")))
+    order1 = [r["row_key"] for r in sheet]
+    scoring.export_for_coding(scoring.score(results.to_responses(
+        results.load_answers([str(log)])[0], banks), banks), tmp / "again.csv", banks)
+    order2 = [r["row_key"] for r in __import__("csv").DictReader((tmp / "again.csv").open(encoding="utf-8"))]
+    ok("the coding sheet comes out in the same blinded order every time", order1 == order2)
+
+
+def test_datacheck_for_the_kit():
+    section("data check: what the school runs the same afternoon")
+    import datacheck
+    ok("datacheck self-test passes", not datacheck.self_test())
+    src = (HERE / "datacheck.py").read_text(encoding="utf-8")
+    ok("it needs nothing a school laptop does not have",
+       "import numpy" not in src and "import pandas" not in src)
+
+
+def test_runner_consent():
+    section("runner: consent on screen")
+    import tempfile
+    import datacheck
+    import runner
+    tmp = Path(tempfile.mkdtemp())
+    codes = linkage.issue("GY", 4, seed=33)
+    paper = tmp / "suhlasy-GY.txt"
+    paper.write_text("\n".join(codes[:3]), encoding="utf-8")
+    log = tmp / "odpovede_P3_T1_IPT.jsonl"
+    port = 5898
+    p = _start_runner(port, ["--bank", "T1_IPT", "--session", "P3", "--school", "GY",
+                             "--salt", "s", "--consent-list", str(paper), "--log", str(log)])
+
+    def rows():
+        return ([json.loads(L) for L in log.read_text(encoding="utf-8").splitlines()]
+                if log.exists() else [])
+
+    def answer_two(tok):
+        for _ in range(2):
+            _, it = _post(port, "/api/item", {}, {"X-Sitting": tok})
+            i = it["item"]
+            _post(port, "/api/answer", {"item_id": i["id"], "raw": "1",
+                                        "jol": 50 if i["jol"] else None}, {"X-Sitting": tok})
+
+    try:
+        ok("the consent screen is served to the test page",
+           "Consent" in __import__("urllib.request").request.urlopen(
+               f"http://127.0.0.1:{port}/consent.js", timeout=4).read().decode("utf-8"))
+        pse = [runner.pseudonymise("s", c) for c in codes]
+
+        _, b = _post(port, "/api/start", {"code": codes[0]})
+        _post(port, "/api/consent", {"choice": "no"}, {"X-Sitting": b["token"]})
+        answer_two(b["token"])
+        ok("a pupil who says no takes the test, and nothing of it is written",
+           not [r for r in rows() if r.get("pseudonym") == pse[0]])
+
+        _, b = _post(port, "/api/start", {"code": codes[1]})
+        tok = b["token"]
+        _post(port, "/api/consent", {"choice": "yes"}, {"X-Sitting": tok})
+        answer_two(tok)
+        evs = [r["ev"] for r in rows() if r.get("pseudonym") == pse[1]]
+        ok("a yes is written first, then the sitting", evs[:2] == ["consent", "start"]
+           and evs.count("answer") == 2, str(evs))
+        st, r = _post(port, "/api/consent", {"choice": "no"}, {"X-Sitting": tok})
+        ok("a withdrawal deletes the sitting at once",
+           st == 200 and r.get("purged") is True
+           and [x["ev"] for x in rows() if x.get("pseudonym") == pse[1]] == ["withdraw"], str(r))
+        _post(port, "/api/consent", {"choice": "yes"}, {"X-Sitting": tok})
+        evs = [r["ev"] for r in rows() if r.get("pseudonym") == pse[1]]
+        ok("agreeing again writes the whole sitting, answers given meanwhile included",
+           evs == ["withdraw", "consent", "start", "answer", "answer"], str(evs))
+
+        _, b = _post(port, "/api/start", {"code": codes[3]})
+        ok("a code without a signed paper consent is not asked",
+           b.get("consent", {}).get("state") == "none")
+        st, _ = _post(port, "/api/consent", {"choice": "yes"}, {"X-Sitting": b["token"]})
+        ok("and cannot be recorded by a yes on screen", st == 403, str(st))
+
+        rep = datacheck.Report()
+        datacheck.check_test(log, rep)
+        ok("the data check accepts the log", rep.ok, "; ".join(rep.errors))
+    finally:
+        _stop(p)
+
+
 # ===========================================================================
 TESTS = [
     test_bank_contract,
@@ -494,6 +795,10 @@ TESTS = [
     test_reports_disclose_nothing,
     test_generated_appendix_is_current,
     test_runner_end_to_end,
+    test_runner_as_a_browser_uses_it,
+    test_results_and_calibration,
+    test_datacheck_for_the_kit,
+    test_runner_consent,
 ]
 
 

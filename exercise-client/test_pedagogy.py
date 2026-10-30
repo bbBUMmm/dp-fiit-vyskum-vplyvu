@@ -346,5 +346,86 @@ with tempfile.TemporaryDirectory() as d:
         ok("capture refuses to start without the school's salt", True)
 
 
+# ===================================================== defects found later
+print("regressions: defects found in the production review")
+
+# a mastered skill with a harder variant: once the variant is done, move on
+st = KnowledgeState(["s1", "s2"])
+for _ in range(8):
+    st.update("s2", correct=True)
+d = next_task(TASKS, st, {"T1", "T1s", "T2h"})
+check("a completed harder variant is not served again", (d.task_id, d.action),
+      ("T2", "skip_mastered"))
+done = {"T1", "T1s"}
+seen_ids = []
+for _ in range(6):                       # the server's loop, in miniature
+    d = next_task(TASKS, st, done)
+    if d.task_id is None:
+        break
+    seen_ids.append(d.task_id)
+    done.add(d.task_id)
+check("a mastered pupil reaches the end of the sequence", seen_ids, ["T2h", "T2"])
+
+ok("the gate's advice carries no LaTeX markup",
+   all("~" not in check_self_explanation(t).reason
+       for t in ("", "neviem", "je to tak", "aaa bbb ccc ddd eee fff ggg hhh")))
+ok("the gate recognises content in mathematics",
+   check_self_explanation("Suma rastie rýchlejšie, lebo úrok sa počíta aj z úrokov").accepted)
+ok("and in physics",
+   check_self_explanation("Paralelne má každá žiarovka plné napätie zdroja").accepted)
+
+from pedagogy import (auto_check, overlap, reply_features,         # noqa: E402
+                      load_lesson, SYSTEM_PROMPT)
+import providers                                                   # noqa: E402
+
+m_msgs = build_messages("zložené úrokovanie", task, state, 2, [], "preco",
+                        subject="matematika")
+ok("the system prompt names the subject of the lesson",
+   "učiteľ matematiky" in m_msgs[0]["content"])
+ok("and keeps the rules unchanged",
+   "nenapíšeš úplné riešenie" in m_msgs[0]["content"])
+check("the hint level is clamped to the ladder",
+      "4 z 4" in build_messages(tasks_topic, task, state, 9, [], "x")[0]["content"], True)
+
+for path in ("t1_search.json", "m1_interest.json", "f1_circuits.json"):
+    L = load_lesson(HERE / "tasks" / path)
+    mains = [t for t in L.tasks if t.id not in {x.scaffold_for for x in L.tasks}
+             | {x.harder_variant for x in L.tasks}]
+    ok(f"{path}: loads, eight main tasks, every task has a worked solution",
+       len(mains) == 8 and all(t.solution for t in L.tasks), f"{len(mains)} main")
+
+T1 = {t.id: t for t in load_lesson(HERE / "tasks" / "t1_search.json").tasks}
+check("a mechanical check finds the answer inside the working",
+      auto_check(T1["U4"], "2^11 = 2048 > 2000, takže 11 porovnaní"), True)
+check("and rejects a wrong number", auto_check(T1["U4"], "2^10 = 1024, takže 10"), False)
+check("a sequence must appear in order",
+      auto_check(T1["U1"], "pole [1, 4, 7, 9, 13, 20, 28]: 9, 13, 20"), False)
+check("a task without a check is not judged", auto_check(T1["U8"], "asi 25"), None)
+
+reply = "Binárne vyhľadávanie porovná stredný prvok a zahodí polovicu intervalu."
+ok("a copied answer overlaps the reply almost fully",
+   overlap("Binárne vyhľadávanie porovná stredný prvok a zahodí polovicu intervalu.",
+           [reply]) >= 0.9)
+ok("an answer in the pupil's own words does not",
+   overlap("Pozriem sa do stredu a podľa toho idem doľava alebo doprava, kým to nenájdem.",
+           [reply]) < 0.3)
+check("with no replies there is nothing to have copied", overlap("cokolvek", []), None)
+f = reply_features("Odpoveď je 11. Tu je kód:\n```python\n" + "x = 1\n" * 10 + "```", "11")
+check("reply features name what the reply handed over",
+      (f["finalAnswer"], f["codeBlock"], f["containsReference"], f["question"]),
+      (True, True, True, False))
+
+sysmsg = SYSTEM_PROMPT.format(subject="informatiky", grade="g", topic="t",
+                              task="Pole má 2 prvky a hľadáme 3.", mastery="{}",
+                              hint_level=4)
+check("the stub reads the hint level from its line, not from the task's digits",
+      providers._hint_level_from_system(sysmsg), 4)
+try:
+    providers.get_provider("opnai")
+    ok("a misspelt provider name is refused, not silently replaced by the stub", False)
+except ValueError:
+    ok("a misspelt provider name is refused, not silently replaced by the stub", True)
+
+
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)

@@ -21,8 +21,10 @@ nobody is allowed to install packages on.
 from __future__ import annotations
 
 import hashlib
+import http.client
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -76,6 +78,14 @@ class StubProvider(Provider):
     }
     REFUSAL = ("Hotové riešenie ti nedám. Povedz mi radšej, ktorý krok ti "
                "nesedí, a pôjdeme od neho.")
+    GENERIC = {
+        "informatika": ("Binárne vyhľadávanie funguje tak, že porovná stredný "
+                        "prvok a podľa výsledku zahodí polovicu intervalu."),
+        "matematika": ("Pri zloženom úročení sa úrok každý rok pripočíta k istine, "
+                       "takže K_n = K_0 · (1 + p)^n a suma rastie exponenciálne."),
+        "fyzika": ("Pri paralelnom zapojení je napätie na každej vetve rovnaké a "
+                   "celkový odpor je menší než najmenší z odporov."),
+    }
 
     def complete(self, messages: list[dict], max_tokens: int = 300) -> Reply:
         t0 = time.time()
@@ -89,8 +99,8 @@ class StubProvider(Provider):
 
         if not system:
             # condition G: no pedagogy, so the stub answers as a plain assistant
-            text = ("Binárne vyhľadávanie funguje tak, že porovná stredný prvok "
-                    "a podľa výsledku zahodí polovicu intervalu.")
+            # -- and, like a plain assistant, hands over a finished answer
+            text = self.GENERIC.get(_subject_of(messages), self.GENERIC["informatika"])
         elif _asks_for_solution(user):
             text = self.REFUSAL
         elif n_user <= 1:
@@ -112,11 +122,30 @@ def _asks_for_solution(text: str) -> bool:
                                 "ignoruj", "vyries to", "vyrieš to"))
 
 
+_HINT_LINE = re.compile(r"nápovede pre túto odpoveď:\s*([1-4])\s*z\s*4")
+
+
 def _hint_level_from_system(system: str) -> int:
-    for token in system.split():
-        if token.isdigit() and 1 <= int(token) <= 4:
-            return int(token)
-    return 1
+    # Read from the one line that states it. The first version took the first
+    # standalone digit 1-4 anywhere in the prompt, which includes the task text
+    # ("... hľadáme 2 ...") -- so the stub answered at whatever level the
+    # exercise happened to mention.
+    m = _HINT_LINE.search(system)
+    return int(m.group(1)) if m else 1
+
+
+_SUBJECT_WORDS = {
+    "matematika": ("urok", "úrok", "percent", "istin", "vklad", "exponenc"),
+    "fyzika": ("odpor", "prúd", "prud", "napät", "napat", "žiarov", "ziarov", "obvod"),
+}
+
+
+def _subject_of(messages: list[dict]) -> str:
+    text = " ".join(str(m.get("content", "")) for m in messages).lower()
+    for subject, words in _SUBJECT_WORDS.items():
+        if any(w in text for w in words):
+            return subject
+    return "informatika"
 
 
 # --------------------------------------------------------------------------
@@ -167,17 +196,33 @@ class OpenAIProvider(Provider):
             with urllib.request.urlopen(req, timeout=self.timeout) as r:
                 data = json.loads(r.read().decode("utf-8"))
             text = data["choices"][0]["message"]["content"]
+            if not isinstance(text, str) or not text.strip():
+                # a content filter or a tool-call reply arrives with no text;
+                # an empty bubble would read to the pupil as a broken app
+                return Reply("", self.name, self.model,
+                             int((time.time() - t0) * 1000),
+                             error="provider returned no text")
             return Reply(text, self.name, self.model,
                          int((time.time() - t0) * 1000))
-        except (urllib.error.URLError, KeyError, ValueError, TimeoutError) as e:
+        except (OSError, http.client.HTTPException, KeyError, IndexError,
+                TypeError, ValueError) as e:
+            # OSError covers URLError, a reset connection and a socket timeout;
+            # the first version caught only URLError, so a dropped school Wi-Fi
+            # surfaced as a 500 with no provider_error in the log.
             # A lesson must not stop because an API did. The caller shows a
             # fallback and the incident goes into the fidelity log.
             return Reply("", self.name, self.model,
-                         int((time.time() - t0) * 1000), error=str(e))
+                         int((time.time() - t0) * 1000), error=str(e) or type(e).__name__)
 
 
 # --------------------------------------------------------------------------
+PROVIDERS = {"stub": StubProvider, "echo": EchoProvider, "openai": OpenAIProvider}
+
+
 def get_provider(name: str | None = None) -> Provider:
     name = (name or os.environ.get("STUDY_PROVIDER", "stub")).lower()
-    return {"stub": StubProvider, "echo": EchoProvider,
-            "openai": OpenAIProvider}.get(name, StubProvider)()
+    if name not in PROVIDERS:
+        # It used to fall back to the stub. A typo in STUDY_PROVIDER would then
+        # run a live lesson on canned replies, and nothing would say so.
+        raise ValueError(f"unknown provider {name!r}; use one of {sorted(PROVIDERS)}")
+    return PROVIDERS[name]()

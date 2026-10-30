@@ -1,0 +1,266 @@
+==========================================================================
+INFORMATIKA — Lineárne a binárne vyhľadávanie v poli
+T3 · TEST PO HODINE · píše sa HNEĎ po hodine
+Forma I-T3 · 14 úloh · 26 bodov · približne 30 minút
+==========================================================================
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Skús každú úlohu; aj čiastočná úvaha sa počíta.
+• Časť A: zakrúžkuj JEDNU odpoveď.
+• Časť B: zakrúžkuj VŠETKY správne odpovede (koľko ich je, sa neuvádza).
+• Časť C: odpovedaj vlastnými slovami a píš aj postup.
+• Pri každej úlohe v častiach A a B zakrúžkuj, nakoľko si si istý/á,
+  že je tvoja odpoveď správna.
+• Nepoužívaj mobil, internet, poznámky ani asistenta.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Indexy poľa sa číslujú od 0 (prvý prvok má index 0).
+• „div“ je celočíselné delenie, výsledok sa zaokrúhli nadol: 9 div 2 = 4.
+• Počet porovnaní = počet prvkov poľa, s ktorými sa hľadaná hodnota porovná.
+• Mocniny dvoch: 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256,
+  2⁹=512, 2¹⁰=1 024, 2¹¹=2 048, 2¹²=4 096, 2¹³=8 192, 2¹⁴=16 384.
+
+REFERENČNÝ PSEUDOKÓD — binárne vyhľadávanie x v USPORIADANOM poli A (n prvkov)
+Slovami: porovnaj x s prvkom v strede úseku. Ak sa rovnajú, skonči. Ak je x
+väčšie, pokračuj v pravej polovici úseku, inak v ľavej. Ak úsek zostane
+prázdny, x v poli nie je.
+    lavy ← 0;  pravy ← n − 1
+    kým lavy ≤ pravy:
+        stred ← (lavy + pravy) div 2
+        ak A[stred] = x: vráť stred
+        ak A[stred] < x: lavy ← stred + 1
+        inak: pravy ← stred − 1
+    vráť −1                        (−1 znamená „x v poli nie je“)
+
+
+ČASŤ A — vyber jednu odpoveď (každá úloha 1 bod)
+--------------------------------------------------------------------------
+A1  Ktorá podmienka musí byť splnená, aby binárne vyhľadávanie v poli vždy
+    fungovalo správne?
+      a) pole musí byť usporiadané (napríklad vzostupne)
+      b) pole musí mať párny počet prvkov
+      c) hľadaná hodnota musí byť v poli
+      d) pole nesmie obsahovať rovnaké hodnoty
+      e) pole musí obsahovať len kladné čísla
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Pole má n prvkov a nie je usporiadané. Koľko porovnaní urobí lineárne
+    vyhľadávanie v najhoršom prípade?
+      a) 1        b) log₂ n   c) n/2        d) n          e) n²
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Pole A = [3, 8, 15, 21, 27, 34, 40, 46, 52] (indexy 0 až 8). Hľadáme
+    x = 40 binárnym vyhľadávaním. S ktorým prvkom sa x porovná ako s PRVÝM?
+      a) 3        b) 21       c) 27         d) 34         e) 40
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Binárne vyhľadávanie potrebuje v najhoršom prípade pre pole s n prvkami
+    k porovnaní. Koľko porovnaní potrebuje v najhoršom prípade pre pole
+    s 2n prvkami?
+      a) k        b) k + 1    c) k + 2      d) 2k         e) k²
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Pole A = [2, 6, 11, 17, 24, 30, 35, 41, 49, 56, 60, 68, 75, 83] má 14
+    prvkov. Koľko porovnaní urobí binárne vyhľadávanie pri hľadaní x = 49?
+      a) 1        b) 2        c) 3          d) 4          e) 9
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Pole A = [5, 12, 19, 26, 33, 40, 47], hľadáme x = 30 podľa referenčného
+    pseudokódu. Čo vráti binárne vyhľadávanie a po koľkých porovnaniach?
+      a) vráti 3 (index prvku 26, ktorý je najbližšie menší) po 1 porovnaní
+      b) vráti 4 (miesto, kam by 30 patrilo) po 3 porovnaniach
+      c) vráti −1 po 7 porovnaniach, lebo musí prejsť všetky prvky
+      d) program sa zacyklí, lebo 30 v poli nie je
+      e) vráti −1 po 3 porovnaniach
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — označ všetky správne odpovede (každá úloha 2 body)
+--------------------------------------------------------------------------
+B1  Ktoré tvrdenia o lineárnom a binárnom vyhľadávaní sú pravdivé?
+      a) Lineárne vyhľadávanie funguje aj v neusporiadanom poli.
+      b) Binárne vyhľadávanie je rýchlejšie ako lineárne pre akékoľvek pole,
+         aj neusporiadané.
+      c) Ak je hľadaný prvok na začiatku poľa, lineárne vyhľadávanie ho nájde
+         po jednom porovnaní.
+      d) Binárne vyhľadávanie v usporiadanom poli s 1 000 prvkami potrebuje
+         v najhoršom prípade asi 500 porovnaní.
+      e) Po každom porovnaní binárne vyhľadávanie vylúči približne polovicu
+         zostávajúceho úseku.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Pole A = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121] má 11 prvkov.
+    Hľadáme x = 100 binárnym vyhľadávaním. S ktorými prvkami sa x porovná?
+      a) 25       b) 36       c) 64         d) 81         e) 100
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Žiak napísal binárne vyhľadávanie s jedinou chybou: podmienka cyklu je
+    lavy < pravy namiesto lavy ≤ pravy. Pole A = [10, 20, 30, 40, 50, 60, 70].
+    Pri hľadaní ktorých hodnôt vráti jeho program −1, hoci hodnota v poli JE?
+      a) 20       b) 30       c) 40         d) 60         e) 70
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  V ktorých situáciách sa oplatí pole NAJPRV usporiadať a potom v ňom
+    hľadať binárne?
+      a) V neusporiadanom poli s 1 000 000 prvkov sa bude hľadať jediný raz.
+      b) V neusporiadanom poli s 1 000 000 prvkov sa bude hľadať 10 000-krát.
+      c) V telefónnom zozname s 50 000 menami sa hľadá neustále a zoznam sa
+         mení raz za rok.
+      d) Pole má 5 prvkov a hľadá sa v ňom raz.
+      e) Pole sa po každom hľadaní celé zmení (nové náhodné hodnoty).
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — odpovedz vlastnými slovami (každá úloha 3 body)
+--------------------------------------------------------------------------
+C1  Pole A = [7, 13, 18, 24, 31, 39, 45, 52, 60, 66] (indexy 0–9). Hľadáme
+    x = 18. Pre každý krok binárneho vyhľadávania zapíš lavy, pravy, stred,
+    A[stred] a rozhodnutie. Čo algoritmus vráti?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Koľko porovnaní potrebuje binárne vyhľadávanie v najhoršom prípade v poli
+    s 5 000 prvkami? Zdôvodni, ako si k číslu prišiel/prišla.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Spolužiak tvrdí: „Binárne vyhľadávanie je vždy lepšie ako lineárne, takže
+    lineárne by sme už nemali nikdy používať.“ Posúď toto tvrdenie. Uveď
+    aspoň dve rôzne situácie, v ktorých je lineárne vyhľadávanie vhodnejšie,
+    a pri každej zdôvodni prečo.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Navrhni usporiadané pole s 8 rôznymi číslami a hodnotu x tak, aby binárne
+    vyhľadávanie urobilo čo NAJVIAC porovnaní. Zapíš pole, x a postupnosť
+    porovnávaných prvkov. Vysvetli, prečo pri poli s 8 prvkami nemôže
+    porovnaní byť viac.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+ČASŤ D — o tebe (nezapočítava sa do bodov; neexistujú správne odpovede)
+--------------------------------------------------------------------------
+D1  Koľko si sa dnes na hodine naučil/a?
+      1 nič     2     3     4     5     6     7 veľmi veľa
+D2  Koľko z dnešného učiva si budeš podľa teba pamätať o tri týždne?
+      0 %    25 %    50 %    75 %    100 %
+D3  Koľko z 10 úloh v častiach A a B máš podľa teba správne?   ____ z 10
+D4  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+      1 veľmi, veľmi malé   2 veľmi malé   3 malé   4 skôr malé
+      5 ani malé, ani veľké   6 skôr veľké   7 veľké   8 veľmi veľké
+      9 veľmi, veľmi veľké
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+1. KĽÚČ A ŠPECIFIKÁCIA
+   Zručnosti: S1 usporiadanosť (podmienka), S2 stred a posun hraníc,
+   S3 ukončenie a hraničné prípady, S4 počet krokov a rast, S5 voľba postupu.
+
+   pol.  kľúč    úroveň         zručnosť   dvojča v T1   kotva v T4
+   A1    a       zapamätanie    S1         I-T1 A1       ÁNO → I-T4 A1
+   A2    d       zapamätanie    S4         I-T1 A2       –
+   A3    c       porozumenie    S2         I-T1 A3       ÁNO → I-T4 A3
+   A4    b       porozumenie    S4         I-T1 A4       ÁNO → I-T4 A4
+   A5    c       aplikácia      S2         I-T1 A5       ÁNO → I-T4 A5
+   A6    e       aplikácia      S3         I-T1 A6       –
+   B1    a,c,e   porozumenie    S1, S4     I-T1 B1       –
+   B2    b,d,e   aplikácia      S2         I-T1 B2       ÁNO → I-T4 B2
+   B3    b,e     analýza        S3         I-T1 B3       ÁNO → I-T4 B3
+   B4    b,c     hodnotenie     S5         I-T1 B4       –
+   C1    rubrika aplikácia      S2, S3     I-T1 C1       –
+   C2    rubrika analýza        S4         I-T1 C2       –
+   C3    rubrika hodnotenie     S5         I-T1 C3       –
+   C4    rubrika tvorenie       S3, S4     I-T1 C4       –
+
+   Kotvy (6 položiek) sa v T4 opakujú ZNAK PO ZNAKU a na rovnakej pozícii.
+   Pokrývajú úrovne zapamätanie, porozumenie, aplikácia, analýza.
+   Rozloženie kľúčov v časti A: a 1×, b 1×, c 2×, d 1×, e 1×.
+
+2. ČO PREZRÁDZA NESPRÁVNA VOĽBA
+   A1  b) delenie na polovice si spája s párnym počtom; c) zamieňa podmienku
+       použitia s výsledkom; d) myslí si, že opakované hodnoty postup
+       pokazia; e) nesúvisiaca vlastnosť dát.
+   A2  a) najlepší prípad; b) zamieňa s binárnym vyhľadávaním; c) priemerný
+       prípad; e) kvadratická predstava.
+   A3  a) začína od začiatku (lineárne myslenie); b) chyba o jedna nadol
+       (index 3); d) chyba o jedna nahor (zaokrúhľuje 8/2 inak / n div 2 + 1);
+       e) myslí si, že postup „skočí“ rovno na x.
+   A4  a) počet krokov nezávisí od n; c) dve polovice = dva kroky navyše;
+       d) LINEÁRNA EXTRAPOLÁCIA — ústredná mylná predstava témy;
+       e) kvadratická predstava.
+   A5  a) zásah hneď v strede; b) nezapočíta posledné (úspešné) porovnanie;
+       d) započíta porovnanie navyše; e) počíta lineárne (index 8 → 9).
+   A6  a) vráti najbližší menší prvok; b) vráti miesto vloženia; c) myslí si,
+       že „nenájdené“ vyžaduje prejsť celé pole; d) nevie, kedy postup
+       končí (prázdny úsek).
+   B1  b) ignoruje podmienku usporiadanosti; d) lineárna predstava o počte
+       krokov (1 000 / 2).
+   B2  a) chyba o jedna pri prvom strede (index 4 namiesto 5);
+       c) chyba o jedna pri druhom strede (index 7 namiesto 8).
+   B3  správne sú 30 a 70: pri nich zostane jednoprvkový úsek, ktorý chybný
+       cyklus už nepreskúma (overené simuláciou; zlyhávajú aj 10 a 50,
+       ktoré medzi možnosťami nie sú). a), c), d) — pri nich program
+       funguje; ich označenie znamená, že žiak nesimuloval.
+   B4  a), d) nevidí, že zoradenie stojí viac než jedno hľadanie;
+       e) nevidí, že zoradenie sa po zmene stratí.
+
+3. BODOVANIE ČASTI B
+   2 b. — všetkých päť možností posúdených správne; 1 b. — jedna chyba
+   (jedna správna chýba ALEBO jedna nesprávna navyše); 0 b. — dve a viac
+   chýb. Pre dichotomický model: správne = 2 b.
+
+4. RUBRIKY ČASTI C (každé kritérium 1 bod)
+   C1  K1 správne hodnoty stred: 4, potom 1, potom 2
+       K2 správne rozhodnutia: 31 > 18 → pravy = 3; 13 < 18 → lavy = 2;
+          A[2] = 18 → nájdené
+       K3 správny výsledok: vráti 2 (po 3 porovnaniach)
+       Ukážka 3 b.: „(0, 9, 4, 31) → pravy 3; (0, 3, 1, 13) → lavy 2;
+                    (2, 3, 2, 18) → vráti 2.“
+       Ukážka 1 b.: prvý krok správne, ďalej chyba o jedna pri strede.
+       Dôsledné indexovanie od 1 sa uznáva, ak sú porovnávané prvky tie isté
+       (31, 13, 18) a výsledok je 3.
+   C2  K1 myšlienka: každé porovnanie rozpolí zostávajúci úsek
+       K2 súvis s mocninami 2: 2¹² = 4 096 ≤ 5 000 < 8 192 = 2¹³
+       K3 správny výsledok 13 so zdôvodnením
+       Ukážka 3 b.: „Po každom porovnaní zostane najviac polovica úseku.
+                    Po 12 porovnaniach môže zostať ešte 5 000 / 2¹² > 1
+                    prvok, lebo 2¹² = 4 096 < 5 000, takže v najhoršom
+                    prípade treba 13 porovnaní (⌊log₂ 5 000⌋ + 1 = 13).“
+       Odpoveď 12 so správnou úvahou o polovení (chýba posledné porovnanie):
+       2 b. Odpoveď 2 500: 0 b.
+   C3  K1 jasný postoj: tvrdenie v tejto všeobecnosti neplatí
+       K2 prvá správna situácia so zdôvodnením
+       K3 druhá, odlišná správna situácia so zdôvodnením
+       Uznávané: neusporiadané pole a málo hľadaní (zoradenie by stálo
+       viac); veľmi krátke pole; hľadaný prvok je pravdepodobne na začiatku;
+       dáta sa stále menia; štruktúra bez priameho prístupu k stredu
+       (spájaný zoznam, páska). Situácia bez zdôvodnenia: 0 b.
+   C4  K1 platné usporiadané pole s 8 rôznymi číslami a x so 4 porovnaniami
+          (overiť simuláciou)
+       K2 správna postupnosť porovnávaných prvkov
+       K3 vysvetlenie: úsek sa najmenej rozpolí (8 → 4 → 2 → 1), preto
+          najviac ⌊log₂ 8⌋ + 1 = 4 porovnania
+       Ukážka 3 b.: [1, 2, 3, 4, 5, 6, 7, 8], x = 8 → porovná 4, 6, 7, 8.
+       Iné správne: x = 9 (4, 6, 7, 8 → −1).
+
+5. SÚHRN
+   Body: A 6 + B 8 + C 12 = 26. Čas: približne 30 minút.
+   Body podľa úrovne: zapamätanie 2, porozumenie 4, aplikácia 7, analýza 5,
+   hodnotenie 5, tvorenie 3.
+   H3: D1 (pocit naučenia) a D2 (predpoveď zapamätania) sa porovnajú
+   s výsledkom v T4.

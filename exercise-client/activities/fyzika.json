@@ -1,0 +1,96 @@
+{
+  "pack": "fyzika",
+  "title": "Fyzika — jednosmerný prúd: sériové a paralelné zapojenie",
+  "subject": "fyzika",
+  "note": "Návrh. Žiarovky sa modelujú ako rovnaké rezistory (jas ~ výkon). Testová banka pre fyziku zatiaľ neexistuje.",
+  "activities": [
+    {
+      "id": "FYZ-LAB",
+      "type": "handson",
+      "phase": "vyklad",
+      "title": "Laboratórium: séria verzus paralel",
+      "intro": "Pridávaj žiarovky a „vyskrutkuj“ niektorú kliknutím. Porovnaj jas a celkový prúd v oboch zapojeniach.",
+      "widget": "circuit",
+      "params": {"mode": "compare", "bulbs": 2, "voltage": 12, "resistance": 6},
+      "ask": "Čo ťa v laboratóriu prekvapilo? Napíš jednou vetou."
+    },
+    {
+      "id": "FYZ-ANIM-CURRENT",
+      "type": "animation",
+      "phase": "vyklad",
+      "title": "Prúd sa nespotrebúva",
+      "intro": "Prejdi snímky a sleduj, čo ukazujú ampérmetre.",
+      "widget": "frames",
+      "params": {
+        "interval": 3200,
+        "frames": [
+          {
+            "title": "Jedna žiarovka",
+            "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 150'><path d='M40 70 V30 H280 V120 H40 V84' fill='none' stroke='currentColor' stroke-width='3'/><line x1='26' y1='70' x2='54' y2='70' stroke='currentColor' stroke-width='3'/><line x1='33' y1='84' x2='47' y2='84' stroke='currentColor' stroke-width='3'/><circle cx='160' cy='30' r='16' fill='#fde68a' stroke='currentColor' stroke-width='2'/><circle cx='95' cy='30' r='13' fill='#e0f2f7' stroke='#0e7490' stroke-width='2'/><text x='95' y='35' text-anchor='middle' font-size='13' font-weight='700' fill='#0e7490'>A</text><circle cx='225' cy='30' r='13' fill='#e0f2f7' stroke='#0e7490' stroke-width='2'/><text x='225' y='35' text-anchor='middle' font-size='13' font-weight='700' fill='#0e7490'>A</text><text x='95' y='64' text-anchor='middle' font-size='14' font-weight='700' fill='currentColor'>0,5 A</text><text x='225' y='64' text-anchor='middle' font-size='14' font-weight='700' fill='currentColor'>0,5 A</text></svg>",
+            "text": "Ampérmeter pred žiarovkou aj za ňou ukazuje 0,5 A. Žiarovka prúd „nespotrebuje“ — mení elektrickú energiu na svetlo a teplo."
+          },
+          {
+            "title": "Dve žiarovky v sérii",
+            "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 150'><path d='M40 70 V30 H280 V120 H40 V84' fill='none' stroke='currentColor' stroke-width='3'/><line x1='26' y1='70' x2='54' y2='70' stroke='currentColor' stroke-width='3'/><line x1='33' y1='84' x2='47' y2='84' stroke='currentColor' stroke-width='3'/><circle cx='130' cy='30' r='16' fill='#fef3c7' stroke='currentColor' stroke-width='2'/><circle cx='210' cy='30' r='16' fill='#fef3c7' stroke='currentColor' stroke-width='2'/><circle cx='80' cy='30' r='12' fill='#e0f2f7' stroke='#0e7490' stroke-width='2'/><text x='80' y='35' text-anchor='middle' font-size='12' font-weight='700' fill='#0e7490'>A</text><circle cx='170' cy='30' r='12' fill='#e0f2f7' stroke='#0e7490' stroke-width='2'/><text x='170' y='35' text-anchor='middle' font-size='12' font-weight='700' fill='#0e7490'>A</text><circle cx='255' cy='30' r='12' fill='#e0f2f7' stroke='#0e7490' stroke-width='2'/><text x='255' y='35' text-anchor='middle' font-size='12' font-weight='700' fill='#0e7490'>A</text><text x='80' y='62' text-anchor='middle' font-size='13' font-weight='700' fill='currentColor'>0,25 A</text><text x='170' y='62' text-anchor='middle' font-size='13' font-weight='700' fill='currentColor'>0,25 A</text><text x='255' y='62' text-anchor='middle' font-size='13' font-weight='700' fill='currentColor'>0,25 A</text></svg>",
+            "text": "V sérii je pre prúd jediná cesta: všetky tri ampérmetre ukazujú ten istý prúd. Odpor sa sčíta, takže prúd je menší a žiarovky svietia slabšie."
+          },
+          {
+            "title": "Dve žiarovky paralelne",
+            "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 150'><path d='M40 70 V30 H280 M40 84 V120 H280 M160 30 V58 M160 92 V120 M240 30 V58 M240 92 V120' fill='none' stroke='currentColor' stroke-width='3'/><line x1='26' y1='70' x2='54' y2='70' stroke='currentColor' stroke-width='3'/><line x1='33' y1='84' x2='47' y2='84' stroke='currentColor' stroke-width='3'/><circle cx='160' cy='75' r='16' fill='#fde68a' stroke='currentColor' stroke-width='2'/><circle cx='240' cy='75' r='16' fill='#fde68a' stroke='currentColor' stroke-width='2'/><circle cx='95' cy='30' r='12' fill='#e0f2f7' stroke='#0e7490' stroke-width='2'/><text x='95' y='35' text-anchor='middle' font-size='12' font-weight='700' fill='#0e7490'>A</text><text x='95' y='58' text-anchor='middle' font-size='13' font-weight='700' fill='currentColor'>1 A</text><text x='186' y='112' font-size='13' font-weight='700' fill='currentColor'>0,5 A</text><text x='262' y='112' font-size='13' font-weight='700' fill='currentColor'>0,5 A</text></svg>",
+            "text": "V uzle sa prúd rozdelí a za vetvami sa znova spojí: 1 A = 0,5 A + 0,5 A. Každá vetva má plné napätie zdroja, takže žiarovky svietia naplno."
+          }
+        ]
+      }
+    },
+    {
+      "id": "FYZ-PRED-PARALLEL",
+      "type": "predict",
+      "phase": "vyklad",
+      "title": "Štvrtá vetva",
+      "question": "Tri rovnaké žiarovky svietia paralelne. Pripojíš štvrtú, tiež paralelne. Čo sa stane s celkovým prúdom zo zdroja?",
+      "input": {"kind": "choice", "options": ["zmenší sa", "nezmení sa", "zväčší sa", "klesne na nulu"]},
+      "answer": 2,
+      "confidence": true,
+      "widget": "circuit",
+      "params": {"mode": "parallel", "bulbs": 3, "voltage": 12, "resistance": 6},
+      "explain": "Každá vetva má celé napätie zdroja, takže každá ďalšia vetva pridá svoj prúd I = U / R. Celkový odpor paralelného zapojenia klesá a celkový prúd rastie."
+    },
+    {
+      "id": "FYZ-POLL-SERIES",
+      "type": "poll",
+      "phase": "vyklad",
+      "title": "Jas v sérii",
+      "question": "Dve rovnaké žiarovky sú v sérii pripojené na 12 V. Aký výkon (jas) má každá z nich v porovnaní s jednou žiarovkou pripojenou priamo na 12 V?",
+      "options": ["rovnaký", "polovičný", "štvrtinový", "dvojnásobný"],
+      "key": 2,
+      "confidence": true,
+      "explain": "Odpor sa zdvojnásobí, takže prúd je polovičný. Výkon P = I²·R je potom štvrtinový."
+    },
+    {
+      "id": "FYZ-PRED-REQ",
+      "type": "predict",
+      "phase": "zhrnutie",
+      "title": "Náhradný odpor",
+      "question": "Tri rezistory po 6 Ω sú zapojené paralelne. Aký je ich náhradný odpor?",
+      "input": {"kind": "number", "tolerance": 0.05, "unit": "Ω"},
+      "answer": 2,
+      "confidence": true,
+      "widget": "circuit",
+      "params": {"mode": "parallel", "bulbs": 3, "voltage": 12, "resistance": 6},
+      "explain": "1/R = 1/6 + 1/6 + 1/6 = 1/2, teda R = 2 Ω. Paralelný náhradný odpor je menší než najmenší z odporov."
+    },
+    {
+      "id": "FYZ-ORDER-BRIGHT",
+      "type": "order",
+      "phase": "zhrnutie",
+      "title": "Zoraď podľa jasu",
+      "question": "Všetky žiarovky sú rovnaké. Zoraď ich od NAJJASNEJŠEJ po NAJSLABŠIU.",
+      "items": [
+        "každá z dvoch žiaroviek zapojených paralelne na 18 V",
+        "jedna žiarovka sama na 12 V",
+        "každá z dvoch žiaroviek zapojených v sérii na 12 V",
+        "každá z troch žiaroviek zapojených v sérii na 12 V"
+      ]
+    }
+  ]
+}

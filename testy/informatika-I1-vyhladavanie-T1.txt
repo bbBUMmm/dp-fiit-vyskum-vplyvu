@@ -1,0 +1,438 @@
+==========================================================================
+INFORMATIKA · I1 Vyhľadávanie v poli: lineárne a binárne
+T1 · VSTUPNÝ TEST · píše sa pred hodinou
+==========================================================================
+Forma:      I1-T1
+Predmet:    informatika
+Téma:       I1 · Vyhľadávanie v poli: lineárne a binárne
+Test:       T1 · vstupný test pred hodinou („nulové vedomosti“)
+Dvojča:     I1-T3
+Dotazník:   D1 (pred testom časť Q, po teste časť Z)
+Rozsah:     22 úloh · 50 bodov · približne 40 minút + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Téma sa ešte len bude preberať, takže je úplne
+  v poriadku, ak veľa vecí nevieš. Zaujíma nás, ako o nich uvažuješ.
+• Skús každú úlohu; aj čiastočná úvaha sa počíta. Ak úlohu nevieš, napíš
+  „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+• Nepoužívaj mobil, internet, poznámky, počítač ani asistenta.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Pole je očíslovaný rad hodnôt; indexy sa číslujú od 0 (prvý prvok má
+  index 0).
+• „div“ je celočíselné delenie, výsledok sa zaokrúhli nadol: 9 div 2 = 4.
+• Počet porovnaní = počet prvkov poľa, s ktorými sa hľadaná hodnota porovná.
+• Mocniny dvoch: 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256,
+  2⁹=512, 2¹⁰=1 024, 2¹¹=2 048, 2¹²=4 096, 2¹³=8 192, 2¹⁴=16 384,
+  2¹⁷ = 131 072.
+• Referenčný postup -- „hľadanie polením“ hodnoty x v USPORIADANOM poli A
+  s n prvkami. Slovami: porovnaj x s prvkom v strede úseku. Ak sa rovnajú,
+  skonči. Ak je x väčšie, pokračuj v pravej polovici úseku, inak v ľavej.
+  Ak úsek zostane prázdny, x v poli nie je.
+        lavy ← 0;  pravy ← n − 1
+        kým lavy ≤ pravy:
+            stred ← (lavy + pravy) div 2
+            ak A[stred] = x: vráť stred
+            ak A[stred] < x: lavy ← stred + 1
+            inak: pravy ← stred − 1
+        vráť −1                  (−1 znamená „x v poli nie je“)
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vysvetliť, kedy sa dá použiť
+    binárne vyhľadávanie a kedy nie?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš krok po kroku odsimulovať binárne
+    vyhľadávanie na konkrétnom poli?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš určiť, koľko porovnaní potrebuje
+    binárne vyhľadávanie v najhoršom prípade pre pole s daným počtom
+    prvkov?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš nájsť chybu v programe, ktorý
+    binárne vyhľadávanie implementuje nesprávne?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš rozhodnúť, či je v danej situácii
+    lepšie lineárne alebo binárne vyhľadávanie?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Slovník chceme prehľadávať tak, že ho otvoríme v strede a podľa toho, či
+    je hľadané slovo v abecede skôr alebo neskôr, pokračujeme už len v jednej
+    polovici. Čo musí platiť o slovách v slovníku, aby tento postup
+    fungoval?
+      a) slová musia byť zoradené podľa abecedy
+      b) slov musí byť párny počet
+      c) hľadané slovo musí byť v slovníku
+      d) žiadne slovo sa nesmie opakovať
+      e) slová musia byť krátke
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré tvrdenia o hľadaní mena v zozname sú pravdivé?
+      a) Meno v neusporiadanom zozname nájdeš aj tak, že budeš čítať mená
+         jedno po druhom.
+      b) Otvárať zoznam v strede je rýchlejšie ako čítať po jednom, aj keď
+         zoznam nie je zoradený.
+      c) Ak je hľadané meno v zozname prvé, čítanie po jednom ho nájde po
+         jednom kroku.
+      d) Pri hľadaní v zoradenom zozname 1 000 mien „otváraním v strede“
+         treba v najhoršom prípade asi 500 krokov.
+      e) Keď otvoríš zoradený zoznam v strede a porovnáš meno, vylúčiš asi
+         polovicu zostávajúcich mien.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Pole A = [5, 9, 12, 18, 25, 31, 37, 44, 50, 58, 63] má 11 prvkov
+    (indexy 0 až 10). Hľadáme x = 12 referenčným postupom. S ktorým prvkom
+    sa x porovná ako s PRVÝM?
+      a) 12          b) 25          c) 31          d) 37          e) 63
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Hra „Hádaj číslo“: niekto si myslí celé číslo, ty tipuješ a po každom tipe
+    sa dozvieš len „viac“, „menej“ alebo „uhádol si“. Ak je číslo od 1 do
+    100, pri najlepšej stratégii ti vždy stačí najviac 7 tipov. Ktoré
+    tvrdenia sú pravdivé?
+      a) Ak je číslo od 1 do 200, pri najlepšej stratégii vždy stačí najviac
+         8 tipov.
+      b) Ak je číslo od 1 do 200, treba až 14 tipov.
+      c) Ak by si tipoval/a čísla postupne 1, 2, 3, …, pri čísle od 1 do 100
+         by si potreboval/a najviac 100 tipov.
+      d) Ak je číslo od 1 do 1 000 000, treba najviac 7 000 tipov.
+      e) Ak je číslo od 1 do 50, vždy stačia najviac 3 tipy.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Pole A = [4, 10, 13, 19, 22, 28, 33, 39, 45, 52, 57, 64, 70] má 13
+    prvkov. Koľko porovnaní urobí referenčný postup pri hľadaní x = 39?
+      a) 1           b) 2           c) 3           d) 4           e) 8
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Pole A = [3, 9, 14, 20, 27, 31, 38, 44, 50], hľadáme x = 24 referenčným
+    postupom. Čo postup vráti a po koľkých porovnaniach?
+      a) vráti 3 (index prvku 20, ktorý je najbližšie menší) po 1 porovnaní
+      b) vráti 4 (miesto, kam by 24 patrilo) po 4 porovnaniach
+      c) vráti −1 po 9 porovnaniach, lebo musí prejsť všetky prvky
+      d) postup sa nikdy neskončí, lebo 24 v poli nie je
+      e) vráti −1 po 4 porovnaniach
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Pole A = [2, 5, 11, 15, 22, 29, 37, 42, 48, 55, 61] má 11 prvkov.
+    Hľadáme x = 55 referenčným postupom. S ktorými prvkami sa x porovná?
+      a) 22          b) 29          c) 42          d) 48          e) 55
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Žiak v referenčnom postupe zmenil jediný riadok: namiesto
+    „pravy ← stred − 1“ napísal „pravy ← stred“. Ktoré tvrdenia o jeho
+    postupe sú pravdivé?
+      a) Postup funguje rovnako ako pôvodný, len je pomalší.
+      b) Pre niektoré hodnoty x sa postup zacyklí (nikdy neskončí).
+      c) Postup vráti pre niektoré x nesprávny index, ale vždy skončí.
+      d) Postup nájde každý prvok, ktorý v poli je, ale pre chýbajúce
+         hodnoty vráti 0.
+      e) Zmena nemá žiadny vplyv, lebo stred sa vždy zaokrúhli nadol.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Žiak použil referenčný postup s jedinou zmenou: cyklus pokračuje, len
+    kým lavy < pravy (namiesto lavy ≤ pravy). Pole A = [8, 16, 24, 32, 40].
+    Pri hľadaní ktorých hodnôt vráti jeho postup −1, hoci hodnota v poli JE?
+      a) 8           b) 16          c) 24          d) 32          e) 40
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Školská knižnica má zoznam 8 000 kníh, ktorý nie je zoradený. Počas
+    roka sa v ňom hľadá asi 5 000-krát a zoznam sa mení len raz za rok.
+    Ktoré tvrdenia sú pravdivé?
+      a) Najlepšie je stále hľadať po jednom od začiatku, lebo zoraďovanie
+         je zbytočná práca navyše.
+      b) Treba zoznam zoradiť pred každým jednotlivým hľadaním a potom hľadať
+         „otváraním v strede“.
+      c) „Otváranie v strede“ sa dá použiť aj bez zoradenia, len je menej
+         presné.
+      d) Najlepšie je zoznam raz zoradiť a potom v ňom hľadať „otváraním
+         v strede“; zoradenie sa oplatí, lebo sa hľadá veľa ráz.
+      e) Pri 8 000 knihách na tom, ktorý postup sa zvolí, nezáleží.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo alebo slovo do políčka. Postup nemusíš písať.
+Pri úlohách s viacerými políčkami dostaneš 1 bod, ak je chybné len jedno
+políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Doplň.
+    Hľadanie „otváraním v strede“ funguje len vtedy, keď je zoznam
+    (1) __________. Po každom kroku zostane na prehľadanie približne
+    (2) __________ zoznamu.
+    Odpoveď:   (1) ____________________     (2) ____________________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Pole A = [5, 11, 16, 24, 29, 35, 42, 48, 53, 61, 70] má 11 prvkov.
+    Hľadáme x = 16 referenčným postupom.
+    Odpoveď:   počet porovnaní = ______        vrátená hodnota = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Koľko porovnaní potrebuje referenčný postup v najhoršom prípade
+    v usporiadanom poli s daným počtom prvkov?
+    Odpoveď:   50 prvkov: ______          100 000 prvkov: ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Hľadanie po jednom od začiatku v poli s 25 prvkami.
+    Odpoveď:   najlepší prípad = ______ porovnaní
+               najhorší prípad, keď x v poli je = ______ porovnaní
+               ak x v poli nie je = ______ porovnaní
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Pole A = [3, 8, 14, 21, 27, 33, 40, 46, 52, 59] má 10 prvkov. Hľadáme
+    x = 30 referenčným postupom.
+    Odpoveď:   lavy po skončení cyklu = ______
+               pravy po skončení cyklu = ______
+               počet porovnaní = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Odpoveď:   najväčší počet prvkov poľa, pri ktorom referenčný postup
+               VŽDY skončí najviac po 4 porovnaniach = ______
+               najmenší počet prvkov, pri ktorom môže potrebovať
+               5 porovnaní = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Pole A = [6, 11, 17, 23, 29, 34, 41, 47, 53, 58] (indexy 0–9). Hľadáme
+    x = 53 referenčným postupom. Pre každý krok zapíš hodnoty lavy, pravy,
+    stred, A[stred] a čo postup urobí. Čo postup na konci vráti?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  „Hádaj číslo“ s číslom od 1 do 3 000. Koľko tipov ti pri najlepšej
+    stratégii vždy stačí? Opíš stratégiu a zdôvodni, prečo práve toľko.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Pole A = [3, 7, 7, 7, 7, 7, 10, 14, 20] obsahuje opakujúcu sa hodnotu.
+    Referenčný postup hľadá x = 7. Ktorý index vráti? Vráti vždy posledný
+    výskyt hľadanej hodnoty? Navrhni úpravu postupu, ktorá vráti index
+    POSLEDNÉHO výskytu a zostane rovnako rýchla.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Kamarát tvrdí: „Pri hľadaní v akomkoľvek zozname je najlepšie vždy ho
+    otvoriť v strede.“ Súhlasíš? Uveď aspoň dve rôzne situácie, kedy je
+    lepšie čítať zoznam od začiatku po jednom, a pri každej vysvetli prečo.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Dve firmy ponúkajú hľadanie v zoradenej databáze 10 000 000 záznamov.
+    Firma A: „Náš program číta záznamy po jednom, ale na počítači, ktorý je
+    1 000-krát rýchlejší.“ Firma B: „Náš program hľadá polením (referenčným
+    postupom) na bežnom počítači.“ Ktorá ponuka je lepšia? Posúď ich
+    porovnaním počtu porovnaní v najhoršom prípade a uveď, kedy by mohla
+    byť lepšia firma A.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Navrhni usporiadané pole so 6 rôznymi číslami a hodnotu x tak, aby
+    referenčný postup urobil čo NAJVIAC porovnaní. Zapíš pole, x a prvky,
+    s ktorými sa x porovná. Vysvetli, prečo pri poli so 6 prvkami nemôže
+    porovnaní byť viac.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  usporiadanosť poľa ako podmienka binárneho vyhľadávania
+  S2  stred úseku a posun hraníc (simulácia krokov)
+  S3  ukončenie, hraničné prípady a chyby v implementácii
+  S4  počet krokov a jeho rast (lineárny verzus logaritmický)
+  S5  voľba postupu podľa situácie (veľkosť dát, počet hľadaní, zmeny)
+
+ČO T1 MERIA
+  Vedomosti a INTUÍCIE pred výučbou. Viaceré položky sú zadané cez bežné
+  situácie (slovník, hádanie čísla, zoznam mien), aby ich žiak vedel riešiť
+  aj bez znalosti termínov. Kľúčová prekoncepcia: lineárna extrapolácia
+  počtu krokov.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+(všetky výsledky položiek s poľami overené simuláciou referenčného postupu)
+
+A1  Kľúč: a
+    Úroveň: zapamätanie · Zručnosť: S1 · Dvojča: I1-T3 A1
+    b) delenie na polovice si spája s párnym počtom
+    c) zamieňa podmienku použitia s výsledkom hľadania
+    d) myslí si, že opakovanie postup pokazí
+    e) nesúvisiaca vlastnosť dát
+
+A2  Kľúč: a, c, e
+    Úroveň: porozumenie · Zručnosť: S1, S4 · Dvojča: I1-T3 A2
+    b) ignoruje podmienku zoradenia
+    d) LINEÁRNA predstava o počte krokov
+
+A3  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S2 · Dvojča: I1-T3 A3
+    Simulácia: stred = (0 + 10) div 2 = 5, A[5] = 31.
+    a) myslí si, že postup „vie“, kde je x
+    b) chyba o jedna nadol (index 4)
+    d) chyba o jedna nahor (index 6)
+    e) začína od konca
+
+A4  Kľúč: a, c
+    Úroveň: porozumenie · Zručnosť: S4 · Dvojča: I1-T3 A4
+    Výpočet: 200 → 8 (2⁸ − 1 = 255); 10⁶ → 20; 50 → 6.
+    b) LINEÁRNA EXTRAPOLÁCIA (dvojnásobok čísel = dvojnásobok tipov)
+    d) LINEÁRNA EXTRAPOLÁCIA
+    e) polovica čísel = polovica tipov
+
+A5  Kľúč: c
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: I1-T3 A5
+    Simulácia: porovná s 33, 52, 39.
+    a) zásah hneď v strede
+    b) nezapočíta posledné (úspešné) porovnanie
+    d) započíta porovnanie navyše
+    e) počíta lineárne (index 7 → 8 porovnaní)
+
+A6  Kľúč: e
+    Úroveň: aplikácia · Zručnosť: S3 · Dvojča: I1-T3 A6
+    Simulácia: porovná s 27, 9, 14, 20; potom lavy = 4 > pravy = 3.
+    a) vráti najbližší menší prvok
+    b) vráti miesto vloženia
+    c) „nenájdené“ podľa žiaka vyžaduje prejsť celé pole
+    d) nevie, kedy postup končí
+
+A7  Kľúč: b, d, e
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: I1-T3 A7
+    Simulácia: stred 5 (29), stred 8 (48), stred 9 (55).
+    a) chyba o jedna pri prvom strede
+    c) chyba o jedna pri druhom strede
+
+A8  Kľúč: b
+    Úroveň: analýza · Zručnosť: S3 · Dvojča: I1-T3 A8
+    Simulácia: ak lavy = pravy = 0 a A[0] > x, stred = 0 a pravy zostane 0
+    -- cyklus sa opakuje donekonečna (napr. x menšie ako všetky prvky).
+    a) nesimuloval
+    c) uvedomuje si chybu, ale nie jej druh
+    d) vymyslený dôsledok
+    e) zaokrúhlenie nadol práve spôsobuje, že sa hranica nepohne
+
+A9  Kľúč: b, e
+    Úroveň: analýza · Zručnosť: S3 · Dvojča: I1-T3 A9
+    Simulácia: chybný cyklus zlyhá pre 16 a 40.
+    a) pri 8 program funguje; žiak nesimuloval
+    c) pri 24 program funguje (nájde ho hneď v strede)
+    d) pri 32 program funguje
+
+A10  Kľúč: d
+    Úroveň: hodnotenie · Zručnosť: S5 · Dvojča: I1-T3 A10
+    a) nevidí, že pri mnohých hľadaniach sa zoradenie vráti
+    b) zoradenie pred každým hľadaním je drahšie ako hľadanie po jednom
+    c) zamieňa predpoklad (zoradenie) s presnosťou
+    e) nevidí rast počtu operácií
+
+B1  Kľúč: (1) = "usporiadaný" | "zoradený" | "utriedený" | "usporiadane" | "zoradene" | "zoradený podľa abecedy" | "usporiadaný podľa abecedy" | "zoradeny"; (2) = "1/2" | "polovicu" | "polovica" | "polovinu" | "0,5" | "0.5" | "pol"
+    Úroveň: porozumenie · Zručnosť: S1, S4 · Dvojča: I1-T3 B1
+
+B2  Kľúč: počet porovnaní = 2; vrátená hodnota = 2
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: I1-T3 B2
+    Simulácia: stred 5 (35), stred 2 (16).
+    Typická chyba: vráti 16 (hodnotu namiesto indexu).
+
+B3  Kľúč: 50 prvkov = 6; 100 000 prvkov = 17
+    Úroveň: aplikácia · Zručnosť: S4 · Dvojča: I1-T3 B3
+
+B4  Kľúč: najlepší prípad = 1 porovnaní; najhorší prípad, keď x v poli je = 25 porovnaní; ak x v poli nie je = 25 porovnaní
+    Úroveň: aplikácia · Zručnosť: S4 · Dvojča: I1-T3 B4
+
+B5  Kľúč: lavy po skončení cyklu = 5; pravy po skončení cyklu = 4; počet porovnaní = 3
+    Úroveň: analýza · Zručnosť: S2, S3 · Dvojča: I1-T3 B5
+    Simulácia: stred 4 (27 < 30, lavy = 5), stred 7 (46 > 30, pravy = 6),
+    stred 5 (33 > 30, pravy = 4); lavy > pravy, koniec.
+
+B6  Kľúč: najväčší počet prvkov poľa, pri ktorom referenčný postup VŽDY skončí najviac po 4 porovnaniach = 15; najmenší počet prvkov, pri ktorom môže potrebovať 5 porovnaní = 16
+    Úroveň: analýza · Zručnosť: S4 · Dvojča: I1-T3 B6
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S2, S3 · Dvojča: I1-T3 C1
+    K1  1. krok: lavy 0, pravy 9, stred 4, A[4] = 29 < 53, lavy ← 5
+    K2  2. krok: lavy 5, pravy 9, stred 7, A[7] = 47 < 53, lavy ← 8;
+        3. krok: lavy 8, pravy 9, stred 8, A[8] = 53
+    K3  vráti 8 (index, nie hodnotu)
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S4 · Dvojča: I1-T3 C2
+    K1  výsledok 12 tipov
+    K2  zdôvodnenie: 2¹¹ = 2 048 < 3 000 ≤ 2¹² − 1 = 4 095 (alebo postupné
+        delenie na polovice)
+    K3  stratégia: tipovať stred zostávajúceho intervalu (najprv 1 500),
+        každý tip vylúči polovicu
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S2, S3 · Dvojča: I1-T3 C3
+    K1  postup vráti 4 (hneď prvé porovnanie, stred = 4)
+    K2  vysvetlenie: vráti výskyt, na ktorý narazí ako prvý; posledný
+        výskyt je na indexe 5
+    K3  úprava: pri zhode si index zapamätaj a pokračuj VPRAVO
+        (lavy ← stred + 1); na konci vráť zapamätaný index
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S5 · Dvojča: I1-T3 C4
+    K1  tvrdenie odmietne (nie „vždy“) -- otváranie v strede vyžaduje
+        zoradený zoznam
+    K2  prvá situácia so zdôvodnením (neusporiadaný zoznam a hľadá sa raz;
+        veľmi krátky zoznam)
+    K3  druhá, odlišná situácia so zdôvodnením (zoznam sa stále mení; dá sa
+        čítať len postupne; hľadajú sa všetky výskyty)
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S4, S5 · Dvojča: I1-T3 C5
+    K1  najhorší prípad: po jednom 10 000 000 porovnaní, polením 24
+    K2  aj 1 000-krát rýchlejší počítač zodpovedá 10 000 porovnaniam
+        bežného počítača, čo je oveľa viac ako 24; lepšia je firma B
+    K3  firma A môže byť lepšia, ak dáta nie sú zoradené a hľadá sa raz,
+        alebo pri veľmi malom počte záznamov
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S3, S4 · Dvojča: I1-T3 C6
+    K1  platné pole a x, pri ktorých postup urobí 3 porovnania (napr.
+        [1, 2, 3, 4, 5, 6] a x = 6: porovná s 3, 5, 6)
+    K2  správne zapísaná postupnosť porovnávaných prvkov
+    K3  vysvetlenie: 6 → 3 → 1 (najviac polovica po každom porovnaní),
+        takže viac ako 3 porovnania nie sú možné
+
+SÚHRN
+  Body: A 10 × 2 = 20, B 6 × 2 = 12, C 6 × 3 = 18, spolu 50.
+  Položky s viacerými správnymi odpoveďami: A2, A4, A7, A9 (žiakovi sa
+  neoznačujú). Kľúče položiek s jednou správnou: a, c, c, e, b, d.

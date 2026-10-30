@@ -606,6 +606,7 @@ def main() -> None:
                           ("capture layer", "Capture"),
                           ("PEQI analysis (Java)", "Java"),
                           ("pedagogy", "Pedagogy"),
+                          ("interaction features", "Features"),
                           ("exercise client e2e", "Client"),
                           ("assessment layer", "Assessment")):
             if key in t["suites"]:

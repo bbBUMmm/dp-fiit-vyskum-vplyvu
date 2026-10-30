@@ -1,0 +1,588 @@
+==========================================================================
+MATEMATIKA · M3 Pravdepodobnosť a podmienená pravdepodobnosť
+T4 · ODLOŽENÝ TEST · tri týždne po hodine, bez ohlásenia termínu
+==========================================================================
+Forma:      M3-T4
+Predmet:    matematika
+Téma:       M3 · Pravdepodobnosť a podmienená pravdepodobnosť
+Test:       T4 · odložený test po troch týždňoch
+Kotvy:      M3-T3 (A1, A3, A4, A5, A6, A9 sú znak po znaku rovnaké)
+Dotazník:   D4 (pred testom časť Q, po teste časť Z)
+Rozsah:     32 úloh · 72 bodov · približne 65 minút (dve vyučovacie hodiny
+            s prestávkou po časti B) + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Skús každú úlohu; aj čiastočná úvaha sa počíta.
+• Test má dve polovice: časti P, A, B a po prestávke časti C, D.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku môžeš
+  použiť (vedeckú, nie v mobile).
+• Ak úlohu nevieš, napíš „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Kocky, mince a žrebovanie sú spravodlivé: každý výsledok jedného hodu
+  alebo ťahu je rovnako pravdepodobný. Hody sú navzájom nezávislé.
+• P(A) je pravdepodobnosť udalosti A, A' je doplnková udalosť (A nenastane),
+  A ∩ B: nastanú obe, A ∪ B: nastane aspoň jedna, P(A | B): pravdepodobnosť
+  A, ak vieme, že nastala B.
+• Pravdepodobnosť môžeš zapísať zlomkom alebo desatinným číslom.
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vypočítať pravdepodobnosť
+    jednoduchej udalosti (kocka, karty, žrebovanie)?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš vypočítať pravdepodobnosť, že
+    nastanú dve nezávislé udalosti naraz?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš z tabuľky početností vypočítať
+    podmienenú pravdepodobnosť?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš vysvetliť rozdiel medzi P(A | B)
+    a P(B | A)?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš odhaliť chybnú úvahu
+    o pravdepodobnosti (napríklad pri hazardnej hre alebo pri teste)?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ktorý vzťah vyjadruje podmienenú pravdepodobnosť udalosti A, ak
+    nastala udalosť B (P(B) > 0)?
+      a) P(A | B) = P(A ∩ B) / P(B)
+      b) P(A | B) = P(A ∩ B) / P(A)
+      c) P(A | B) = P(A) · P(B)
+      d) P(A | B) = P(B | A)
+      e) P(A | B) = P(A) / P(B)
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré z týchto pravdepodobností sú určené správne?
+      a) dve hlavy pri dvoch hodoch mincou: 1/4
+      b) súčet 2 pri hode dvoma kockami: 1/11
+      c) šestka pri hode jednou kockou: 1/6
+      d) súčet 7 pri hode dvoma kockami: 1/6
+      e) aspoň jedna šestka pri dvoch hodoch kockou: 1/3
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Ktoré tvrdenia o udalostiach sú pravdivé?
+      a) Ak sú A a B nezávislé, platí P(A ∩ B) = P(A) · P(B).
+      b) Ak sa A a B navzájom vylučujú (nemôžu nastať naraz), platí
+         P(A ∪ B) = P(A) + P(B).
+      c) Pre každé dve udalosti platí P(A ∪ B) = P(A) + P(B).
+      d) Pre doplnkovú udalosť platí P(A') = 1 − P(A).
+      e) Nezávislé udalosti sa vždy navzájom vylučujú.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  V triede je 12 dievčat a 18 chlapcov. Náhodne vyberieme jedného žiaka.
+    Aká je pravdepodobnosť, že to bude dievča?
+      a) 1/12        b) 2/5         c) 1/2         d) 3/5         e) 2/3
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Dvakrát hodíme mincou. Aká je pravdepodobnosť, že padne aspoň raz
+    hlava?
+      a) 1/4         b) 1/3         c) 1/2         d) 2/3         e) 3/4
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  V škole sa 200 žiakov opýtali, či chodia na krúžok robotiky.
+
+                    krúžok áno   krúžok nie   spolu
+        dievčatá        20           80        100
+        chlapci         40           60        100
+        spolu           60          140        200
+
+    Náhodne vyberieme jedného z týchto žiakov. Ktoré údaje sú správne?
+      a) P(chodí na krúžok) = 0,3
+      b) P(chodí na krúžok | je dievča) = 0,2
+      c) P(je dievča | chodí na krúžok) = 0,2
+      d) P(je chlapec a chodí na krúžok) = 0,2
+      e) P(je chlapec | chodí na krúžok) = 0,4
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  PIN na zámku má tri číslice (každá od 0 do 9, môžu sa opakovať).
+    Zlodej skúsi jeden náhodný PIN. Aká je pravdepodobnosť, že trafí?
+      a) 1/1000      b) 1/720       c) 1/100       d) 1/30        e) 1/10
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  V triede je 30 žiakov. Pravdepodobnosť, že aspoň dvaja z nich majú
+    narodeniny v ten istý deň, je približne 0,71 (rok má 365 dní a všetky
+    dni sú rovnako pravdepodobné). Ktoré tvrdenia sú pravdivé?
+      a) Pravdepodobnosť, že všetci majú narodeniny v rôzne dni, je
+         približne 0,29.
+      b) Táto pravdepodobnosť sa dá vypočítať ako 30/365.
+      c) S rastúcim počtom žiakov v triede táto pravdepodobnosť rastie.
+      d) Pravdepodobnosť je taká vysoká, lebo niektoré dni sú
+         pravdepodobnejšie ako iné.
+      e) Pravdepodobnosť, že niekto z ostatných 29 žiakov má narodeniny
+         presne v ten istý deň ako ja, je tiež približne 0,71.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Chorobou trpí 1 zo 100 ľudí. Test odhalí chorého v 90 % prípadov,
+    u zdravého však omylom ukáže pozitívny výsledok v 10 % prípadov.
+    Náhodne vybraný človek dostal pozitívny výsledok. Aká je približne
+    pravdepodobnosť, že je naozaj chorý?
+      a) Asi 90 %, lebo test odhalí 90 % chorých.
+      b) Asi 50 %, lebo buď je chorý, alebo nie je.
+      c) Asi 8 %, lebo pozitívnych zdravých je oveľa viac ako pozitívnych
+         chorých.
+      d) Asi 10 %, lebo test sa mýli v 10 % prípadov.
+      e) Asi 1 %, lebo to je podiel chorých medzi všetkými ľuďmi.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Najmenej koľkokrát treba hodiť kockou, aby pravdepodobnosť, že padne
+    aspoň jedna šestka, bola väčšia ako 1/2?
+      a) 3           b) 4           c) 6           d) 12
+      e) nikdy nebude väčšia ako 1/2
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A11  Meteorológ predpovedal „70 % šancu na dážď“ a v ten deň nepršalo. Ktoré
+    hodnotenia jeho predpovede sú správne?
+      a) Predpoveď bola chybná, lebo nepršalo.
+      b) Z jedného dňa sa to posúdiť nedá; predpovede sú dobré, ak v dňoch
+         so „70 %“ prší približne v 70 % prípadov.
+      c) Pri predpovedi 70 % musí pršať vždy.
+      d) „70 %“ znamenalo, že bude pršať 70 % dňa.
+      e) Predpoveď sa dá posúdiť len vtedy, keď sa splní.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A12  Poistenie mobilu stojí 5 € mesačne. Pravdepodobnosť, že majiteľ mobil
+    za rok rozbije, je 0,1 a oprava stojí 200 €. Ktoré úvahy sú správne?
+      a) Priemerná ročná strata bez poistenia je 0,1 · 200 = 20 €.
+      b) Poistenie stojí ročne 60 €, teda v priemere viac, ako je
+         očakávaná strata.
+      c) Poistenie sa oplatí vždy, lebo pravdepodobnosť rozbitia nie je
+         nulová.
+      d) Poistenie môže mať zmysel pre toho, kto by si opravu za 200 €
+         nemohol dovoliť, hoci v priemere stojí viac.
+      e) Ak majiteľ mobil dva roky nerozbil, v treťom roku je rozbitie
+         pravdepodobnejšie.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka (zlomok alebo desatinné číslo).
+Postup nemusíš písať. Pri úlohách s viacerými políčkami dostaneš 1 bod,
+ak je chybné len jedno políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Udalosť A má pravdepodobnosť 0,15. Udalosť B má pravdepodobnosť 0,4
+    a s udalosťou A sa navzájom vylučujú.
+    Odpoveď:   P(A') = ________        P(A ∪ B) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Písmená slova MATEMATIKA sú na desiatich kartičkách. Ťaháme jednu
+    kartičku.
+    Odpoveď:   P(písmeno A) = ________     P(písmeno M alebo T) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Prístroj má dve nezávislé batérie; každá zlyhá s pravdepodobnosťou 0,05.
+    Odpoveď:   P(zlyhajú obe) = ________
+               P(aspoň jedna funguje) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Rodina má tri deti. Pri každom dieťati je pravdepodobnosť dievčaťa aj
+    chlapca 1/2, nezávisle od ostatných.
+    Odpoveď:   P(práve dve dievčatá) = ________
+               P(aspoň jeden chlapec) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  V prieskume odpovedalo 500 ľudí: 300 má rado čaj, 250 kávu a 100 oboje.
+    Náhodne vyberieme jedného z nich.
+    Odpoveď:   P(má rado kávu | má rado čaj) = ________
+               P(nemá rado ani čaj, ani kávu) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Spam tvorí 10 % e-mailov. Filter označí 98 % spamu a omylom aj 2 %
+    bežných e-mailov.
+    Odpoveď:   P(e-mail je označený) = ________
+               P(je spam | je označený) = ________ (na tri desatinné miesta)
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B7  Hádžeme kockou.
+    Odpoveď:   P(šestka padne prvýkrát práve v 2. hode) = ________
+               P(v prvých troch hodoch nepadne ani jedna šestka) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B8  Na stieracom žrebe vyhráš s pravdepodobnosťou 0,15. Kúpiš tri žreby
+    (výsledky sú nezávislé).
+    Odpoveď:   P(ani jedna výhra) = ________ (na tri desatinné miesta)
+               P(aspoň jedna výhra) = ________ (na tri desatinné miesta)
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Lukostrelec zasiahne terč s pravdepodobnosťou 0,6. Strieľa tri šípy,
+    výsledky sú nezávislé. Vypočítaj pravdepodobnosť, že zasiahne práve
+    dvakrát, a pravdepodobnosť, že zasiahne aspoň dvakrát. Zapíš postup.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Hádžeme dvoma kockami. Vypočítaj P(súčet je 8) a P(súčet je 8 | na
+    prvej kocke padla päťka). Rozhodni, či sú udalosti „súčet je 8“
+    a „na prvej kocke padla päťka“ nezávislé, a zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  V meste skúmali 1 000 ľudí: 300 fajčí. Chronický kašeľ má 60 fajčiarov
+    a 70 nefajčiarov. Vypočítaj P(kašeľ | fajčiar), P(kašeľ | nefajčiar)
+    a P(fajčiar | kašeľ). Čo z týchto čísel vyplýva a čo nie?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Hráč tvrdí: „Keď hodím kockou šesťkrát, šestka padne určite aspoň raz,
+    lebo 6 · 1/6 = 1.“ Posúď jeho tvrdenie výpočtom a vysvetli, v čom je
+    chyba jeho úvahy.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Na súde zaznie: „Krvný profil zhodný s profilom zo stopy má len jeden
+    človek z 10 000. Obžalovaný ho má. Preto je vinný s pravdepodobnosťou
+    99,99 %.“ Mesto, v ktorom sa čin stal, má 500 000 obyvateľov. Posúď
+    tento argument a vysvetli, akú chybu obsahuje.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Navrhni spravodlivú hru pre dvoch hráčov, v ktorej sa naraz hodí jednou
+    mincou a jednou kockou: každý hráč musí mať rovnakú pravdepodobnosť
+    výhry a remíza nesmie byť možná. Spravodlivosť over výpočtom a navrhni,
+    ako by si ju overil/a pokusom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+ČASŤ D — Práca s textom (spolu 14 bodov)
+--------------------------------------------------------------------------
+Prečítaj si text. Úlohy D1 – D6 sa ho týkajú; k textu sa môžeš kedykoľvek
+vrátiť. Pri D1 a D2 označ všetky správne odpovede (ako v časti A), pri D3
+a D4 doplň krátku odpoveď, pri D5 a D6 odpovedaj vlastnými slovami.
+
+TEXT: Penalta: kam strieľať a kam skákať
+| Pri penalte má strelec na rozhodnutie chvíľku a brankár ešte menej:
+| lopta letí do bránky asi 0,4 sekundy, a tak brankár skáče skôr, ako
+| vidí, kam lopta pôjde. Analytici preto sledujú, ako často strelci
+| strieľajú do jednotlivých strán a ako často brankári hádajú správne.
+|
+| V jednej lige zaznamenali 600 penált, pri ktorých lopta išla na bránku.
+| Strelec mohol strieľať vľavo, do stredu alebo vpravo (z pohľadu
+| brankára); brankár mohol skočiť vľavo, zostať v strede alebo skočiť
+| vpravo. Ak brankár skočil (alebo zostal) tam, kam išla lopta, chytil ju
+| v 60 % prípadov. Ak bol inde, lopta skončila v bránke.
+|
+|                       brankár vľavo   v strede   vpravo   spolu
+|   strela vľavo             120           10        110      240
+|   strela do stredu          40           20         40      100
+|   strela vpravo            110           10        140      260
+|   spolu                    270           40        290      600
+|
+| Brankári teda zostávajú v strede zriedka, hoci strela do stredu nie je
+| výnimočná. Psychológovia to vysvetľujú tým, že brankár, ktorý zostane
+| stáť a lopta prejde vedľa neho, vyzerá horšie ako brankár, ktorý skočil
+| na nesprávnu stranu -- hoci výsledok je v oboch prípadoch rovnaký.
+
+D1  Čo znamená číslo 110 v prvom riadku tabuľky?
+      a) Toľkokrát strelec strieľal vľavo a brankár skočil vpravo.
+      b) Toľkokrát brankár chytil strelu, ktorá išla vľavo.
+      c) Toľko gólov padlo zo strán.
+      d) Toľkokrát strelec strieľal vpravo a brankár skočil vľavo.
+      e) Toľko penált skončilo mimo bránky.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D2  Ktoré tvrdenia vyplývajú z tabuľky?
+      a) P(strela vľavo) = 0,4
+      b) P(brankár skočí vľavo | strela vľavo) = 0,5
+      c) P(strela vľavo | brankár skočí vľavo) = 0,5
+      d) Brankár zostal v strede v menej ako 7 % penált.
+      e) Strelci strieľali do stredu v menej ako 10 % penált.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D3  Využi tabuľku a údaj o 60 %.
+    Odpoveď:   počet penált, pri ktorých bol brankár tam, kam išla lopta =
+               ________
+               počet chytených penált = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D4  Odpoveď:   P(gól | strela do stredu) = ________
+               P(gól | strela vpravo) = ________ (na tri desatinné miesta)
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D5  Tréner radí strelcovi: „Nikdy nestrieľaj do stredu, tam brankár stojí.“
+    Posúď túto radu na základe údajov z textu. Uveď aj to, čo z údajov
+    vyvodiť nemožno.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+D6  Psychológovia tvrdia, že brankári zostávajú v strede menej často, ako
+    by bolo pre nich výhodné. Navrhni, ako by si toto tvrdenie overil/a:
+    aké údaje by si zbieral/a, ktoré pravdepodobnosti by si porovnal/a
+    a aký výsledok by tvrdenie podporil.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  klasická pravdepodobnosť: priaznivé a všetky rovnako možné výsledky
+  S2  doplnková udalosť a zjednotenie (P(A ∪ B) = P(A) + P(B) − P(A ∩ B))
+  S3  nezávislé udalosti, pravidlo súčinu, stromový diagram
+  S4  podmienená pravdepodobnosť, tabuľka početností
+  S5  zámena P(A | B) a P(B | A); základná početnosť (base rate)
+  S6  posúdenie úvah o náhode (hazardná hra, intuícia, rozhodnutie)
+
+ČO T4 MERIA
+  Trvalé osvojenie (kotvy A1, A3, A4, A5, A6, A9 sú totožné s T3) a prenos
+  do nových situácií: PIN, narodeniny, kalibrácia predpovede, očakávaná
+  strata, súdny argument, šport. Časť D je súvislý text s tabuľkou.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+
+A1  Kľúč: a
+    Úroveň: zapamätanie · Zručnosť: S4 · Dvojča: M3-T3 A1 · Kotva: K1
+    b) delí pravdepodobnosťou nesprávnej udalosti
+    c) zamieňa s pravidlom súčinu pre nezávislé udalosti
+    d) ZÁMENA P(A | B) a P(B | A)
+    e) nesprávna štruktúra vzorca
+
+A2  Kľúč: a, c, d
+    Úroveň: porozumenie · Zručnosť: S1, S2
+    b) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI 11 súčtov (správne 1/36)
+    e) sčíta pravdepodobnosti, ktoré sa prekrývajú (správne 11/36)
+
+A3  Kľúč: a, b, d
+    Úroveň: porozumenie · Zručnosť: S2, S3 · Dvojča: M3-T3 A3 · Kotva: K2
+    c) zabúda odčítať prienik
+    e) zamieňa nezávislosť s neslučiteľnosťou
+
+A4  Kľúč: b
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M3-T3 A4 · Kotva: K3
+    Výpočet: 12 / 30 = 2/5.
+    a) nesprávny menovateľ (počet dievčat)
+    c) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI: dve možnosti = 1/2
+    d) chlapci
+    e) pomer dievčat a chlapcov (12 : 18)
+
+A5  Kľúč: e
+    Úroveň: aplikácia · Zručnosť: S1, S2, S3 · Dvojča: M3-T3 A5 · Kotva: K4
+    Výpočet: 1 − (1/2)² = 3/4.
+    a) obe hlavy
+    b) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI výsledkov 0, 1, 2 hlavy
+    c) uvažuje len jeden hod
+    d) „aspoň raz“ = 1 alebo 2 hlavy z troch „rovnako možných“ výsledkov
+
+A6  Kľúč: a, b, d
+    Úroveň: aplikácia · Zručnosť: S4, S5 · Dvojča: M3-T3 A6 · Kotva: K5
+    Výpočet: 60/200; 20/100; 20/60 = 1/3; 40/200; 40/60 = 2/3.
+    c) ZÁMENA P(A | B) a P(B | A)
+    e) delí nesprávnym celkom (40/100)
+
+A7  Kľúč: a
+    Úroveň: aplikácia · Zručnosť: S1, S3
+    Výpočet: 10³ = 1 000 rovnako možných PIN-ov.
+    b) predpokladá rôzne číslice (10 · 9 · 8)
+    c) uvažuje len dve číslice
+    d) sčíta možnosti namiesto násobenia (10 + 10 + 10)
+    e) uvažuje len jednu číslicu
+
+A8  Kľúč: a, c
+    Úroveň: analýza · Zručnosť: S2, S3
+    b) delí počet žiakov počtom dní -- nevidí, že rozhoduje počet dvojíc
+    d) zadanie predpokladá rovnako pravdepodobné dni
+    e) zamieňa „zhoda niekoho s niekým“ so „zhodou so mnou“
+       (1 − (364/365)²⁹ ≈ 0,08)
+
+A9  Kľúč: c
+    Úroveň: analýza · Zručnosť: S5 · Dvojča: M3-T3 A9 · Kotva: K6
+    Výpočet: z 1 000 ľudí je 10 chorých (9 pozitívnych) a 990 zdravých
+    (99 pozitívnych); 9 / 108 ≈ 8 %.
+    a) ZÁMENA P(pozitívny | chorý) a P(chorý | pozitívny)
+    b) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI
+    d) zamieňa chybovosť testu s odpoveďou
+    e) PREHLIADNE VÝSLEDOK TESTU, berie len základnú početnosť
+
+A10  Kľúč: b
+    Úroveň: analýza · Zručnosť: S2, S3
+    Výpočet: 1 − (5/6)³ ≈ 0,42; 1 − (5/6)⁴ ≈ 0,52.
+    a) LINEÁRNE sčítanie: 3 · 1/6 = 1/2
+    c) 6 · 1/6 = 1, „istota“
+    d) nesprávny odhad
+    e) nevie, že doplnok (5/6)ⁿ klesá k nule
+
+A11  Kľúč: b
+    Úroveň: hodnotenie · Zručnosť: S6
+    a) jednorazový výsledok pokladá za posúdenie pravdepodobnosti
+    c) zamieňa pravdepodobnosť s istotou
+    d) zamieňa pravdepodobnosť s časťou dňa
+    e) pravdepodobnostnú predpoveď pokladá za áno/nie predpoveď
+
+A12  Kľúč: a, b, d
+    Úroveň: hodnotenie · Zručnosť: S6, S3
+    c) zamieňa nenulovú pravdepodobnosť s výhodnosťou
+    e) KLAM HRÁČA
+
+B1  Kľúč: P(A') = 0,85; P(A ∪ B) = 0,55
+    Úroveň: porozumenie · Zručnosť: S2
+
+B2  Kľúč: P(písmeno A) = 0,3; P(písmeno M alebo T) = 0,4
+    Úroveň: aplikácia · Zručnosť: S1, S2
+    Výpočet: M-A-T-E-M-A-T-I-K-A: A 3×, M 2×, T 2×.
+
+B3  Kľúč: P(zlyhajú obe) = 0,0025; P(aspoň jedna funguje) = 0,9975
+    Úroveň: aplikácia · Zručnosť: S3, S2
+    Typická chyba: 0,1 (sčíta pravdepodobnosti zlyhania).
+
+B4  Kľúč: P(práve dve dievčatá) = 3/8 ± 0,001; P(aspoň jeden chlapec) = 7/8 ± 0,001
+    Úroveň: aplikácia · Zručnosť: S3, S2
+    Typická chyba: 1/4 (PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI 0 až 3 dievčat).
+
+B5  Kľúč: P(má rado kávu | má rado čaj) = 1/3 ± 0,001; P(nemá rado ani čaj, ani kávu) = 0,1
+    Úroveň: analýza · Zručnosť: S4, S2
+    Výpočet: 100/300; 500 − (300 + 250 − 100) = 50.
+    Typická chyba: 0,4 (zámena podmienky: 100/250).
+
+B6  Kľúč: P(e-mail je označený) = 0,116; P(je spam | je označený) = 0,845 ± 0,001
+    Úroveň: analýza · Zručnosť: S5, S4
+    Výpočet: 0,1 · 0,98 + 0,9 · 0,02 = 0,098 + 0,018; 0,098 / 0,116.
+    Typická chyba: 0,98 (zámena podmienenej pravdepodobnosti).
+
+B7  Kľúč: P(šestka padne prvýkrát práve v 2. hode) = 5/36 ± 0,001; P(v prvých troch hodoch nepadne ani jedna šestka) = 125/216 ± 0,001
+    Úroveň: analýza · Zručnosť: S3
+    Výpočet: 5/6 · 1/6; (5/6)³ ≈ 0,579.
+
+B8  Kľúč: P(ani jedna výhra) = 0,614 ± 0,001; P(aspoň jedna výhra) = 0,386 ± 0,001
+    Úroveň: aplikácia · Zručnosť: S3, S2
+    Výpočet: 0,85³ ≈ 0,614.
+    Typická chyba: 0,45 (sčíta pravdepodobnosti výhry).
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S3
+    K1  tri spôsoby práve dvoch zásahov, každý 0,6 · 0,6 · 0,4 = 0,144
+    K2  P(práve 2) = 3 · 0,144 = 0,432
+    K3  P(aspoň 2) = 0,432 + 0,6³ = 0,432 + 0,216 = 0,648
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S4, S3
+    K1  P(súčet 8) = 5/36 (dvojice (2,6), (3,5), (4,4), (5,3), (6,2))
+    K2  P(súčet 8 | prvá 5) = 1/6 (druhá musí byť 3)
+    K3  záver: 1/6 = 6/36 ≠ 5/36, udalosti sú (mierne) závislé
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S4, S5
+    K1  P(kašeľ | fajčiar) = 60/300 = 0,2; P(kašeľ | nefajčiar) = 70/700 =
+        0,1
+    K2  P(fajčiar | kašeľ) = 60/130 ≈ 0,46
+    K3  interpretácia: fajčiari majú kašeľ dvakrát častejšie, a predsa
+        väčšina ľudí s kašľom nefajčí (nefajčiarov je viac); P(K | F)
+        a P(F | K) sú rôzne čísla. Z čísel nevyplýva príčina (len súvis).
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S2, S3, S6
+    K1  tvrdenie je nesprávne
+    K2  P(aspoň jedna šestka) = 1 − (5/6)⁶ ≈ 0,665
+    K3  chyba: pravdepodobnosti sa sčítajú len pri udalostiach, ktoré sa
+        vylučujú; „šestka v 1. hode“ a „šestka v 2. hode“ môžu nastať
+        naraz. Číslo 1 je priemerný POČET šestiek, nie pravdepodobnosť.
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S5, S6
+    K1  identifikuje zámenu P(zhoda | nevinný) = 1/10 000 s P(nevinný |
+        zhoda)
+    K2  ilustrácia: v meste má zhodný profil asi 500 000 / 10 000 = 50
+        ľudí; bez ďalších dôkazov je P(vinný | zhoda) asi 1/50
+    K3  záver: samotná zhoda je slabý dôkaz, rozhodujú ďalšie dôkazy
+        (tzv. prokurátorov klam)
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S1, S3
+    K1  pravidlo bez remízy s pravdepodobnosťou výhry 1/2 pre každého,
+        napr. hráč 1 vyhrá pri (hlava a párne) alebo (znak a nepárne)
+    K2  overenie: 12 rovnako možných dvojíc, 6 pre každého hráča (alebo
+        výpočet 1/2 · 1/2 + 1/2 · 1/2)
+    K3  pokus: veľa hier, relatívna početnosť výhier sa blíži k 1/2;
+        zdôvodnenie, prečo málo hier nestačí
+
+D1  Kľúč: a
+    Úroveň: porozumenie · Zručnosť: S4
+    b) zamieňa počet penált s počtom chytených
+    c) zamieňa s gólmi
+    d) zamieňa riadky a stĺpce tabuľky
+    e) text hovorí, že penalty mimo bránky v tabuľke nie sú
+
+D2  Kľúč: a, b, d
+    Úroveň: analýza · Zručnosť: S4, S5
+    Výpočet: 240/600; 120/240; 120/270 ≈ 0,44; 40/600 ≈ 6,7 %;
+    100/600 ≈ 16,7 %.
+    c) ZÁMENA P(A | B) a P(B | A)
+    e) nesprávne čítanie tabuľky
+
+D3  Kľúč: počet penált, pri ktorých bol brankár tam, kam išla lopta = 280; počet chytených penált = 168
+    Úroveň: aplikácia · Zručnosť: S4
+    Výpočet: 120 + 20 + 140 = 280; 0,6 · 280 = 168.
+
+D4  Kľúč: P(gól | strela do stredu) = 0,88; P(gól | strela vpravo) = 0,677 ± 0,001
+    Úroveň: analýza · Zručnosť: S4, S2
+    Výpočet: 1 − 0,6 · 20/100 = 0,88; 1 − 0,6 · 140/260 ≈ 0,677.
+    Typická chyba: 0,8 (zabudne, že brankár chytí len 60 % striel na
+    správnej strane).
+
+D5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S4, S6
+    K1  brankár zostáva v strede len v 40 zo 600 penált (asi 6,7 %)
+    K2  P(gól | strela do stredu) = 0,88 je VYŠŠIA ako pri strele vľavo
+        (0,70) aj vpravo (≈ 0,68) -- rada je v rozpore s údajmi
+    K3  čo vyvodiť nemožno: keby strieľali do stredu všetci, brankári by sa
+        prispôsobili; údaje sú z jednej ligy a opisujú súčasné správanie
+    Ukážka 1 b.: „Rada je zlá, lebo brankár v strede skoro nestojí.“
+    (bez porovnania pravdepodobností gólu)
+
+D6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S4, S6
+    K1  údaje: smer strely, pohyb brankára a výsledok každej penalty
+        (dostatočne veľa penált, viac líg alebo sezón)
+    K2  porovnanie pravdepodobností: napr. P(chytí | zostal v strede)
+        s P(chytí | skočil), alebo očakávaná úspešnosť brankára pri
+        rôznych podieloch zostania v strede
+    K3  rozhodovacie pravidlo: tvrdenie podporí, ak by brankár s častejším
+        zostávaním v strede chytil viac penált; poznámka o obmedzeniach
+        (strelci sa prispôsobia, malá vzorka)
+
+SÚHRN
+  Body: A 12 × 2 = 24, B 8 × 2 = 16, C 6 × 3 = 18, D 2 + 2 + 2 + 2 + 3 + 3
+  = 14, spolu 72. Čas: približne 65 minút, dve hodiny s prestávkou po B.
+  Položky s viacerými správnymi odpoveďami: A2, A3, A6, A8, A12 a D2.
+  Kotvy (totožné s T3): A1, A3, A4, A5, A6, A9.
+  Testlet D sa v analýze berie ako jedna polytómna položka (0–14 b.).

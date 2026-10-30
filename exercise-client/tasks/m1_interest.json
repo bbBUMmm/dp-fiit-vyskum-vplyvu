@@ -1,0 +1,125 @@
+{
+  "topic": "zložené úrokovanie a exponenciálny rast",
+  "lesson_id": "M1",
+  "subject": "matematika",
+  "grade": "druhého alebo tretieho ročníka",
+  "status": "NÁVRH — úlohy podľa drafts/temy-troch-predmetov.md; pred pilotom overiť s učiteľom matematiky",
+  "skills": [
+    "rocny_vypocet",
+    "vzorec",
+    "jednoduche_vs_zlozene",
+    "linearizacia",
+    "zdvojnasobenie",
+    "rozhodnutie"
+  ],
+  "skill_labels": {
+    "rocny_vypocet": "výpočet rok po roku",
+    "vzorec": "použitie vzorca K = K₀ · (1 + p)ⁿ",
+    "jednoduche_vs_zlozene": "porovnanie jednoduchého a zloženého úročenia",
+    "linearizacia": "odhalenie lineárnej chyby",
+    "zdvojnasobenie": "doba zdvojnásobenia, pravidlo 72",
+    "rozhodnutie": "výber výhodnejšej možnosti"
+  },
+  "tasks": [
+    {
+      "id": "M1",
+      "skill": "rocny_vypocet",
+      "level": "apply",
+      "prompt": "Vložíš 800 € na 3 roky pri 5 % ročne so zloženým úročením. Vypočítaj sumu na konci každého roka.",
+      "answer": "840 €, 882 €, 926,10 €",
+      "check": {"type": "sequence", "value": [840, 882, 926.1], "tolerance": 0.06},
+      "solution": "1. rok: 800 · 1,05 = 840 €\n2. rok: 840 · 1,05 = 882 €\n3. rok: 882 · 1,05 = 926,10 €",
+      "scaffold_for": "M1s"
+    },
+    {
+      "id": "M1s",
+      "skill": "rocny_vypocet",
+      "level": "understand",
+      "prompt": "Koľko je 5 % z 800 € a aká bude suma po prvom roku?",
+      "answer": "40 €, 840 €",
+      "check": {"type": "all", "values": [40, 840]},
+      "solution": "5 % z 800 € je 0,05 · 800 = 40 €. Po prvom roku: 800 + 40 = 840 €."
+    },
+    {
+      "id": "M2",
+      "skill": "vzorec",
+      "level": "apply",
+      "prompt": "Akú sumu budeš mať po 10 rokoch, ak vložíš 1 500 € pri 4 % ročne so zloženým úročením? Použi vzorec.",
+      "answer": "≈ 2 220,37 €",
+      "check": {"type": "number", "value": 2220.37, "tolerance": 1},
+      "solution": "K₁₀ = 1 500 · 1,04¹⁰ = 1 500 · 1,4802… ≈ 2 220,37 €",
+      "harder_variant": "M2h"
+    },
+    {
+      "id": "M2h",
+      "skill": "vzorec",
+      "level": "apply",
+      "prompt": "Akú sumu musíš vložiť dnes, aby si mal/a o 10 rokov 3 000 € pri 4 % ročne so zloženým úročením?",
+      "answer": "≈ 2 026,69 €",
+      "check": {"type": "number", "value": 2026.69, "tolerance": 1},
+      "solution": "K₀ = 3 000 / 1,04¹⁰ = 3 000 / 1,4802… ≈ 2 026,69 €"
+    },
+    {
+      "id": "M3",
+      "skill": "jednoduche_vs_zlozene",
+      "level": "apply",
+      "prompt": "Vklad 2 000 € na 15 rokov pri 6 % ročne. O koľko eur viac získaš pri zloženom úročení než pri jednoduchom?",
+      "answer": "≈ 993,12 €",
+      "check": {"type": "number", "value": 993.12, "tolerance": 2},
+      "solution": "Jednoduché: 2 000 · (1 + 15 · 0,06) = 3 800 €.\nZložené: 2 000 · 1,06¹⁵ ≈ 4 793,12 €.\nRozdiel ≈ 993,12 €."
+    },
+    {
+      "id": "M4",
+      "skill": "linearizacia",
+      "level": "analyse",
+      "prompt": "Spolužiak tvrdí: „Pri 10 % ročne so zloženým úročením narastie vklad za 2 roky o 20 %.“ Nájdi chybu a vypočítaj skutočný nárast.",
+      "answer": "o 21 %, lebo 1,1² = 1,21",
+      "check": {"type": "number", "value": 21},
+      "solution": "Percentá sa pri zloženom úročení nesčítavajú, ale násobia: 1,10 · 1,10 = 1,21. Vklad narastie o 21 %, nie o 20 % — druhý rok sa úročí aj úrok z prvého roka.",
+      "scaffold_for": "M4s"
+    },
+    {
+      "id": "M4s",
+      "skill": "linearizacia",
+      "level": "understand",
+      "prompt": "Vložíš 100 € pri 10 % ročne so zloženým úročením. Koľko budeš mať po prvom a koľko po druhom roku?",
+      "answer": "110 €, 121 €",
+      "check": {"type": "sequence", "value": [110, 121]},
+      "solution": "Po 1. roku: 100 · 1,1 = 110 €. Po 2. roku: 110 · 1,1 = 121 €."
+    },
+    {
+      "id": "M5",
+      "skill": "zdvojnasobenie",
+      "level": "apply",
+      "prompt": "Za koľko rokov sa zdvojnásobí vklad pri 8 % ročne? Odhadni pravidlom 72 a over výpočtom.",
+      "answer": "≈ 9 rokov",
+      "check": {"type": "number", "value": 9, "tolerance": 0.5},
+      "solution": "Pravidlo 72: 72 / 8 = 9 rokov. Overenie: 1,08⁹ ≈ 1,999, teda takmer presne dvojnásobok."
+    },
+    {
+      "id": "M6",
+      "skill": "rocny_vypocet",
+      "level": "apply",
+      "prompt": "Na začiatku každého z troch rokov vložíš 500 € pri 5 % ročne so zloženým úročením. Koľko budeš mať na konci tretieho roka? Prečo tu nestačí jeden vzorec?",
+      "answer": "≈ 1 655,06 €",
+      "check": {"type": "number", "value": 1655.06, "tolerance": 1},
+      "solution": "1. rok: 500 · 1,05 = 525 €\n2. rok: (525 + 500) · 1,05 = 1 076,25 €\n3. rok: (1 076,25 + 500) · 1,05 ≈ 1 655,06 €\nKaždý vklad sa úročí iný počet rokov, preto sa počíta rok po roku (alebo sa sčítajú tri vzorce)."
+    },
+    {
+      "id": "M7",
+      "skill": "rozhodnutie",
+      "level": "analyse",
+      "prompt": "Pôžička 5 000 € na 3 roky: banka X účtuje 7 % ročne zloženým úrokom, banka Y jednorazovo 20 % z požičanej sumy. Ktorá pôžička je lacnejšia a o koľko?",
+      "answer": "banka Y, o ≈ 125 €",
+      "solution": "X: 5 000 · 1,07³ ≈ 6 125,22 €, úrok ≈ 1 125,22 €.\nY: 20 % z 5 000 € = 1 000 €.\nLacnejšia je banka Y, približne o 125 €."
+    },
+    {
+      "id": "M8",
+      "skill": "rozhodnutie",
+      "level": "evaluate",
+      "prompt": "Posúď tvrdenie: „Za 20 rokov dostanem dvakrát viac úrokov ako za 10 rokov.“ Kedy platí a kedy nie? Uveď úvahu.",
+      "answer": "pri zloženom úročení neplatí, úrok rastie viac než dvojnásobne; platí len pri jednoduchom",
+      "solution": "Pri jednoduchom úročení platí presne (úrok rastie lineárne). Pri zloženom neplatí: napr. pri 5 % je úrok za 10 rokov 62,9 % vkladu, za 20 rokov 165,3 % — viac než dvojnásobok, lebo sa úročia aj staršie úroky."
+    }
+  ]
+}

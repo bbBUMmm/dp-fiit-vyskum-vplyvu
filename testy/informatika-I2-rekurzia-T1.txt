@@ -1,0 +1,436 @@
+==========================================================================
+INFORMATIKA · I2 Rekurzia a memoizácia
+T1 · VSTUPNÝ TEST · píše sa pred hodinou
+==========================================================================
+Forma:      I2-T1
+Predmet:    informatika
+Téma:       I2 · Rekurzia a memoizácia
+Test:       T1 · vstupný test pred hodinou („nulové vedomosti“)
+Dvojča:     I2-T3
+Dotazník:   D1 (pred testom časť Q, po teste časť Z)
+Rozsah:     22 úloh · 50 bodov · približne 40 minút + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Téma sa ešte len bude preberať, takže je úplne
+  v poriadku, ak veľa vecí nevieš. Zaujíma nás, ako o nich uvažuješ.
+• Skús každú úlohu; aj čiastočná úvaha sa počíta. Ak úlohu nevieš, napíš
+  „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+• Nepoužívaj mobil, internet, poznámky, počítač ani asistenta.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Rekurzívna funkcia je funkcia, ktorá počas výpočtu zavolá samu seba.
+• Funkcie sú zapísané v pseudokóde. „vráť“ ukončí funkciu a vráti hodnotu,
+  „div“ je celočíselné delenie (9 div 2 = 4), „mod“ je zvyšok (9 mod 2 = 1).
+• Volanie = každé spustenie funkcie, aj prvé (z hlavného programu).
+  „Počet volaní“ sú všetky spustenia funkcie spolu.
+• Fibonacciho čísla: fib(0) = 0, fib(1) = 1, fib(n) = fib(n − 1) + fib(n − 2).
+  Naivná rekurzívna funkcia:
+        funkcia fib(n):
+            ak n ≤ 1: vráť n
+            vráť fib(n − 1) + fib(n − 2)
+• Funkcia s pamäťou (memoizácia) -- pamäť je na začiatku prázdna
+  a kontroluje sa ako prvá vec v každom volaní:
+        funkcia fibm(n):
+            ak n je v pamäti: vráť pamäť[n]
+            ak n ≤ 1: výsledok ← n
+            inak: výsledok ← fibm(n − 1) + fibm(n − 2)
+            pamäť[n] ← výsledok
+            vráť výsledok
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vysvetliť, prečo musí mať
+    rekurzívna funkcia základný (ukončovací) prípad?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš zistiť, čo vráti alebo vypíše
+    krátka rekurzívna funkcia?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš nakresliť strom volaní a spočítať,
+    koľkokrát sa funkcia zavolá?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš vysvetliť, ako memoizácia zrýchli
+    rekurzívny výpočet?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš navrhnúť rekurzívne riešenie
+    jednoduchej úlohy?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ako sa nazýva prípad, pri ktorom rekurzívna funkcia vráti výsledok bez
+    toho, aby znova zavolala samu seba?
+      a) cyklus
+      b) základný (ukončovací) prípad
+      c) rekurzívny krok
+      d) memoizácia
+      e) zásobník
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré z týchto výrokov o funkciách, ktoré volajú samy seba, sú
+    pravdivé?
+      a) Funkcia, ktorá počas výpočtu volá samu seba, sa nazýva rekurzívna.
+      b) Pri rekurzii sa všetky volania funkcie vykonajú naraz.
+      c) Ak funkcia nemá prípad, v ktorom sa zastaví, volá sa donekonečna
+         (kým nedôjde pamäť).
+      d) Každé volanie funkcie si pamätá vlastné hodnoty svojich premenných.
+      e) Rekurzia sa dá použiť len v jazyku Python.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Funkcia f:
+        funkcia f(n):
+            ak n = 1: vráť 1
+            vráť n · f(n − 1)
+    Akú hodnotu vráti f(4)?
+      a) 4           b) 10          c) 16          d) 24
+      e) výpočet sa nikdy neskončí
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Funkcia g:
+        funkcia g(n):
+            ak n = 0: vráť 0
+            vráť g(n − 3) + 1
+    Ktoré tvrdenia o volaní g(7) sú pravdivé?
+      a) Vráti 2.
+      b) Vráti 3.
+      c) Výpočet sa neskončí (pretečie zásobník), lebo argument nikdy nebude
+         presne 0.
+      d) Vráti 0.
+      e) Vráti 7.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Zavoláme naivnú funkciu fib(4) (bez memoizácie). Ktoré údaje sú
+    správne?
+      a) fib(4) vráti 3.
+      b) Funkcia sa celkovo zavolá 9-krát.
+      c) Funkcia sa celkovo zavolá 4-krát.
+      d) Volanie fib(2) sa vykoná 2-krát.
+      e) Volanie fib(1) sa vykoná 2-krát.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Zavoláme funkciu s pamäťou fibm(5) s prázdnou pamäťou. Koľkokrát sa
+    funkcia fibm celkovo zavolá (vrátane volaní, ktoré len prečítajú
+    hodnotu z pamäte)?
+      a) 4           b) 5           c) 6           d) 9           e) 15
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Funkcia vypis:
+        funkcia vypis(n):
+            ak n = 0: skonči
+            vypis(n − 1)
+            vypíš n
+    Čo vypíše volanie vypis(4)?
+      a) 1 2 3 4
+      b) 4 3 2 1
+      c) 4 3 2 1 0
+      d) 0 1 2 3 4
+      e) 4
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Naivný výpočet fib(35) trvá oveľa dlhšie ako fib(30). Ktoré tvrdenia to
+    vysvetľujú?
+      a) Pri väčšom čísle sa sčítava pomalšie.
+      b) fib(35) potrebuje len o 5 volaní viac, ale každé je pomalšie.
+      c) Zásobník je pri fib(35) plný.
+      d) Rekurzia je vždy pomalšia ako cyklus.
+      e) Počet volaní rastie exponenciálne: zvýšenie n o 1 zväčší počet
+         volaní asi 1,6-krát.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Funkciu s pamäťou fibm zavoláme s prázdnou pamäťou ako fibm(5). Ktoré
+    tvrdenia o stave po skončení výpočtu sú pravdivé?
+      a) V pamäti sú uložené hodnoty pre n = 0 až 5.
+      b) pamäť[5] = 5
+      c) Keď potom zavoláme fibm(5) znova, vybaví sa jediným volaním
+         (prečítaním z pamäte).
+      d) V pamäti je uložená aj hodnota pre n = 6.
+      e) Pamäť zmenšila počet volaní pri fibm(5) na 5.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Ktoré z týchto úloh je prirodzené riešiť rekurziou?
+      a) prehľadanie všetkých priečinkov a podpriečinkov na disku
+      b) výpočet súčtu dvoch čísel
+      c) vypísanie rodokmeňa (rodičia, ich rodičia, ich rodičia, …)
+      d) zistenie, či je jedno konkrétne číslo párne
+      e) vypísanie jedného riadku textu
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo alebo slovo do políčka. Postup nemusíš písať.
+Pri úlohách s viacerými políčkami dostaneš 1 bod, ak je chybné len jedno
+políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Doplň.
+    Prípad, v ktorom sa rekurzívna funkcia zastaví a už nevolá samu seba,
+    sa nazýva (1) __________ prípad. Technika, pri ktorej si program
+    zapamätá už vypočítané výsledky funkcie, sa nazýva (2) __________.
+    Odpoveď:   (1) ____________________     (2) ____________________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Funkcia s:
+        funkcia s(n):
+            ak n = 0: vráť 0
+            vráť s(n − 1) + n
+    Odpoveď:   s(5) = ______        počet volaní pri s(5) = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Naivnú funkciu fib (bez pamäte) zavoláme s argumentom 6.
+    Odpoveď:   fib(6) = ______      počet volaní pri fib(6) = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Funkcia s pamäťou fibm s prázdnou pamäťou, volanie fibm(7).
+    Odpoveď:   počet volaní = ______
+               počet hodnôt uložených v pamäti po skončení = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Funkcia h:
+        funkcia h(n):
+            ak n ≤ 1: vráť 2
+            vráť h(n − 1) + h(n − 1)
+    Odpoveď:   h(4) = ______        počet volaní pri h(4) = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Koľko volaní najviac naraz čaká na výsledok (sú rozpracované na
+    zásobníku volaní)?
+    Odpoveď:   pri naivnom fib(5) = ______      pri fibm(5) s pamäťou = ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Funkcia f:
+        funkcia f(n):
+            ak n ≤ 1: vráť 1
+            vráť f(n − 1) + f(n − 2)
+    Nakresli strom volaní pri volaní f(4). Urči, koľkokrát sa zavolá f(2),
+    koľko je volaní spolu a akú hodnotu f(4) vráti.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Žiak napísal funkciu na počet cifier čísla:
+        funkcia pocet_cifier(n):
+            vráť 1 + pocet_cifier(n div 10)
+    Nájdi chybu, oprav funkciu a ukáž, ako opravená funkcia vypočíta
+    pocet_cifier(5307).
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Bez pamäte potrebuje fib(5) 15 volaní, s pamäťou (fibm) 9. Vysvetli,
+    prečo pamäť zníži počet volaní z exponenciálneho na približne
+    lineárny. Použi na to strom volaní fib(5) alebo jeho časť.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Spolužiačka tvrdí: „Rekurzia je zbytočná, lebo všetko sa dá napísať
+    cyklom.“ Posúď toto tvrdenie. Uveď príklad, keď je rekurzia vhodná,
+    a príklad, keď je lepší cyklus, a obe voľby zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Spolužiak tvrdí: „Pamätanie si výsledkov (memoizácia) nič nestojí,
+    takže by mala byť pri každej funkcii.“ Posúď toto tvrdenie na dvoch
+    príkladoch funkcií.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Plot dĺžky n metrov skladáš z dosiek dĺžky 1 m a 2 m; záleží na poradí
+    dosiek. Navrhni rekurzívnu funkciu plot(n), ktorá vráti počet rôznych
+    spôsobov. Zapíš základné prípady a rekurzívny krok, vypočítaj plot(6)
+    a vysvetli, prečo sa tu oplatí pamätať si výsledky.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  základný (ukončovací) prípad a rekurzívny krok
+  S2  sledovanie volaní: strom volaní, zásobník, poradie výpisov
+  S3  počet volaní a exponenciálny rast naivnej rekurzie
+  S4  memoizácia: opakované podproblémy, obsah pamäte, počet volaní
+  S5  rekurzia verzus cyklus: hĺbka rekurzie, pamäť zásobníka
+  S6  návrh rekurzívneho riešenia a posúdenie jeho vhodnosti
+
+ČO T1 MERIA
+  Vedomosti a PREDSTAVY o rekurzii pred výučbou. Dohody vysvetľujú pojmy
+  a uvádzajú obe funkcie, takže žiak môže úlohy riešiť aj bez predošlej
+  skúsenosti -- sledovaním pseudokódu. Kľúčové mylné predstavy: „slučkový“
+  model (jedno volanie na každé n), paralelné volania, zabudnutý základný
+  prípad.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+(všetky hodnoty a počty volaní overené simuláciou)
+
+A1  Kľúč: b
+    Úroveň: zapamätanie · Zručnosť: S1 · Dvojča: I2-T3 A1
+    a) zamieňa rekurziu s cyklom
+    c) zamieňa s opačnou časťou funkcie
+    d) zamieňa s technikou zrýchlenia
+    e) zamieňa so štruktúrou, v ktorej sa volania uchovávajú
+
+A2  Kľúč: a, c, d
+    Úroveň: porozumenie · Zručnosť: S2, S5 · Dvojča: I2-T3 A2
+    b) PARALELNÝ model volaní
+    e) nesúvisiace obmedzenie
+
+A3  Kľúč: d
+    Úroveň: porozumenie · Zručnosť: S2 · Dvojča: I2-T3 A3
+    Výpočet: 4 · 3 · 2 · 1 = 24.
+    a) vráti len posledný argument
+    b) zamieňa súčin so súčtom
+    c) 4 · 4 -- nevidí, že argument klesá
+    e) nevidí základný prípad
+
+A4  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: I2-T3 A4
+    Výpočet: g(7) → g(4) → g(1) → g(−2) → …, 0 sa nikdy nedosiahne.
+    a) počíta kroky bez kontroly základného prípadu
+    b) „zaokrúhli“ 7/3
+    d) predpokladá, že funkcia „skočí“ na základný prípad
+    e) vráti argument
+
+A5  Kľúč: a, b, d
+    Úroveň: aplikácia · Zručnosť: S3, S2 · Dvojča: I2-T3 A5
+    Výpočet (simulácia): 9 volaní; fib(2) 2-krát, fib(1) 3-krát.
+    c) „SLUČKOVÝ“ model
+    e) zamieňa počty volaní pre rôzne argumenty
+
+A6  Kľúč: d
+    Úroveň: aplikácia · Zručnosť: S4 · Dvojča: I2-T3 A6
+    Výpočet (simulácia): 2 · 5 − 1 = 9.
+    a) počet sčítaní
+    b) jedno volanie na každé n od 1
+    c) rôzne argumenty (0 až 5) bez čítaní z pamäte
+    e) prehliadne pamäť (naivný počet)
+
+A7  Kľúč: a
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: I2-T3 A7
+    b) nevidí, že výpis nastane až PO návrate z volania
+    c) vypisuje aj základný prípad a v opačnom poradí
+    d) vypisuje aj základný prípad
+    e) vidí len prvé volanie
+
+A8  Kľúč: e
+    Úroveň: analýza · Zručnosť: S3, S4 · Dvojča: I2-T3 A8
+    a) nesúvisiaca príčina
+    b) LINEÁRNA predstava o počte volaní
+    c) hĺbka 35 je malá; problémom je počet volaní
+    d) pripisuje pomalosť rekurzii ako takej
+
+A9  Kľúč: a, b, c
+    Úroveň: analýza · Zručnosť: S4 · Dvojča: I2-T3 A9
+    d) pamäť obsahuje len vypočítané hodnoty
+    e) 5 je počet rôznych argumentov od 1, volaní je 9
+
+A10  Kľúč: a, c
+    Úroveň: hodnotenie · Zručnosť: S6, S5 · Dvojča: I2-T3 A10
+    b) jednoduchý výpočet bez opakujúcej sa štruktúry
+    d) jedna operácia, rekurzia je zbytočná
+    e) jedna operácia, rekurzia je zbytočná
+
+B1  Kľúč: (1) = "základný" | "zakladny" | "ukončovací" | "ukoncovaci" | "bázový" | "bazovy" | "triviálny" | "koncový"; (2) = "memoizácia" | "memoizacia" | "memorizácia" | "memorizacia" | "memoizovanie"
+    Úroveň: porozumenie · Zručnosť: S1, S4 · Dvojča: I2-T3 B1
+
+B2  Kľúč: s(5) = 15; počet volaní pri s(5) = 6
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: I2-T3 B2
+    Typická chyba: 5 volaní (nezapočíta s(0)).
+
+B3  Kľúč: fib(6) = 8; počet volaní pri fib(6) = 25
+    Úroveň: aplikácia · Zručnosť: S3 · Dvojča: I2-T3 B3
+
+B4  Kľúč: počet volaní = 13; počet hodnôt uložených v pamäti po skončení = 8
+    Úroveň: aplikácia · Zručnosť: S4 · Dvojča: I2-T3 B4
+
+B5  Kľúč: h(4) = 16; počet volaní pri h(4) = 15
+    Úroveň: analýza · Zručnosť: S3 · Dvojča: I2-T3 B5
+    Výpočet: h(1) = 2, h(n) = 2 · h(n − 1); volania 1 + 2 + 4 + 8 = 15.
+
+B6  Kľúč: pri naivnom fib(5) = 5; pri fibm(5) s pamäťou = 5
+    Úroveň: analýza · Zručnosť: S5, S4 · Dvojča: I2-T3 B6
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S2, S3 · Dvojča: I2-T3 C1
+    K1  správny strom: f(4) → f(3), f(2); f(3) → f(2), f(1); každé f(2) →
+        f(1), f(0)
+    K2  f(2) sa zavolá 2-krát, volaní spolu 9
+    K3  f(4) vráti 5 (f(0) = f(1) = 1, f(2) = 2, f(3) = 3)
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S1, S2 · Dvojča: I2-T3 C2
+    K1  chyba: chýba základný prípad, funkcia sa volá donekonečna
+    K2  oprava, napr. „ak n < 10: vráť 1“
+    K3  výpočet: 1 + pocet_cifier(530) = 1 + 1 + pocet_cifier(53) =
+        1 + 1 + 1 + pocet_cifier(5) = 4
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S4, S3 · Dvojča: I2-T3 C3
+    K1  opakované podproblémy v naivnom strome: fib(3) 2-krát, fib(2)
+        3-krát
+    K2  s pamäťou sa každá hodnota vypočíta len raz, ďalšie volania ju iba
+        prečítajú
+    K3  počet volaní asi 2n − 1 (lineárne) proti rastu asi 1,6-násobku pri
+        každom ďalšom n (exponenciálne)
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S5, S6 · Dvojča: I2-T3 C4
+    K1  posúdenie: prepísať sa to dá, ale „zbytočná“ nie je
+    K2  príklad vhodnej rekurzie so zdôvodnením (vnorené štruktúry:
+        priečinky, rodokmeň, stromy; rozdeľuj a panuj)
+    K3  príklad, keď je lepší cyklus, so zdôvodnením (jednoduché
+        opakovanie, veľká hĺbka a riziko pretečenia zásobníka)
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S4, S6 · Dvojča: I2-T3 C5
+    K1  tvrdenie je nesprávne
+    K2  príklad, keď pamäť nepomôže (každý podproblém sa počíta raz:
+        faktoriál, súčet) alebo škodí (výsledok nezávisí len od argumentov:
+        náhoda, čas)
+    K3  príklad, keď pomôže (fib, počet ciest), a cena: pamäť na výsledky
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S6, S1, S4 · Dvojča: I2-T3 C6
+    K1  základné prípady (plot(1) = 1, plot(2) = 2; alebo plot(0) = 1,
+        plot(1) = 1)
+    K2  rekurzívny krok plot(n − 1) + plot(n − 2) so zdôvodnením
+        (posledná doska je 1 m alebo 2 m)
+    K3  plot(6) = 13 a zdôvodnenie pamäte (opakované podproblémy)
+
+SÚHRN
+  Body: A 10 × 2 = 20, B 6 × 2 = 12, C 6 × 3 = 18, spolu 50.
+  Položky s viacerými správnymi odpoveďami: A2, A5, A9, A10 (žiakovi sa
+  neoznačujú). Kľúče položiek s jednou správnou: b, d, c, d, a, e.

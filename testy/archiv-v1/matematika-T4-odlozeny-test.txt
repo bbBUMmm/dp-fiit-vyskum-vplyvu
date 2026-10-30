@@ -1,0 +1,352 @@
+==========================================================================
+MATEMATIKA — Zložené úrokovanie a exponenciálny rast
+T4 · ODLOŽENÝ TEST · tri týždne po hodine, termín sa vopred neoznamuje
+Forma M-T4 · 19 úloh · 42 bodov · 45 minút
+==========================================================================
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Zisťujeme, čo si si z hodiny spred troch týždňov
+  zapamätal/a a či to vieš použiť v novej situácii. Skús každú úlohu; aj
+  čiastočná úvaha sa počíta.
+• Časť A: zakrúžkuj JEDNU odpoveď.
+• Časť B: zakrúžkuj VŠETKY správne odpovede (koľko ich je, sa neuvádza).
+• Časti C a E: odpovedaj vlastnými slovami a píš aj postup.
+• Pri každej úlohe v častiach A a B zakrúžkuj, nakoľko si si istý/á,
+  že je tvoja odpoveď správna.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku
+  nepotrebuješ — na konci zadania je pomôcka s mocninami.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Úrok sa pripisuje raz ročne, na konci roka. Daň z úroku neuvažujeme.
+• Ak úloha neuvádza inak, vklad sa počas sporenia nevyberá ani nedopĺňa.
+• Sumy zaokrúhľuj na centy.
+
+
+ČASŤ A — vyber jednu odpoveď (každá úloha 1 bod)
+--------------------------------------------------------------------------
+A1  Vklad K₀ sa úročí so zloženým úročením pri ročnej úrokovej miere p
+    (napríklad p = 0,04). Ktorý vzťah vyjadruje sumu Kₙ po n rokoch?
+      a) Kₙ = K₀ · (1 + p)ⁿ
+      b) Kₙ = K₀ · (1 + n · p)
+      c) Kₙ = K₀ · pⁿ
+      d) Kₙ = K₀ + n · p
+      e) Kₙ = K₀ · (1 + p) · n
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Čo približne vyjadruje „pravidlo 72“ pri zloženom úročení s ročnou
+    úrokovou mierou p % ?
+      a) za koľko rokov sa vklad strojnásobí: približne 72 / p
+      b) koľko percent dostaneš za 72 rokov
+      c) že úroková miera nesmie presiahnuť 72 %
+      d) za koľko rokov sa vklad zdvojnásobí: približne 72 · p
+      e) za koľko rokov sa vklad zdvojnásobí: približne 72 / p
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Vklad sa úročí 20 % ročne so zloženým úročením. O koľko percent narastie
+    za 2 roky?
+      a) 4 %      b) 20 %     c) 40 %       d) 44 %       e) 144 %
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Pri stálej ročnej úrokovej miere so zloženým úročením sa vklad
+    zdvojnásobí za 9 rokov. Za koľko rokov sa zväčší štvornásobne?
+      a) 13,5     b) 18       c) 27         d) 36         e) 81
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Vložíš 2 000 € pri 3 % ročne so zloženým úročením. Koľko budeš mať po
+    2 rokoch?
+      a) 2 060,00 €   b) 2 120,00 €   c) 2 121,80 €   d) 2 185,45 €
+      e) 3 380,00 €
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Akú sumu musíš vložiť dnes, aby si mal/a o 6 rokov 10 000 € pri 5 %
+    ročne so zloženým úročením?
+      a) 7 000,00 €   b) 7 462,15 €   c) 7 692,31 €   d) 9 500,00 €
+      e) 13 400,96 €
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Adam vloží 1 000 € na 10 % ročne s jednoduchým úročením, Bea 1 000 € na
+    7 % ročne so zloženým úročením. Po koľkých celých rokoch bude mať Bea
+    prvýkrát viac ako Adam?
+      a) nikdy, lebo 7 % je menej ako 10 %
+      b) po 7 rokoch
+      c) po 10 rokoch
+      d) po 11 rokoch
+      e) po 15 rokoch
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Pôžička 10 000 € na 5 rokov, všetko sa splatí naraz na konci.
+    Ponuka X: 6 % ročne so zloženým úročením (úrok sa pripisuje k dlhu).
+    Ponuka Y: poplatok 1 000 € a k tomu 4 % ročne z 10 000 € (jednoduché
+    úročenie). Ktorá ponuka je lacnejšia, ak porovnávame celkovú zaplatenú
+    sumu?
+      a) X, lebo 6 % je menej ako 4 % plus poplatok
+      b) obe rovnako, lebo 5 · 6 % = 30 % = 3 000 €, čo je cena Y
+      c) Y, celkovo zaplatíš približne o 382 € menej
+      d) X, celkovo zaplatíš približne o 382 € menej
+      e) X, lebo pri Y platíš poplatok navyše
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — označ všetky správne odpovede (každá úloha 2 body)
+--------------------------------------------------------------------------
+B1  Ktoré situácie opisujú exponenciálny rast (rast o rovnaké percento za
+    rovnaký čas)?
+      a) vklad v banke so zloženým úročením
+      b) plat, ktorý stúpne každý rok o 50 €
+      c) počet buniek, ktorý sa každú hodinu zdvojnásobí
+      d) vzdialenosť, ktorú prejde auto idúce stálou rýchlosťou
+      e) cena, ktorá rastie o 3 % ročne z aktuálnej ceny
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Vklad 5 000 €, 4 % ročne, zložené úročenie. Ktoré údaje sú správne?
+      a) Po 2 rokoch bude na účte 5 400,00 €.
+      b) Po 1 roku bude na účte 5 200,00 €.
+      c) Po 3 rokoch bude na účte 5 600,00 €.
+      d) Po 2 rokoch bude na účte 5 408,00 €.
+      e) Po 3 rokoch bude na účte približne 5 624,32 €.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Žiak počíta: „Pri 5 % ročne so zloženým úročením narastie vklad za
+    4 roky o 20 %, lebo 4 · 5 = 20.“ Ktoré tvrdenia sú pravdivé?
+      a) Výsledok je správny, lebo percentá sa pri zloženom úročení sčítavajú.
+      b) Skutočný nárast je väčší ako 20 %.
+      c) Skutočný nárast je približne 21,55 %.
+      d) Jeho výpočet by bol správny pri zloženom úročení s mesačným
+         pripisovaním úrokov.
+      e) Skutočný nárast je menší ako 20 %, lebo sa úroky zaokrúhľujú.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Vklad 10 000 € na 3 roky pri 2 % ročne so zloženým úročením. Ktoré
+    výpočty dajú správnu sumu na konci?
+      a) 10 000 · (1 + 3 · 0,02)
+      b) 10 000 · 1,02³
+      c) 10 000 + 3 · 200
+      d) ((10 000 · 1,02) · 1,02) · 1,02
+      e) 10 000 · 1,06³
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Rodina zvažuje pôžičku 20 000 € na auto. Ktoré úvahy sú správne?
+      a) Pri 8 % ročne so zloženým úročením bude dlh po 9 rokoch približne
+         dvojnásobný, ak sa nesplatí nič.
+      b) Pri 8 % ročne bude dlh po 9 rokoch 20 000 + 9 · 1 600 = 34 400 €.
+      c) Ak sa dlh nesplatí, rastie s časom čoraz rýchlejšie.
+      d) Pri tej istej úrokovej miere a kratšej dobe splácania zaplatí
+         rodina na úrokoch menej.
+      e) Úroková miera 8 % ročne znamená, že za 10 rokov zaplatí rodina
+         presne 80 % navyše.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — odpovedz vlastnými slovami (každá úloha 3 body)
+--------------------------------------------------------------------------
+C1  Sporiaci plán: na začiatku každého z troch rokov vložíš 1 000 €. Úrok
+    4 % ročne sa pripisuje na konci roka. Vypočítaj sumu na konci tretieho
+    roka. Vysvetli, prečo tu nestačí jediný výpočet K₀ · (1 + p)ⁿ.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Novinový článok píše: „Ceny za posledných 5 rokov rástli o 4 % ročne,
+    takže sú dnes o 20 % vyššie ako pred piatimi rokmi.“ Nájdi chybu
+    v úvahe, vypočítaj skutočný nárast a vysvetli, prečo je rozdiel medzi
+    oboma výsledkami tým väčší, čím je obdobie dlhšie.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Študentka dostane štipendium a má dve možnosti:
+    (A) 3 000 € hneď — uloží ich na 8 rokov na účet s 3 % ročne so zloženým
+        úročením;
+    (B) 3 600 € vyplatených o 8 rokov.
+    Ktorá možnosť je výhodnejšia? Pri akej úrokovej miere by boli obe
+    možnosti približne rovnaké? Zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Navrhni sporiaci plán, ktorým za 18 rokov aspoň zdvojnásobíš vklad:
+    zvoľ najnižšiu potrebnú celú úrokovú mieru (zložené úročenie) a over
+    ju výpočtom. Potom navrhni druhý plán, ktorý dosiahne aspoň dvojnásobok
+    za kratší čas, a tiež ho over. Vysvetli, ako si plány navrhol/navrhla.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+ČASŤ E — komplexné úlohy (každá úloha 6 bodov)
+--------------------------------------------------------------------------
+E1  HODNOTA AUTA
+    Nové auto stojí 20 000 €. Jeho hodnota každý rok klesne o 15 % z hodnoty
+    na začiatku daného roka.
+
+    (a) Akú hodnotu bude mať auto po 1 roku a po 2 rokoch?          (1 b.)
+    ......................................................................
+    (b) Kamarát tvrdí: „Za rok stratí 15 % z 20 000 €, teda 3 000 €, takže
+        po 4 rokoch bude mať hodnotu 20 000 − 4 · 3 000 = 8 000 €.“ Je to
+        správne? Ak nie, vysvetli chybu a vypočítaj hodnotu po 4 rokoch. (2 b.)
+    ......................................................................
+    ......................................................................
+    (c) Po koľkých celých rokoch klesne hodnota auta prvýkrát pod polovicu
+        pôvodnej ceny? Zdôvodni.                                     (2 b.)
+    ......................................................................
+    ......................................................................
+    (d) Prečo podľa tohto modelu hodnota auta nikdy neklesne na nulu? (1 b.)
+    ......................................................................
+
+E2  REŤAZOVÁ SPRÁVA
+    V deň 1 dostane správu 1 človek. Každý, kto správu dostane, ju na druhý
+    deň pošle 2 novým ľuďom a potom už nikomu. V deň 2 ju teda dostanú
+    2 noví ľudia, v deň 3 štyria noví atď.
+
+    (a) Koľko nových ľudí dostane správu v deň 10?                  (1 b.)
+    ......................................................................
+    (b) Koľko ľudí spolu dostalo správu za prvých 10 dní?           (1 b.)
+    ......................................................................
+    (c) Spolužiak odhaduje: „Za 10 dní ju dostalo asi 1 000 ľudí, takže za
+        20 dní ju dostane asi 2 000 ľudí.“ Posúď odhad, vypočítaj správnu
+        hodnotu za 20 dní a vysvetli rozdiel.                        (3 b.)
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    (d) Uveď jeden dôvod, prečo v skutočnosti takýto rast nemôže pokračovať
+        donekonečna.                                                 (1 b.)
+    ......................................................................
+
+
+POMÔCKA — niektoré mocniny (nie všetky budeš potrebovať)
+  1,02³ ≈ 1,0612     1,02⁸ ≈ 1,1717     1,025⁸ ≈ 1,2184    1,03² = 1,0609
+  1,03⁸ ≈ 1,2668     1,03¹⁸ ≈ 1,7024    1,04² = 1,0816     1,04³ ≈ 1,1249
+  1,04⁵ ≈ 1,2167     1,04¹⁸ ≈ 2,0258    1,05⁴ ≈ 1,2155     1,05⁶ ≈ 1,3401
+  1,06⁵ ≈ 1,3382     1,06¹² ≈ 2,0122    1,07¹⁰ ≈ 1,9672    1,07¹¹ ≈ 2,1049
+  1,07¹² ≈ 2,2522    1,08⁹ ≈ 1,9990     1,08¹⁰ ≈ 2,1589
+  0,85² = 0,7225     0,85³ ≈ 0,6141     0,85⁴ ≈ 0,5220     0,85⁵ ≈ 0,4437
+  2⁹ = 512           2¹⁰ = 1 024        2²⁰ = 1 048 576
+
+
+ČASŤ D — o tebe (nezapočítava sa do bodov; neexistujú správne odpovede)
+--------------------------------------------------------------------------
+D1  Opakoval/a si si túto tému od hodiny spred troch týždňov?
+      ( ) nie     ( ) áno, raz     ( ) áno, viackrát
+    Ak áno, ako?  ( ) sám/sama  ( ) s niekým  ( ) s pomocou AI  ( ) na inej hodine
+D2  Čakal/a si, že dnes budete písať tento test?
+      ( ) áno     ( ) nie     ( ) tušil/a som
+D3  Ako dobre si pamätáš učivo z tej hodiny?
+      1 vôbec      2      3      4      5 veľmi dobre
+D4  Koľko z 13 úloh v častiach A a B máš podľa teba správne?   ____ z 13
+D5  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+      1 veľmi, veľmi malé   2 veľmi malé   3 malé   4 skôr malé
+      5 ani malé, ani veľké   6 skôr veľké   7 veľké   8 veľmi veľké
+      9 veľmi, veľmi veľké
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+1. KĽÚČ A ŠPECIFIKÁCIA
+   Zručnosti: S1 výpočet rok po roku, S2 vzťah K₀ · (1 + p)ⁿ, S3 jednoduché
+   verzus zložené úročenie, S4 odhalenie lineárnej chyby, S5 doba
+   zdvojnásobenia, S6 rozhodnutie medzi ponukami.
+
+   pol.  kľúč    úroveň         zručnosť   pôvod
+   A1    a       zapamätanie    S2         KOTVA = M-T3 A1
+   A2    e       zapamätanie    S5         nová
+   A3    d       porozumenie    S4         KOTVA = M-T3 A3
+   A4    b       porozumenie    S5         KOTVA = M-T3 A4
+   A5    c       aplikácia      S1         KOTVA = M-T3 A5
+   A6    b       aplikácia      S2         nová
+   A7    d       analýza        S3         nová
+   A8    c       hodnotenie     S6         nová
+   B1    a,c,e   porozumenie    S3, S5     nová
+   B2    b,d,e   aplikácia      S1, S2     KOTVA = M-T3 B2
+   B3    b,c     analýza        S4         KOTVA = M-T3 B3
+   B4    b,d     analýza        S1, S2     nová
+   B5    a,c,d   hodnotenie     S5, S6     nová
+   C1    rubrika aplikácia      S1         nová (izomorfná s M-T3 C1)
+   C2    rubrika analýza        S4         nová (izomorfná s M-T3 C2)
+   C3    rubrika hodnotenie     S6         nová (izomorfná s M-T3 C3)
+   C4    rubrika tvorenie       S5         nová (izomorfná s M-T3 C4)
+   E1    rubrika apl. → analýza S4, S5     blízky prenos (exponenciálny pokles)
+   E2    rubrika analýza → hod. S4, S5     vzdialený prenos (mimo financií)
+
+   Kotvy: 6 z 19 položiek, znak po znaku zhodné s T3, na rovnakých pozíciách.
+   Rozloženie kľúčov v časti A: a 1×, b 2×, c 2×, d 2×, e 1×.
+
+2. ČO PREZRÁDZA NESPRÁVNA VOĽBA (nové položky; pri kotvách pozri M-T3)
+   A2  a) strojnásobenie; b), c) nepozná pravidlo; d) násobí namiesto
+       delenia (pri 6 % by vyšlo 432 rokov).
+   A6  a) odpočíta 6 · 5 % lineárne; c) jednoduché odúročenie
+       10 000 / 1,3; d) jeden rok; e) násobí namiesto delenia.
+       Správne: 10 000 / 1,05⁶ ≈ 7 462,15 €.
+   A7  a) LINEÁRNA INTUÍCIA: vyššia sadzba vždy vyhrá; b) myslí si, že
+       zložené vyhrá skoro; c) chyba o jeden rok (po 10 rokoch 1 967 €
+       < 2 000 €); e) nepresný odhad. Správne: po 11 rokoch 2 104,85 € >
+       2 100 €.
+   A8  a) porovnáva percentá namiesto súm; b) LINEÁRNA PAST: 5 · 6 % = 30 %
+       platí len pri jednoduchom úročení; d) správny rozdiel, opačný smer;
+       e) prehliada úrok z úroku pri X.
+       Správne: X 10 000 · 1,06⁵ ≈ 13 382,26 € (úroky 3 382,26 €),
+       Y 10 000 + 1 000 + 5 · 400 = 13 000 €.
+   B1  b), d) lineárny rast (stály prírastok) zamieňa s exponenciálnym.
+   B4  a), c) jednoduché úročenie; e) umocní nesprávny faktor (1,06 namiesto
+       1,02).
+   B5  b) LINEÁRNY výpočet úroku z úveru; e) sčítanie percent.
+       a) je pravdivé: 1,08⁹ ≈ 1,999.
+
+3. BODOVANIE ČASTI B
+   2 b. — všetkých päť možností posúdených správne; 1 b. — jedna chyba;
+   0 b. — dve a viac chýb. Pre dichotomický model: správne = 2 b.
+
+4. RUBRIKY ČASTI C (každé kritérium 1 bod)
+   C1  K1 správny postup: na začiatku roka pripočítať vklad, na konci · 1,04
+       K2 správne medzivýsledky: 1 040 €; 2 121,60 €; 3 246,46 €
+       K3 vysvetlenie: každý vklad sa úročí iný počet rokov, preto jeden
+          vzťah nestačí (dá sa sčítať 1 000 · 1,04³ + 1 000 · 1,04² +
+          1 000 · 1,04)
+   C2  K1 chyba: percentá sa sčítali, hoci sa úročí aj z predchádzajúcich
+          nárastov
+       K2 správny výsledok: 1,04⁵ ≈ 1,2167 → nárast ≈ 21,67 %
+       K3 vysvetlenie: každý rok sa 4 % počítajú z väčšieho základu, preto
+          sa rozdiel s počtom rokov zväčšuje
+   C3  K1 správny výpočet A: 3 000 · 1,03⁸ ≈ 3 800,31 €
+       K2 záver: A je výhodnejšia (o ≈ 200 €)
+       K3 bod zlomu: (1 + p)⁸ = 1,2 → p ≈ 2,3 %; uznáva sa „medzi 2 %
+          a 2,5 %“ so zdôvodnením z pomôcky (1,02⁸ ≈ 1,17 < 1,2 < 1,22 ≈
+          1,025⁸)
+   C4  K1 najnižšia celá miera 4 % (pravidlo 72: 72 / 18 = 4)
+       K2 overenie: 1,04¹⁸ ≈ 2,0258 ≥ 2 a 1,03¹⁸ ≈ 1,7024 < 2 (3 % nestačí)
+       K3 druhý plán s kratšou dobou, overený pomôckou (napr. 6 % na 12 rokov:
+          2,0122; 8 % na 10 rokov: 2,1589). Plán „8 % na 9 rokov“ sa uzná
+          len vtedy, ak žiak zistí, že 1,999 je tesne pod dvojnásobkom.
+
+5. RUBRIKY ČASTI E
+   E1  (a) 1 b.: 17 000 € a 14 450 €.
+       (b) 2 b.: chyba — strata sa počíta stále z 20 000 € (lineárne),
+           hoci sa počíta z klesajúcej hodnoty (1 b.); 20 000 · 0,85⁴ ≈
+           10 440 € (1 b.).
+       (c) 2 b.: po 5 rokoch (1 b.), lebo 0,85⁴ ≈ 0,522 > 0,5 a 0,85⁵ ≈
+           0,444 < 0,5 (1 b.).
+       (d) 1 b.: každý rok sa odpočíta len 15 % zo zostávajúcej hodnoty;
+           zostane vždy 85 % z niečoho kladného (exponenciálny pokles).
+   E2  (a) 1 b.: 2⁹ = 512.
+       (b) 1 b.: 1 + 2 + 4 + … + 512 = 2¹⁰ − 1 = 1 023.
+       (c) 3 b.: odhad je nesprávny, ide o lineárnu extrapoláciu (1 b.);
+           správne 2²⁰ − 1 = 1 048 575 (1 b.); vysvetlenie: počet sa každý
+           deň zdvojnásobuje, desať dní navyše je 2¹⁰ ≈ 1 000-násobok, nie
+           dvojnásobok (1 b.).
+       (d) 1 b.: obmedzený počet ľudí; ľudia dostávajú správu opakovane;
+           nie každý ju pošle ďalej (akýkoľvek vecne správny dôvod).
+
+6. SÚHRN
+   Body: A 8 + B 10 + C 12 + E 12 = 42. Čas: 45 minút.
+   Spojenie s T3: kotvy A1, A3, A4, A5, B2, B3 (8 bodov).
+   D1 (opakovanie) a D2 (očakávanie testu) sú kovariáty.
+   H1, H2: rozdiel T4 − T3 na kotvách a celkové skóre T4 podľa podmienky.
+   H3: D1, D2 z T3 proti skóre T4.

@@ -1,0 +1,420 @@
+==========================================================================
+MATEMATIKA · M3 Pravdepodobnosť a podmienená pravdepodobnosť
+T1 · VSTUPNÝ TEST · píše sa pred hodinou
+==========================================================================
+Forma:      M3-T1
+Predmet:    matematika
+Téma:       M3 · Pravdepodobnosť a podmienená pravdepodobnosť
+Test:       T1 · vstupný test pred hodinou („nulové vedomosti“)
+Dvojča:     M3-T3
+Dotazník:   D1 (pred testom časť Q, po teste časť Z)
+Rozsah:     22 úloh · 50 bodov · približne 40 minút + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Téma sa ešte len bude preberať, takže je úplne
+  v poriadku, ak veľa vecí nevieš. Zaujíma nás, ako o nich uvažuješ.
+• Skús každú úlohu; aj čiastočná úvaha sa počíta. Ak úlohu nevieš, napíš
+  „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku môžeš
+  použiť (vedeckú, nie v mobile).
+
+DOHODY PLATNÉ V CELOM TESTE
+• Kocky, mince a žrebovanie sú spravodlivé: každý výsledok jedného hodu
+  alebo ťahu je rovnako pravdepodobný. Hody sú navzájom nezávislé.
+• P(A) je pravdepodobnosť udalosti A. A' znamená „A nenastane“, A ∩ B
+  „nastanú obe“, A ∪ B „nastane aspoň jedna“ a P(A | B) je
+  pravdepodobnosť A, ak už vieme, že nastala B.
+• Pravdepodobnosť môžeš zapísať zlomkom alebo desatinným číslom.
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vypočítať pravdepodobnosť
+    jednoduchej udalosti (kocka, karty, žrebovanie)?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš vypočítať pravdepodobnosť, že
+    nastanú dve nezávislé udalosti naraz?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš z tabuľky početností vypočítať
+    podmienenú pravdepodobnosť?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš vysvetliť rozdiel medzi P(A | B)
+    a P(B | A)?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš odhaliť chybnú úvahu
+    o pravdepodobnosti (napríklad pri hazardnej hre alebo pri teste)?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ktorý zápis vyjadruje pravdepodobnosť, že nastane udalosť A, ak už
+    vieme, že nastala udalosť B?
+      a) P(A ∩ B)
+      b) P(A | B)
+      c) P(B | A)
+      d) P(A ∪ B)
+      e) P(A) · P(B)
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Z balíčka 32 kariet (4 farby po 8 kariet, v každej farbe je jedno eso)
+    ťaháme jednu kartu. Ktoré tvrdenia sú pravdivé?
+      a) Pravdepodobnosť, že vytiahneme srdce, je 1/4.
+      b) Pravdepodobnosť, že nevytiahneme srdce, je 1/4.
+      c) Ak sme trikrát po sebe vytiahli srdce (kartu sme vždy vrátili
+         a balíček zamiešali), pri ďalšom ťahu je srdce menej
+         pravdepodobné.
+      d) Pravdepodobnosť, že vytiahneme srdce alebo eso, je
+         8/32 + 4/32 = 12/32.
+      e) Pravdepodobnosť, že vytiahneme eso, je 1/32.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Ktoré z týchto tvrdení o pravdepodobnosti udalostí platia?
+      a) Ak sa A a B navzájom vylučujú (nemôžu nastať naraz), platí
+         P(A ∩ B) = 0.
+      b) Ak sú A a B nezávislé, platí P(A | B) = P(A).
+      c) Pre každé dve udalosti platí P(A ∪ B) ≥ P(A).
+      d) Ak P(A) = 0,6 a P(B) = 0,7, udalosti A a B sa môžu navzájom
+         vylučovať.
+      e) Pravdepodobnosť udalosti môže byť väčšia ako 1, ak je udalosť
+         takmer istá.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  V osudí je 6 zelených a 14 žltých lístkov. Náhodne vytiahneme jeden.
+    Aká je pravdepodobnosť, že bude zelený?
+      a) 1/20        b) 1/6         c) 3/10        d) 3/7         e) 1/2
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Trikrát hodíme mincou. Aká je pravdepodobnosť, že padne aspoň raz
+    hlava?
+      a) 1/8         b) 3/8         c) 1/2         d) 3/4         e) 7/8
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  V prieskume sa 400 ľudí opýtali, či nosia okuliare.
+
+                       nosí okuliare   nenosí   spolu
+        do 30 rokov          60          140     200
+        nad 30 rokov        100          100     200
+        spolu               160          240     400
+
+    Náhodne vyberieme jedného z nich. Ktoré údaje sú správne?
+      a) P(nosí okuliare) = 0,4
+      b) P(nosí okuliare | má do 30 rokov) = 0,3
+      c) P(má do 30 rokov | nosí okuliare) = 0,3
+      d) P(má nad 30 rokov a nosí okuliare) = 0,25
+      e) P(má nad 30 rokov | nosí okuliare) = 0,5
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  V urne je 5 červených a 2 modré guľky. Bez pozerania vytiahneme dve
+    guľky naraz (bez vrátenia). Aká je pravdepodobnosť, že obe budú modré?
+      a) 1/21        b) 4/49        c) 2/7         d) 1/3         e) 1/2
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Hádžeme dvoma kockami. Udalosť A: na prvej kocke padne párne číslo.
+    Udalosť B: súčet je párny. Ktoré tvrdenia sú pravdivé?
+      a) Udalosti A a B sú nezávislé.
+      b) P(A | B) = 1/4
+      c) P(A | B) = 1/2
+      d) Udalosti A a B sa navzájom vylučujú.
+      e) P(A ∩ B) = 1
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Chorobou trpia 2 z 1 000 ľudí. Test odhalí chorého v 95 % prípadov,
+    u zdravého však omylom ukáže pozitívny výsledok v 5 % prípadov.
+    Náhodne vybraný človek dostal pozitívny výsledok. Aká je približne
+    pravdepodobnosť, že je naozaj chorý?
+      a) Asi 95 %, lebo test odhalí 95 % chorých.
+      b) Asi 50 %, lebo buď je chorý, alebo nie je.
+      c) Asi 5 %, lebo test sa mýli v 5 % prípadov.
+      d) Asi 4 %, lebo pozitívnych zdravých je oveľa viac ako pozitívnych
+         chorých.
+      e) Asi 0,2 %, lebo to je podiel chorých medzi všetkými ľuďmi.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Mincou padla šesťkrát po sebe hlava. Kamaráti sa radia. Ktoré úvahy sú
+    správne?
+      a) Teraz je väčšia šanca na znak, lebo už „musí prísť na rad“.
+      b) Pravdepodobnosť hlavy v ďalšom hode je stále 1/2.
+      c) Šesť hláv po sebe dokazuje, že minca je falošná.
+      d) Postupnosť HHHHHH je rovnako pravdepodobná ako postupnosť HZHHZZ.
+      e) Pravdepodobnosť, že teraz padne siedma hlava po sebe, je 1/128.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka (zlomok alebo desatinné číslo).
+Postup nemusíš písať. Pri úlohách s viacerými políčkami dostaneš 1 bod,
+ak je chybné len jedno políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  V osudí sú lístky s číslami 1 až 30. Ťaháme jeden lístok.
+    Odpoveď:   P(číslo je deliteľné 6) = ________
+               P(číslo nie je deliteľné 6) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Pre udalosti A a B platí P(A) = 0,6, P(B) = 0,5 a P(A ∩ B) = 0,3.
+    Odpoveď:   P(A ∪ B) = ________        P(B | A) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Basketbalista premení trestný hod s pravdepodobnosťou 0,7. Hádže
+    dvakrát, hody sú nezávislé.
+    Odpoveď:   P(premení oba) = ________
+               P(premení aspoň jeden) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Hádžeme naraz dvoma kockami, červenou a modrou.
+    Odpoveď:   P(súčet je 5) = ________     P(súčet je nanajvýš 4) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  V spolku je 40 ľudí: 22 lyžuje, 15 korčuľuje a 7 z nich robí oboje.
+    Náhodne vyberieme jedného člena.
+    Odpoveď:   P(nelyžuje ani nekorčuľuje) = ________
+               P(lyžuje | korčuľuje) = ________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Dielňa A vyrába 70 % výrobkov a 3 % z nich sú chybné. Dielňa B vyrába
+    zvyšných 30 % a 10 % z nich sú chybné. Náhodne vyberieme výrobok.
+    Odpoveď:   P(výrobok je chybný) = ________
+               P(je z dielne B | je chybný) = ________ (na tri desatinné
+               miesta)
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  V zásuvke je 5 červených a 3 modré ponožky. Potme vytiahneš dve. Aká je
+    pravdepodobnosť, že budú rovnakej farby? Zapíš postup (napríklad
+    stromovým diagramom).
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Polícia zistila, že 70 % vodičov, ktorí spôsobili vážnu nehodu, malo
+    v krvi alkohol. Novinár z toho píše: „Kto šoféruje opitý, spôsobí
+    vážnu nehodu s pravdepodobnosťou 70 %.“ Posúď jeho úsudok. Vysvetli
+    rozdiel medzi P(alkohol | nehoda) a P(nehoda | alkohol) a ukáž na
+    príklade s číslami, že sa môžu výrazne líšiť.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Hádžeme jednou kockou. A: padne nepárne číslo. B: padne číslo väčšie
+    ako 3. Sú udalosti A a B nezávislé? Zdôvodni výpočtom. Zmení sa
+    odpoveď, ak B bude „padne číslo väčšie ako 4“?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Pri hre s kockou kamarát stavia na šestku, lebo „dlho nepadla“. Iný
+    tvrdí, že postupnosť 6, 6, 6 je menej pravdepodobná ako postupnosť
+    2, 5, 3. Tretí hovorí, že keď už padli tri šestky, kocka je
+    „rozohriata“ a šestka padne skôr. Posúď všetky tri úvahy.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Marek je tichý, rád číta a rieši hlavolamy. Čo je pravdepodobnejšie:
+    (1) Marek je učiteľ;
+    (2) Marek je učiteľ a hrá šach?
+    Spolužiačka tvrdí, že (2), lebo „to k nemu viac sedí“. Posúď jej úvahu
+    a svoju odpoveď zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Navrhni hru s dvoma kockami (pravidlo, kedy hráč vyhrá), v ktorej má
+    hráč pravdepodobnosť výhry presne 1/6. Pravdepodobnosť over výpočtom
+    a opíš, ako by si pokusom overil/a, že výpočet sedí.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  klasická pravdepodobnosť: priaznivé a všetky rovnako možné výsledky
+  S2  doplnková udalosť a zjednotenie (P(A ∪ B) = P(A) + P(B) − P(A ∩ B))
+  S3  nezávislé udalosti, pravidlo súčinu, stromový diagram
+  S4  podmienená pravdepodobnosť, tabuľka početností
+  S5  zámena P(A | B) a P(B | A); základná početnosť (base rate)
+  S6  posúdenie úvah o náhode (hazardná hra, intuícia, rozhodnutie)
+
+ČO T1 MERIA
+  Vedomosti a INTUÍCIE o náhode pred výučbou. Intuitívne chyby (klam
+  hráča, predpoklad rovnakej pravdepodobnosti, zámena podmienených
+  pravdepodobností, prehliadanie základnej početnosti, klam spojenia) sú
+  doložené aj u dospelých; T1 ukáže, s ktorými žiak do hodiny vstupuje.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+
+A1  Kľúč: b
+    Úroveň: zapamätanie · Zručnosť: S4 · Dvojča: M3-T3 A1
+    a) zamieňa podmienenú pravdepodobnosť s prienikom
+    c) ZÁMENA poradia podmienky
+    d) zamieňa so zjednotením
+    e) zamieňa s pravidlom súčinu
+
+A2  Kľúč: a
+    Úroveň: porozumenie · Zručnosť: S1, S2 · Dvojča: M3-T3 A2
+    b) zamieňa udalosť s doplnkovou
+    c) KLAM HRÁČA
+    d) sčíta pravdepodobnosti udalostí, ktoré sa prekrývajú (správne 11/32)
+    e) zamieňa jedno eso so všetkými štyrmi
+
+A3  Kľúč: a, b, c
+    Úroveň: porozumenie · Zručnosť: S2, S3 · Dvojča: M3-T3 A3
+    d) prehliadne, že súčet pravdepodobností neslučiteľných udalostí
+       nemôže byť väčší ako 1
+    e) nevie, že pravdepodobnosť je z intervalu ⟨0; 1⟩
+
+A4  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M3-T3 A4
+    Výpočet: 6 / 20 = 3/10.
+    a) jeden lístok z dvadsiatich
+    b) nesprávny menovateľ (počet zelených)
+    d) pomer zelených a žltých (6 : 14)
+    e) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI: dve farby = 1/2
+
+A5  Kľúč: e
+    Úroveň: aplikácia · Zručnosť: S1, S2, S3 · Dvojča: M3-T3 A5
+    Výpočet: 1 − (1/2)³ = 7/8.
+    a) tri hlavy
+    b) práve jedna hlava
+    c) uvažuje len jeden hod
+    d) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI výsledkov 0, 1, 2, 3 hlavy
+
+A6  Kľúč: a, b, d
+    Úroveň: aplikácia · Zručnosť: S4, S5 · Dvojča: M3-T3 A6
+    Výpočet: 160/400; 60/200; 60/160 = 0,375; 100/400; 100/160 = 0,625.
+    c) ZÁMENA P(A | B) a P(B | A)
+    e) delí nesprávnym celkom
+
+A7  Kľúč: a
+    Úroveň: aplikácia · Zručnosť: S3 · Dvojča: M3-T3 A7
+    Výpočet: 2/7 · 1/6 = 1/21.
+    b) ťah s vrátením
+    c) len prvý ťah
+    d) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI troch kombinácií farieb
+    e) „obe modré, alebo nie“
+
+A8  Kľúč: a, c
+    Úroveň: analýza · Zručnosť: S3, S4 · Dvojča: M3-T3 A8
+    Výpočet: P(A) = 1/2, P(B) = 1/2, A ∩ B = obe párne, P = 1/4 = P(A) · P(B).
+    b) zamieňa P(A | B) s P(A ∩ B)
+    d) zamieňa nezávislosť s neslučiteľnosťou
+    e) sčíta pravdepodobnosti
+
+A9  Kľúč: d
+    Úroveň: analýza · Zručnosť: S5 · Dvojča: M3-T3 A9
+    Výpočet: zo 100 000 ľudí je 200 chorých (190 pozitívnych) a 99 800
+    zdravých (4 990 pozitívnych); 190 / 5 180 ≈ 3,7 %.
+    a) ZÁMENA P(pozitívny | chorý) a P(chorý | pozitívny)
+    b) PREDPOKLAD ROVNAKEJ PRAVDEPODOBNOSTI
+    c) zamieňa chybovosť testu s odpoveďou
+    e) PREHLIADNE VÝSLEDOK TESTU
+
+A10  Kľúč: b, d
+    Úroveň: hodnotenie · Zručnosť: S6, S3 · Dvojča: M3-T3 A10
+    a) KLAM HRÁČA
+    c) zamieňa nepravdepodobné s nemožným (1/64)
+    e) zamieňa pravdepodobnosť siedmich hláv vopred s pravdepodobnosťou
+       ďalšieho hodu
+
+B1  Kľúč: P(číslo je deliteľné 6) = 1/6 ± 0,001; P(číslo nie je deliteľné 6) = 5/6 ± 0,001
+    Úroveň: porozumenie · Zručnosť: S1, S2 · Dvojča: M3-T3 B1
+
+B2  Kľúč: P(A ∪ B) = 0,8; P(B | A) = 0,5
+    Úroveň: aplikácia · Zručnosť: S2, S4 · Dvojča: M3-T3 B2
+    Typické chyby: 1,1 (zabudne odčítať prienik); 0,6 (delí P(B)).
+
+B3  Kľúč: P(premení oba) = 0,49; P(premení aspoň jeden) = 0,91
+    Úroveň: aplikácia · Zručnosť: S3, S2 · Dvojča: M3-T3 B3
+
+B4  Kľúč: P(súčet je 5) = 1/9 ± 0,001; P(súčet je nanajvýš 4) = 1/6 ± 0,001
+    Úroveň: aplikácia · Zručnosť: S1 · Dvojča: M3-T3 B4
+    Výpočet: (1,4), (2,3), (3,2), (4,1): 4/36; súčty 2, 3, 4: 1 + 2 + 3 = 6
+    dvojíc.
+
+B5  Kľúč: P(nelyžuje ani nekorčuľuje) = 0,25; P(lyžuje | korčuľuje) = 7/15 ± 0,001
+    Úroveň: analýza · Zručnosť: S2, S4 · Dvojča: M3-T3 B5
+    Výpočet: 22 + 15 − 7 = 30 robí aspoň jedno, 10 nič; 7/15.
+
+B6  Kľúč: P(výrobok je chybný) = 0,051; P(je z dielne B | je chybný) = 0,588 ± 0,001
+    Úroveň: analýza · Zručnosť: S5, S4 · Dvojča: M3-T3 B6
+    Výpočet: 0,021 + 0,030 = 0,051; 0,030 / 0,051 ≈ 0,588.
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S3, S2 · Dvojča: M3-T3 C1
+    K1  dve červené: 5/8 · 4/7 = 20/56; dve modré: 3/8 · 2/7 = 6/56
+    K2  spolu 26/56 = 13/28 ≈ 0,46
+    K3  postup bez vrátenia je zdôvodnený (strom alebo popis)
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S5, S4 · Dvojča: M3-T3 C2
+    K1  úsudok je chybný: zamieňa P(alkohol | nehoda) a P(nehoda | alkohol)
+    K2  vysvetlenie: prvá sa počíta medzi vodičmi s nehodou, druhá medzi
+        opitými vodičmi -- to sú iné skupiny
+    K3  príklad s číslami, napr. z 10 000 vodičov je 200 opitých; zo 10
+        vážnych nehôd 7 spôsobili opití; P(nehoda | opitý) = 7/200 = 3,5 %
+        (a pritom je to mnohonásobne viac ako u triezvych: 3/9 800)
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S3, S4 · Dvojča: M3-T3 C3
+    K1  P(A) = 1/2, P(B) = 1/2, P(A ∩ B) = P({5}) = 1/6
+    K2  1/6 ≠ 1/4, udalosti sú závislé
+    K3  pre B = {5, 6}: P(B) = 1/3, P(A ∩ B) = 1/6 = 1/2 · 1/3, nezávislé
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S6, S3 · Dvojča: M3-T3 C4
+    K1  prvá úvaha je nesprávna: hody sú nezávislé (klam hráča)
+    K2  druhá úvaha je nesprávna: každá konkrétna postupnosť troch hodov má
+        pravdepodobnosť 1/216
+    K3  tretia úvaha je nesprávna: kocka nemá pamäť ani „formu“ (horúca
+        ruka); rozumná poznámka o dlhom behu (relatívna početnosť)
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S6, S2 · Dvojča: M3-T3 C5
+    K1  pravdepodobnejšie (alebo aspoň rovnako) je (1)
+    K2  zdôvodnenie: každý učiteľ šachista je aj učiteľ; P(A ∩ B) ≤ P(A)
+    K3  vysvetlenie chyby: podobnosť nie je pravdepodobnosť (klam
+        spojenia); ilustrácia počtami
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S1, S3 · Dvojča: M3-T3 C6
+    K1  pravidlo s pravdepodobnosťou presne 1/6 (napr. súčet 7, alebo na
+        oboch kockách rovnaké číslo: 6 z 36 dvojíc)
+    K2  overenie výpočtom
+    K3  návrh pokusu s mnohými opakovaniami a porovnaním relatívnej
+        početnosti s 1/6
+
+SÚHRN
+  Body: A 10 × 2 = 20, B 6 × 2 = 12, C 6 × 3 = 18, spolu 50.
+  Položky s viacerými správnymi odpoveďami: A3, A6, A8, A10 (žiakovi sa
+  neoznačujú). Kľúče položiek s jednou správnou: b, a, c, e, a, d.

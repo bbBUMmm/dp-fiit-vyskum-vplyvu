@@ -1,0 +1,639 @@
+==========================================================================
+FYZIKA · F1 Jednosmerný elektrický prúd: sériové a paralelné zapojenie
+T4 · ODLOŽENÝ TEST · tri týždne po hodine, bez ohlásenia termínu
+==========================================================================
+Forma:      F1-T4
+Predmet:    fyzika
+Téma:       F1 · Jednosmerný elektrický prúd: sériové a paralelné zapojenie
+Test:       T4 · odložený test po troch týždňoch
+Kotvy:      F1-T3 (A1, A3, A4, A5, A6, A9 sú znak po znaku rovnaké)
+Dotazník:   D4 (pred testom časť Q, po teste časť Z)
+Rozsah:     32 úloh · 72 bodov · približne 65 minút (dve vyučovacie hodiny
+            s prestávkou po časti B) + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Skús každú úlohu; aj čiastočná úvaha sa počíta.
+• Test má dve polovice: časti P, A, B a po prestávke časti C, D.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku môžeš
+  použiť (jednoduchú, nie v mobile).
+• Ak úlohu nevieš, napíš „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Žiarovky v jednej úlohe sú rovnaké (ak nie je uvedené inak) a správajú
+  sa ako rezistory so stálym odporom.
+• Vodiče majú zanedbateľný odpor, zdroj má stále napätie.
+• Čím väčší je výkon žiarovky, tým jasnejšie svieti.
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš vysvetliť, prečo sa elektrický
+    prúd v obvode „nespotrebúva“?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš vypočítať prúd a napätia
+    v obvode s rezistormi zapojenými sériovo?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš vypočítať prúdy vo vetvách
+    paralelného zapojenia?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš určiť náhradný odpor obvodu,
+    v ktorom je sériové aj paralelné zapojenie?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš rozhodnúť, či je bezpečné zapnúť
+    naraz niekoľko spotrebičov na jednom okruhu?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ktorý vzťah vyjadruje Ohmov zákon pre rezistor (U napätie, I prúd,
+    R odpor)?
+      a) I = U · R
+      b) I = R / U
+      c) U = I / R
+      d) R = U · I
+      e) I = U / R
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré tvrdenia o meraní a o prúde v obvode sú pravdivé?
+      a) Ampérmeter sa do obvodu zapája sériovo so spotrebičom.
+      b) Voltmeter sa zapája paralelne k spotrebiču.
+      c) Prúd, ktorý do uzla obvodu vteká, sa rovná prúdu, ktorý z neho
+         vyteká.
+      d) Napätie na spotrebiči sa meria ampérmetrom.
+      e) Ak v obvode nie je žiadny spotrebič, prúd ním tiecť nemôže.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Do série sú zapojené zdroj, ampérmeter A₁, žiarovka a ampérmeter A₂
+    (A₁ je pred žiarovkou, A₂ za ňou). A₁ ukazuje 0,3 A. Čo ukazuje A₂?
+      a) 0 A
+      b) 0,15 A
+      c) 0,3 A
+      d) 0,6 A
+      e) závisí to od toho, či je žiarovka nová
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Na zdroj 9 V sú paralelne pripojené dve rovnaké žiarovky. Jednu z nich
+    vyskrutkuješ. Ktoré tvrdenia sú potom pravdivé?
+      a) Druhá žiarovka zhasne, lebo sa prerušil obvod.
+      b) Druhá žiarovka svieti slabšie, lebo celkový odpor obvodu sa
+         zväčšil.
+      c) Druhá žiarovka svieti jasnejšie, lebo dostane aj prúd, ktorý
+         predtým tiekol prvou.
+      d) Druhá žiarovka svieti rovnako a zdroj dodáva polovičný prúd.
+      e) Druhá žiarovka svieti rovnako a zdroj dodáva rovnaký prúd ako
+         predtým.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Rezistory 4 Ω a 8 Ω sú zapojené sériovo na zdroj 6 V. Aké napätie je na
+    rezistore 8 Ω?
+      a) 2 V      b) 3 V      c) 4 V        d) 6 V        e) 48 V
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Dve žiarovky s odpormi 10 Ω a 40 Ω sú paralelne pripojené na zdroj 40 V.
+    Ktoré údaje sú správne?
+      a) Prúd žiarovkou 40 Ω je 4 A.
+      b) Náhradný odpor je 50 Ω.
+      c) Prúd žiarovkou 10 Ω je 4 A.
+      d) Zdroj dodáva prúd 5 A.
+      e) Väčší výkon má žiarovka s odporom 40 Ω.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Na zdroj 12 V je pripojený rezistor 12 Ω. Paralelne k nemu pripojíme
+    rezistor R a prúd zo zdroja stúpne na 3 A. Ktoré údaje sú správne?
+      a) R = 6 Ω
+      b) Náhradný odpor obvodu je teraz 4 Ω.
+      c) Prúd rezistorom 12 Ω klesol na 0,5 A.
+      d) R = 4 Ω
+      e) Na rezistore R sa premieňa výkon 24 W.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  V obvode je zdroj, rezistor R₁ v hlavnej vetve a za ním dve paralelné
+    vetvy s rezistormi R₂ a R₃. Vetvu s rezistorom R₃ prerušíme. Čo sa
+    stane s napätím na rezistore R₂?
+      a) zväčší sa
+      b) zmenší sa
+      c) nezmení sa, lebo R₂ je stále zapojený paralelne
+      d) klesne na nulu
+      e) zmenší sa presne na polovicu
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Tri rovnaké žiarovky: Ž1 a Ž2 sú zapojené za sebou v jednej vetve,
+    Ž3 je sama v druhej vetve; obe vetvy sú paralelne pripojené na zdroj.
+    Ktoré tvrdenia sú pravdivé?
+      a) Ž3 svieti najjasnejšie.
+      b) Ak vyhorí Ž1, zhasne aj Ž3.
+      c) Ž1 a Ž2 svietia rovnako.
+      d) Ak vyhorí Ž3, zhasnú aj Ž1 a Ž2.
+      e) Prúd žiarovkou Ž3 je dvakrát väčší ako prúd žiarovkou Ž1.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  V učebni je na jednom okruhu 230 V s ističom 16 A zapnutých 15 rovnakých
+    počítačov; každý odoberá prúd 0,8 A. Ktoré tvrdenia sú pravdivé?
+      a) Prívodom okruhu tečie prúd 12 A.
+      b) Ak zapneme ďalších 6 počítačov, istič vypne.
+      c) Ak 5 počítačov vypneme, prúd v prívode klesne o 4 A.
+      d) Na každom počítači je napätie 230/15 V.
+      e) Čím viac počítačov je zapnutých, tým väčší je náhradný odpor okruhu.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A11  Kamarát chce na chate pripojiť k autobatérii 12 V štyri žiarovky
+    s údajmi 12 V / 6 W. Ktoré návrhy sú správne?
+      a) Zapojiť ich sériovo, lebo tak tečie menší prúd a batéria vydrží
+         dlhšie.
+      b) Zapojiť ich paralelne; každá bude mať 12 V a batéria dodá spolu 2 A.
+      c) Zapojiť ich paralelne; batéria dodá spolu 0,5 A.
+      d) Zapojiť ich sériovo; každá bude mať 12 V.
+      e) Zapojenie je jedno, svietiť budú v oboch prípadoch rovnako.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A12  Žiaci vysvetľujú, prečo sa na jeden okruh nesmie zapnúť priveľa
+    spotrebičov. Ktoré vysvetlenia sú fyzikálne správne?
+      a) Spotrebiče si navzájom „berú“ napätie, takže každý dostane menej
+         ako 230 V a môže sa pokaziť.
+      b) Každý ďalší spotrebič zväčší odpor okruhu, a preto sa vedenie
+         prehrieva.
+      c) Istič vypne, keď je na okruhu priveľa spotrebičov, bez ohľadu na
+         ich výkon.
+      d) Pri mnohých spotrebičoch stúpne napätie v zásuvke nad 230 V.
+      e) Prúdy spotrebičov sa v prívode sčítajú; príliš veľký prúd prehrieva
+         vedenie, a preto istič okruh vypne.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka (jednotka je uvedená za ním) alebo
+slovo. Postup nemusíš písať. Pri úlohách s viacerými políčkami dostaneš
+1 bod, ak je chybné len jedno políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Ktorá veličina na štítku spotrebiča udáva, akú energiu spotrebič
+    odoberie za jednu sekundu? Napíš (1) jej názov a (2) značku jej
+    jednotky.
+    Odpoveď:   (1) ____________________     (2) ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Spotrebič s výkonom 1 150 W je pripojený na napätie 230 V.
+    Odpoveď:   prúd = __________ A      energia za 2 hodiny = __________ kWh
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Rezistor 4 Ω je zapojený sériovo s dvojicou rezistorov 10 Ω a 15 Ω,
+    ktoré sú navzájom zapojené paralelne. Obvod je pripojený na zdroj 20 V.
+    Odpoveď:   náhradný odpor = __________ Ω     prúd zo zdroja = _______ A
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Tri rovnaké rezistory po 18 Ω sú paralelne pripojené na zdroj 9 V.
+    Odpoveď:   náhradný odpor = __________ Ω     prúd zo zdroja = _______ A
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Rezistor R₁ = 5 Ω a neznámy rezistor R₂ sú zapojené sériovo na zdroj
+    12 V. Na rezistore R₁ je napätie 4 V. Aký odpor má R₂?
+    Odpoveď:   R₂ = __________ Ω
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Rezistor 12 Ω a neznámy rezistor R sú paralelne pripojené na zdroj. Zo
+    zdroja tečie prúd 1,5 A, rezistorom 12 Ω tečie prúd 0,5 A.
+    Odpoveď:   napätie zdroja = __________ V       R = __________ Ω
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B7  Žiarovky s údajmi 230 V / 100 W a 230 V / 25 W sú zapojené SÉRIOVO do
+    zásuvky 230 V. Odpor žiaroviek považuj za stály.
+    (1) Ktorá žiarovka svieti jasnejšie? Napíš 100 W alebo 25 W.
+    (2) Aký prúd tečie obvodom?
+    Odpoveď:   (1) ______        (2) __________ A
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B8  Akumulátor 12 V s kapacitou 60 Ah napája spotrebič s výkonom 24 W.
+    Odpoveď:   prúd = __________ A      najdlhšia doba prevádzky = ______ h
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  Rezistor 2 Ω je zapojený sériovo s dvojicou paralelne zapojených
+    rezistorov 5 Ω a 20 Ω; celé zapojenie je pripojené na zdroj 12 V.
+    Vypočítaj prúd zo zdroja, napätie na rezistore 2 Ω a prúd každým
+    z paralelných rezistorov.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Spolužiačka tvrdí: „Keď sa prúd rozvetví do dvoch vetiev, vždy sa
+    rozdelí na polovice, lebo nevie, ktorou vetvou má ísť.“ Posúď jej
+    tvrdenie, uveď príklad, kedy neplatí, a vysvetli, čím je rozdelenie
+    prúdu určené.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Žiarovky Ž1 a Ž2 sú zapojené sériovo na zdroj. Paralelne k Ž2 pripojíme
+    cez vypínač ďalšiu rovnakú žiarovku Ž3. Opíš, čo sa po zapnutí
+    vypínača stane s jasom Ž1, s jasom Ž2 a s prúdom zo zdroja. Každú zmenu
+    zdôvodni.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Adaptér má údaje 12 V / 3 A (najväčší prúd, ktorý smie dodávať). Kamarát
+    k nemu chce pripojiť naraz tri LED pásiky, každý s údajmi 12 V / 18 W,
+    zapojené paralelne. Posúď, či adaptér stačí, a navrhni riešenie.
+    Zdôvodni výpočtom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Spolužiak vysvetľuje elektrické obvody pomocou mýtnych brán na diaľnici:
+    „Brány sú ako rezistory a autá ako prúd.“ Pred bránami stojí dlhá kolóna
+    a jedna brána prepustí najviac 10 áut za minútu. Posúď, v čom táto
+    analógia sedí a kde zlyháva. Zaober sa sériovým (brány za sebou)
+    aj paralelným (brány vedľa seba) zapojením.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Máš štyri rezistory po 10 Ω. Navrhni dve rôzne zapojenia všetkých
+    štyroch, ktoré majú náhradný odpor 10 Ω. Každé nakresli alebo presne
+    opíš a over výpočtom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+ČASŤ D — Práca s textom (spolu 14 bodov)
+--------------------------------------------------------------------------
+Prečítaj si text. Úlohy D1 – D6 sa ho týkajú; k textu sa môžeš kedykoľvek
+vrátiť. Pri D1 a D2 označ všetky správne odpovede (ako v časti A), pri D3
+a D4 doplň krátku odpoveď, pri D5 a D6 odpovedaj vlastnými slovami.
+
+TEXT: Ako je zapojená elektrina v byte
+| Do bytu vedie prívod s napätím 230 V. Za elektromerom sa vedenie
+| v rozvodnici rozdelí na niekoľko okruhov. Každý okruh chráni vlastný
+| istič: keď prúd okruhom prekročí hodnotu ističa, istič okruh vypne.
+| Istič nechráni spotrebiče, ale vedenie v stenách. Vodič, ktorým tečie
+| väčší prúd, než na aký je určený, sa zahrieva a môže poškodiť izoláciu.
+| Preto sa hodnota ističa volí podľa hrúbky (prierezu) vodičov, a nie
+| podľa toho, koľko spotrebičov chceme naraz zapnúť.
+|
+| Zásuvky a svetlá jedného okruhu sú zapojené paralelne. Každý spotrebič
+| má teda napätie 230 V bez ohľadu na to, koľko ďalších spotrebičov je
+| zapnutých, a prúd v prívode okruhu je súčtom prúdov všetkých zapnutých
+| spotrebičov. Viacnásobná predlžovačka nevytvára nový okruh: všetko, čo
+| je v nej zapojené, patrí do okruhu zásuvky, do ktorej je predlžovačka
+| zastrčená.
+|
+| V byte rodiny Novákovcov sú tieto okruhy:
+|
+|   okruh   čo napája                              istič
+|   1       svetlá v celom byte                    10 A
+|   2       zásuvky v kuchyni                      16 A
+|   3       zásuvky v obývačke a v izbách          16 A
+|   4       sporák (samostatný trojfázový okruh)   3 × 16 A
+|
+| Výkony spotrebičov pri napätí 230 V:
+|
+|   rýchlovarná kanvica   2 200 W        chladnička        150 W
+|   mikrovlnka            1 150 W        umývačka riadu  2 000 W
+|   kávovar               1 380 W        ohrievač        2 000 W
+|   televízor               115 W        žehlička        2 070 W
+|
+| Každý zapnutý spotrebič sa správa ako rezistor, ktorého odpor určuje jeho
+| výkon: čím väčší výkon pri 230 V, tým menší odpor. Elektrikári preto
+| hovoria, že každý ďalší spotrebič na okruhu „znižuje odpor okruhu“. Ak sa
+| vodiče niekde dotknú priamo (skrat), odpor okruhu klesne takmer na nulu,
+| prúd prudko stúpne a istič vypne v zlomku sekundy.
+|
+| Cez sviatky Novákovci zapínajú aj vonkajšiu svetelnú reťaz. Má 40
+| rovnakých LED článkov zapojených sériovo a napája sa zo zásuvky
+| v obývačke cez adaptér, ktorý dodáva 120 V. Výrobca uvádza, že každý
+| článok je určený na napätie 3 V a že pri prerušení jedného článku reťaz
+| svieti ďalej: každý článok má paralelne pripojenú ochrannú súčiastku,
+| ktorá pri prerušení článku začne viesť prúd.
+
+D1  Prečo podľa textu môže kanvica v kuchyni bežať s plným výkonom aj
+    vtedy, keď je v tom istom okruhu zapnutý aj kávovar?
+      a) Lebo spotrebiče okruhu sú zapojené paralelne a každý má napätie
+         230 V.
+      b) Lebo istič zabezpečí, aby každý spotrebič dostal rovnaký prúd.
+      c) Lebo predlžovačka vytvorí pre kávovar nový okruh.
+      d) Lebo kávovar a kanvica si napätie 230 V rozdelia na polovice.
+      e) Lebo kanvica je zapojená bližšie k rozvodnici.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D2  Chladnička v kuchyni beží stále. Ktoré z týchto kombinácií môžu v okruhu
+    2 (zásuvky v kuchyni) bežať naraz s chladničkou bez toho, aby istič
+    vypol?
+      a) kanvica
+      b) kanvica a mikrovlnka
+      c) kanvica a kávovar
+      d) umývačka riadu a mikrovlnka
+      e) umývačka riadu a kanvica
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D3  Vypočítaj prúd, ktorý odoberá mikrovlnka, a odpor kanvice pri 230 V.
+    Odpoveď:   prúd mikrovlnky = __________ A    odpor kanvice = ________ Ω
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D4  Svetelná reťaz z textu: každý LED článok má pri 3 V výkon 0,06 W.
+    (1) Aký prúd tečie reťazou?
+    (2) Jeden článok sa preruší a jeho ochranná súčiastka začne viesť prúd
+        ako obyčajný vodič. Aké napätie bude potom na každom zo zvyšných
+        článkov?
+    Odpoveď:   (1) __________ A        (2) __________ V
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+D5  Sused Novákovcom radí: „Keď vám v kuchyni vypína istič, vymeňte ho za
+    25 A a budete mať pokoj.“ Posúď túto radu. Opri sa o text aj o to, čo
+    vieš o prúde a zahrievaní vodičov.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+D6  Novákovci chystajú oslavu. V kuchyni chcú naraz používať kanvicu,
+    kávovar a mikrovlnku, chladnička beží stále. V obývačke bude zapnutý
+    televízor, svetelná reťaz (jej príkon zo zásuvky zanedbaj) a ohrievač.
+    Navrhni, ako spotrebiče rozdeliť medzi okruhy 2 a 3, aby žiadny istič
+    nevypol. Môžeš použiť predlžovačky, ističe meniť nesmieš. Návrh over
+    výpočtom pre oba okruhy.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  zachovanie prúdu: prúd sa v obvode nespotrebúva
+  S2  Ohmov zákon a elektrický výkon
+  S3  sériové zapojenie: rovnaký prúd, napätie sa delí podľa odporov
+  S4  paralelné zapojenie: rovnaké napätie, prúdy vetiev sa sčítajú
+  S5  náhradný odpor a kombinované obvody
+  S6  zapojenie a bezpečnosť v praxi (okruh, istič, reťaz)
+
+ČO T4 MERIA
+  Trvalé osvojenie po troch týždňoch (kotvy A1, A3, A4, A5, A6, A9 sú
+  totožné s T3 a spájajú obe formy na spoločnú škálu) a prenos do nových
+  situácií (ostatné položky, časť D: dlhší súvislý text s tabuľkou, ktorý
+  treba čítať, vybrať z neho údaje a použiť ich).
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+
+A1  Kľúč: e
+    Úroveň: zapamätanie · Zručnosť: S2 · Dvojča: F1-T3 A1 · Kotva: K1
+    a) zamieňa delenie násobením
+    b) prevrátený vzťah (prúd = odpor / napätie)
+    c) algebraicky zamenené veličiny
+    d) pripomína vzťah pre výkon (P = U · I); zamieňa odpor s výkonom
+
+A2  Kľúč: a, b, c
+    Úroveň: porozumenie · Zručnosť: S1, S4
+    d) zamieňa meracie prístroje
+    e) nevie, že bez spotrebiča (skrat) tečie naopak veľmi veľký prúd
+
+A3  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: F1-T3 A3 · Kotva: K2
+    a) PRÚD SA SPOTREBUJE úplne
+    b) prúd sa spotrebuje sčasti -- ústredná mylná predstava témy
+    d) prúd sa v spotrebiči zväčší
+    e) prúd závisí od vlastnosti spotrebiča, nie od obvodu ako celku
+
+A4  Kľúč: d
+    Úroveň: porozumenie · Zručnosť: S4 · Dvojča: F1-T3 A4 · Kotva: K3
+    Výpočet: napätie na druhej žiarovke zostáva 9 V; prúd zo zdroja je
+    súčtom prúdov vetiev, teda klesne na polovicu.
+    a) myslí si, že žiarovky sú v sérii
+    b) sériová úvaha: väčší celkový odpor, menší prúd -- prenáša ju aj na
+       vetvu, ktorá má stále celé napätie zdroja
+    c) zdroj ako zdroj stáleho prúdu: prúd, ktorý tiekol prvou, sa presunie
+    e) nevie, že prúd zo zdroja je súčtom prúdov vetiev
+
+A5  Kľúč: c
+    Úroveň: aplikácia · Zručnosť: S3, S2 · Dvojča: F1-T3 A5 · Kotva: K4
+    Výpočet: I = 6 / 12 = 0,5 A; U = 0,5 · 8 = 4 V.
+    a) napätie na druhom rezistore (4 Ω)
+    b) napätie sa delí rovnako bez ohľadu na odpor
+    d) celé napätie (paralelná úvaha)
+    e) U · R
+
+A6  Kľúč: c, d
+    Úroveň: aplikácia · Zručnosť: S4, S2 · Dvojča: F1-T3 A6 · Kotva: K5
+    Výpočet: I₁₀ = 40 / 10 = 4 A; I₄₀ = 40 / 40 = 1 A; spolu 5 A;
+    náhradný odpor 8 Ω; výkony 160 W a 40 W.
+    a) zamieňa prúdy vetiev
+    b) sériový vzťah pre náhradný odpor
+    e) pri rovnakom napätí má väčší výkon MENŠÍ odpor (P = U² / R)
+
+A7  Kľúč: a, b, e
+    Úroveň: aplikácia · Zručnosť: S4, S2
+    Výpočet: prúd rezistorom 12 Ω zostáva 1 A (napätie sa nezmenilo), R
+    vedie 2 A, teda R = 6 Ω; náhradný odpor 12 / 3 = 4 Ω; P = 12 · 2 = 24 W.
+    c) myslí si, že pripojená vetva „uberie“ prúd pôvodnej vetve
+    d) pripisuje rezistoru R celý prúd zo zdroja (12 / 3)
+
+A8  Kľúč: a
+    Úroveň: analýza · Zručnosť: S5, S3, S4
+    Výpočet: po prerušení R₃ sa odpor paralelnej časti zväčší, celkový prúd
+    klesne, napätie na R₁ klesne, a preto napätie na R₂ (= U − U₁) stúpne.
+    b) myslí si, že menší celkový prúd znamená menšie napätie všade
+    c) „paralelná vetva je nezávislá“ -- platí len pre vetvy pripojené
+       priamo na zdroj, nie za sériovým rezistorom
+    d) zamieňa prerušenie R₃ s prerušením hlavnej vetvy
+    e) mechanické pravidlo „polovica“ bez výpočtu
+
+A9  Kľúč: a, c, e
+    Úroveň: analýza · Zručnosť: S1, S3, S4 · Dvojča: F1-T3 A9 · Kotva: K6
+    Výpočet: vetva Ž1-Ž2 má odpor 2R, teda polovičný prúd ako vetva so Ž3;
+    Ž3 má celé napätie, Ž1 a Ž2 po polovici (štvrtinový výkon).
+    b) nevidí, že vetvy sú nezávislé
+    d) nevidí, že vetvy sú nezávislé
+
+A10  Kľúč: a, b, c
+    Úroveň: analýza · Zručnosť: S4, S6
+    Výpočet: 15 · 0,8 = 12 A; 21 · 0,8 = 16,8 A > 16 A; 5 · 0,8 = 4 A.
+    d) sériová úvaha (napätie sa delí medzi spotrebiče)
+    e) opak: každý ďalší paralelný spotrebič náhradný odpor zmenší
+
+A11  Kľúč: b
+    Úroveň: hodnotenie · Zručnosť: S6, S4
+    Výpočet: paralelne má každá žiarovka 12 V a prúd 6 / 12 = 0,5 A; spolu
+    4 · 0,5 = 2 A. Sériovo by mala každá len 3 V a takmer by nesvietila.
+    a) vidí len menší prúd, nie to, že žiarovky nedostanú svoje napätie
+    c) zamieňa prúd jednej žiarovky s prúdom zo zdroja
+    d) sériová úvaha o napätí je opačná: napätie sa delí
+    e) nerozlišuje zapojenia
+
+A12  Kľúč: e
+    Úroveň: hodnotenie · Zručnosť: S6, S4
+    a) sériová úvaha prenesená na paralelný okruh
+    b) opak: paralelný spotrebič odpor okruhu zmenší
+    c) nevidí, že rozhoduje súčet prúdov (výkonov), nie počet spotrebičov
+    d) zamieňa napätie a prúd
+
+B1  Kľúč: (1) = "výkon" | "príkon" | "elektrický výkon" | "elektrický príkon"; (2) = "W" | "watt" | "watty" | "wattov" | "kW"
+    Úroveň: porozumenie · Zručnosť: S2
+    Typická chyba: „energia“, „kWh“ (zamieňa výkon s energiou).
+
+B2  Kľúč: prúd = 5 A; energia za 2 hodiny = 2,3 kWh
+    Úroveň: aplikácia · Zručnosť: S2
+    Typické chyby: 2 300 (Wh namiesto kWh); 0,2 A (U / P).
+
+B3  Kľúč: náhradný odpor = 10 Ω; prúd zo zdroja = 2 A
+    Úroveň: aplikácia · Zručnosť: S5
+    Výpočet: 10 ‖ 15 = 6 Ω; 4 + 6 = 10 Ω; 20 / 10 = 2 A.
+
+B4  Kľúč: náhradný odpor = 6 Ω; prúd zo zdroja = 1,5 A
+    Úroveň: aplikácia · Zručnosť: S4, S5
+    Typická chyba: 54 Ω a 0,17 A (sériovo).
+
+B5  Kľúč: R₂ = 10 Ω
+    Úroveň: analýza · Zručnosť: S3, S2
+    Výpočet: I = 4 / 5 = 0,8 A; U₂ = 12 − 4 = 8 V; R₂ = 8 / 0,8 = 10 Ω.
+    Typická chyba: 15 Ω (12 / 0,8 -- zabudne odpočítať R₁).
+
+B6  Kľúč: napätie zdroja = 6 V; R = 6 Ω
+    Úroveň: analýza · Zručnosť: S4, S2
+    Výpočet: U = 0,5 · 12 = 6 V; prúd vetvou R je 1,5 − 0,5 = 1 A; R = 6 Ω.
+
+B7  Kľúč: (1) = "25 W" | "25" | "25W"; (2) = 0,087 A ± 0,002
+    Úroveň: analýza · Zručnosť: S2, S3
+    Výpočet: R₁₀₀ = 230² / 100 = 529 Ω; R₂₅ = 230² / 25 = 2 116 Ω;
+    I = 230 / 2 645 ≈ 0,087 A; jasnejšie svieti 25 W (väčší odpor).
+
+B8  Kľúč: prúd = 2 A; najdlhšia doba prevádzky = 30 h
+    Úroveň: aplikácia · Zručnosť: S2
+    Výpočet: I = 24 / 12 = 2 A; 60 Ah / 2 A = 30 h.
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S5, S4
+    K1  5 ‖ 20 = 4 Ω, náhradný odpor 6 Ω, prúd zo zdroja 2 A
+    K2  napätie na rezistore 2 Ω je 4 V, na paralelnej dvojici 8 V
+    K3  I₅ = 1,6 A a I₂₀ = 0,4 A (súčet 2 A)
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S4, S1
+    K1  tvrdenie je nesprávne (platí len pre rovnaké vetvy)
+    K2  protipríklad s číslami, napr. 10 Ω a 30 Ω na 30 V: 3 A a 1 A
+    K3  rozdelenie určuje napätie a odpor vetiev: na oboch je rovnaké
+        napätie, I = U / R, väčší prúd ide vetvou s menším odporom; prúd
+        „nevyberá“, tečie všetkými vetvami naraz
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S5, S3, S4
+    K1  celkový odpor klesne z 2R na 1,5R, prúd zo zdroja stúpne
+        (z U/2R na U/1,5R)
+    K2  Ž1 svieti jasnejšie (tečie ňou celý, teraz väčší prúd)
+    K3  Ž2 svieti slabšie: napätie na paralelnej dvojici klesne z U/2 na
+        U/3 (Ž1 si „berie“ väčšiu časť napätia)
+    Ukážka 1 b.: „Všetky budú svietiť slabšie, lebo pribudla žiarovka.“
+    (sériová úvaha, ale správne zistí, že sa niečo mení -- 0 b.; 1 b. len
+    ak správne zdôvodní aspoň jednu zmenu)
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S6, S2
+    K1  prúd jedného pásika 18 / 12 = 1,5 A
+    K2  pásiky sú paralelne, prúdy sa sčítajú: 4,5 A > 3 A (alebo výkon
+        54 W > 36 W) -- adaptér nestačí
+    K3  riešenie: adaptér aspoň 12 V / 4,5 A (s rezervou 5 A), alebo dva
+        adaptéry, alebo zapínať najviac dva pásiky naraz (3 A je hranica)
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S3, S4
+    K1  paralelné zapojenie sedí: viac brán vedľa seba = viac áut za minútu,
+        ako viac vetiev = menší odpor a väčší prúd
+    K2  sériové zapojenie: dve brány za sebou prepustia stále 10 áut za
+        minútu, ale dva rovnaké rezistory v sérii prúd zmenšia na polovicu
+        -- tu analógia zlyháva
+    K3  ďalšie obmedzenie, správne vysvetlené: autá poháňa kolóna, nie
+        napätie; analógia nehovorí nič o napätí a energii; autá sa môžu
+        hromadiť, náboj v obvode nie
+    Ukážka 1 b.: „Analógia je dobrá, lebo prúd tečie ako autá.“
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S5
+    K1  prvé zapojenie, napr. dve sériové dvojice paralelne: 20 ‖ 20 = 10 Ω
+    K2  druhé zapojenie, napr. dve paralelné dvojice sériovo: 5 + 5 = 10 Ω
+    K3  zrozumiteľné schémy alebo presné opisy oboch zapojení s výpočtom
+
+D1  Kľúč: a
+    Úroveň: porozumenie · Zručnosť: S4
+    b) istič nič nerozdeľuje, len vypína
+    c) text výslovne hovorí, že predlžovačka nový okruh nevytvára
+    d) sériová úvaha
+    e) sekvenčná úvaha (vzdialenosť od zdroja)
+
+D2  Kľúč: a, b, d
+    Úroveň: analýza · Zručnosť: S6, S2
+    Výpočet (s chladničkou 150 W; hranica 16 · 230 = 3 680 W):
+    a) 2 350 W (10,2 A); b) 3 500 W (15,2 A); c) 3 730 W (16,2 A);
+    d) 3 300 W (14,3 A); e) 4 350 W (18,9 A).
+    c) tesne nad hranicou: žiak odhaduje namiesto výpočtu alebo zabudne na
+       chladničku
+    e) zabudne, že výkony sa sčítajú
+
+D3  Kľúč: prúd mikrovlnky = 5 A; odpor kanvice = 24,05 Ω ± 0,1
+    Úroveň: aplikácia · Zručnosť: S2
+    Výpočet: 1 150 / 230 = 5 A; R = 230² / 2 200 ≈ 24,05 Ω (alebo
+    230 / 9,565).
+
+D4  Kľúč: (1) = 0,02 A; (2) = 3,08 V ± 0,01
+    Úroveň: analýza · Zručnosť: S3, S1
+    Výpočet: v sérii je prúd všade rovnaký, I = 0,06 / 3 = 0,02 A (alebo
+    2,4 W / 120 V); po premostení jedného článku sa 120 V delí na 39 článkov:
+    120 / 39 ≈ 3,08 V.
+    Typická chyba: (2) 3 V (nevšimne si, že článkov ubudlo).
+
+D5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S6, S2
+    K1  rada je nesprávna a nebezpečná
+    K2  zdôvodnenie z textu: istič chráni vedenie, jeho hodnota sa volí podľa
+        prierezu vodičov; väčší prúd vodiče prehrieva a môže poškodiť
+        izoláciu (požiar)
+    K3  správne riešenie: rozložiť spotrebiče na viac okruhov, nezapínať
+        výkonné spotrebiče naraz, prípadne nový okruh s hrubším vedením od
+        elektrikára
+
+D6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S6, S2, S4
+    K1  zistí, že kuchyňa sama by preťažila okruh 2: 2 200 + 1 380 + 1 150
+        + 150 = 4 880 W, teda 21,2 A > 16 A
+    K2  platné rozdelenie, napr. kávovar cez predlžovačku do obývačky:
+        okruh 2 = 3 500 W (15,2 A), okruh 3 = 115 + 2 000 + 1 380 =
+        3 495 W (15,2 A); uzná sa aj platný časový plán (spotrebiče sa
+        striedajú) s overením
+    K3  overenie OBOCH okruhov číslami a uvedomenie si, že predlžovačka
+        patrí do okruhu zásuvky, do ktorej je zastrčená
+    Pozor: presun mikrovlnky nestačí (3 730 W = 16,2 A), presun kanvice
+    preťaží obývačku (4 315 W = 18,8 A).
+
+SÚHRN
+  Body: A 12 × 2 = 24, B 8 × 2 = 16, C 6 × 3 = 18, D 2 + 2 + 2 + 2 + 3 + 3
+  = 14, spolu 72. Čas: približne 65 minút, dve hodiny s prestávkou po B.
+  Položky s viacerými správnymi odpoveďami: A2, A6, A7, A9, A10 a D2.
+  Kotvy (totožné s T3): A1, A3, A4, A5, A6, A9.
+  Testlet D sa v analýze berie ako jedna polytómna položka (0–14 b.), aby
+  lokálna závislosť položiek k jednému textu nenafúkla spoľahlivosť.

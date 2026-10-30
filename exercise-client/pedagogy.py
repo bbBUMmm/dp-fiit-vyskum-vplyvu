@@ -32,8 +32,8 @@ from pathlib import Path
 # 1. The system prompt
 # --------------------------------------------------------------------------
 SYSTEM_PROMPT = """\
-Si trpezlivý učiteľ informatiky na slovenskej strednej škole. Pomáhaš žiakovi \
-druhého ročníka pri téme {topic}. Žiak práve rieši úlohu:
+Si trpezlivý učiteľ {subject} na slovenskej strednej škole. Pomáhaš žiakovi \
+{grade} pri téme {topic}. Žiak práve rieši úlohu:
 
 {task}
 
@@ -147,10 +147,59 @@ class Task:
     # the fixed sequence used by K and G skips them. The adaptive condition is
     # the only one allowed to reach them.
     scaffold_for_only: bool = False
+    # The worked solution behind the self-explanation gate (condition A). Without
+    # it the gate unlocked nothing: the event said "solution_unlocked" and the
+    # pupil saw a sentence promising the solution at the end of the lesson.
+    solution: str | None = None
+    # A mechanical check, for the few tasks whose answer is a number or a
+    # sequence. NEVER shown to the pupil and never used for sequencing (that stays
+    # on the pupil's own judgement, as designed); it exists so that the pupil's
+    # confidence can be compared with something other than itself.
+    check: dict | None = None
 
     @staticmethod
     def from_dict(d: dict) -> "Task":
         return Task(**{k: d.get(k) for k in Task.__dataclass_fields__ if k in d})
+
+
+_NUM = re.compile(r"-?\d+(?:[.,]\d+)?")
+
+
+def auto_check(task: Task, answer: str) -> bool | None:
+    """True/False where the task declares a mechanical check, None otherwise.
+
+    Deliberately narrow. Free-text marking of algorithmic reasoning would be
+    unreliable (see assessment/scoring.py); what is checked here is only what a
+    regular expression can check without judgement.
+      {"type": "number",   "value": 11, "tolerance": 0}   one of the numbers is 11
+      {"type": "all",      "values": [1, 6]}              every value appears
+      {"type": "sequence", "value": [9, 20, 13]}          these numbers, in this
+                                                          order, side by side
+      {"type": "contains", "any": ["nenájd", "-1"]}
+    A pupil writes working around the answer ("R = 12 Ω, I = 1 A"), so a check
+    looks for the answer among the numbers rather than at a fixed position.
+    """
+    c = task.check
+    if not c or not (answer or "").strip():
+        return None
+    # "1 655,06" and "1655.06" are one number; a space between digit groups is
+    # how Slovak writes thousands
+    text = re.sub(r"(?<=\d)[  ](?=\d{3}\b)", "", answer)
+    nums = [float(x.replace(",", ".")) for x in _NUM.findall(text)]
+    tol = float(c.get("tolerance", 0)) + 1e-9
+    kind = c.get("type")
+    if kind == "number":
+        return any(abs(n - float(c["value"])) <= tol for n in nums)
+    if kind == "all":
+        return all(any(abs(n - float(v)) <= tol for n in nums) for v in c["values"])
+    if kind == "sequence":
+        want = [float(v) for v in c["value"]]
+        return any(all(abs(nums[i + j] - w) <= tol for j, w in enumerate(want))
+                   for i in range(len(nums) - len(want) + 1))
+    if kind == "contains":
+        folded = _fold(answer)
+        return any(_fold(s) in folded for s in c.get("any", []))
+    return None
 
 
 @dataclass
@@ -187,7 +236,12 @@ def next_task(tasks: list[Task], state: KnowledgeState,
         m = state.mastery(t.skill)
         seen = state.observations(t.skill)
 
-        if seen and m >= MASTERED and t.harder_variant and t.harder_variant in by_id:
+        # A harder variant is offered once. Without the `not in completed` check
+        # a pupil who had mastered the skill and finished the variant was handed
+        # the same, already completed, variant on every following request -- the
+        # main task never got marked as skipped, so the sequence never moved on.
+        if (seen and m >= MASTERED and t.harder_variant and t.harder_variant in by_id
+                and t.harder_variant not in completed):
             return Decision(t.harder_variant, "harder", hint_level_for(m), m,
                             f"zvládnutie {m:.2f} nad prahom {MASTERED}; "
                             f"ponúkam náročnejší variant")
@@ -238,7 +292,12 @@ _CAUSAL = re.compile(
 _DOMAIN = re.compile(
     r"\b(pole|zlozit\w*|algoritm\w*|rekurz\w*|memoiz\w*|cykl\w*|iterac\w*|"
     r"interval|stred|index|porovnan\w*|zoraden\w*|usporiadan\w*|log|krok\w*|"
-    r"prvk\w*|polovic\w*|triedeni\w*|vyhladav\w*|funkci\w*|volani\w*)\b")
+    r"prvk\w*|polovic\w*|triedeni\w*|vyhladav\w*|funkci\w*|volani\w*|"
+    # mathematics (compound interest) and physics (DC circuits), so the gate
+    # recognises content in all three subjects of the crossover
+    r"urok\w*|urocen\w*|percent\w*|exponenc\w*|vklad\w*|istin\w*|mocnin\w*|"
+    r"zdvojnas\w*|rast\w*|odpor\w*|prud\w*|napat\w*|ziarovk\w*|serio\w*|"
+    r"paraleln\w*|obvod\w*|vykon\w*|ohm\w*)\b")
 _REFUSAL = re.compile(r"^\s*(neviem|nic|ok|hotovo|\.|-|x+|\?+)\s*$")
 
 MIN_WORDS = 5
@@ -292,8 +351,9 @@ def check_self_explanation(text: str) -> GateResult:
             False, "To je prikrátke. Napíš celú vetu o tom, prečo je tvoj "
                    "postup správny alebo kde predpokladáš chybu.", checks)
     if not checks["has_content"]:
+        # (this string once carried "~---", LaTeX markup that pupils saw verbatim)
         return GateResult(
-            False, "Skús do vysvetlenia zahrnúť, čo s čím súvisí~--- napríklad "
+            False, "Skús do vysvetlenia zahrnúť, čo s čím súvisí – napríklad "
                    "prečo ten krok robíš.", checks)
     return GateResult(True, "Vysvetlenie prijaté.", checks)
 
@@ -351,18 +411,79 @@ def guard_output(text: str, answer: str | None = None) -> GuardResult:
         "s istotou? Začni tou a napíš mi ju.")
 
 
+def reply_features(text: str, answer: str | None = None) -> dict:
+    """What a reply contains, measured with the guard's own detectors.
+
+    Logged for every reply in G and A instead of the reply itself: Appendix E
+    promises that the assistant's replies are not stored verbatim. The features
+    are what the pre-registered dyadic test needs (was the reply generative, did
+    it hand over the solution) -- and in condition G, where nothing is guarded,
+    they measure how often the tool simply gave the answer away.
+    """
+    raw = text or ""
+    folded = _fold(raw)
+    ref = _fold(answer or "").strip()
+    return {
+        "question": "?" in raw,
+        "codeBlock": bool(_CODE_BLOCK.search(raw) or _FULL_FUNCTION.search(raw)),
+        "finalAnswer": bool(_FINAL_ANSWER.search(folded)),
+        "containsReference": bool(ref and ref in folded),
+        "chars": len(raw),
+    }
+
+
+_WORDS = re.compile(r"[a-z0-9]+")
+
+
+def overlap(answer: str, replies: list[str]) -> float | None:
+    """How much of the pupil's answer is phrased like the assistant's replies.
+
+    Containment of the answer's word trigrams in the replies (single words for
+    short answers, digits kept because a short answer is often a number list).
+    None when there were no replies or the answer is too short to say anything:
+    one shared number is not evidence of copying. Computed in memory at attempt
+    time; only the number is logged.
+    """
+    if not replies:
+        return None
+    a = _WORDS.findall(_fold(answer))
+    rs = [_WORDS.findall(_fold(x)) for x in replies]
+    if len(a) >= 6:
+        def shingles(ws):
+            return {tuple(ws[i:i + 3]) for i in range(len(ws) - 2)}
+        A = shingles(a)
+        R = set().union(*(shingles(w) for w in rs))
+    else:
+        A = {w for w in a if len(w) > 2 or w.isdigit()}
+        R = {w for ws in rs for w in ws}
+    if len(A) < 2:
+        return None
+    return round(len(A & R) / len(A), 4)
+
+
 # --------------------------------------------------------------------------
 # 6. Assembling one turn of the adaptive condition
 # --------------------------------------------------------------------------
+SUBJECT_GENITIVE = {"informatika": "informatiky", "matematika": "matematiky",
+                    "fyzika": "fyziky"}
+
+
 def build_messages(topic: str, task: Task, state: KnowledgeState,
                    hint_level: int, turns: list[dict],
-                   user_text: str) -> list[dict]:
-    """Messages for condition A: system prompt + knowledge state + history."""
+                   user_text: str, subject: str = "informatika",
+                   grade: str = "druhého ročníka") -> list[dict]:
+    """Messages for condition A: system prompt + knowledge state + history.
+
+    The subject is a parameter because the crossover runs in three subjects;
+    the rules themselves are subject-free and identical for all three.
+    """
     system = SYSTEM_PROMPT.format(
+        subject=SUBJECT_GENITIVE.get(subject, subject),
+        grade=grade,
         topic=topic,
         task=task.prompt,
         mastery=json.dumps(state.summary(), ensure_ascii=False),
-        hint_level=hint_level,
+        hint_level=max(1, min(4, int(hint_level))),
     )
     msgs = [{"role": "system", "content": system}]
     msgs.extend(turns[-8:])
@@ -382,6 +503,39 @@ def build_messages_generic(turns: list[dict], user_text: str) -> list[dict]:
 
 def load_tasks(path: str | Path) -> tuple[str, list[str], list[Task]]:
     """Read a lesson file: topic, the skills it covers, and its exercises."""
+    lesson = load_lesson(path)
+    return lesson.topic, lesson.skills, lesson.tasks
+
+
+@dataclass
+class Lesson:
+    topic: str
+    skills: list[str]
+    tasks: list[Task]
+    lesson_id: str = ""
+    subject: str = "informatika"
+    grade: str = "druhého ročníka"
+    skill_labels: dict = field(default_factory=dict)
+    status: str = ""
+
+
+def load_lesson(path: str | Path) -> Lesson:
+    """A lesson file, checked for the mistakes that would surface mid-lesson."""
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     tasks = [Task.from_dict(t) for t in data["tasks"]]
-    return data["topic"], list(data["skills"]), tasks
+    ids = [t.id for t in tasks]
+    if len(set(ids)) != len(ids):
+        raise ValueError(f"{path}: duplicate task ids")
+    skills = list(data["skills"])
+    for t in tasks:
+        if t.skill not in skills:
+            raise ValueError(f"{path}: task {t.id} names unknown skill {t.skill!r}")
+        for ref in (t.scaffold_for, t.harder_variant):
+            if ref and ref not in ids:
+                raise ValueError(f"{path}: task {t.id} points at missing task {ref!r}")
+    return Lesson(topic=data["topic"], skills=skills, tasks=tasks,
+                  lesson_id=data.get("lesson_id", ""),
+                  subject=data.get("subject", "informatika"),
+                  grade=data.get("grade", "druhého ročníka"),
+                  skill_labels=data.get("skill_labels", {}),
+                  status=data.get("status", ""))

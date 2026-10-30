@@ -1,0 +1,263 @@
+==========================================================================
+MATEMATIKA — Zložené úrokovanie a exponenciálny rast
+T1 · VSTUPNÝ TEST („nulové vedomosti“) · píše sa PRED hodinou
+Forma M-T1 · 14 úloh · 26 bodov · približne 30 minút
+==========================================================================
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Tému ste možno ešte nepreberali — je to v poriadku,
+  test zisťuje, z čoho bude hodina vychádzať. Skús každú úlohu; aj odhad
+  alebo čiastočná úvaha sa počíta.
+• Časť A: zakrúžkuj JEDNU odpoveď.
+• Časť B: zakrúžkuj VŠETKY správne odpovede (koľko ich je, sa neuvádza).
+• Časť C: odpovedaj vlastnými slovami a píš aj postup.
+• Pri každej úlohe v častiach A a B zakrúžkuj, nakoľko si si istý/á,
+  že je tvoja odpoveď správna.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku
+  nepotrebuješ — na konci zadania je pomôcka s mocninami.
+
+DOHODY PLATNÉ V CELOM TESTE
+• Úrok sa pripisuje raz ročne, na konci roka. Daň z úroku neuvažujeme.
+• Ak úloha neuvádza inak, vklad sa počas sporenia nevyberá ani nedopĺňa.
+• Sumy zaokrúhľuj na centy.
+
+
+ČASŤ A — vyber jednu odpoveď (každá úloha 1 bod)
+--------------------------------------------------------------------------
+A1  Na účte máš K eur. Banka ti na konci roka pripíše 6 % ročný úrok.
+    Ktorý výraz udáva sumu na účte po prvom roku?
+      a) K · 1,06
+      b) K + 6
+      c) K · 6
+      d) K · 0,06
+      e) K + 0,06
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Banka pripisuje úrok raz ročne a v každom ďalšom roku počíta úrok aj
+    z úrokov, ktoré už pripísala. Ako sa tento spôsob nazýva?
+      a) jednoduché úročenie
+      b) zložené úročenie
+      c) daň z úroku
+      d) inflácia
+      e) splátka úveru
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Počet sledovateľov účtu stúpol za mesiac o 30 % a v ďalšom mesiaci
+    znova o 30 % (z nového počtu). O koľko percent stúpol spolu za dva
+    mesiace?
+      a) 9 %      b) 30 %     c) 60 %       d) 69 %       e) 169 %
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Počet baktérií sa zdvojnásobí každých 20 minút. Za koľko minút sa
+    zväčší osemnásobne?
+      a) 40       b) 60       c) 80         d) 160        e) 400
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  Na účte máš 1 000 €. Banka ti každý rok pripíše 2 % z toho, čo je práve
+    na účte. Koľko budeš mať po 2 rokoch?
+      a) 1 020,00 €   b) 1 040,00 €   c) 1 040,40 €   d) 1 061,21 €
+      e) 1 440,00 €
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Chceš na 15 rokov uložiť 1 000 €. Ktorá ponuka ti dá na konci NAJVIAC?
+    („len z vkladu“ = úrok sa každý rok počíta len z pôvodných 1 000 €;
+    „z celej sumy“ = úrok sa počíta z celej sumy na účte)
+      a) 9 % ročne len z vkladu
+      b) 8 % ročne len z vkladu
+      c) 6 % ročne z celej sumy
+      d) 5 % ročne z celej sumy
+      e) 7 % ročne z celej sumy
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — označ všetky správne odpovede (každá úloha 2 body)
+--------------------------------------------------------------------------
+B1  Dve možnosti sporenia s rovnakou ročnou úrokovou mierou:
+    možnosť A — úrok sa počíta len z pôvodného vkladu;
+    možnosť B — úrok sa počíta z celej sumy na účte.
+    Ktoré tvrdenia sú pravdivé?
+      a) Pri možnosti A pribudne každý rok rovnako veľa eur.
+      b) Pri možnosti B pribudne každý rok rovnako veľa eur.
+      c) Možnosť B dá viac už po prvom roku.
+      d) Po prvom roku je pri oboch možnostiach na účte rovnaká suma.
+      e) Pri možnosti A suma rastie každým rokom rýchlejšie.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Vložíš 3 000 €, úrok je 5 % ročne a pripisuje sa k sume na účte.
+    Ktoré údaje sú správne?
+      a) Po 2 rokoch bude na účte 3 300,00 €.
+      b) Po 1 roku bude na účte 3 150,00 €.
+      c) Po 3 rokoch bude na účte 3 450,00 €.
+      d) Po 2 rokoch bude na účte 3 307,50 €.
+      e) Po 3 rokoch bude na účte približne 3 472,88 €.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Spolužiak tvrdí: „Ak cena stúpne trikrát po sebe o 20 % (zakaždým
+    z novej ceny), stúpne spolu o 60 %.“ Ktoré tvrdenia sú pravdivé?
+      a) Má pravdu, percentá sa pri tom sčítavajú.
+      b) Cena stúpne spolu o viac ako 60 %.
+      c) Cena stúpne spolu približne o 72,8 %.
+      d) Cena stúpne spolu presne o 64 %.
+      e) Cena stúpne o menej ako 60 %, lebo sa zaokrúhľuje.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  Babka chce na 10 rokov odložiť 1 000 €. Ktoré úvahy sú správne?
+      a) Pri 7 % ročne s pripisovaním úrokov k sume bude mať po 10 rokoch
+         takmer dvojnásobok.
+      b) Ponuka „8 % ročne len z pôvodného vkladu“ je na 10 rokov výhodnejšia
+         ako „7 % ročne s pripisovaním k sume“.
+      c) Ponuka „7 % ročne s pripisovaním k sume“ je na 10 rokov výhodnejšia
+         ako „9 % ročne len z pôvodného vkladu“.
+      d) Čím dlhšie sporí, tým menší je rozdiel medzi oboma spôsobmi úročenia.
+      e) Pri rovnakej úrokovej miere dá pripisovanie úrokov k sume po
+         10 rokoch viac ako úrok len z pôvodného vkladu.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — odpovedz vlastnými slovami (každá úloha 3 body)
+--------------------------------------------------------------------------
+C1  Na účet vložíš 1 500 €. Každý rok ti banka pripíše 10 % z toho, čo je na
+    účte. Koľko budeš mať po 3 rokoch? Píš postup rok po roku a urči, koľko
+    eur spolu tvoria úroky.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Peter počíta: „Ak si požičiam 2 000 € na 4 roky s úrokom 10 % ročne,
+    ktorý sa každý rok pripisuje k dlhu, zaplatím na úrokoch 4 · 200 = 800 €.“
+    Je jeho výpočet správny? Ak nie, vysvetli chybu a vypočítaj, koľko bude
+    dlžiť po 4 rokoch.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Babka ti ponúka dve možnosti:
+    (A) o 12 rokov ti dá 2 000 € a k tomu 1 150 € navyše, spolu 3 150 €;
+    (B) dnes uloží 2 000 € na účet so 4 % ročne, úrok sa pripisuje k sume,
+        a o 12 rokov ti dá všetko, čo bude na účte.
+    Ktorá možnosť je výhodnejšia? Zdôvodni výpočtom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Vymysli príklad z bežného života (nie peniaze v banke), kde niečo rastie
+    o rovnaké percento za rovnaký čas. Odhadni, za aký čas sa to
+    zdvojnásobí, a vysvetli, ako si to odhadol/odhadla.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+
+POMÔCKA — niektoré mocniny (nie všetky budeš potrebovať)
+  1,02² = 1,0404      1,02³ ≈ 1,0612      1,04¹² ≈ 1,6010     1,05² = 1,1025
+  1,05³ ≈ 1,1576      1,05¹⁰ ≈ 1,6289     1,05¹⁵ ≈ 2,0789     1,06¹⁵ ≈ 2,3966
+  1,07¹⁰ ≈ 1,9672     1,07¹⁵ ≈ 2,7590     1,1³ = 1,331        1,1⁴ = 1,4641
+
+
+ČASŤ D — o tebe (nezapočítava sa do bodov; neexistujú správne odpovede)
+--------------------------------------------------------------------------
+D1  Preberali ste už túto tému v škole, alebo si sa ju učil/a inde?
+      ( ) áno     ( ) čiastočne     ( ) nie     ( ) neviem
+D2  Ako dobre podľa seba poznáš túto tému?
+      1 vôbec      2      3      4      5 veľmi dobre
+D3  Koľko z 10 úloh v častiach A a B máš podľa teba správne?   ____ z 10
+D4  Koľko duševného úsilia si vynaložil/a pri riešení tohto testu?
+      1 veľmi, veľmi malé   2 veľmi malé   3 malé   4 skôr malé
+      5 ani malé, ani veľké   6 skôr veľké   7 veľké   8 veľmi veľké
+      9 veľmi, veľmi veľké
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+1. KĽÚČ A ŠPECIFIKÁCIA
+   Zručnosti: S1 výpočet rok po roku, S2 vzťah K₀ · (1 + p)ⁿ, S3 jednoduché
+   verzus zložené úročenie, S4 odhalenie lineárnej (sčítacej) chyby,
+   S5 doba zdvojnásobenia, S6 rozhodnutie medzi ponukami.
+
+   pol.  kľúč    úroveň         zručnosť   dvojča v T3
+   A1    a       zapamätanie    S2         M-T3 A1
+   A2    b       zapamätanie    S3         M-T3 A2
+   A3    d       porozumenie    S4         M-T3 A3
+   A4    b       porozumenie    S5         M-T3 A4
+   A5    c       aplikácia      S1         M-T3 A5
+   A6    e       aplikácia      S6         M-T3 A6
+   B1    a,d     porozumenie    S3         M-T3 B1
+   B2    b,d,e   aplikácia      S1, S2     M-T3 B2
+   B3    b,c     analýza        S4         M-T3 B3
+   B4    a,c,e   hodnotenie     S6         M-T3 B4
+   C1    rubrika aplikácia      S1         M-T3 C1
+   C2    rubrika analýza        S4         M-T3 C2
+   C3    rubrika hodnotenie     S6         M-T3 C3
+   C4    rubrika tvorenie       S5         M-T3 C4
+
+   Rozloženie kľúčov v časti A: a 1×, b 2×, c 1×, d 1×, e 1×.
+
+2. ČO PREZRÁDZA NESPRÁVNA VOĽBA
+   A1  b) pripočíta percentá ako eurá; c) násobí percentom bez prevodu;
+       d) počíta len úrok, nie novú sumu; e) pripočíta desatinné číslo.
+   A2  a) zamieňa so sporením bez úrokov z úrokov; c)–e) nepozná pojem.
+   A3  a) násobí percentá (0,3 · 0,3); b) jeden mesiac; c) SČÍTANIE
+       PERCENT (lineárna intuícia — ústredná mylná predstava témy);
+       e) zamieňa rastový faktor 1,69 s prírastkom.
+   A4  a) 2 zdvojnásobenia pre 8×; c) zamieňa s 16× alebo počíta 4 doby;
+       d) LINEÁRNE: 8 · 20 minút; e) kvadratická predstava.
+   A5  a) len jeden rok; b) úrok len z pôvodnej sumy (2 · 20 €);
+       d) tri roky; e) chyba pri prevode percent (1,2 namiesto 1,02).
+   A6  a) vyberie najvyššie číslo percent bez ohľadu na spôsob úročenia
+       (1 000 · (1 + 15 · 0,09) = 2 350 €); b) to isté (2 200 €);
+       c) 2 396,56 € — správny spôsob, nižšia sadzba; d) 2 078,93 €.
+       Správne: e) 1 000 · 1,07¹⁵ ≈ 2 759,03 €.
+   B1  b) myslí si, že aj pri B je prírastok stály; c) nevie, že prvý rok
+       sú obe rovnaké; e) zamieňa lineárny a exponenciálny rast.
+   B2  a), c) počíta úrok len z pôvodného vkladu (lineárne).
+   B3  a) SČÍTANIE PERCENT; d) neúplne započítaný úrok z úroku
+       (napr. 60 % + 4 %); e) nevie odhadnúť smer chyby.
+       Správne: 1,2³ = 1,728 → +72,8 %.
+   B4  b) 8 % len z vkladu: 1 800 € < 1 967,15 €; d) rozdiel s časom rastie.
+       c) je pravdivé: 1 967,15 € > 1 900 €.
+
+3. BODOVANIE ČASTI B
+   2 b. — všetkých päť možností posúdených správne; 1 b. — jedna chyba
+   (jedna správna chýba ALEBO jedna nesprávna navyše); 0 b. — dve a viac
+   chýb. Pre dichotomický model: správne = 2 b.
+
+4. RUBRIKY ČASTI C (každé kritérium 1 bod)
+   C1  K1 správny postup: každý rok úrok z aktuálnej sumy (· 1,1)
+       K2 správne medzivýsledky: 1 650 €, 1 815 €, 1 996,50 €
+       K3 úroky spolu 496,50 €
+       Ukážka 3 b.: „1 500 · 1,1 = 1 650; 1 650 · 1,1 = 1 815;
+                    1 815 · 1,1 = 1 996,50; úroky 496,50 €.“
+       Ukážka 2 b.: správny postup, numerická chyba v treťom roku.
+       Ukážka 0 b.: „1 650, 1 800, 1 950, úroky 450 €“ (úrok stále 150 €,
+                    lineárny postup — chyba princípu).
+   C2  K1 výpočet nie je správny; chyba: úrok sa počíta stále z 2 000 €,
+          hoci sa pripisuje k dlhu (ignoruje úrok z úroku)
+       K2 správny postup (2 000 · 1,1⁴ alebo rok po roku)
+       K3 správny výsledok: 2 928,20 € (úroky 928,20 €)
+   C3  K1 porovnáva rovnaké veci (sumu po 12 rokoch v oboch možnostiach)
+       K2 správny výpočet B: 2 000 · 1,04¹² ≈ 3 202,06 €
+       K3 záver B je výhodnejšia (o ≈ 52 €) so zdôvodnením
+       Lineárny odhad 12 · 4 % = 48 % → 2 960 € a záver „A“: K1 = 1,
+       K2 = 0, K3 = 0.
+   C4  K1 platný príklad rastu o stále percento (populácia, baktérie,
+          sledovatelia, ceny pri inflácii, šírenie správy …)
+       K2 rozumný odhad doby zdvojnásobenia zodpovedajúci zvolenému tempu
+          (napr. pravidlo 72, postupné násobenie, tabuľka)
+       K3 zrozumiteľné vysvetlenie metódy
+       Príklad s rastom o stále MNOŽSTVO (napr. +5 kusov denne): K1 = 0.
+
+5. SÚHRN
+   Body: A 6 + B 8 + C 12 = 26. Čas: približne 30 minút.
+   Body podľa úrovne: zapamätanie 2, porozumenie 4, aplikácia 7, analýza 5,
+   hodnotenie 5, tvorenie 3.
+   Prekoncepcie: c) v A3, d) v A4, a) v B3 a lineárne riešenia C1–C3
+   signalizujú lineárnu intuíciu — evidovať zvlášť (moderátor účinku).

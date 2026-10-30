@@ -42,6 +42,7 @@ Run:  python scoring.py        self-test on fixtures
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import sys
 from dataclasses import dataclass, field, asdict
@@ -87,6 +88,10 @@ class Scored:
     anchor: str
     pending: bool
     note: str = ""
+    # finalise() has always written s.timestamp, and the record never had one:
+    # the first finalise() that was not refused for pending items would have
+    # crashed. The self-test exercised only the refusal.
+    timestamp: str = ""
 
 
 # ===========================================================================
@@ -102,8 +107,18 @@ def score_one(item: Item, r: Response) -> Scored:
     base = dict(pseudonym=r.pseudonym, session=r.session,
                 instrument=r.instrument, item_id=r.item_id, raw=r.raw,
                 seconds=r.seconds, jol=r.jol, max_points=item.max_points,
-                level=item.level, skill=item.skill, anchor=item.anchor)
+                level=item.level, skill=item.skill, anchor=item.anchor,
+                timestamp=r.timestamp)
 
+    test_section = bool(getattr(item, "part_meta", None))
+    if item.is_open and test_section and getattr(item, "kind", "") == "psych":
+        # a free-text questionnaire answer: kept, never scored
+        return Scored(**base, points=None, correct=None, chosen=None,
+                      diagnosis="", pending=False, note="questionnaire: no key")
+    if item.is_open and test_section and r.raw.strip() == "?":
+        # the pupil pressed "Neviem": there is nothing for a coder to read
+        return Scored(**base, points=0, correct=0, chosen=None, diagnosis="",
+                      pending=False, note="vynechané (neviem)")
     if item.is_open:
         # Left for the coders. Not zero, not guessed, not approximated.
         return Scored(**base, points=None, correct=None, chosen=None,
@@ -125,10 +140,83 @@ def score_one(item: Item, r: Response) -> Scored:
         return Scored(**base, points=ok * item.max_points, correct=ok,
                       chosen=chosen, diagnosis=dx, pending=False)
 
+    if item.format == "multi" and isinstance(item.key, list):
+        # Multiple response, number of correct options not disclosed. Scored
+        # all or nothing for the dichotomous model; what the pupil got wrong is
+        # kept as diagnoses, not thrown away.
+        picked = set()
+        for part in r.raw.split(","):
+            part = part.strip()
+            if part.isdigit() and 0 <= int(part) < len(item.options):
+                picked.add(int(part))
+        key = set(item.key)
+        ok = int(picked == key)
+        wrong = sorted(picked - key)
+        missed = sorted(key - picked)
+        dx = "; ".join(item.distractor_dx.get(str(k), "") for k in wrong
+                       if item.distractor_dx.get(str(k)))
+        note = "" if ok else (f"navyše {[chr(65 + k) for k in wrong]}, "
+                              f"chýba {[chr(65 + k) for k in missed]}")
+        return Scored(**base, points=ok * item.max_points, correct=ok,
+                      chosen=None, diagnosis=dx, pending=False, note=note)
+
     if item.format == "numeric":
         ok = int(_norm_numeric(r.raw) == _norm_numeric(str(item.key)))
         return Scored(**base, points=ok * item.max_points, correct=ok,
                       chosen=None, diagnosis="", pending=False)
+
+    # --- the test section (testy/*.txt) ---------------------------------
+    if item.format == "mr" and isinstance(item.key, list):
+        # Closed item; one correct option or several, and the page does not say
+        # which. Each of the five options is a true/false judgement: 2 points
+        # with none wrong, 1 with one wrong, 0 otherwise. An empty answer or an
+        # explicit "Neviem" is 0 -- otherwise leaving a single-answer item blank
+        # would earn 1 point for four "correct" non-marks. The dichotomous
+        # `correct` (all five right) is what the Rasch model reads.
+        t = r.raw.strip()
+        if not t or t == "?":
+            return Scored(**base, points=0, correct=0, chosen=None, diagnosis="",
+                          pending=False, note="vynechané (neviem)")
+        picked = {int(p) for p in t.split(",") if p.strip().isdigit()
+                  and 0 <= int(p) < len(item.options)}
+        key = set(item.key)
+        wrong, missed = sorted(picked - key), sorted(key - picked)
+        errors = len(wrong) + len(missed)
+        points = {0: 2, 1: 1}.get(errors, 0) * item.max_points // 2
+        dx = "; ".join(item.distractor_dx.get(str(k), "") for k in wrong
+                       if item.distractor_dx.get(str(k)))
+        note = "" if not errors else (f"navyše {[chr(97 + k) for k in wrong]}, "
+                                      f"chýba {[chr(97 + k) for k in missed]}")
+        return Scored(**base, points=points, correct=int(errors == 0),
+                      chosen=next(iter(picked)) if len(picked) == 1 else None,
+                      diagnosis=dx, pending=False, note=note)
+
+    if item.format == "short" and getattr(item, "fields", None):
+        # Semi-open: 2 points all fields right, 1 point with one wrong field
+        # (when there are several), 0 otherwise. A field the rule cannot judge
+        # -- a unit the key does not use, a word not on the list -- goes to the
+        # coders with the whole item, like an open answer. Not guessed.
+        import testy                                      # the parser owns the rule
+        t = r.raw.strip()
+        if not t or t == "?":
+            return Scored(**base, points=0, correct=0, chosen=None, diagnosis="",
+                          pending=False, note="vynechané (neviem)")
+        try:
+            vals = json.loads(t)
+        except ValueError:
+            vals = [t]
+        verdicts = [testy.judge_field(f, vals[i] if i < len(vals) else "")
+                    for i, f in enumerate(item.fields)]
+        if any(v is None for v in verdicts):
+            return Scored(**base, points=None, correct=None, chosen=None,
+                          diagnosis="", pending=True,
+                          note="polootvorená: odpoveď posúdi hodnotiteľ")
+        wrong = verdicts.count(False)
+        points = (2 if wrong == 0 else 1 if wrong == 1 and len(verdicts) > 1 else 0)
+        points = points * item.max_points // 2
+        return Scored(**base, points=points, correct=int(wrong == 0), chosen=None,
+                      diagnosis="", pending=False,
+                      note="" if not wrong else f"chybné políčka: {wrong}")
 
     # Questionnaire formats carry no correct answer. They are passed through with
     # the response preserved, so a subscale can be computed without this module
@@ -172,7 +260,11 @@ def export_for_coding(scored: list[Scored], path: str | Path,
     rub = {(b.instrument, it.id): it.rubric
            for b in banks.values() for it in b.items}
     rows = [s for s in scored if s.pending]
-    rows.sort(key=lambda s: (s.item_id, hash((s.pseudonym, "blind")) & 0xffff))
+    # sha256, not hash(): Python randomises hash() per process, so the "fixed"
+    # permutation came out different on every run and the coding sheet could not
+    # be regenerated in the order the coders had already worked through
+    rows.sort(key=lambda s: (s.item_id, hashlib.sha256(
+        f"{s.pseudonym}|blind".encode("utf-8")).hexdigest()))
     with Path(path).open("w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["item_id", "max_points", "rubric", "response",

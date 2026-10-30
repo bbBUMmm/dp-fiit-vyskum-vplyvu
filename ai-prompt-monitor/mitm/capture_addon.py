@@ -204,7 +204,13 @@ class PromptCapture:
         if not self.salt:
             raise RuntimeError("pseudonym_salt must be set before capturing; "
                                "the salt is held by the school, not the researcher.")
-        h = hashlib.sha256((self.salt + "|" + student_code).encode("utf-8"))
+        # Canonical form first (no spaces or dashes, upper case), exactly as the
+        # exercise client and the test runner do -- otherwise "gy-k7m4p-q" typed
+        # here and "GY-K7M4P-Q" typed there are two pupils whose captured prompts
+        # cannot be joined to their lesson or their tests.
+        canonical = "".join((student_code or "").split()).replace("-", "") \
+            .replace("—", "").upper()
+        h = hashlib.sha256((self.salt + "|" + canonical).encode("utf-8"))
         return h.hexdigest()[:16]
 
     # ---- interception -----------------------------------------------------

@@ -1,6 +1,8 @@
 {
   "topic": "vyhľadávanie v poli (lineárne a binárne)",
   "lesson_id": "T1",
+  "subject": "informatika",
+  "grade": "druhého ročníka",
   "skills": [
     "usporiadanost",
     "stred_a_hranice",
@@ -22,6 +24,8 @@
       "level": "understand",
       "prompt": "Pole [1, 4, 7, 9, 13, 20, 28], hľadáme 13. Vypíš postupnosť prvkov, s ktorými sa hodnota porovná.",
       "answer": "9, 20, 13",
+      "check": {"type": "sequence", "value": [9, 20, 13]},
+      "solution": "lavy = 0, pravy = 6, stred = 3: A[3] = 9 < 13, preto lavy = 4.\nstred = (4 + 6) div 2 = 5: A[5] = 20 > 13, preto pravy = 4.\nstred = 4: A[4] = 13 — nájdené.\nPorovnávané prvky: 9, 20, 13.",
       "scaffold_for": "U1s"
     },
     {
@@ -29,7 +33,8 @@
       "skill": "stred_a_hranice",
       "level": "understand",
       "prompt": "Pole [1, 4, 7, 9, 13, 20, 28] má 7 prvkov. Ktorý prvok je stredný a prečo práve ten?",
-      "answer": "9"
+      "answer": "9",
+      "solution": "Indexy sú 0 až 6, stred = (0 + 6) div 2 = 3. Na indexe 3 je 9. Naľavo aj napravo od neho sú tri prvky."
     },
     {
       "id": "U2",
@@ -37,6 +42,7 @@
       "level": "understand",
       "prompt": "To isté pole, hľadáme 2. Čo algoritmus vráti a po koľkých porovnaniach?",
       "answer": "nenájdené, 3 porovnania",
+      "solution": "stred = 3: 9 > 2, pravy = 2.\nstred = 1: 4 > 2, pravy = 0.\nstred = 0: 1 < 2, lavy = 1.\nTeraz lavy > pravy, interval je prázdny: algoritmus vráti „nenájdené“ (napr. −1) po 3 porovnaniach.",
       "scaffold_for": "U2s"
     },
     {
@@ -44,7 +50,8 @@
       "skill": "ukoncenie_a_hranicne_pripady",
       "level": "understand",
       "prompt": "Kedy binárne vyhľadávanie skončí s tým, že prvok v poli nie je?",
-      "answer": "keď sa interval vyprázdni, teda ľavá hranica prekročí pravú"
+      "answer": "keď sa interval vyprázdni, teda ľavá hranica prekročí pravú",
+      "solution": "Keď sa interval vyprázdni: ľavá hranica prekročí pravú (lavy > pravy). Vtedy už nezostal žiadny prvok, ktorý by mohol byť hľadaný."
     },
     {
       "id": "U3",
@@ -52,6 +59,7 @@
       "level": "apply",
       "prompt": "Doplň tabuľku premenných lavy, pravy, stred pre všetky kroky hľadania hodnoty 28 v poli [1, 4, 7, 9, 13, 20, 28].",
       "answer": "(1,7,4) (5,7,6) (7,7,7)",
+      "solution": "Pri indexovaní od 1:\nlavy = 1, pravy = 7, stred = 4 (A[4] = 9 < 28)\nlavy = 5, pravy = 7, stred = 6 (A[6] = 20 < 28)\nlavy = 7, pravy = 7, stred = 7 (A[7] = 28, nájdené)\n(Pri indexovaní od 0 sú všetky hodnoty o 1 menšie.)",
       "harder_variant": "U3h"
     },
     {
@@ -59,7 +67,8 @@
       "skill": "stred_a_hranice",
       "level": "apply",
       "prompt": "To isté pole, ale hľadanú hodnotu si zvoľ tak, aby algoritmus urobil čo najviac porovnaní. Ktorá to je a prečo?",
-      "answer": "hodnota na kraji intervalu, napríklad 1 alebo 28"
+      "answer": "hodnota na kraji intervalu, napríklad 1 alebo 28",
+      "solution": "Tri porovnania (viac v poli so 7 prvkami nie je možné, lebo ⌊log₂ 7⌋ + 1 = 3) potrebujú hodnoty, ktoré sa nájdu až v poslednom kroku: 1, 7, 13 alebo 28 — a aj každá hodnota, ktorá v poli nie je."
     },
     {
       "id": "U4",
@@ -67,6 +76,8 @@
       "level": "analyse",
       "prompt": "Koľko porovnaní potrebuje binárne vyhľadávanie v poli 2000 prvkov v najhoršom prípade? Zdôvodni.",
       "answer": "11",
+      "check": {"type": "number", "value": 11},
+      "solution": "2000 → 1000 → 500 → 250 → 125 → 62 → 31 → 15 → 7 → 3 → 1: interval sa dá rozpoliť 10-krát, kým zostane jeden prvok, a ten treba ešte porovnať. Spolu ⌊log₂ 2000⌋ + 1 = 10 + 1 = 11 porovnaní, lebo 2¹⁰ = 1024 ≤ 2000 < 2048 = 2¹¹.",
       "scaffold_for": "U4s"
     },
     {
@@ -74,35 +85,41 @@
       "skill": "odvodenie_zlozitosti",
       "level": "understand",
       "prompt": "Koľkokrát vieš číslo 2000 celočíselne deliť dvomi, kým dostaneš 1?",
-      "answer": "10"
+      "answer": "10",
+      "check": {"type": "number", "value": 10},
+      "solution": "2000, 1000, 500, 250, 125, 62, 31, 15, 7, 3, 1 — to je 10 delení."
     },
     {
       "id": "U5",
       "skill": "ukoncenie_a_hranicne_pripady",
       "level": "analyse",
       "prompt": "V pseudokóde je podmienka cyklu while lavy < pravy namiesto while lavy <= pravy. Nájdi chybu a uveď vstup, pri ktorom sa prejaví.",
-      "answer": "jednoprvkový interval sa nepreskúma; napríklad hľadanie krajného prvku"
+      "answer": "jednoprvkový interval sa nepreskúma; napríklad hľadanie krajného prvku",
+      "solution": "S podmienkou lavy < pravy sa cyklus skončí už vtedy, keď lavy = pravy, takže posledný jednoprvkový interval sa nikdy neporovná. Prejaví sa to napríklad pri hľadaní 28 v poli [1, 4, 7, 9, 13, 20, 28]: po dvoch krokoch je lavy = pravy = 6 a algoritmus ohlási „nenájdené“, hoci 28 v poli je."
     },
     {
       "id": "U6",
       "skill": "stred_a_hranice",
       "level": "apply",
       "prompt": "Naprogramuj binárne vyhľadávanie, ktoré vráti index prvku alebo -1.",
-      "answer": "implementácia s lavy, pravy, stred"
+      "answer": "implementácia s lavy, pravy, stred",
+      "solution": "def binarne(A, x):\n    lavy, pravy = 0, len(A) - 1\n    while lavy <= pravy:\n        stred = (lavy + pravy) // 2\n        if A[stred] == x:\n            return stred\n        if A[stred] < x:\n            lavy = stred + 1\n        else:\n            pravy = stred - 1\n    return -1"
     },
     {
       "id": "U7",
       "skill": "ukoncenie_a_hranicne_pripady",
       "level": "apply",
       "prompt": "Uprav svoj program tak, aby pri viacerých rovnakých hodnotách vrátil index prvého z nich.",
-      "answer": "po nájdení pokračovať doľava, alebo hľadať dolnú hranicu"
+      "answer": "po nájdení pokračovať doľava, alebo hľadať dolnú hranicu",
+      "solution": "Keď nájdeš x, nezastav sa: zapamätaj si index (vysledok = stred) a pokračuj vľavo (pravy = stred − 1). Na konci vráť zapamätaný index, alebo −1, ak sa x nenašlo. Prvý výskyt tak nájdeš stále v čase O(log n)."
     },
     {
       "id": "U8",
       "skill": "volba_postupu",
       "level": "evaluate",
       "prompt": "Máš neusporiadané pole 2000 prvkov a k hľadaní. Pre aké k sa oplatí pole najprv usporiadať? Uveď úvahu, nie presné číslo.",
-      "answer": "keď k krát úspora prekročí náklad usporiadania"
+      "answer": "keď k krát úspora prekročí náklad usporiadania",
+      "solution": "Usporiadanie stojí rádovo n · log₂ n ≈ 2000 · 11 ≈ 22 000 krokov. Potom stojí jedno hľadanie asi 11 porovnaní namiesto priemerne 1000 pri lineárnom hľadaní. Oplatí sa, keď k · (1000 − 11) > 22 000, teda zhruba pri viac než 20 – 25 hľadaniach. Pri jednom alebo niekoľkých hľadaniach sa usporiadanie neoplatí."
     }
   ]
 }

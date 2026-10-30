@@ -1,0 +1,11 @@
+Do tohto priecinka patria nasledujuce vytlacene materialy:
+
+suhlas-zakonny-zastupca.pdf   <- priloha E tezy, cast 'Informovany suhlas zakonneho zastupcu'
+suhlas-ziak.pdf               <- priloha E tezy, cast 'Suhlas ziaka'
+pokyny-ucitel.pdf             <- priloha D tezy (scenare hodin) + priloha F (protokol)
+kontrolny-list-vernosti.pdf   <- priloha F tezy
+karty-s-kodmi.pdf             <- vytlacte ZOZNAM-kody-XX.csv, ktory
+                                 vytvori KODY.cmd, a rozstrihajte na obalky.
+                                 Kopiu s menami si ponechajte v skole.
+
+Ak tu nieco chyba, zber sa nezacina.

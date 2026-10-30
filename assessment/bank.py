@@ -119,10 +119,19 @@ class Item:
     skill: str = ""                     # sub-skill, for the class report
     reverse: bool = False               # reverse-keyed questionnaire item
     note: str = ""
+    # Conditions in which the item is administered; empty = all. The post-lesson
+    # questionnaire's N items ask about the assistant, which condition K never
+    # had. The bank's own note said "runner ich preskočí podľa podmienky" -- and
+    # the runner had no notion of a condition, so K pupils were asked to rate
+    # an assistant they had not seen.
+    conditions: list[str] = field(default_factory=list)
 
     @property
     def is_open(self) -> bool:
         return self.format in ("open", "table", "text")
+
+    def applies_to(self, condition: str | None) -> bool:
+        return not self.conditions or not condition or condition in self.conditions
 
 
 @dataclass
@@ -235,6 +244,21 @@ def validate(b: Bank) -> None:
                 if missing:
                     raise BankError(f"{where}: distractors {missing} have no "
                                     f"diagnosis in distractor_dx")
+            elif it.format == "multi":
+                # several options may be correct, and the pupil is not told how
+                # many (the supervisor's note in masters_opt.txt). Scored all or
+                # nothing, so the key must name the full set.
+                n = len(it.options)
+                if (not isinstance(it.key, list) or not it.key
+                        or len(set(it.key)) != len(it.key)
+                        or not all(isinstance(k, int) and 0 <= k < n for k in it.key)):
+                    raise BankError(f"{where}: multi needs a key listing the "
+                                    f"correct option indices")
+                missing = [k for k in range(n)
+                           if k not in it.key and str(k) not in it.distractor_dx]
+                if missing:
+                    raise BankError(f"{where}: distractors {missing} have no "
+                                    f"diagnosis in distractor_dx")
             elif it.format == "numeric":
                 if it.key is None:
                     raise BankError(f"{where}: numeric item with no key")
@@ -260,6 +284,8 @@ def validate(b: Bank) -> None:
 
         if it.expected_sec <= 0:
             raise BankError(f"{where}: expected_sec must be positive")
+        if any(c not in ("K", "G", "A") for c in it.conditions):
+            raise BankError(f"{where}: conditions must be drawn from K, G, A")
         if it.max_points < 1:
             raise BankError(f"{where}: max_points must be at least 1")
 

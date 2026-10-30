@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%233f3cbb%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-family=%22Arial%22 font-size=%2213%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EAI%3C/text%3E%3C/svg%3E">
+<title>Panel učiteľa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- ============================================================ PIN -->
+<section id="login" class="login">
+  <div class="card login-card">
+    <div class="brand"><span class="logo" aria-hidden="true">AI</span><span>Panel učiteľa</span></div>
+    <h1>Zadajte PIN</h1>
+    <p class="lead">PIN sa zobrazil v okne servera pri spustení hodiny.</p>
+    <label for="pin">PIN</label>
+    <input id="pin" class="code-input" type="password" inputmode="numeric" autocomplete="off" maxlength="12">
+    <p id="pin-error" class="field-error" role="alert"></p>
+    <button id="pin-go" class="btn btn-primary btn-lg btn-block">Otvoriť panel</button>
+  </div>
+</section>
+
+<!-- ======================================================= dashboard -->
+<div id="app" hidden>
+  <header class="dash-top">
+    <div class="dash-top-inner">
+      <div class="dash-title">
+        <span class="logo" aria-hidden="true">AI</span>
+        <div style="min-width:0">
+          <div class="t" id="d-topic">Panel učiteľa</div>
+          <div class="s" id="d-sub"></div>
+        </div>
+      </div>
+      <span class="cond" id="d-cond" title="Podmienka hodiny (žiakom sa nezobrazuje)">?</span>
+      <span class="spacer"></span>
+      <div class="segmented" id="d-phase" role="group" aria-label="Fáza hodiny"></div>
+      <span class="timer" id="d-timer" title="Čas od spustenia servera">00:00</span>
+    </div>
+  </header>
+
+  <main class="dash">
+    <!-- ------------------------------------------------- left column -->
+    <div class="dash-col">
+      <section class="card card-pad" aria-labelledby="h-join">
+        <div class="card-head"><h2 id="h-join">Pripojenie žiakov</h2><span class="spacer"></span><span class="chip chip-soft" id="d-mode"></span></div>
+        <img id="d-qr" class="join-qr" alt="QR kód s adresou hodiny">
+        <p class="join-url" id="d-url"></p>
+        <p class="fineprint" style="text-align:center;margin-top:6px" id="d-join-note">Žiaci otvoria adresu v prehliadači (počítač alebo mobil) a zadajú kód z obálky.</p>
+        <div class="row" id="d-urls" style="justify-content:center;margin-top:8px"></div>
+      </section>
+
+      <section class="card card-pad" aria-labelledby="h-class">
+        <div class="card-head"><h2 id="h-class">Trieda</h2></div>
+        <div class="tiles">
+          <div class="tile"><b id="c-pupils">0</b><span>prihlásení</span></div>
+          <div class="tile"><b id="c-online">0</b><span>práve online</span></div>
+          <div class="tile"><b id="c-finished">0</b><span>dokončili úlohy</span></div>
+          <div class="tile" id="t-multi"><b id="c-multi">0</b><span>kód na 2+ zariadeniach</span></div>
+        </div>
+        <h3 style="margin:18px 0 10px">Postup v úlohách</h3>
+        <div class="hist" id="d-hist"></div>
+        <h3 style="margin:18px 0 10px">Žiaci <span class="muted small">(anonymne)</span></h3>
+        <div class="pupil-grid" id="d-grid"></div>
+      </section>
+
+      <section class="card card-pad" aria-labelledby="h-health">
+        <div class="card-head"><h2 id="h-health">Technický stav zberu</h2></div>
+        <div class="health" id="d-health"></div>
+        <p class="fineprint" style="margin-top:12px">Panel zámerne nezobrazuje texty promptov ani výsledky žiakov
+          počas zberu (príloha E: prompty sa v reálnom čase nečítajú, priebežné výsledky sa neanalyzujú).</p>
+      </section>
+    </div>
+
+    <!-- ------------------------------------------------- main column -->
+    <div class="dash-col">
+      <section class="card card-pad live" id="d-live" aria-labelledby="h-live">
+        <div class="live-head">
+          <span class="chip chip-accent" id="l-type">Interaktívna časť</span>
+          <h2 id="h-live">Žiadna aktivita práve nebeží</h2>
+        </div>
+        <div id="l-body"><p class="live-empty">Vyberte aktivitu nižšie a stlačte <strong>Spustiť</strong>. Zobrazí sa naraz všetkým žiakom.</p></div>
+      </section>
+
+      <section class="card card-pad" aria-labelledby="h-lib">
+        <div class="card-head"><h2 id="h-lib">Knižnica aktivít</h2><span class="spacer"></span>
+          <button id="b-new" class="btn btn-secondary btn-sm" type="button">+ Nová aktivita</button></div>
+        <div class="tabs" id="d-tabs" role="tablist"></div>
+        <div class="lib" id="d-lib"></div>
+      </section>
+
+      <section class="card card-pad" id="d-create" aria-labelledby="h-create" hidden>
+        <div class="card-head"><h2 id="h-create">Nová aktivita počas hodiny</h2><span class="spacer"></span>
+          <button id="b-create-close" class="btn btn-ghost btn-sm" type="button">Zavrieť</button></div>
+        <div class="segmented" id="n-kind" role="group" aria-label="Typ novej aktivity" style="margin-bottom:16px">
+          <button type="button" data-k="poll" aria-pressed="true">Rýchla otázka</button>
+          <button type="button" data-k="number" aria-pressed="false">Predpoveď číslom</button>
+          <button type="button" data-k="reflect" aria-pressed="false">Reflexia</button>
+          <button type="button" data-k="json" aria-pressed="false">Vlastná (JSON)</button>
+        </div>
+        <div id="n-form" class="stack"></div>
+        <p id="n-error" class="field-error" role="alert"></p>
+        <div class="actions">
+          <button id="n-save-start" class="btn btn-primary" type="button">Uložiť a spustiť</button>
+          <button id="n-save" class="btn btn-secondary" type="button">Len uložiť</button>
+        </div>
+      </section>
+
+      <section class="card card-pad" id="d-metrics" aria-labelledby="h-metrics" hidden>
+        <div class="card-head"><h2 id="h-metrics">Výskumné metriky</h2><span class="spacer"></span>
+          <button id="b-metrics" class="btn btn-secondary btn-sm" type="button">Načítať</button>
+          <a id="b-export" class="btn btn-secondary btn-sm" href="#" download="metriky.csv">Export CSV</a></div>
+        <div class="callout callout-warn small">Priebežná analýza počas zberu je v protokole zakázaná (príloha E).
+          Tento režim používajte až po zbere, pri kontrole dát.</div>
+        <div id="m-body" style="margin-top:14px"></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- preview of an activity, exactly as pupils will see it -->
+<div id="preview-layer" class="sheet-layer" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="p-title">
+    <div class="sheet-head">
+      <span class="chip chip-soft">Náhľad</span>
+      <h2 id="p-title"></h2>
+      <button id="p-close" class="btn btn-ghost btn-sm" type="button">Zavrieť</button>
+    </div>
+    <div id="p-body" class="sheet-body"></div>
+  </div>
+</div>
+
+<script src="widgets.js"></script>
+<script src="teacher.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+==========================================================================
+MATEMATIKA · M2 Aritmetická a geometrická postupnosť
+T1 · VSTUPNÝ TEST · píše sa pred hodinou
+==========================================================================
+Forma:      M2-T1
+Predmet:    matematika
+Téma:       M2 · Aritmetická a geometrická postupnosť
+Test:       T1 · vstupný test pred hodinou („nulové vedomosti“)
+Dvojča:     M2-T3
+Dotazník:   D1 (pred testom časť Q, po teste časť Z)
+Rozsah:     22 úloh · 50 bodov · približne 40 minút + dotazník 4 minúty
+
+Kód žiaka (z obálky): ____________________      Dátum: ______________
+
+POKYNY
+• Test nie je na známku. Téma sa ešte len bude preberať, takže je úplne
+  v poriadku, ak veľa vecí nevieš. Zaujíma nás, ako o nich uvažuješ.
+• Skús každú úlohu; aj čiastočná úvaha sa počíta. Ak úlohu nevieš, napíš
+  „neviem“ alebo ju nechaj prázdnu a pokračuj ďalej.
+• Nepoužívaj mobil, internet, poznámky ani asistenta. Kalkulačku môžeš
+  použiť (vedeckú, nie v mobile).
+
+DOHODY PLATNÉ V CELOM TESTE
+• Postupnosť je rad čísel a₁, a₂, a₃, …; a₁ je prvý člen, aₙ je n-tý člen.
+• Aritmetická postupnosť: každý ďalší člen dostaneme pripočítaním toho
+  istého čísla d (diferencia). Geometrická postupnosť: každý ďalší člen
+  dostaneme vynásobením tým istým číslom q (kvocient).
+• Sₙ je súčet prvých n členov postupnosti.
+
+
+ČASŤ P — Skôr než začneš (nezapočítava sa do bodov)
+--------------------------------------------------------------------------
+Pri každom riadku zakrúžkuj číslo od 0 do 100: 0 = určite to nedokážem,
+50 = možno to dokážem, 100 = určite to dokážem. Neexistujú správne
+odpovede; zaujíma nás, ako to vidíš teraz.
+
+P1  Nakoľko si teraz istý/á, že dokážeš rozhodnúť, či je postupnosť
+    aritmetická, geometrická alebo ani jedna z nich?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P2  Nakoľko si teraz istý/á, že dokážeš vypočítať n-tý člen aritmetickej
+    alebo geometrickej postupnosti?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P3  Nakoľko si teraz istý/á, že dokážeš vypočítať súčet prvých n členov
+    aritmetickej alebo geometrickej postupnosti?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P4  Nakoľko si teraz istý/á, že dokážeš z dvoch známych členov zistiť
+    diferenciu alebo kvocient postupnosti?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+P5  Nakoľko si teraz istý/á, že dokážeš opísať skutočnú situáciu (plat,
+    sedadlá, šírenie správy) vhodnou postupnosťou?
+    určite nie  0   10   20   30   40   50   60   70   80   90   100  určite áno
+
+
+ČASŤ A — Uzavreté úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Pri každej úlohe zakrúžkuj VŠETKY správne odpovede. Pri niektorých úlohách
+je správna jedna odpoveď, pri niektorých viac. Každá úloha má aspoň jednu
+správnu odpoveď.
+Hodnotenie: 2 body, ak označíš presne všetky správne odpovede; 1 bod pri
+jednej chybe (jedna správna chýba alebo jedna nesprávna je navyše);
+inak 0 bodov. Prázdna úloha má 0 bodov.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+A1  Ktorý vzorec udáva n-tý člen geometrickej postupnosti s prvým členom a₁
+    a kvocientom q?
+      a) aₙ = a₁ · qⁿ
+      b) aₙ = a₁ · qⁿ⁻¹
+      c) aₙ = a₁ + (n − 1) · q
+      d) aₙ = a₁ · n · q
+      e) aₙ = qⁿ⁻¹ / a₁
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A2  Ktoré tvrdenia o postupnosti 50, 45, 40, 35, … sú pravdivé?
+      a) Je geometrická s kvocientom 0,9.
+      b) Je aritmetická s diferenciou 5.
+      c) Je aritmetická s diferenciou −5.
+      d) Jej ďalší člen je 25.
+      e) Je klesajúca geometrická postupnosť.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A3  Ktorá z týchto postupností je geometrická?
+      a) 1, 3, 5, 7
+      b) 2, 4, 6, 8
+      c) 1, 4, 9, 16
+      d) 3, 6, 12, 24
+      e) 1, 2, 3, 5
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A4  Ktoré z týchto postupností sú aritmetické?
+      a) 10, 7, 4, 1
+      b) 2, 4, 8, 16
+      c) 1, 1, 2, 3
+      d) 0,5; 1; 1,5; 2
+      e) 3, 9, 27, 81
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A5  V aritmetickej postupnosti je a₁ = 5 a d = 3. Aký je jej 30. člen?
+      a) 87          b) 90          c) 92          d) 95          e) 150
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A6  Geometrická postupnosť má prvý člen a₁ = 4 a kvocient q = 2. Ktoré
+    údaje sú správne?
+      a) a₆ = 128
+      b) a₆ = 256
+      c) Súčet prvých šiestich členov je 252.
+      d) a₅ = 64
+      e) a₅ = 12
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A7  Aritmetická postupnosť 1, 5, 9, 13, … Pre ktoré n je súčet prvých
+    n členov väčší ako 120?
+      a) n = 7       b) n = 8       c) n = 9       d) n = 10      e) n = 12
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A8  Žiak tvrdí, že postupnosť 1, 4, 9, 16, 25 je aritmetická, lebo „rastie
+    pravidelne“. Ktoré tvrdenia sú pravdivé?
+      a) Postupnosť nie je aritmetická, lebo rozdiely susedných členov
+         (3, 5, 7, 9) nie sú rovnaké.
+      b) Postupnosť je aritmetická s diferenciou 3.
+      c) Postupnosť je geometrická s kvocientom 4.
+      d) Postupnosť je aritmetická, lebo rozdiely rastú vždy o 2.
+      e) Každá rastúca postupnosť je aritmetická.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A9  Amfiteáter má v prvom rade 30 sedadiel a v každom ďalšom rade
+    o 4 sedadlá viac. Koľko sedadiel je spolu v prvých 12 radoch?
+      a) 74          b) 78          c) 360         d) 600         e) 624
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+A10  Pekáreň dnes predá 2 000 rožkov denne. Model A predpovedá, že predaj
+    každý mesiac stúpne o 200 rožkov; model B, že každý mesiac stúpne
+    o 10 %. Ktoré závery o modeloch sú oprávnené?
+      a) Po prvom mesiaci predpovedajú oba modely rovnaký predaj.
+      b) Model B opisuje aritmetickú postupnosť s diferenciou 10 %.
+      c) Od druhého mesiaca predpovedá model B väčší predaj ako model A.
+      d) Rozdiel medzi modelmi sa s časom zmenšuje.
+      e) Model A opisuje geometrickú postupnosť.
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ B — Polootvorené úlohy (každá úloha 2 body)
+--------------------------------------------------------------------------
+Doplň krátku odpoveď: číslo do políčka alebo slovo. Postup nemusíš písať.
+Pri úlohách s viacerými políčkami dostaneš 1 bod, ak je chybné len jedno
+políčko.
+Pri každej úlohe zakrúžkuj aj to, nakoľko si si istý/á svojou odpoveďou.
+
+B1  Postupnosť 2, 10, 50, 250, … je (1) ____________ (napíš aritmetická,
+    geometrická alebo ani jedna). Jej diferencia alebo kvocient je (2) ____.
+    Odpoveď:   (1) ____________________     (2) ______
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B2  Aritmetická postupnosť má a₁ = 20 a d = −3.
+    Odpoveď:   a₈ = __________         S₈ = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B3  Geometrická postupnosť má a₁ = 3 a q = 4.
+    Odpoveď:   a₅ = __________         S₅ = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B4  V aritmetickej postupnosti je a₂ = 11 a a₆ = 31.
+    Odpoveď:   d = __________          a₁ = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B5  Geometrická postupnosť má všetky členy kladné, a₃ = 20 a a₅ = 80.
+    Odpoveď:   q = __________          a₁ = __________
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+B6  Koľko členov aritmetickej postupnosti 7, 12, 17, 22, … je menších ako
+    300?
+    Odpoveď:   __________ členov
+    Istota:   0 %    25 %    50 %    75 %    100 %
+
+
+ČASŤ C — Otvorené úlohy (každá úloha 3 body)
+--------------------------------------------------------------------------
+Odpovedaj vlastnými slovami a zapíš aj postup. Hodnotí sa postup
+a zdôvodnenie, nielen výsledok.
+
+C1  V prvom mesiaci si odložíš 20 €, v každom ďalšom mesiaci o 5 € viac ako
+    v predchádzajúcom. Koľko odložíš v 12. mesiaci a koľko spolu za prvý
+    rok? Koľko budeš mať odložené po dvoch rokoch (24 mesiacov)?
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C2  Spolužiačka tvrdí: „V aritmetickej postupnosti 4, 7, 10, … je 50. člen
+    4 + 50 · 3 = 154.“ Nájdi chybu v jej úvahe, vypočítaj 50. člen správne
+    a vysvetli, prečo jej postup nefunguje.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C3  Na začiatku sú v miske 3 baktérie. Každú hodinu sa každá baktéria
+    rozdelí na dve. Koľko baktérií bude v miske po 6 hodinách? Koľko
+    baktérií pribudne práve počas 6. hodiny? Zdôvodni, akou postupnosťou
+    situáciu opisuješ.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C4  Na 12 týždňov ti ponúkajú vreckové:
+    (A) 10 € každý týždeň;
+    (B) prvý týždeň 1 cent (0,01 €), každý ďalší týždeň dvojnásobok
+        predchádzajúceho týždňa.
+    Porovnaj ponuky výpočtom. Ktorú by si si vybral/a? Posúď aj to, pri
+    akom počte týždňov by bola výhodnejšia druhá ponuka.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C5  Spolužiak tvrdí: „Ak má postupnosť stály rozdiel susedných členov,
+    nemôže mať zároveň stály podiel susedných členov. A ak nemá ani jedno,
+    nie je to postupnosť.“ Posúď obe časti tvrdenia a každú svoju odpoveď
+    doplň príkladom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+C6  Navrhni geometrickú postupnosť s prvým členom 3, ktorej súčet prvých
+    troch členov je 39, a aritmetickú postupnosť s tým istým prvým členom
+    a tým istým súčtom prvých troch členov. Obe postupnosti over výpočtom.
+    ......................................................................
+    ......................................................................
+    ......................................................................
+
+                                 KONIEC TESTU
+
+
+##########################################################################
+ČASŤ PRE HODNOTITEĽA — NETLAČIŤ PRE ŽIAKOV (odtiaľto odstrihnúť)
+##########################################################################
+
+ZRUČNOSTI
+  S1  rozpoznanie postupnosti: stály rozdiel (aritmetická) alebo stály
+      podiel (geometrická)
+  S2  n-tý člen: aₙ = a₁ + (n − 1) · d, aₙ = a₁ · qⁿ⁻¹
+  S3  súčet prvých n členov: Sₙ = n · (a₁ + aₙ) / 2,
+      Sₙ = a₁ · (qⁿ − 1) / (q − 1)
+  S4  lineárny verzus exponenciálny rast; chyba o jedna (n namiesto n − 1)
+  S5  určenie a₁, d alebo q z iných údajov
+  S6  modelovanie skutočných situácií a rozhodovanie
+
+ČO T1 MERIA
+  Vedomosti a PREKONCEPCIE pred výučbou. Postupnosti sa na niektorých
+  školách preberajú už v 1. ročníku; T1 to overí (pozri D1-Q1). Dohody
+  vysvetľujú pojmy slovami, aby test meral uvažovanie, nie znalosť
+  termínov.
+
+KĽÚČ, ÚROVNE A ČO PREZRÁDZA NESPRÁVNA VOĽBA
+
+A1  Kľúč: b
+    Úroveň: zapamätanie · Zručnosť: S2 · Dvojča: M2-T3 A1
+    a) CHYBA O JEDNA v exponente
+    c) zamieňa s aritmetickou postupnosťou
+    d) LINEÁRNA predstava
+    e) nesprávna štruktúra vzorca
+
+A2  Kľúč: c
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M2-T3 A2
+    a) z prvého podielu (0,9) usudzuje na celú postupnosť
+    b) prehliadne znamienko diferencie
+    d) pokračuje o −10
+    e) „klesajúca“ zamieňa s „geometrická“
+
+A3  Kľúč: d
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M2-T3 A3
+    a) aritmetická -- zamieňa typy
+    b) aritmetická -- zamieňa typy
+    c) štvorce
+    e) nepravidelná
+
+A4  Kľúč: a, d
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M2-T3 A4
+    b) geometrická -- zamieňa typy
+    c) Fibonacciho postupnosť
+    e) geometrická -- zamieňa typy
+
+A5  Kľúč: c
+    Úroveň: aplikácia · Zručnosť: S2 · Dvojča: M2-T3 A5
+    Výpočet: 5 + 29 · 3 = 92.
+    a) 29 · 3 -- zabudne na a₁
+    b) 30 · 3
+    d) CHYBA O JEDNA: 5 + 30 · 3
+    e) 5 · 30
+
+A6  Kľúč: a, c, d
+    Úroveň: aplikácia · Zručnosť: S2, S3 · Dvojča: M2-T3 A6
+    Výpočet: a₅ = 4 · 2⁴ = 64; a₆ = 4 · 2⁵ = 128; S₆ = 4 · (2⁶ − 1) = 252.
+    b) CHYBA O JEDNA (4 · 2⁶)
+    e) zamieňa s aritmetickou (4 + 4 · 2)
+
+A7  Kľúč: c, d, e
+    Úroveň: aplikácia · Zručnosť: S3 · Dvojča: M2-T3 A7
+    Výpočet: Sₙ = n · (2n − 1); S₇ = 91, S₈ = 120, S₉ = 153, S₁₀ = 190,
+    S₁₂ = 276.
+    a) nesprávny vzorec súčtu
+    b) S₈ = 120 nie je VÄČŠÍ ako 120 -- nepozorné čítanie nerovnosti
+
+A8  Kľúč: a
+    Úroveň: analýza · Zručnosť: S1 · Dvojča: M2-T3 A8
+    b) z prvého rozdielu usudzuje na celú postupnosť
+    c) z prvého podielu usudzuje na celú postupnosť
+    d) zamieňa stály rozdiel so stálym prírastkom rozdielov
+    e) zamieňa rastúcu s aritmetickou
+
+A9  Kľúč: e
+    Úroveň: analýza · Zručnosť: S3, S6 · Dvojča: M2-T3 A9
+    Výpočet: a₁₂ = 30 + 11 · 4 = 74; S₁₂ = 12 · (30 + 74) / 2 = 624.
+    a) len posledný rad
+    b) CHYBA O JEDNA pri poslednom rade (30 + 12 · 4)
+    c) 12 · 30 -- prehliadne prírastok
+    d) posledný rad počíta ako 30 + 10 · 4
+
+A10  Kľúč: a, c
+    Úroveň: hodnotenie · Zručnosť: S4, S6 · Dvojča: M2-T3 A10
+    Výpočet: po 1 mesiaci oba 2 200; po 2 mesiacoch 2 400 a 2 420.
+    b) percentuálny prírastok nie je stály rozdiel
+    d) LINEÁRNA intuícia: rozdiel sa s časom zväčšuje
+    e) zamieňa typy
+
+B1  Kľúč: (1) = "geometrická" | "geometricka"; (2) = 5
+    Úroveň: porozumenie · Zručnosť: S1 · Dvojča: M2-T3 B1
+
+B2  Kľúč: a₈ = −1; S₈ = 76
+    Úroveň: aplikácia · Zručnosť: S2, S3 · Dvojča: M2-T3 B2
+    Výpočet: 20 + 7 · (−3) = −1; 8 · (20 − 1) / 2 = 76.
+
+B3  Kľúč: a₅ = 768; S₅ = 1023
+    Úroveň: aplikácia · Zručnosť: S2, S3 · Dvojča: M2-T3 B3
+    Výpočet: 3 · 4⁴ = 768; 3 · (4⁵ − 1) / 3 = 1 023.
+
+B4  Kľúč: d = 5; a₁ = 6
+    Úroveň: aplikácia · Zručnosť: S5 · Dvojča: M2-T3 B4
+
+B5  Kľúč: q = 2; a₁ = 5
+    Úroveň: analýza · Zručnosť: S5 · Dvojča: M2-T3 B5
+    Výpočet: q² = 80 / 20 = 4, q = 2; a₁ = 20 / 4 = 5.
+    Typická chyba: q = 4.
+
+B6  Kľúč: 59 členov
+    Úroveň: analýza · Zručnosť: S2, S4 · Dvojča: M2-T3 B6
+    Výpočet: aₙ = 5n + 2 < 300, n < 59,6; a₅₉ = 297, a₆₀ = 302.
+
+C1  Rubrika (3 b.)
+    Úroveň: aplikácia · Zručnosť: S2, S3, S6 · Dvojča: M2-T3 C1
+    K1  v 12. mesiaci 20 + 11 · 5 = 75 €
+    K2  za prvý rok 12 · (20 + 75) / 2 = 570 €
+    K3  za 24 mesiacov 24 · (20 + 135) / 2 = 1 860 €
+
+C2  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S2, S4 · Dvojča: M2-T3 C2
+    K1  chyba: od 1. po 50. člen je len 49 krokov (CHYBA O JEDNA)
+    K2  správne a₅₀ = 4 + 49 · 3 = 151
+    K3  vysvetlenie na malom prípade (napr. a₂ = 4 + 1 · 3)
+
+C3  Rubrika (3 b.)
+    Úroveň: analýza · Zručnosť: S6, S2 · Dvojča: M2-T3 C3
+    K1  model: počet sa každú hodinu zdvojnásobí -- geometrická postupnosť
+        s q = 2
+    K2  po 6 hodinách 3 · 2⁶ = 192 baktérií
+    K3  počas 6. hodiny pribudne 192 − 96 = 96 baktérií
+
+C4  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S3, S6, S4 · Dvojča: M2-T3 C4
+    K1  ponuka A: 12 · 10 = 120 €
+    K2  ponuka B: 0,01 · (2¹² − 1) = 40,95 €, výhodnejšia je A
+    K3  B sa oplatí až od 14 týždňov (163,83 € proti 140 €; pri 13 týždňoch
+        81,91 € proti 130 €), so zdôvodnením exponenciálneho rastu
+
+C5  Rubrika (3 b.)
+    Úroveň: hodnotenie · Zručnosť: S1 · Dvojča: M2-T3 C5
+    K1  obe časti tvrdenia sú nesprávne
+    K2  príklad postupnosti so stálym rozdielom aj podielom: konštantná
+        nenulová (7, 7, 7, …: d = 0, q = 1)
+    K3  príklad postupnosti, ktorá nemá ani jedno a predsa je postupnosťou
+        (1, 4, 9, 16 alebo 1, 1, 2, 3, 5)
+
+C6  Rubrika (3 b.)
+    Úroveň: tvorenie · Zručnosť: S3, S5 · Dvojča: M2-T3 C6
+    K1  geometrická: 3 · (1 + q + q²) = 39, q = 3 (alebo q = −4): 3, 9, 27
+    K2  aritmetická: a₂ = 39 / 3 = 13, d = 10: 3, 13, 23
+    K3  overenie oboch súčtov (39)
+
+SÚHRN
+  Body: A 10 × 2 = 20, B 6 × 2 = 12, C 6 × 3 = 18, spolu 50.
+  Položky s viacerými správnymi odpoveďami: A4, A6, A7, A10 (žiakovi sa
+  neoznačujú). Kľúče položiek s jednou správnou: b, c, d, c, a, e.
