@@ -660,3 +660,80 @@ Appendix E. Appendix E still describes three informatics lessons and "nič
 z tvojho telefónu" (see D25); the screen says "nič mimo tejto stránky". The
 ethics board should see the screen text. The capture layer (mitmproxy) is not
 gated by this consent.
+
+## 2026-10-30 — Lecture texts for teachers
+
+### D34. Seven lecture scripts in `prednasky/` — draft, for review by subject teachers
+
+`prednasky/fyzik-lec.txt` (F1, F2), `informatic-lec.txt` (I1, I2) and
+`mathematic-lec.txt` (M1, M2, M3) hold the spoken text of the opening, the
+exposition and the summary, with `<< ... >>` markers where the teacher launches
+an activity. Written with AI assistance (Claude), and they say so.
+
+- **Scope.** All seven topics that have tests, not only the three in
+  `RUN.cmd`: the author's question named "the selected topics", and the diagram
+  lists a second topic per subject.
+- **Length.** 22 ± 4 min exposition and 10 ± 3 min summary (Appendix A, V1, V3).
+  The 35/40/15 split in chapter 5 (line 117) is stale; Appendix A already says
+  why, and chapter 5 is not edited (author's text).
+- **Timing is an estimate, not a measurement:** 120 words per minute, 0.6 min per
+  board item, fixed minutes per activity. It gives 18–23 min for the exposition
+  and 9–11 min for the summary. The pilot must measure it.
+- **Teacher-facing marker text is Slovak and formal** (`<< teraz ukážte žiakom
+  hands-on: NÁZOV >>`), the kit's register. NÁZOV is the exact card title on the
+  dashboard, checked by script against `activities/*.json`.
+
+**Departures from Appendix D, and why.** Appendix D is binding, so these need the
+author's decision, and its text is not edited.
+
+- *I1 worked examples are not Appendix D's.* Its array with target 23 is T1-7,
+  T1-8 and D1-5; its 1024 is T1-4 and D1-3 (the open item under D31). The lecture
+  uses a new 10-element array and n = 64.
+- *I2 uses `kr(n)` (base case n ≤ 2), not `fib(n)`, for the worked examples.*
+  Appendix D's T3 examples are test items in I2-T3: fib(4) tree = C1,
+  fib(5) = A5, fib(6) memory = A9, fib(40) = A8. So the claim in
+  `testy/00-metodika-a-specifikacia.txt`, section 5, that no item reuses the
+  exposition does not hold for I2 against Appendix D. The lecture states the
+  link to `fib` in one sentence. Call counts differ, values do not.
+- *F1 and M1 summaries are chosen here:* Appendix D fixes only U2, U5, U8.
+  F4, F5, F8 and M4, M6, M8. The closing three sentences are written here.
+
+**Activities.** All `vyklad` and `zhrnutie` activities of the three packs are
+used, plus VS-PREDICT-SELF and VS-EXIT, in the phase they declare. Not used:
+INF-HRA (its note forbids it in measured lessons); VS-PULSE (the kit keeps
+activities out of independent work); VS-MUDDY (no minute to spare, and the script
+forbids responding to it with new examples).
+
+**F2, I2, M2, M3 have no lesson in the app.** No tasks, no activities, no `RUN.cmd`
+entry. Nothing in `exercise-client/` was changed. Their 13 interactive moments use
+`<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: NÁZOV >>` with an oral
+question and a show of hands, and the summary uses four discussion questions
+instead of tasks. These lectures cannot be run as measured lessons yet.
+
+**Overlap with the instruments.** Worked examples were checked against 582 items
+(T1, T3, T4 of all topics, old banks, tasks, packs). Replaced after that check:
+sum 1..100 (M2-T4 A7), court example (M3-T4 C5), elevator at constant speed
+(F2-T4 A2, A10), wet road (F2-T4 reading text), inflation 3 % (M1-T4 C4),
+motorcycle 300 kg (F2-T1 B3), bakery +10 % (M2-T1 A10), hanging lamp (F2-T4 A2),
+iron and heater (F1-T4 table), arithmetic formula on a geometric sequence (M2-T4).
+
+**Found, not changed — tasks that are test items:** task F6 is F1-T3 A8 (same
+circuit), and task U5 is I1-T3 A9 (same bug). Pupils solve them in the same block,
+shortly before the test. F6 was left out of the F1 summary for this reason. U5 stays,
+because Appendix D prescribes it.
+
+**Sources.** Each file lists what was read and what was only checked. The DOIs
+resolve on Crossref; those papers' full text was not read. Pages that blocked
+access and could not be read were dropped (Tatra banka glossary, Investor.gov,
+The Physics Classroom, Khan Academy, Feynman Lectures). `/ars-citation-check` was
+not run: the plugin is not installed in this session.
+
+**OpenStax.** Its terms forbid ingesting the books into generative AI offerings
+without permission. Five pages were read before this was noticed, then no more.
+No wording was taken, the facts are standard, and all five sections are cited. For
+the author to judge whether those citations stay.
+
+**Not done.** Review by subject teachers; a timed read-through; the lectures are
+not in `build-school-kit.ps1`, and Appendix D still says the full scenarios are on
+the digital medium (worksheets do not exist). T3 now takes about 46 min, so it
+does not fit a 90-minute block after a 64-minute lesson (D32, still open).
