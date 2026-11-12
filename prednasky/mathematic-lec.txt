@@ -1,0 +1,981 @@
+==========================================================================
+MATEMATIKA · TEXTY VÝKLADU PRE UČITEĽA
+  M1  Zložené úrokovanie a exponenciálny rast
+  M2  Aritmetická a geometrická postupnosť
+  M3  Pravdepodobnosť a podmienená pravdepodobnosť
+==========================================================================
+Verzia:  návrh 1, 30. 10. 2026. Pred pilotom overiť s učiteľom matematiky.
+Stav:    M1 sa dá spustiť v aplikácii (RUN.cmd, voľba 2). M2 a M3 zatiaľ
+         nie: nemajú v aplikácii úlohy ani aktivity (pozri začiatok tém).
+
+
+AKO S TÝMTO TEXTOM PRACOVAŤ
+--------------------------------------------------------------------------
+Text je napísaný tak, aby sa dal predniesť doslova. Môžete ho povedať aj
+vlastnými slovami, ale všetky body, príklady a čísla musia zostať, lebo
+výklad a zhrnutie sú v podmienkach K, G aj A rovnaké. Tri záverečné vety
+zhrnutia povedzte doslova.
+
+Označenia v texte:
+
+  << teraz ukážte žiakom hands-on: NÁZOV >>
+  << teraz ukážte žiakom animáciu: NÁZOV >>
+  << teraz ukážte žiakom aktivitu: NÁZOV >>
+      V paneli učiteľa (adresa .../teacher) nájdite v knižnici kartu
+      s týmto názvom a stlačte Spustiť. Aktivita sa naraz zobrazí všetkým
+      žiakom. Keď žiaci skončia, stlačte Zverejniť výsledky triede, ak je
+      toto tlačidlo k dispozícii, a potom Ukončiť aktivitu.
+
+  << aktivita zatiaľ nie je v aplikácii, urobte ju naživo: NÁZOV >>
+      Táto aktivita v aplikácii neexistuje. Otázku položte ústne, žiaci
+      hlasujú zdvihnutím ruky. Správna odpoveď je v pokyne pod značkou.
+
+  [TABUĽA]  napíšte alebo nakreslite na tabuľu
+  [POKYN]   poznámka pre vás, nečíta sa nahlas
+
+Všetko ostatné je text, ktorý hovoríte žiakom.
+
+
+PRAVIDLÁ HODINY (prílohy A a D diplomovej práce)
+--------------------------------------------------------------------------
+• Nepridávajte príklady, ktoré v texte nie sú.
+• Neriešte žiakom úlohy zo sady. V zhrnutí prejdite len tie, ktoré sú v
+  texte.
+• Nehovorte, ktorá podmienka je podľa vás lepšia, a nekomentujte
+  asistenta.
+• Výklad má trvať 22 ± 4 minúty a zhrnutie 10 ± 3 minúty. Minúty pri
+  nadpisoch sú orientačné a treba ich overiť v pilote.
+• Ak meškáte, skráťte komentár po aktivite. Aktivity nevynechávajte a
+  každú odchýlku zapíšte do kontrolného listu vernosti.
+• Testy pred hodinou neotvárajte a žiakom ich neukazujte.
+
+
+ČASOVÝ RÁMEC HODINY
+--------------------------------------------------------------------------
+  minúty    blok                  čo sa deje
+  0–4       úvod                  pripojenie žiakov, oznámenie témy
+  4–26      výklad                text v tomto súbore
+  26–58     samostatná práca      úlohy v aplikácii, tu sa podmienky líšia
+  58–68     zhrnutie              text v tomto súbore
+  potom     test a dotazník       podľa pokynov k testu
+
+
+PRECHOD NA SAMOSTATNÚ PRÁCU (znenie z prílohy D)
+--------------------------------------------------------------------------
+Na konci výkladu v paneli prepnite fázu na „Samostatná práca“ a podľa
+podmienky hodiny urobte toto:
+
+  K  Panel asistenta je skrytý. Žiaci pracujú samostatne alebo vo dvojiciach
+     podľa zvyku triedy. Na otázky odpovedáte ako bežne, ale nedávate
+     úplné riešenie.
+
+  G  Prečítajte doslova: „Počas riešenia máš k dispozícii asistenta. Môžeš
+     ho používať tak, ako uznáš za vhodné. Na konci hodiny píšete krátky
+     test, v ktorom asistenta k dispozícii mať nebudete.“
+     Odpovedáte len na organizačné otázky. Na otázky k obsahu odpovedajte:
+     „Skús sa spýtať asistenta.“
+
+  A  Prečítajte to isté ako v podmienke G a pridajte vetu: „Asistent ti
+     nedá hotové riešenie, ale pomôže ti k nemu dôjsť.“
+
+
+##########################################################################
+M1 · ZLOŽENÉ ÚROKOVANIE A EXPONENCIÁLNY RAST
+##########################################################################
+Cieľ hodiny: žiak vypočíta sumu rok po roku aj vzorcom, odlíši jednoduché
+a zložené úročenie, odhalí chybu sčítania percent, odhadne dobu
+zdvojnásobenia a vyberie výhodnejšiu ponuku.
+
+Čo si pripraviť: projektor s panelom učiteľa, tabuľu, žiaci kalkulačku.
+Dohody ako v teste: úroková miera je ročná, úroky sa pripisujú raz ročne
+na konci roka, dane ani poplatky neuvažujeme, sumy zaokrúhľujeme na centy.
+
+Aktivity tejto hodiny v poradí, v akom sa spúšťajú:
+
+  fáza      názov karty v paneli                  typ             min
+  výklad    Jednoduché verzus zložené úročenie    hands-on        3
+  výklad    Ktorá banka?                          rýchla otázka   1,5
+  výklad    Zdvojnásobenie a zoštvornásobenie     predpoveď       2
+  výklad    Pravidlo 72                           predpoveď       2
+  výklad    Odhad vlastného výkonu                predpoveď       0,5
+  zhrnutie  Kde je chyba?                         rýchla otázka   1,5
+  zhrnutie  Zoraď ponuky                          zoraďovanie     1,5
+  zhrnutie  Výstupný lístok                       reflexia        1,5
+
+
+ÚVOD (minúty 0–4)
+--------------------------------------------------------------------------
+[POKYN] V paneli učiteľa zapnite fázu „Úvod“ a premietnite QR kód s
+        adresou.
+
+Dobrý deň. Otvorte v prehliadači adresu z tabule alebo naskenujte QR kód a
+zadajte svoj kód z obálky. Aplikácia sa vás spýta, či súhlasíte so
+zaznamenaním. Rozhodnutie je vaše a na dnešnej práci nič nemení.
+
+Dnešná téma je zložené úrokovanie a exponenciálny rast. Najprv budem
+vysvetľovať a popri tom si budete veci skúšať vo svojom zariadení. Potom
+budete samostatne riešiť úlohy a na konci si vybrané úlohy prejdeme spolu.
+
+
+VÝKLAD (minúty 4–26)
+--------------------------------------------------------------------------
+[POKYN] Prepnite fázu na „Výklad“.
+
+1. Prečo o tom hovoríme (minúty 4–5)
+
+Máte vklad, ktorý sa úročí 5 % ročne. Za sedem rokov vám prinesie nejaký
+úrok. Koľko vám prinesie za štrnásť rokov? Väčšina ľudí povie: dvakrát
+toľko. Znie to logicky, ale pri spôsobe úročenia, ktorý banky bežne
+používajú, to neplatí. Ekonómovia Stango a Zinman túto chybu opísali pod
+názvom skreslenie exponenciálneho rastu: ľudia odhadujú rast, ktorý sa
+násobí, akoby sa sčítaval. Dnes si ukážeme, kde presne sa odhad láme.
+
+2. Pojmy a jednoduché úročenie (minúty 5–8)
+
+Vklad na začiatku označíme K₀. Ročnú úrokovú mieru p píšeme ako desatinné
+číslo, takže 5 % je 0,05. Úrok je suma, ktorú banka pripíše. Dnes platí
+dohoda: úrok sa pripisuje raz ročne na konci roka a dane ani poplatky
+neuvažujeme.
+
+Pri jednoduchom úročení sa úrok každý rok počíta len z pôvodného vkladu.
+Každý rok teda pribudne rovnaká suma.
+
+Riešený príklad 1. Vložíme 1 600 € pri 5 % ročne s jednoduchým úročením.
+Ročný úrok je 0,05 · 1 600 = 80 €. Po štyroch rokoch máme 1 600 + 4 · 80 =
+1 920 €.
+
+[TABUĽA] Jednoduché úročenie:  Kₙ = K₀ · (1 + n · p)
+
+3. Zložené úročenie (minúty 8–12)
+
+Pri zloženom úročení sa úrok počíta z celej sumy na účte, teda aj z úrokov
+pripísaných skôr.
+
+Riešený príklad 2. Ten istý vklad 1 600 € pri 5 % ročne, ale so zloženým
+úročením. Počítajme rok po roku.
+
+[TABUĽA]
+  1. rok:  1 600,00 · 1,05 = 1 680,00 €    úrok 80,00 €
+  2. rok:  1 680,00 · 1,05 = 1 764,00 €    úrok 84,00 €
+  3. rok:  1 764,00 · 1,05 = 1 852,20 €    úrok 88,20 €
+  4. rok:  1 852,20 · 1,05 = 1 944,81 €    úrok 92,61 €
+
+Prvý rok je úrok rovnaký ako pri jednoduchom úročení. Druhý rok je už
+väčší, lebo sa úročí aj tých prvých 80 €. Úrok rastie, lebo sa počíta aj z
+predchádzajúcich úrokov.
+
+Každý rok sa suma násobí tým istým číslom 1,05. Prečo práve týmto? Na
+konci roka máme celú pôvodnú sumu, teda 100 %, a k tomu 5 %. Spolu 105 %,
+čo je 1,05-násobok. Tomuto číslu hovoríme rastový faktor. Po n rokoch sme
+násobili n-krát, a odtiaľ je vzorec.
+
+[TABUĽA] Zložené úročenie:  Kₙ = K₀ · (1 + p)ⁿ
+
+Overme to: 1 600 · 1,05⁴ = 1 944,81 €. Oproti jednoduchému úročeniu je to
+len o 24,81 € viac. Zatiaľ malý rozdiel. Čo sa stane po dlhšom čase,
+uvidíte sami.
+
+Rastový faktor vieme aj spätne zistiť. Stačí vydeliť sumy za dva po sebe
+idúce roky: 1 764 / 1 680 = 1,05, takže úroková miera je 5 %. A keď
+poznáme faktor, vieme ísť aj o rok späť: 1 680 / 1,05 = 1 600.
+
+<< teraz ukážte žiakom hands-on: Jednoduché verzus zložené úročenie >>
+
+[POKYN] Asi 3 minúty. Žiaci menia úrokovú mieru a počet rokov a prehrávajú
+        rast rok po roku. Potom v paneli otvorte Zobraziť odpovede,
+        prečítajte jednu alebo dve vety bez mien a stlačte Ukončiť
+        aktivitu.
+
+Teraz to použijeme na rozhodnutie.
+
+<< teraz ukážte žiakom aktivitu: Ktorá banka? >>
+
+[POKYN] Asi minúta na odpoveď, potom Zverejniť výsledky triede a Ukončiť
+        aktivitu. Správne je banka B.
+
+V banke A bude 3 000 €, v banke B asi 4 661 €. Nižšia sadzba vyhrala, lebo
+pri dlhej dobe rozhoduje násobenie, nie sadzba sama.
+
+4. Prečo sa percentá nesčítavajú (minúty 15–20)
+
+Vráťme sa k nášmu vkladu. Za dva roky vzrástol z 1 600 € na 1 764 €, teda
+o 10,25 %, nie o 10 %. Percentá za jednotlivé roky sa pri zloženom úročení
+nesčítavajú. Násobia sa rastové faktory: 1,05 · 1,05 = 1,1025.
+
+Riešený príklad 3. Porovnajme úrok za 7 a za 14 rokov. Po 7 rokoch je na
+účte 1 600 · 1,05⁷, čo je asi 2 251,36 €, a úrok je asi 651,36 €. Po 14
+rokoch je to 1 600 · 1,05¹⁴, asi 3 167,89 €, a úrok je asi 1 567,89 €.
+Dvojnásobná doba priniesla asi 2,4-násobok úroku. Pri jednoduchom úročení
+by to bol presne dvojnásobok.
+
+[TABUĽA] Zapíšte výpočet príkladu 3.
+
+Dôvod je jednoduchý: počas druhých siedmich rokov sa úročí väčšia suma. Za
+každých sedem rokov sa suma vynásobí tým istým číslom. Za rovnaký čas teda
+rastie o rovnaké percento, a to je znak exponenciálneho rastu. Rovnako sa
+správa všetko, čo rastie o stále percento z aktuálnej hodnoty, nielen
+peniaze na účte. Keď sa v úlohe objaví každý rok o stále percento,
+hľadajte mocninu, nie násobok.
+
+<< teraz ukážte žiakom aktivitu: Zdvojnásobenie a zoštvornásobenie >>
+
+[POKYN] Žiaci najprv tipnú a potom si to overia v simulácii, asi 2 minúty.
+        Zverejnite výsledky a ukončite aktivitu. Správne je „za 24 rokov“.
+
+Za 12 rokov sa suma vynásobí dvoma a za ďalších 12 rokov znova dvoma.
+Spolu je to štvornásobok za 24 rokov.
+
+5. Doba zdvojnásobenia a pravidlo 72 (minúty 20–24)
+
+Ako rýchlo odhadnúť, za ako dlho sa vklad zdvojnásobí? Na to slúži
+pravidlo 72: dobu zdvojnásobenia v rokoch dostaneme približne tak, že 72
+vydelíme úrokovou mierou v percentách. Pri 4 % ročne je to 72 / 4 = 18
+rokov. Overíme: 1,04¹⁸ je asi 2,03. Presne je to asi 17,7 roka. Je to
+odhad, ktorý je dobrý pri bežných úrokových mierach. Presný výsledok
+dostaneme skúšaním mocnín alebo logaritmom.
+
+[TABUĽA] Doba zdvojnásobenia ≈ 72 / (úroková miera v %)
+
+Prečo práve 72? Presnejšie by bolo číslo okolo 70, ale 72 sa dá bez zvyšku
+vydeliť mnohými číslami, a preto sa s ním ľahko počíta v hlave. Pravidlo
+nehovorí nič o tom, koľko peňazí máme. Doba zdvojnásobenia závisí len od
+úrokovej miery, nie od výšky vkladu.
+
+<< teraz ukážte žiakom aktivitu: Pravidlo 72 >>
+
+[POKYN] Asi 2 minúty. Zverejnite výsledky a ukončite aktivitu. Správne je
+        8 rokov.
+
+6. Kedy vzorec nestačí (minúty 24–26)
+
+Vzorec predpokladá jeden vklad na začiatku. Ak vkladáme viackrát, každý
+vklad sa úročí iný počet rokov a počítame rok po roku. Napríklad na
+začiatku každého z dvoch rokov vložíme 1 000 € pri 4 % ročne. Na konci
+prvého roka je na účte 1 040 €. Po druhom vklade je to 2 040 € a na konci
+druhého roka 2 040 · 1,04 = 2 121,60 €.
+
+Rovnako rastie aj dlh, len úrok vtedy pracuje proti vám. Pri porovnávaní
+ponúk preto nestačí pozrieť sa na percentá. Treba vypočítať konečné sumy.
+Požičiate si 2 400 € a vrátite ich naraz o dva roky. Ponuka X je 9 % ročne
+so zloženým úročením: 2 400 · 1,09² = 2 851,44 €. Ponuka Y je 10 % ročne s
+jednoduchým úročením: 2 400 · 1,20 = 2 880 €. Lacnejšia je ponuka X, hoci
+nie o veľa. Už pri štyroch rokoch by to však dopadlo opačne, lebo 1,09⁴ je
+asi 1,41, kým jednoduché úročenie dá 1,40. Rozhodnutie teda závisí od doby
+splácania.
+
+Na záver výkladu si odhadnite, ako vám pôjdu úlohy.
+
+<< teraz ukážte žiakom aktivitu: Odhad vlastného výkonu >>
+
+[POKYN] Asi 30 sekúnd. Výsledky nezverejňujte, ukončite aktivitu a
+        prejdite na samostatnú prácu podľa pokynov na začiatku súboru.
+
+
+SAMOSTATNÁ PRÁCA (minúty 26–58)
+--------------------------------------------------------------------------
+[POKYN] Žiaci riešia v aplikácii úlohy M1 až M8. V tomto čase sa
+        nevykladá.
+
+
+ZHRNUTIE (minúty 58–68)
+--------------------------------------------------------------------------
+[POKYN] Prepnite fázu na „Zhrnutie“.
+
+Prejdime si tri úlohy.
+
+Úloha M4. Spolužiak tvrdil, že pri 10 % ročne narastie vklad za 2 roky o
+20 %. Kde je chyba?
+
+[POKYN] Nechajte odpovedať žiaka a potom doplňte:
+
+Percentá sa pri zloženom úročení nesčítavajú. Násobí sa 1,10 · 1,10 =
+1,21, takže vklad narastie o 21 %. Druhý rok sa úročí aj úrok z prvého
+roka.
+
+Úloha M6. Na začiatku každého z troch rokov ste vkladali 500 € pri 5 %
+ročne. Prečo tu nestačí jeden vzorec?
+
+[POKYN] Nechajte odpovedať žiaka a potom doplňte:
+
+Každý vklad sa úročí iný počet rokov. Prvý tri roky, druhý dva a tretí
+jeden. Preto počítame rok po roku alebo sčítame tri vzorce. Výsledok je
+asi 1 655,06 €.
+
+Úloha M8. Máme posúdiť tvrdenie: „Za 20 rokov dostanem dvakrát viac úrokov
+ako za 10 rokov.“ Kedy platí a kedy nie?
+
+[POKYN] Zozbierajte dve až tri odlišné úvahy a nechajte žiakov, nech ich
+        porovnajú. Žiadnu nevyhlasujte za jedinú správnu.
+
+Ešte si to overme na dvoch krátkych aktivitách.
+
+<< teraz ukážte žiakom aktivitu: Kde je chyba? >>
+
+[POKYN] Asi 1,5 minúty. Zverejnite výsledky a ukončite aktivitu. Správne
+        je „suma bude o niečo vyššia, asi 2 315 €“.
+
+<< teraz ukážte žiakom aktivitu: Zoraď ponuky >>
+
+[POKYN] Asi 1,5 minúty. Správne poradie od najmenšej sumy: zložené 4 %,
+        jednoduché 5 %, zložené 5 %, jednoduché 7 %, zložené 6 %.
+        Zverejnite výsledky a ukončite aktivitu.
+
+[POKYN] Nasledujúce tri vety povedzte doslova.
+
+Pri jednoduchom úročení každý rok pribudne rovnaká suma, pri zloženom sa
+suma každý rok vynásobí rovnakým číslom.
+Percentá za jednotlivé roky sa nesčítavajú, rastové faktory sa násobia.
+Dvojnásobná doba prinesie pri zloženom úročení viac než dvojnásobný úrok.
+
+<< teraz ukážte žiakom aktivitu: Výstupný lístok >>
+
+[POKYN] Asi 1,5 minúty. Ukončite aktivitu. Potom nasleduje test.
+
+
+##########################################################################
+M2 · ARITMETICKÁ A GEOMETRICKÁ POSTUPNOSŤ
+##########################################################################
+Stav v aplikácii: téma má testy T1, T3 a T4, ale v aplikácii nemá úlohy
+ani vlastné aktivity a RUN.cmd ju neponúka. Preto sú aktivity označené
+značkou „zatiaľ nie je v aplikácii“ a robia sa naživo. Všeobecné aktivity
+Odhad vlastného výkonu a Výstupný lístok sa dajú spustiť, až keď bude
+hodina v aplikácii. Dovtedy ich vynechajte.
+
+Cieľ hodiny: žiak rozpozná aritmetickú a geometrickú postupnosť, vypočíta
+n-tý člen a súčet prvých n členov, určí prvý člen, diferenciu alebo
+kvocient z iných údajov a vyberie vhodnú postupnosť pre skutočnú situáciu.
+
+Čo si pripraviť: tabuľu, žiaci kalkulačku. Dohody ako v teste: členy
+číslujeme od 1, d je diferencia, q je kvocient, Sₙ je súčet prvých n
+členov.
+
+Aktivity tejto hodiny v poradí, v akom sa robia:
+
+  fáza      názov                          kde            min
+  výklad    Dvadsať preložení              naživo         1
+  výklad    Aká je to postupnosť           naživo         1,5
+  výklad    Sčítanie alebo násobenie       naživo         1,5
+  výklad    Odhad vlastného výkonu         aplikácia      0,5
+  zhrnutie  Výstupný lístok                aplikácia      1,5
+
+
+ÚVOD (minúty 0–4)
+--------------------------------------------------------------------------
+Dobrý deň. Dnešná téma je aritmetická a geometrická postupnosť. Najprv
+budem vysvetľovať a popri tom si budeme niektoré veci skúšať spolu. Potom
+budete samostatne riešiť úlohy a na konci si vybrané otázky prejdeme
+spolu.
+
+
+VÝKLAD (minúty 4–26)
+--------------------------------------------------------------------------
+1. List papiera (minúty 4–6)
+
+List papiera má hrúbku asi 0,1 mm. Keď na neho položíme ďalší list, hrúbka
+vzrastie o 0,1 mm. Dvadsať listov má teda 2 mm. Čo sa však stane, keď ten
+istý list budeme prekladať na polovicu? Každé preloženie hrúbku
+zdvojnásobí.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Dvadsať preložení >>
+
+[POKYN] Položte otázku: „Aká hrubá by bola kôpka po 20 preloženiach, keby
+        sa to dalo? A: asi 4 mm. B: asi 2 cm. C: asi 1 m. D: asi 100 m.“
+        Žiaci hlasujú zdvihnutím ruky. Správne je D: 0,1 mm · 2²⁰ je asi
+        105 m.
+
+V skutočnosti papier toľkokrát nepreložíme, ale výpočet ukazuje rozdiel
+medzi sčítaním a násobením. Dnes ho opíšeme presne.
+
+2. Dva druhy postupností (minúty 6–10)
+
+Postupnosť je zoznam čísel v určenom poradí. Prvý člen označíme a₁, druhý
+a₂ a n-tý aₙ.
+
+Aritmetická postupnosť má stály rozdiel susedných členov. Tomuto rozdielu
+hovoríme diferencia a označujeme ho d. Geometrická postupnosť má stály
+podiel susedných členov. Tomuto podielu hovoríme kvocient a označujeme ho
+q.
+
+Vráťme sa k papieru. Kladenie listov dáva hrúbky 0,1; 0,2; 0,3; 0,4
+milimetra, to je aritmetická postupnosť s d = 0,1. Prekladanie dáva 0,1;
+0,2; 0,4; 0,8, to je geometrická postupnosť s q = 2. Obe sa začínajú
+rovnako, a predsa končia úplne inde.
+
+Aby sme postupnosť rozpoznali, spočítame rozdiely a podiely susedných
+členov.
+
+[TABUĽA]
+  4, 9, 14, 19, …      rozdiel je stále 5     aritmetická, d = 5
+  3, 12, 48, 192, …    podiel je stále 4      geometrická, q = 4
+  3, 4, 6, 10, …       rozdiely 1, 2, 4       ani jedna z nich
+                       podiely nie sú stále
+
+Pozor: nestačí, že postupnosť má nejaké pravidlo. Aritmetická je len
+vtedy, keď je stály rozdiel, a geometrická len vtedy, keď je stály podiel.
+
+Diferencia môže byť aj záporná, vtedy postupnosť klesá. Kvocient môže byť
+menší než 1, napríklad postupnosť 80, 40, 20, 10 má q = 1/2 a tiež klesá.
+A pri zápornom kvociente sa znamienka striedajú: 1, −2, 4, −8 má q = −2.
+
+Postupnosť môžeme zadať dvoma spôsobmi. Rekurentne povieme, ako z jedného
+člena dostaneme ďalší: aₙ₊₁ = aₙ + d alebo aₙ₊₁ = aₙ · q. Nevýhoda je, že
+k tridsiatemu členu sa musíme prepočítať cez všetky predchádzajúce. Preto
+hľadáme vzorec, ktorý dá n-tý člen priamo.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Aká je to postupnosť >>
+
+[POKYN] Napíšte na tabuľu tri postupnosti: „17, 13, 9, 5“, „90, 30, 10“ a
+        „6, 7, 9, 12“. Pri každej žiaci hlasujú: aritmetická, geometrická
+        alebo ani jedna. Správne: aritmetická s d = −4, geometrická s
+        q = 1/3, ani jedna.
+
+3. N-tý člen (minúty 10–14)
+
+Ako vypočítame tridsiaty člen bez toho, aby sme vypisovali všetky
+predchádzajúce? V aritmetickej postupnosti je a₂ = a₁ + d, a₃ = a₁ + 2 ·
+d, a₄ = a₁ + 3 · d. Do n-tého člena je to teda n − 1 krokov. Prečo nie n?
+Lebo prvý člen už máme a krokov je o jeden menej ako členov. Ako pri
+plote: desať stĺpikov má medzi sebou deväť medzier. V geometrickej
+postupnosti je to rovnaké, len namiesto pričítania d násobíme číslom q.
+
+[TABUĽA]
+  aritmetická:  aₙ = a₁ + (n − 1) · d
+  geometrická:  aₙ = a₁ · qⁿ⁻¹
+
+Riešený príklad 1. Postupnosť 4, 9, 14, … má a₁ = 4 a d = 5. Najprv si
+vzorec overíme na člene, ktorý poznáme: a₄ = 4 + 3 · 5 = 19, a to sedí.
+Tridsiaty člen je a₃₀ = 4 + 29 · 5 = 149. Častá chyba je počítať
+4 + 30 · 5 = 154. Tá započíta jeden krok navyše.
+
+Riešený príklad 2. Postupnosť 3, 12, 48, … má a₁ = 3 a q = 4. Šiesty člen
+je a₆ = 3 · 4⁵ = 3 072. Častá chyba je počítať 3 · 4 · 6 = 72. Kvocient sa
+násobí opakovane, teda ako mocnina, a nie ako násobok počtu členov.
+
+[TABUĽA] Zapíšte výpočet príkladov 1 a 2.
+
+Vzorec vieme použiť aj naopak. Koľko členov postupnosti 4, 9, 14, … je
+menších ako 120? Hľadáme najväčšie n, pre ktoré je 4 + (n − 1) · 5 menej
+než 120. Potom (n − 1) · 5 je menej než 116, teda n − 1 je najviac 23 a n
+je najviac 24. Takých členov je 24. Dvadsiaty štvrtý člen je 119 a
+dvadsiaty piaty už 124.
+
+4. Súčet prvých n členov (minúty 14–19)
+
+Začneme aritmetickou postupnosťou. Sčítajme čísla od 1 do 40. Spojíme prvé
+s posledným, druhé s predposledným a tak ďalej: 1 + 40, 2 + 39, 3 + 38.
+Každá dvojica dáva 41 a dvojíc je 20, takže súčet je 820. Tento nápad sa
+pripisuje malému Carlovi Friedrichovi Gaussovi.
+
+Ten istý nápad funguje všeobecne. Súčet Sₙ napíšeme dvakrát: raz odpredu a
+raz odzadu. Sčítame členy pod sebou. Každá dvojica dá ten istý súčet a₁ +
+aₙ, lebo jeden člen rastie o toľko, o koľko druhý klesá. Dvojíc je n, a
+preto 2 · Sₙ = n · (a₁ + aₙ).
+
+[TABUĽA]
+  Sₙ = a₁ + a₂ + … + aₙ
+  Sₙ = aₙ + aₙ₋₁ + … + a₁
+  2 · Sₙ = n · (a₁ + aₙ),   teda   Sₙ = n · (a₁ + aₙ) / 2
+
+Súčet je teda počet členov krát priemer prvého a posledného člena. Súčet
+prvých 30 členov postupnosti 4, 9, 14, … je S₃₀ = 30 · (4 + 149) / 2 =
+2 295. Priemer je 76,5 a členov je tridsať. Všimnite si, že do vzorca
+potrebujeme tridsiaty člen, preto sme ho počítali najprv.
+
+Pri geometrickej postupnosti dvojice nepomôžu, lebo členy neklesajú a
+nerastú rovnomerne. Použijeme iný trik. Súčet Sₙ vynásobíme číslom q.
+Každý člen sa tým posunie na miesto nasledujúceho. Od výsledku odčítame
+pôvodný súčet. Takmer všetky členy sa odčítajú a zostane len nový posledný
+člen a₁ · qⁿ mínus prvý člen a₁.
+
+[TABUĽA]
+  q · Sₙ − Sₙ = a₁ · qⁿ − a₁
+  Sₙ = a₁ · (qⁿ − 1) / (q − 1),   pre q ≠ 1
+
+Pozrime sa, ako to funguje na malom príklade. Súčet 3 + 12 + 48 je 63.
+Štvornásobok je 12 + 48 + 192, teda 252. Odčítame: 252 − 63 = 189. Z oboch
+súčtov zostalo len 192 − 3 = 189. Delíme číslom q − 1 = 3 a dostaneme 63.
+
+[TABUĽA]
+  S₃ =       3 + 12 + 48             = 63
+  4 · S₃ =       12 + 48 + 192       = 252
+  rozdiel:  192 − 3 = 189,   189 / 3 = 63
+
+Súčet prvých šiestich členov postupnosti 3, 12, 48, … je S₆ = 3 · (4⁶ − 1)
+/ (4 − 1) = 4 095. Kontrola: 3 + 12 + 48 + 192 + 768 + 3 072 = 4 095.
+
+5. Určenie postupnosti z dvoch členov (minúty 19–21)
+
+Často nepoznáme prvý člen, ale dva iné. Napríklad v aritmetickej
+postupnosti je a₄ = 23 a a₁₀ = 59. Medzi nimi je šesť krokov, takže 6 ·
+d = 36 a d = 6. Od štvrtého člena sa vrátime o tri kroky: a₁ = 23 − 3 · 6
+= 5. Overíme: a₁₀ = 5 + 9 · 6 = 59, a to sedí.
+
+V geometrickej postupnosti je to rovnaké, len s podielom. Nech a₂ = 15 a
+a₅ = 405. Medzi nimi sú tri kroky, takže q³ = 405 / 15 = 27 a q = 3. Potom
+a₁ = 15 / 3 = 5.
+
+Pomáha aj jedna vlastnosť. V aritmetickej postupnosti je každý člen okrem
+prvého aritmetickým priemerom svojich susedov, napríklad 14 je priemer
+čísel 9 a 19.
+
+6. Lineárny a exponenciálny rast (minúty 21–25)
+
+Aritmetická postupnosť rastie rovnomerne, lebo stále pričítame to isté.
+Hovoríme o lineárnom raste. Geometrická s kvocientom väčším než 1 stále
+násobí, a to je exponenciálny rast. Spočiatku sa môžu líšiť málo.
+
+Riešený príklad 3. Kino predá v prvom týždni 500 lístkov. Model A hovorí,
+že každý týždeň predá o 40 lístkov viac. Model B hovorí, že každý týždeň
+predá o 8 % viac.
+
+[TABUĽA]
+  týždeň        1     2     3     10    20
+  model A      500   540   580   860   1260
+  model B      500   540   583   1000  2158
+
+Prvé dva týždne sú modely rovnaké, po dvadsiatich je model B asi 1,7-krát
+vyššie. Prečo? Model A pridáva stále 40 lístkov. Model B pridáva 8 % z
+aktuálneho stavu, čo je čoraz viac: v druhom týždni 40, v desiatom asi 74
+a v dvadsiatom asi 160.
+
+Model A je aritmetická postupnosť s d = 40. Model B je geometrická
+postupnosť a pozor na kvocient: rast o 8 % znamená násobenie číslom 1,08,
+nie číslom 0,08. Pokles o 15 % by znamenal násobenie číslom 0,85.
+
+Koľko lístkov predá kino spolu za 20 týždňov? V modeli A je to S₂₀ = 20 ·
+(500 + 1 260) / 2 = 17 600. V modeli B je to S₂₀ = 500 · (1,08²⁰ − 1) /
+(1,08 − 1), asi 22 881. Stretli ste sa s tým aj pri úročení: jednoduché
+úročenie je aritmetická postupnosť, zložené je geometrická.
+
+Pri slovnej úlohe sa preto pýtajte: pribúda stále rovnaký počet, alebo
+stále rovnaká časť z toho, čo už je? Prvé je aritmetická postupnosť, druhé
+geometrická.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Sčítanie alebo násobenie >>
+
+[POKYN] Povedzte tri situácie a pri každej žiaci hlasujú, ktorá postupnosť
+        ju opisuje. „Cena lístka stúpne každý rok o 2 €.“ „Počet baktérií
+        sa každú hodinu strojnásobí.“ „Auto stráca každý rok 15 % svojej
+        hodnoty.“ Správne: aritmetická, geometrická s q = 3, geometrická s
+        q = 0,85.
+
+7. Záver výkladu (minúty 25–26)
+
+Zhrňme si postup. Najprv zistíme, či je stály rozdiel alebo stály podiel.
+Potom vyberieme vzorec a dáme pozor na n − 1. Pri súčte si najprv
+vypočítame posledný člen alebo kvocient. A pri slovnej úlohe sa pýtame, či
+pribúda rovnaký počet, alebo rovnaká časť.
+
+Na záver výkladu si odhadnite, ako vám pôjdu úlohy.
+
+<< teraz ukážte žiakom aktivitu: Odhad vlastného výkonu >>
+
+[POKYN] Asi 30 sekúnd. Ukončite aktivitu a prejdite na samostatnú prácu.
+
+
+SAMOSTATNÁ PRÁCA (minúty 26–58)
+--------------------------------------------------------------------------
+[POKYN] Pre túto tému v aplikácii úlohy zatiaľ nie sú. Treba ich doplniť
+        skôr, než sa hodina zaradí do zberu.
+
+
+ZHRNUTIE (minúty 58–68)
+--------------------------------------------------------------------------
+[POKYN] Kým neexistujú úlohy, zhrnutie stojí na štyroch otázkach. Pri
+        každej najprv nechajte odpovedať žiakov.
+
+Prejdime si štyri otázky.
+
+Prvá. Prečo je vo vzorci pre n-tý člen n − 1 a nie n?
+
+[POKYN] Po odpovediach doplňte:
+
+Prvý člen už máme a do n-tého člena spravíme n − 1 krokov. Krokov je o
+jeden menej ako členov.
+
+Druhá. Postupnosť sa začína číslami 7, 14. Aký je jej tretí člen?
+
+[POKYN] Po odpovediach doplňte:
+
+Z dvoch členov sa to povedať nedá. Ak je postupnosť aritmetická, tretí
+člen je 21. Ak je geometrická, je 28. Treba poznať pravidlo, nielen
+začiatok.
+
+Tretia. Ako zistíte, či tri čísla môžu byť po sebe idúce členy
+aritmetickej postupnosti?
+
+[POKYN] Po odpovediach doplňte:
+
+Stredné číslo musí byť aritmetickým priemerom krajných, inak povedané, oba
+rozdiely musia byť rovnaké.
+
+Štvrtá. Mesto chce predpovedať počet elektromobilov na ďalších 30 rokov.
+Vyberiete aritmetickú alebo geometrickú postupnosť? Zdôvodnite.
+
+[POKYN] Zozbierajte dve až tri odlišné úvahy a nechajte žiakov, nech ich
+        porovnajú. Žiadnu nevyhlasujte za jedinú správnu.
+
+[POKYN] Nasledujúce tri vety povedzte doslova.
+
+Aritmetická postupnosť má stály rozdiel susedných členov, geometrická má
+stály podiel.
+Do n-tého člena je n − 1 krokov, preto aₙ = a₁ + (n − 1) · d a aₙ = a₁ ·
+qⁿ⁻¹.
+Pričítavanie dáva lineárny rast, násobenie číslom väčším než 1 dáva
+exponenciálny rast a ten lineárny rast raz predbehne.
+
+<< teraz ukážte žiakom aktivitu: Výstupný lístok >>
+
+[POKYN] Asi 1,5 minúty. Ukončite aktivitu.
+
+
+##########################################################################
+M3 · PRAVDEPODOBNOSŤ A PODMIENENÁ PRAVDEPODOBNOSŤ
+##########################################################################
+Stav v aplikácii: téma má testy T1, T3 a T4, ale v aplikácii nemá úlohy
+ani vlastné aktivity a RUN.cmd ju neponúka. Preto sú aktivity označené
+značkou „zatiaľ nie je v aplikácii“ a robia sa naživo. Všeobecné aktivity
+Odhad vlastného výkonu a Výstupný lístok sa dajú spustiť, až keď bude
+hodina v aplikácii. Dovtedy ich vynechajte.
+
+Cieľ hodiny: žiak vypočíta pravdepodobnosť jednoduchých a zložených
+udalostí, použije doplnok a pravidlo súčinu, vypočíta podmienenú
+pravdepodobnosť z tabuľky, rozlíši P(A | B) a P(B | A) a posúdi chybné
+úvahy o náhode.
+
+Čo si pripraviť: tabuľu, žiaci kalkulačku. Dohody ako v teste: A' je
+doplnková udalosť, A ∩ B znamená, že nastanú obe, A ∪ B znamená, že
+nastane aspoň jedna, P(A | B) je pravdepodobnosť A, ak vieme, že nastala
+B. V ŠVP sa namiesto slova udalosť používa aj slovo jav.
+
+Aktivity tejto hodiny v poradí, v akom sa robia:
+
+  fáza      názov                          kde            min
+  výklad    Riadok alebo stĺpec            naživo         1
+  výklad    Prístroj na bankovky           naživo         1
+  výklad    Dve tvrdenia                   naživo         1
+  výklad    Odhad vlastného výkonu         aplikácia      0,5
+  zhrnutie  Výstupný lístok                aplikácia      1,5
+
+
+ÚVOD (minúty 0–4)
+--------------------------------------------------------------------------
+Dobrý deň. Dnešná téma je pravdepodobnosť a podmienená pravdepodobnosť.
+Najprv budem vysvetľovať a popri tom si budeme niektoré veci skúšať spolu.
+Potom budete samostatne riešiť úlohy a na konci si vybrané otázky prejdeme
+spolu.
+
+
+VÝKLAD (minúty 4–26)
+--------------------------------------------------------------------------
+1. Hlásič dymu (minúty 4–5)
+
+Keď v byte horí, hlásič dymu takmer isto zapípa. Znamená to, že keď hlásič
+pípa, takmer isto horí? Každý, kto pripálil hrianku, vie, že nie. Tie dve
+vety znejú podobne, ale pýtajú sa na dve rôzne veci. Do konca výkladu ich
+budeme vedieť presne oddeliť. Začneme tým, čo už poznáte, potom pridáme
+udalosti, ktoré na sebe závisia, a nakoniec sa pozrieme, kde nás intuícia
+najčastejšie klame.
+
+2. Pravdepodobnosť, doplnok a zjednotenie (minúty 5–9)
+
+Ak má pokus niekoľko rovnako možných výsledkov, pravdepodobnosť udalosti A
+je podiel priaznivých výsledkov a všetkých výsledkov. Koleso s 8 rovnakými
+poľami, z ktorých 3 sú červené, dáva P(červená) = 3/8. Pravdepodobnosť je
+vždy číslo od 0 do 1. Nula znamená, že udalosť nenastane, jednotka, že
+nastane určite.
+
+Dôležité sú slová rovnako možné. Rodina má dve deti. Možnosti sú dvaja
+chlapci, dve dievčatá alebo jedno a jedno. To sú tri možnosti, ale nie
+rovnako možné. Rovnako možné sú štyri poradia: chlapec a chlapec, chlapec
+a dievča, dievča a chlapec, dievča a dievča. Jedno dieťa každého pohlavia
+má teda pravdepodobnosť 2/4, nie 1/3.
+
+Čo pravdepodobnosť znamená v praxi? Ak pokus opakujeme veľakrát, podiel
+výskytov sa približuje k pravdepodobnosti. Pri jednom pokuse však nehovorí
+nič isté.
+
+[TABUĽA] P(A) = počet priaznivých výsledkov / počet všetkých rovnako
+         možných výsledkov
+
+Doplnková udalosť A' znamená, že A nenastane. Keďže jedno z toho nastane
+určite, platí P(A') = 1 − P(A). Doplnok je užitočný pri slove aspoň.
+Koleso so 4 rovnakými poľami má jedno výherné. Točíme trikrát.
+Pravdepodobnosť, že vyhráme aspoň raz, je 1 − (3/4)³ = 37/64, asi 0,58.
+Vypočítali sme opak: ani raz nevyhráme.
+
+Pri udalosti A alebo B treba pozor. Žrebujeme číslo od 1 do 12. A je párne
+číslo, B je číslo deliteľné tromi. Párnych je 6, deliteľných tromi 4, ale
+čísla 6 a 12 sme započítali dvakrát.
+
+[TABUĽA] P(A ∪ B) = P(A) + P(B) − P(A ∩ B)     6/12 + 4/12 − 2/12 = 8/12 = 2/3
+
+Ak udalosti nemôžu nastať naraz, hovoríme, že sa vylučujú. Prienik je
+vtedy prázdny a pravdepodobnosti stačí sčítať. Napríklad číslo menšie než
+3 a číslo väčšie než 10 nemôžu padnúť naraz, takže 2/12 + 2/12 = 4/12.
+
+3. Nezávislé udalosti a strom (minúty 9–13)
+
+Dve udalosti sú nezávislé, ak výsledok jednej nemení pravdepodobnosť
+druhej. Vtedy sa pravdepodobnosti násobia. Dve točenia kolesom sú
+nezávislé, koleso si nič nepamätá. Na kolese s tromi červenými poľami z
+ôsmich je pravdepodobnosť dvoch červených po sebe 3/8 · 3/8 = 9/64.
+
+[TABUĽA] A, B nezávislé:  P(A ∩ B) = P(A) · P(B)
+
+Nezamieňajte si nezávislé udalosti s vylučujúcimi sa. Ak sa dve udalosti
+vylučujú a jedna nastala, druhá určite nenastane. Sú teda silno závislé.
+
+Riešený príklad 1. Vo vrecku je 5 zelených a 3 žlté cukríky. Bez pozerania
+vyberieme dva, bez vrátenia. Aká je pravdepodobnosť, že oba budú zelené?
+Pri prvom ťahu je to 5/8. Pri druhom je vo vrecku 7 cukríkov a 4 zelené,
+teda 4/7. Vynásobíme: 5/8 · 4/7 = 5/14. Tieto dva ťahy nie sú nezávislé,
+lebo prvý ťah zmenil obsah vrecka. A pravdepodobnosť, že vytiahneme aspoň
+jeden žltý, vypočítame cez doplnok: 1 − 5/14 = 9/14. Znázorňujeme to
+stromom.
+
+[TABUĽA] Nakreslite strom: prvý ťah zelený 5/8, žltý 3/8; druhý ťah po
+         zelenom: zelený 4/7, žltý 3/7; druhý ťah po žltom: zelený 5/7,
+         žltý 2/7.
+
+To číslo 4/7 je pravdepodobnosť zeleného cukríka, ak vieme, že prvý bol
+zelený. To je podmienená pravdepodobnosť. Pravidlo stromu je jednoduché:
+pozdĺž vetvy násobíme a keď má udalosti priaznivých viac vetiev, ich
+výsledky sčítame.
+
+4. Podmienená pravdepodobnosť (minúty 13–18)
+
+Keď vieme, že nastala udalosť B, počítame už len vnútri B. Všetky ostatné
+možnosti vypadli.
+
+[TABUĽA] P(A | B) = P(A ∩ B) / P(B),   pre P(B) > 0
+
+Riešený príklad 2. Žiačka si 100 školských dní zapisovala, či pršalo a či
+meškal autobus.
+
+[TABUĽA]
+                 meškal   nemeškal   spolu
+  pršalo           12        18        30
+  nepršalo          7        63        70
+  spolu            19        81       100
+
+Pravdepodobnosť, že autobus mešká, je 19/100 = 0,19. Ak však vieme, že
+prší, pozeráme sa len na riadok pršalo: P(meškal | pršalo) = 12/30 = 0,4.
+Vzorec dá to isté: P(meškal ∩ pršalo) je 12/100, P(pršalo) je 30/100 a ich
+podiel je 12/30.
+
+Dážď teda šance na meškanie zvyšuje a tieto udalosti nie sú nezávislé.
+Overiť sa to dá aj súčinom. Pri nezávislých udalostiach by prienik bol
+0,3 · 0,19 = 0,057, ale v tabuľke je 0,12.
+
+Teraz otočme otázku. Ak autobus meškal, aká je pravdepodobnosť, že pršalo?
+Pozeráme sa na stĺpec meškal: P(pršalo | meškal) = 12/19, asi 0,63. Je to
+iné číslo, lebo je iný menovateľ. V menovateli je vždy to, čo už vieme.
+
+Pri čítaní tabuľky si pomôžte takto. Prienik je jedno políčko. Podmienka
+vyberá riadok alebo stĺpec. Pravdepodobnosť je políčko delené súčtom toho
+riadka alebo stĺpca.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Riadok alebo stĺpec >>
+
+[POKYN] Položte otázku: „Aká je P(nemeškal | nepršalo)? A: 63/100. B:
+        63/70. C: 63/81.“ Žiaci hlasujú zdvihnutím ruky. Správne je B,
+        teda 0,9: vieme, že nepršalo, takže sa pozeráme na riadok
+        nepršalo.
+
+5. Základná početnosť (minúty 18–22)
+
+Riešený príklad 3. Banka kontroluje bankovky prístrojom. Falošná je 1
+bankovka z 1 000. Prístroj odhalí 99 % falošných bankoviek, ale omylom
+označí aj 2 % pravých. Prístroj práve označil bankovku.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Prístroj na bankovky >>
+
+[POKYN] Položte otázku: „Aká je pravdepodobnosť, že označená bankovka je
+        naozaj falošná? A: asi 99 %. B: asi 50 %. C: asi 5 %.“ Žiaci
+        hlasujú zdvihnutím ruky. Výsledok zatiaľ nekomentujte. Správne je
+        C.
+
+Najjednoduchšie je predstaviť si konkrétne počty. Zoberme 100 000
+bankoviek.
+
+[TABUĽA]
+  100 000 bankoviek
+    100 falošných     → označí 99
+    99 900 pravých    → označí 2 % = 1 998
+  označených spolu    99 + 1 998 = 2 097
+  P(falošná | označená) = 99 / 2 097, asi 4,7 %
+
+Prístroj sa mýli zriedka, a predsa je väčšina označených bankoviek pravá.
+Dôvod je, že pravých bankoviek je oveľa viac, a aj malá časť z veľkého
+počtu je veľa. Hovoríme tomu základná početnosť. Výskumy ukazujú, že ľudia
+takéto úlohy riešia oveľa lepšie, keď pracujú s počtami než s percentami.
+
+Ako veľmi na základnej početnosti záleží? Predstavte si ten istý prístroj,
+ale falošná by bola každá desiata bankovka. Zo 100 000 bankoviek je 10 000
+falošných a prístroj ich označí 9 900. Pravých je 90 000 a označí ich
+1 800. Pravdepodobnosť je teraz 9 900 / 11 700, asi 85 %. Prístroj je ten
+istý, zmenila sa len početnosť.
+
+[TABUĽA] Porovnajte: falošná 1 z 1 000 → asi 4,7 %;  falošná 1 z 10 → asi 85 %
+
+To isté sa dá zapísať vzorcom, ale myšlienka je tá istá: označené bankovky
+vznikajú dvoma cestami a pýtame sa, aký podiel z nich prišiel cestou
+falošných.
+
+[TABUĽA] P(falošná | označená) = 0,001 · 0,99 /
+         (0,001 · 0,99 + 0,999 · 0,02)
+
+Teraz vieme presne povedať, ako je to s hlásičom. P(pípa | horí) je blízko
+1. P(horí | pípa) je oveľa menšie, lebo požiarov je málo a pripálených
+hrianok veľa. Zámena P(A | B) a P(B | A) je najčastejšia chyba v celej
+téme. Keď čítate akékoľvek percento, pýtajte sa: z čoho je to percento? Čo
+je v menovateli?
+
+6. Keď nás intuícia klame (minúty 22–25)
+
+Dve ďalšie chyby. Prvá: po piatich hlavách po sebe sa zdá, že musí prísť
+znak. Nemusí. Minca nemá pamäť a pri ďalšom hode je znak stále 1/2. Podiel
+hláv sa pri mnohých hodoch blíži k polovici nie preto, že by sa minca
+vyrovnávala, ale preto, že nové hody starú odchýlku zriedia. Aj
+postupnosť, ktorá vyzerá pravidelne, je rovnako pravdepodobná ako
+ktorákoľvek iná konkrétna postupnosť rovnakej dĺžky.
+
+Druhá: podrobnejší príbeh pôsobí vierohodnejšie, ale nikdy nie je
+pravdepodobnejší. Ak pridáme ďalšiu podmienku, možností môže len ubudnúť,
+takže P(A ∩ B) nemôže byť väčšie než P(A).
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Dve tvrdenia >>
+
+[POKYN] Položte otázku: „O náhodne vybranom dni v budúcom roku: čo je
+        pravdepodobnejšie? A: bude pršať. B: bude pršať a fúkať silný
+        vietor.“ Žiaci hlasujú zdvihnutím ruky. Správne je A: každý deň z
+        možnosti B patrí aj do možnosti A.
+
+7. Záver výkladu (minúty 25–26)
+
+Zhrňme si postup. Najprv si ujasnime, aké sú rovnako možné výsledky. Pri
+slove aspoň použijeme doplnok. Pri viacerých krokoch kreslíme strom. A keď
+vieme, že niečo nastalo, zmeníme menovateľ. Pri každom percente sa
+pýtajme, z čoho je.
+
+Na záver výkladu si odhadnite, ako vám pôjdu úlohy.
+
+<< teraz ukážte žiakom aktivitu: Odhad vlastného výkonu >>
+
+[POKYN] Asi 30 sekúnd. Ukončite aktivitu a prejdite na samostatnú prácu.
+
+
+SAMOSTATNÁ PRÁCA (minúty 26–58)
+--------------------------------------------------------------------------
+[POKYN] Pre túto tému v aplikácii úlohy zatiaľ nie sú. Treba ich doplniť
+        skôr, než sa hodina zaradí do zberu.
+
+
+ZHRNUTIE (minúty 58–68)
+--------------------------------------------------------------------------
+[POKYN] Kým neexistujú úlohy, zhrnutie stojí na štyroch otázkach. Pri
+        každej najprv nechajte odpovedať žiakov.
+
+Prejdime si štyri otázky.
+
+Prvá. Prečo pri výpočte so slovom aspoň počítame opačnú udalosť?
+
+[POKYN] Po odpovediach doplňte:
+
+Lebo opak je jediný prípad, ani raz, a ten sa počíta jedným súčinom.
+Priamo by sme museli sčítať všetky možnosti.
+
+Druhá. V tabuľke z príkladu 2: prečo 12/30 a 12/19 nie sú to isté číslo,
+hoci v čitateli je rovnaká dvanástka?
+
+[POKYN] Po odpovediach doplňte:
+
+V čitateli sú tie isté dni. V menovateli je vždy to, čo už vieme: raz
+všetky daždivé dni, raz všetky dni s meškaním.
+
+Tretia. Ak sa dve udalosti vylučujú, môžu byť nezávislé?
+
+[POKYN] Po odpovediach doplňte:
+
+Nie, ak majú obe kladnú pravdepodobnosť. Keď nastane jedna, druhá určite
+nenastane, takže jedna o druhej niečo prezrádza.
+
+Štvrtá. Noviny píšu: „Väčšina vodičov pri nehodách bola triezva, takže
+triezvi vodiči sú nebezpečnejší.“ Čo si o tom myslíte?
+
+[POKYN] Zozbierajte dve až tri odlišné úvahy a nechajte žiakov, nech ich
+        porovnajú. Žiadnu nevyhlasujte za jedinú správnu.
+
+[POKYN] Nasledujúce tri vety povedzte doslova.
+
+Pravdepodobnosť je podiel priaznivých a všetkých rovnako možných
+výsledkov; podmienená pravdepodobnosť počíta len vnútri toho, čo už vieme.
+P(A | B) a P(B | A) sú dve rôzne čísla.
+Pri každom odhade sa pýtajme na základnú početnosť, teda koľko takých
+prípadov je vôbec.
+
+<< teraz ukážte žiakom aktivitu: Výstupný lístok >>
+
+[POKYN] Asi 1,5 minúty. Ukončite aktivitu.
+
+
+ZDROJE
+--------------------------------------------------------------------------
+Text výkladu vznikol pre tento výskum s pomocou nástroja umelej
+inteligencie (Claude) a pred použitím ho musí posúdiť učiteľ predmetu. Zo
+zdrojov sú prevzaté fakty, pojmy a poradie výkladu, nie formulácie. Čísla
+v riešených príkladoch sú overené výpočtom a nepoužívajú sa v položkách
+testov ani v úlohách v aplikácii.
+
+Štátny pedagogický ústav. Inovovaný ŠVP: Matematika, gymnázium so
+štvorročným a päťročným vzdelávacím programom.
+https://www.statpedu.sk/files/articles/dokumenty/inovovany-statny-vzdelavaci-program/matematika_g_4_5_r.pdf
+[M1, M2, M3: rozsah učiva, slovenské pojmy]
+
+Lippman, D. Math in Society, verzia 2.5, kapitola Finance.
+https://www.opentextbookstore.com/mathinsociety/2.5/Finance.pdf  [M1:
+jednoduché a zložené úročenie; CC BY-SA]
+
+Stango, V., & Zinman, J. (2009). Exponential growth bias and household
+finance. The Journal of Finance, 64(6), 2807–2849.
+https://doi.org/10.1111/j.1540-6261.2009.01518.x  [M1: skreslenie
+exponenciálneho rastu]
+
+Calda, E. Posloupnosti a nekonečné řady.
+https://olympiada.karlin.mff.cuni.cz/prednasky/calda1.pdf  [M2: definície,
+vzorec pre n-tý člen, odvodenie súčtu sčítaním odpredu a odzadu]
+
+Wikipédia. Aritmetická postupnosť; Geometrická postupnosť.
+https://sk.wikipedia.org/wiki/Aritmetická_postupnosť a
+https://sk.wikipedia.org/wiki/Geometrická_postupnosť  [M2: len slovenské
+pojmy diferencia a kvocient]
+
+Komara, J. Diskrétna matematika (1), 13. prednáška, zimný semester
+2023/24, FMFI UK.
+https://dai.fmph.uniba.sk/courses/dmat/2324zs/prednasky/doc/pr13.pdf  [M3:
+slovenské pojmy, podmienená pravdepodobnosť, nezávislosť, stromový diagram
+pri ťahaní bez vrátenia]
+
+Grinstead, C. M., & Snell, J. L. Introduction to Probability, 2nd revised
+edition, kapitola 4. https://math.dartmouth.edu/~prob/prob/prob.pdf  [M3:
+podmienená pravdepodobnosť; GNU FDL]
+
+Gigerenzer, G., & Hoffrage, U. (1995). How to improve Bayesian reasoning
+without instruction: Frequency formats. Psychological Review, 102(4),
+684–704. https://doi.org/10.1037/0033-295X.102.4.684  [M3: počty namiesto
+percent]
+
+Tversky, A., & Kahneman, D. (1971). Belief in the law of small numbers.
+Psychological Bulletin, 76(2), 105–110. https://doi.org/10.1037/h0031322
+[M3: „minca nemá pamäť“]
+
+Tversky, A., & Kahneman, D. (1983). Extensional versus intuitive
+reasoning: The conjunction fallacy in probability judgment. Psychological
+Review, 90(4), 293–315. https://doi.org/10.1037/0033-295X.90.4.293  [M3:
+P(A ∩ B) nemôže byť väčšie než P(A)]
+
+Overenie: 30. 10. 2026. ŠVP, Lippman, Calda, Komara a Grinstead & Snell
+boli otvorené, Wikipédia len kvôli pojmom. Pri článkoch s DOI boli v
+Crossref overené bibliografické údaje; ich plný text nebol čítaný.
+Pravidlo 72 je overené výpočtom.

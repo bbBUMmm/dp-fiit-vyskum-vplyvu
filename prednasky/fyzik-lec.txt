@@ -1,0 +1,698 @@
+==========================================================================
+FYZIKA · TEXTY VÝKLADU PRE UČITEĽA
+  F1  Jednosmerný elektrický prúd: sériové a paralelné zapojenie
+  F2  Sila a pohyb: Newtonove pohybové zákony
+==========================================================================
+Verzia:  návrh 1, 30. 10. 2026. Pred pilotom overiť s učiteľom fyziky.
+Stav:    F1 sa dá spustiť v aplikácii (RUN.cmd, voľba 3). F2 zatiaľ nie:
+         nemá v aplikácii úlohy ani aktivity (pozri začiatok témy F2).
+
+
+AKO S TÝMTO TEXTOM PRACOVAŤ
+--------------------------------------------------------------------------
+Text je napísaný tak, aby sa dal predniesť doslova. Môžete ho povedať aj
+vlastnými slovami, ale všetky body, príklady a čísla musia zostať, lebo
+výklad a zhrnutie sú v podmienkach K, G aj A rovnaké. Tri záverečné vety
+zhrnutia povedzte doslova.
+
+Označenia v texte:
+
+  << teraz ukážte žiakom hands-on: NÁZOV >>
+  << teraz ukážte žiakom animáciu: NÁZOV >>
+  << teraz ukážte žiakom aktivitu: NÁZOV >>
+      V paneli učiteľa (adresa .../teacher) nájdite v knižnici kartu
+      s týmto názvom a stlačte Spustiť. Aktivita sa naraz zobrazí všetkým
+      žiakom. Keď žiaci skončia, stlačte Zverejniť výsledky triede, ak je
+      toto tlačidlo k dispozícii, a potom Ukončiť aktivitu.
+
+  << aktivita zatiaľ nie je v aplikácii, urobte ju naživo: NÁZOV >>
+      Táto aktivita v aplikácii neexistuje. Otázku položte ústne, žiaci
+      hlasujú zdvihnutím ruky. Správna odpoveď je v pokyne pod značkou.
+
+  [TABUĽA]  napíšte alebo nakreslite na tabuľu
+  [POKYN]   poznámka pre vás, nečíta sa nahlas
+
+Všetko ostatné je text, ktorý hovoríte žiakom.
+
+
+PRAVIDLÁ HODINY (prílohy A a D diplomovej práce)
+--------------------------------------------------------------------------
+• Nepridávajte príklady, ktoré v texte nie sú.
+• Neriešte žiakom úlohy zo sady. V zhrnutí prejdite len tie, ktoré sú v
+  texte.
+• Nehovorte, ktorá podmienka je podľa vás lepšia, a nekomentujte
+  asistenta.
+• Výklad má trvať 22 ± 4 minúty a zhrnutie 10 ± 3 minúty. Minúty pri
+  nadpisoch sú orientačné a treba ich overiť v pilote.
+• Ak meškáte, skráťte komentár po aktivite. Aktivity nevynechávajte a
+  každú odchýlku zapíšte do kontrolného listu vernosti.
+• Testy pred hodinou neotvárajte a žiakom ich neukazujte.
+
+
+ČASOVÝ RÁMEC HODINY
+--------------------------------------------------------------------------
+  minúty    blok                  čo sa deje
+  0–4       úvod                  pripojenie žiakov, oznámenie témy
+  4–26      výklad                text v tomto súbore
+  26–58     samostatná práca      úlohy v aplikácii, tu sa podmienky líšia
+  58–68     zhrnutie              text v tomto súbore
+  potom     test a dotazník       podľa pokynov k testu
+
+
+PRECHOD NA SAMOSTATNÚ PRÁCU (znenie z prílohy D)
+--------------------------------------------------------------------------
+Na konci výkladu v paneli prepnite fázu na „Samostatná práca“ a podľa
+podmienky hodiny urobte toto:
+
+  K  Panel asistenta je skrytý. Žiaci pracujú samostatne alebo vo dvojiciach
+     podľa zvyku triedy. Na otázky odpovedáte ako bežne, ale nedávate
+     úplné riešenie.
+
+  G  Prečítajte doslova: „Počas riešenia máš k dispozícii asistenta. Môžeš
+     ho používať tak, ako uznáš za vhodné. Na konci hodiny píšete krátky
+     test, v ktorom asistenta k dispozícii mať nebudete.“
+     Odpovedáte len na organizačné otázky. Na otázky k obsahu odpovedajte:
+     „Skús sa spýtať asistenta.“
+
+  A  Prečítajte to isté ako v podmienke G a pridajte vetu: „Asistent ti
+     nedá hotové riešenie, ale pomôže ti k nemu dôjsť.“
+
+
+##########################################################################
+F1 · JEDNOSMERNÝ ELEKTRICKÝ PRÚD: SÉRIOVÉ A PARALELNÉ ZAPOJENIE
+##########################################################################
+Cieľ hodiny: žiak vysvetlí, prečo sa prúd v obvode nespotrebúva, vypočíta
+prúdy a napätia v sériovom, paralelnom a kombinovanom zapojení a zvolí
+zapojenie pre dané použitie.
+
+Čo si pripraviť: projektor s panelom učiteľa, tabuľu.
+
+Aktivity tejto hodiny v poradí, v akom sa spúšťajú:
+
+  fáza      názov karty v paneli                 typ               min
+  výklad    Prúd sa nespotrebúva                 animácia          2
+  výklad    Jas v sérii                          rýchla otázka     1,5
+  výklad    Laboratórium: séria verzus paralel   hands-on          3
+  výklad    Štvrtá vetva                         predpoveď         2
+  výklad    Odhad vlastného výkonu               predpoveď         0,5
+  zhrnutie  Náhradný odpor                       predpoveď         1,5
+  zhrnutie  Zoraď podľa jasu                     zoraďovanie       1,5
+  zhrnutie  Výstupný lístok                      reflexia          1,5
+
+
+ÚVOD (minúty 0–4)
+--------------------------------------------------------------------------
+[POKYN] V paneli učiteľa zapnite fázu „Úvod“ a premietnite QR kód s
+        adresou.
+
+Dobrý deň. Otvorte v prehliadači adresu z tabule alebo naskenujte QR kód a
+zadajte svoj kód z obálky. Aplikácia sa vás spýta, či súhlasíte so
+zaznamenaním. Rozhodnutie je vaše a na dnešnej práci nič nemení.
+
+Dnešná téma je jednosmerný elektrický prúd, konkrétne sériové a paralelné
+zapojenie. Najprv budem vysvetľovať a popri tom si budete veci skúšať vo
+svojom zariadení. Potom budete samostatne riešiť úlohy a na konci si
+vybrané úlohy prejdeme spolu.
+
+
+VÝKLAD (minúty 4–26)
+--------------------------------------------------------------------------
+[POKYN] Prepnite fázu na „Výklad“.
+
+1. Dve vety na začiatok (minúty 4–5)
+
+Začneme dvoma vetami, ktoré znejú rozumne. Prvá: „Prúd sa v spotrebiči
+postupne míňa, podobne ako benzín v aute.“ Druhá: „Každý ďalší spotrebič v
+obvode znamená väčší celkový odpor.“ Rozhodnite sa, či s nimi súhlasíte.
+Na konci výkladu sa k nim vrátime.
+
+2. Prúd, napätie, odpor a výkon (minúty 5–9)
+
+Elektrický prúd je usporiadaný pohyb nabitých častíc, v kovovom vodiči sú
+to elektróny. Veľkosť prúdu I hovorí, aký náboj prejde prierezom vodiča za
+jednu sekundu. Meriame ju v ampéroch.
+
+Pomôže nám reťaz na bicykli. Je to uzavretá slučka. Keď zašliapnete, pohne
+sa naraz celá a na každom mieste má rovnakú rýchlosť. Žiadne články sa
+cestou nestrácajú. Reťaz však prenáša energiu od pedálov ku kolesu. V
+obvode je to podobné: nabité častice sa neminú, ale prenášajú energiu zo
+zdroja do spotrebičov.
+
+Napätie U hovorí, koľko energie dodá zdroj na jednotku náboja. Meriame ho
+vo voltoch. Odpor R hovorí, ako veľmi súčiastka bráni prechodu prúdu.
+Meriame ho v ohmoch.
+
+[TABUĽA] Ohmov zákon:  I = U / R,  teda  U = I · R
+[TABUĽA] Výkon:  P = U · I = I² · R = U² / R
+
+Ohmov zákon hovorí, že prúd rastie s napätím a klesá s odporom. Výkon
+hovorí, koľko elektrickej energie sa v spotrebiči každú sekundu premení na
+svetlo a teplo. Čím väčší výkon má žiarovka, tým jasnejšie svieti.
+
+Dnes budeme počítať so zjednodušením: žiarovka sa správa ako rezistor so
+stálym odporom, vodiče majú zanedbateľný odpor a zdroj má stále napätie.
+
+3. Dva spôsoby zapojenia (minúty 9–12)
+
+Dva spotrebiče sa dajú pripojiť k zdroju dvoma základnými spôsobmi.
+Sériovo, teda za sebou: prúd má jedinú cestu a prejde oboma spotrebičmi.
+Paralelne, teda vedľa seba: vodič sa v mieste, ktorému hovoríme uzol,
+rozvetví, každý spotrebič je vo vlastnej vetve a za vetvami sa vodiče
+znova spoja.
+
+[TABUĽA] Nakreslite vedľa seba sériový a paralelný obvod s dvoma
+         žiarovkami. Označte uzly a vetvy.
+
+Teraz sa pozrite, čo ukazujú ampérmetre.
+
+<< teraz ukážte žiakom animáciu: Prúd sa nespotrebúva >>
+
+[POKYN] Žiaci prejdú tri snímky vlastným tempom, asi 2 minúty. Potom
+        stlačte Ukončiť aktivitu.
+
+Čo ste videli? Pred žiarovkou aj za ňou je rovnaký prúd. V sérii ukazujú
+všetky ampérmetre to isté. V uzle sa prúd rozdelí a za vetvami sa znova
+spojí. Náboj sa v obvode nikde nehromadí a nikde nestráca, preto pre každý
+uzol platí: čo do uzla vtečie, to z neho vytečie. Žiarovka nespotrebúva
+prúd, ale mení elektrickú energiu na svetlo a teplo.
+
+[TABUĽA] Uzol: súčet prúdov dnu = súčet prúdov von
+
+4. Sériové zapojenie (minúty 12–15)
+
+V sérii je pre prúd jediná cesta, preto všetkými spotrebičmi tečie rovnaký
+prúd. Napätie zdroja sa medzi ne rozdelí a väčší odpor dostane väčšiu
+časť. Celkový odpor je súčet odporov. Hovoríme mu náhradný odpor, lebo
+jediný rezistor s touto hodnotou by zdroj zaťažil úplne rovnako.
+
+[TABUĽA] Séria:  I je všade rovnaký    U = U₁ + U₂    R = R₁ + R₂
+
+Riešený príklad 1. Rezistory 5 Ω a 15 Ω sú zapojené sériovo na zdroj 10 V.
+Náhradný odpor je 5 + 15 = 20 Ω. Prúd je I = U / R = 10 / 20 = 0,5 A.
+Tento prúd tečie oboma rezistormi. Na prvom je napätie 0,5 · 5 = 2,5 V, na
+druhom 0,5 · 15 = 7,5 V. Kontrola: 2,5 + 7,5 = 10 V, čo je napätie zdroja.
+
+[TABUĽA] Zapíšte výpočet príkladu 1.
+
+Poradie rezistorov nehrá rolu. Prvý rezistor neuberie druhému nič z prúdu,
+lebo prúd je v celej slučke rovnaký.
+
+<< teraz ukážte žiakom aktivitu: Jas v sérii >>
+
+[POKYN] Asi minúta na odpoveď, potom Zverejniť výsledky triede a Ukončiť
+        aktivitu. Správne je „štvrtinový“.
+
+Odpor sa zdvojnásobil, takže prúd je polovičný. Výkon závisí od druhej
+mocniny prúdu, P = I² · R, a preto je na každej žiarovke štvrtinový, nie
+polovičný.
+
+5. Paralelné zapojenie (minúty 15–21)
+
+Paralelne má každá vetva priame spojenie so zdrojom, preto je na každej
+vetve celé napätie zdroja. Prúd v každej vetve vypočítame samostatne z
+Ohmovho zákona a zdroj dodáva ich súčet.
+
+[TABUĽA] Paralelne:  U je na vetvách rovnaké    I = I₁ + I₂    1/R = 1/R₁ + 1/R₂
+
+Riešený príklad 2. Rezistory 15 Ω a 30 Ω sú zapojené paralelne na zdroj
+30 V. Prvou vetvou tečie 30 / 15 = 2 A, druhou 30 / 30 = 1 A. Zdroj dodáva
+2 + 1 = 3 A. Náhradný odpor je taký, ktorý by pri 30 V prepustil 3 A, teda
+30 / 3 = 10 Ω. Vzorcom: 1/R = 1/15 + 1/30 = 3/30, teda R = 10 Ω.
+
+[TABUĽA] Zapíšte výpočet príkladu 2.
+
+Všimnite si výsledok: 10 Ω je menej než 15 Ω, teda menej než najmenší z
+oboch odporov. Prečo? Každá nová vetva je ďalšia cesta pre prúd. Pri
+rovnakom napätí teda zo zdroja tečie väčší prúd a väčší prúd pri rovnakom
+napätí znamená menší odpor. Je to podobné, ako keď v obchode otvoria
+ďalšiu pokladňu: ľudia prechádzajú rýchlejšie, hoci každá pokladňa pracuje
+rovnako.
+
+Teraz si to vyskúšajte sami.
+
+<< teraz ukážte žiakom hands-on: Laboratórium: séria verzus paralel >>
+
+[POKYN] Asi 3 minúty. Žiaci pridávajú žiarovky a kliknutím ich
+        „vyskrutkujú“. Potom v paneli otvorte Zobraziť odpovede,
+        prečítajte jednu alebo dve vety bez mien a stlačte Ukončiť
+        aktivitu. Čo sa stane po vyskrutkovaní, nevysvetľujte: je to úloha
+        F5.
+
+Pri pridávaní žiaroviek ste videli, že sa obe zapojenia správajú opačne.
+Overte si to predpoveďou.
+
+<< teraz ukážte žiakom aktivitu: Štvrtá vetva >>
+
+[POKYN] Žiaci najprv tipnú a potom si výsledok overia v simulácii, asi 2
+        minúty. Zverejnite výsledky a ukončite aktivitu. Správne je
+        „zväčší sa“.
+
+Každá vetva má celé napätie zdroja, takže nová vetva pridá vlastný prúd a
+ostatné vetvy sa nezmenia. Celkový prúd rastie a celkový odpor klesá.
+
+6. Kombinované zapojenie (minúty 21–24)
+
+Väčšina skutočných obvodov je kombináciou oboch zapojení. Postup je
+takýto: nájdeme časť, ktorá je čisto sériová alebo čisto paralelná,
+nahradíme ju náhradným odporom a opakujeme to, kým nezostane jediný odpor.
+Potom ideme späť a dopočítame prúdy a napätia.
+
+Riešený príklad 3. Rezistor 5 Ω je sériovo spojený s paralelnou dvojicou
+15 Ω a 30 Ω. Zdroj má 45 V. Dvojicu nahradíme odporom 10 Ω z príkladu 2.
+Spolu je to 5 + 10 = 15 Ω, takže zdroj dodáva 45 / 15 = 3 A. Na rezistore
+5 Ω je 3 · 5 = 15 V, na dvojici zostáva 45 − 15 = 30 V. Vetvami tečie 2 A
+a 1 A. Kontrola v uzle: 2 + 1 = 3 A.
+
+[TABUĽA] Nakreslite obvod a zapíšte výpočet príkladu 3.
+
+Existuje aj druhý postup, uzol po uzle. Nič nezjednodušujeme, ale pre
+každý uzol zapíšeme rovnicu prúdov a pre každú uzavretú slučku rovnicu
+napätí. Sú to Kirchhoffove zákony a tento postup funguje vždy. Potrebujeme
+ho napríklad pri mostíkovom zapojení, kde sú dve vetvy vedľa seba a ďalší
+rezistor spája ich stredy. Ten rezistor nie je s ostatnými ani v sérii,
+ani paralelne, takže obvod sa zjednodušiť nedá. Dnes to počítať nebudeme,
+stačí vedieť, že taký prípad existuje.
+
+V byte sú spotrebiče zapojené paralelne: každý má napätie 230 V a funguje
+nezávisle od ostatných. Každý zapnutý spotrebič pridá do prívodu svoj
+prúd. Vysávač s výkonom 1 150 W odoberá 5 A, práčka s výkonom 2 300 W
+odoberá 10 A, spolu 15 A. Keby súčet prekročil hodnotu ističa, istič obvod
+vypne a ochráni vodiče pred prehriatím.
+
+7. Späť k dvom vetám (minúty 24–26)
+
+Vráťme sa k vetám zo začiatku. Prúd sa v spotrebiči nemíňa, mení sa
+energia. A ďalší spotrebič zväčší celkový odpor len v sérii. Paralelne ho
+zmenší.
+
+Na záver výkladu si odhadnite, ako vám pôjdu úlohy.
+
+<< teraz ukážte žiakom aktivitu: Odhad vlastného výkonu >>
+
+[POKYN] Asi 30 sekúnd. Výsledky nezverejňujte, ukončite aktivitu a
+        prejdite na samostatnú prácu podľa pokynov na začiatku súboru.
+
+
+SAMOSTATNÁ PRÁCA (minúty 26–58)
+--------------------------------------------------------------------------
+[POKYN] Žiaci riešia v aplikácii úlohy F1 až F8. V tomto čase sa
+        nevykladá.
+
+
+ZHRNUTIE (minúty 58–68)
+--------------------------------------------------------------------------
+[POKYN] Prepnite fázu na „Zhrnutie“.
+
+Prejdime si tri úlohy.
+
+Úloha F4. Spolužiak tvrdil, že žiarovka prúd spotrebuje. Kde je chyba?
+
+[POKYN] Nechajte odpovedať žiaka a potom doplňte:
+
+Prúd je tok náboja a náboj sa v žiarovke nehromadí ani nestráca. Koľko ho
+do žiarovky vtečie, toľko z nej vytečie. Ampérmeter pred žiarovkou aj za
+ňou ukáže rovnakú hodnotu. Spotrebúva sa energia, ktorá sa mení na svetlo
+a teplo.
+
+Úloha F5. V sérii svietia tri rovnaké žiarovky a jedna vyhorí. Čo sa stane
+s ostatnými a čo by sa stalo pri paralelnom zapojení?
+
+[POKYN] Nechajte odpovedať žiaka a potom doplňte:
+
+V sérii je jediná cesta pre prúd. Vyhorená žiarovka obvod preruší, prúd
+klesne na nulu a zhasnú všetky. Paralelne má každá žiarovka vlastnú vetvu
+s plným napätím, takže ostatné svietia ďalej rovnako jasne.
+
+Úloha F8. Navrhovali ste osvetlenie chodby s piatimi svetlami. Aké
+zapojenie ste zvolili a prečo?
+
+[POKYN] Zozbierajte dve až tri odlišné úvahy a nechajte žiakov, nech ich
+        porovnajú. Žiadnu nevyhlasujte za jedinú správnu.
+
+Teraz si overíme výpočet náhradného odporu.
+
+<< teraz ukážte žiakom aktivitu: Náhradný odpor >>
+
+[POKYN] Asi 1,5 minúty. Zverejnite výsledky a ukončite aktivitu. Správne
+        je 2 Ω.
+
+Jedna šestina trikrát je jedna polovica, takže náhradný odpor je 2 Ω,
+menej než každý z rezistorov.
+
+<< teraz ukážte žiakom aktivitu: Zoraď podľa jasu >>
+
+[POKYN] Asi 1,5 minúty. Správne poradie od najjasnejšej: paralelne na
+        18 V, sama na 12 V, dve v sérii na 12 V, tri v sérii na 12 V.
+        Zverejnite výsledky a ukončite aktivitu.
+
+Rozhoduje napätie na žiarovke, lebo výkon je U² / R. Všetky žiarovky sú
+rovnaké, takže väčšie napätie znamená väčší jas.
+
+[POKYN] Nasledujúce tri vety povedzte doslova.
+
+Prúd sa v obvode nespotrebúva; spotrebič mení energiu, nie prúd.
+V sérii je všade rovnaký prúd a napätie sa delí; paralelne je na vetvách
+rovnaké napätie a prúd sa delí.
+Ďalší rezistor v sérii celkový odpor zväčší, ďalší rezistor paralelne ho
+zmenší.
+
+<< teraz ukážte žiakom aktivitu: Výstupný lístok >>
+
+[POKYN] Asi 1,5 minúty. Ukončite aktivitu. Potom nasleduje test.
+
+
+##########################################################################
+F2 · SILA A POHYB: NEWTONOVE POHYBOVÉ ZÁKONY
+##########################################################################
+Stav v aplikácii: téma má testy T1, T3 a T4, ale v aplikácii nemá úlohy
+ani vlastné aktivity a RUN.cmd ju neponúka. Preto sú aktivity označené
+značkou „zatiaľ nie je v aplikácii“ a robia sa naživo. Všeobecné aktivity
+Odhad vlastného výkonu a Výstupný lístok sa dajú spustiť, až keď bude
+hodina v aplikácii. Dovtedy ich vynechajte.
+
+Cieľ hodiny: žiak vysvetlí, že sila mení pohyb a neudržiava ho, určí
+výslednú silu a zrýchlenie, nakreslí sily pôsobiace na teleso a rozlíši
+dvojicu akcie a reakcie od rovnováhy síl na jednom telese.
+
+Čo si pripraviť: pohár, tuhú kartičku, mincu, dva rovnaké listy papiera.
+
+Aktivity tejto hodiny v poradí, v akom sa robia:
+
+  fáza      názov                          kde            min
+  výklad    Krabica bez trenia             naživo         1
+  výklad    Minca na kartičke              naživo         1
+  výklad    Dva listy papiera              naživo         1
+  výklad    Akcia alebo rovnováha          naživo         1
+  výklad    Odhad vlastného výkonu         aplikácia      0,5
+  zhrnutie  Výstupný lístok                aplikácia      1,5
+
+
+ÚVOD (minúty 0–4)
+--------------------------------------------------------------------------
+Dobrý deň. Dnešná téma je sila a pohyb, konkrétne Newtonove pohybové
+zákony. Najprv budem vysvetľovať a popri tom si urobíme niekoľko krátkych
+pokusov. Potom budete samostatne riešiť úlohy a na konci si vybrané otázky
+prejdeme spolu.
+
+
+VÝKLAD (minúty 4–26)
+--------------------------------------------------------------------------
+1. Čo udržiava pohyb (minúty 4–6)
+
+Predstavte si krabicu, ktorú ťaháte po chodbe. Keď ju prestanete ťahať,
+zastaví sa. Z toho sa zdá prirodzené povedať: aby sa teleso pohybovalo,
+musí naň stále pôsobiť sila. Takto uvažoval Aristoteles a takto spontánne
+uvažuje veľa ľudí aj dnes. Pozrime sa, či je to pravda.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Krabica bez trenia >>
+
+[POKYN] Položte otázku: „Krabica sa šmýka po dokonale hladkej podlahe bez
+        trenia a bez odporu vzduchu. Nikto ju netlačí. Čo sa s ňou stane?
+        A: zastaví sa. B: postupne spomalí. C: pôjde ďalej rovnakou
+        rýchlosťou.“ Žiaci hlasujú zdvihnutím ruky. Výsledok zatiaľ
+        nekomentujte. Správne je C.
+
+2. Prvý Newtonov zákon (minúty 6–9)
+
+Prečo krabica na chodbe zastala? Lebo na ňu pôsobila trecia sila proti
+smeru pohybu. Keby sme trenie zmenšovali, krabica by sa šmýkala čoraz
+ďalej. Bez trenia a bez odporu vzduchu by sa nezastavila vôbec. Správna je
+teda odpoveď C.
+
+Takto uvažoval už Galileo Galilei. Guľka spustená po naklonenom žľabe
+vybehne na druhej strane takmer do pôvodnej výšky. Keď druhú stranu
+urobíme menej strmú, guľka prejde dlhšiu dráhu. A keby bola druhá strana
+vodorovná a bez trenia, guľka by nemala dôvod zastať. Sila teda nie je
+príčina pohybu. Sila je príčina zmeny pohybu.
+
+[TABUĽA] 1. Newtonov zákon (zákon zotrvačnosti): Ak je výsledná sila
+         pôsobiaca na teleso nulová, teleso zotrváva v pokoji alebo v
+         rovnomernom priamočiarom pohybe.
+
+Tejto vlastnosti telies hovoríme zotrvačnosť. Čím väčšiu hmotnosť teleso
+má, tým ťažšie sa mení jeho pohyb.
+
+Všimnite si dve veci. Pokoj a rovnomerný priamočiary pohyb sú z hľadiska
+síl rovnaké: v oboch prípadoch je výsledná sila nulová. A zákon nehovorí,
+že na teleso nič nepôsobí. Hovorí, že sily sa navzájom vyrovnajú.
+
+Zotrvačnosť poznáte z električky. Keď prudko zabrzdí, nakloníte sa
+dopredu. Nič vás netlačí. Električka spomalila a vaše telo pokračuje v
+pohybe, kým ho nezastavia nohy alebo tyč, ktorej sa držíte.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Minca na kartičke >>
+
+[POKYN] Položte kartičku na pohár a na ňu mincu. Prudko cvrnknite do
+        kartičky vodorovne. Kartička odletí a minca spadne do pohára.
+
+Na mincu pôsobila kartička len veľmi krátko, takže minca sa takmer
+nerozbehla. Zotrvala v pokoji, a keď pod ňou kartička nebola, spadla.
+
+3. Sily a výsledná sila (minúty 9–13)
+
+Sila je vzájomné pôsobenie telies. To je dôležité: sila nie je niečo, čo
+teleso nosí v sebe. Keď vám z ruky vyletia kľúče, ruka na ne prestala
+pôsobiť a žiadna sila hodu s nimi neletí. Letia ďalej vďaka zotrvačnosti a
+pôsobí na ne len Zem a vzduch. Sila má veľkosť aj smer a meriame ju v
+newtonoch. Keď na teleso pôsobí viac síl, rozhoduje ich výslednica, teda
+výsledná sila. Sily v jednom smere sčítame a sily v opačnom smere
+odčítame. Dve navzájom kolmé sily skladáme ako odvesny pravouhlého
+trojuholníka: výsledná sila je prepona. Napríklad sily 5 N a 12 N dajú v
+jednom smere 17 N, proti sebe 7 N a navzájom kolmo 13 N, lebo 5² + 12² =
+13².
+
+[TABUĽA] Nakreslite tri situácie so silami 5 N a 12 N a pri každej
+         výslednicu.
+
+Aby sme na žiadnu silu nezabudli, kreslíme schému voľného telesa:
+nakreslíme teleso samotné a šípkami všetky sily, ktoré na neho pôsobia.
+Najčastejšie sú štyri.
+
+[TABUĽA]
+  tiažová sila       G = m · g, nadol, g = 10 N/kg
+  sila podložky      kolmo od podložky
+  trecia sila        proti pohybu
+  ťahová sila lana   v smere lana
+
+Prečo podlaha tlačí nahor? Podložka sa pod telesom nepatrne prehne a pruží
+späť, podobne ako matrac. Čím viac na ňu teleso tlačí, tým väčšou silou
+odpovie.
+
+Pozor na rozdiel medzi hmotnosťou a tiažovou silou. Hmotnosť v kilogramoch
+vyjadruje zotrvačnosť telesa a je všade rovnaká. Tiažová sila v newtonoch
+závisí od toho, kde teleso je. Na Mesiaci má teleso rovnakú hmotnosť ako
+na Zemi, ale asi šestinovú tiažovú silu.
+
+4. Druhý Newtonov zákon (minúty 13–17)
+
+[TABUĽA] 2. Newtonov zákon (zákon sily):  a = F / m,  teda  F = m · a.  F
+         je výsledná sila, zrýchlenie a má jej smer.
+
+Zrýchlenie je priamo úmerné výslednej sile a nepriamo úmerné hmotnosti.
+Dvojnásobná výsledná sila dá dvojnásobné zrýchlenie. Dvojnásobná hmotnosť
+dá polovičné zrýchlenie. Sila teda neurčuje rýchlosť, ale to, ako rýchlo
+sa rýchlosť mení. Jeden newton je práve taká sila, ktorá telesu s
+hmotnosťou 1 kg udelí zrýchlenie 1 m/s².
+
+Zrýchlenie má vždy smer výslednej sily. Ak výsledná sila smeruje v smere
+pohybu, teleso zrýchľuje. Ak smeruje proti pohybu, teleso spomaľuje. Ak je
+nulová, rýchlosť sa nemení. Práve to hovoril prvý zákon.
+
+Riešený príklad 1. Bedňu s hmotnosťou 35 kg ťaháme po vodorovnej podlahe
+silou 120 N. Trecia sila je 50 N. Nakreslíme sily. Zvisle pôsobí tiažová
+sila 350 N nadol a sila podložky 350 N nahor, tie sa vyrovnajú. Vodorovne
+je výsledná sila 120 − 50 = 70 N. Zrýchlenie je a = 70 / 35 = 2 m/s².
+
+[TABUĽA] Nakreslite schému voľného telesa a zapíšte výpočet príkladu 1.
+
+Najčastejšia chyba je dosadiť do vzorca jedinú silu. Do vzorca patrí vždy
+výsledná sila. Pri každej úlohe preto postupujte rovnako. Vyberte teleso.
+Nakreslite všetky sily, ktoré na neho pôsobia. Zvoľte kladný smer. Až
+potom napíšte F = m · a.
+
+Riešený príklad 2. Skúter s jazdcom má hmotnosť 240 kg a ide rýchlosťou
+12 m/s. Pri brzdení naň pôsobí stála brzdná sila 960 N. Spomalenie je
+a = 960 / 240 = 4 m/s². Skúter zastaví za t = v / a = 12 / 4 = 3 s. Pri
+rovnomernom spomaľovaní je brzdná dráha s = v · t / 2 = 12 · 3 / 2 = 18 m.
+
+[TABUĽA] Rovnomerne zrýchlený pohyb z pokoja:  v = a · t,  s = a · t² / 2
+
+Druhý zákon vysvetľuje aj voľný pád. Na ťažšie teleso pôsobí väčšia
+tiažová sila, ale má aj väčšiu hmotnosť. Podiel G / m je rovný g pre každé
+teleso. Bez odporu vzduchu preto padajú všetky telesá rovnako rýchlo.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Dva listy papiera >>
+
+[POKYN] Pustite z rovnakej výšky rovný list papiera a rovnaký list
+        pokrčený do guľky. Guľka dopadne skôr.
+
+Oba listy majú rovnakú hmotnosť, a predsa padajú inak. Rozdiel nespôsobuje
+hmotnosť, ale odpor vzduchu.
+
+5. Tretí Newtonov zákon (minúty 17–20)
+
+[TABUĽA] 3. Newtonov zákon (zákon akcie a reakcie): Ak teleso A pôsobí na
+         teleso B silou, pôsobí teleso B na teleso A rovnako veľkou silou
+         opačného smeru.
+
+Sily vznikajú vždy vo dvojici, v tom istom okamihu, a každá pôsobí na iné
+teleso. Preto sa nikdy nevyrušia. Vďaka tomu vôbec dokážeme chodiť:
+chodidlom tlačíte podlahu dozadu a podlaha tlačí vás dopredu. Na hladkom
+ľade to nejde, lebo bez trenia podlahu dozadu netlačíte. Dvaja korčuliari
+sa od seba odtlačia. Každý pôsobí na druhého rovnako veľkou silou, ale
+ľahší dostane väčšie zrýchlenie. Komár narazí do predného skla auta. Sila
+na komára aj na sklo je rovnako veľká. Rozdielny je účinok, lebo komár má
+nepatrnú hmotnosť.
+
+Teraz to najdôležitejšie rozlíšenie. Štít obchodu visí na lanku. Na štít
+pôsobí tiažová sila nadol a lanko nahor. Tieto sily sú rovnako veľké, lebo
+štít je v pokoji. To je rovnováha dvoch síl na jednom telese, teda prvý
+zákon. Nie je to akcia a reakcia. Reakciou na silu, ktorou Zem ťahá štít,
+je sila, ktorou štít ťahá Zem. Reakciou na silu lanka na štít je sila
+štítu na lanko.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Akcia alebo rovnováha >>
+
+[POKYN] Položte otázku: „Kvetináč stojí na polici. Sila, ktorou Zem ťahá
+        kvetináč, a sila, ktorou polica tlačí kvetináč nahor. Je to
+        dvojica akcie a reakcie? A: áno. B: nie.“ Žiaci hlasujú zdvihnutím
+        ruky. Správne je B: obe sily pôsobia na to isté teleso.
+
+6. Aplikácie: zdvíhanie a bezpečnosť (minúty 20–25)
+
+Riešený príklad 3. Žeriav dvíha paletu tehál s hmotnosťou 200 kg. Tiažová
+sila je 2 000 N. Keď sa paleta rozbieha nahor so zrýchlením 0,5 m/s²,
+výsledná sila smeruje nahor a má veľkosť 200 · 0,5 = 100 N. Lano teda ťahá
+silou 2 000 + 100 = 2 100 N. Keď ide paleta stálou rýchlosťou, výsledná
+sila je nulová a lano ťahá silou 2 000 N. Keď paleta pri pohybe nahor
+brzdí so spomalením 0,5 m/s², zrýchlenie smeruje nadol a lano ťahá silou
+2 000 − 100 = 1 900 N. Rovnako počítame výťah.
+
+[TABUĽA] Nakreslite sily na paletu a zapíšte: T − G = m · a pre zrýchlenie
+         nahor.
+
+Na záver bezpečnosť. Zrýchlenie je zmena rýchlosti delená časom, takže pri
+rovnakej zmene rýchlosti je sila tým menšia, čím dlhšie zastavovanie trvá.
+Človek s hmotnosťou 50 kg dopadne na zem rýchlosťou 4 m/s. Ak zastaví za
+0,04 s, výsledná sila je 50 · 4 / 0,04 = 5 000 N. Ak pokrčí kolená a
+zastavovanie trvá 0,4 s, je to 500 N. Desaťkrát dlhší čas znamená
+desaťkrát menšiu silu.
+
+7. Späť na začiatok (minúty 25–26)
+
+Takže čo udržiava pohyb? Nič. Pohyb sa udrží sám, kým ho výsledná sila
+nezmení. Sila mení rýchlosť.
+
+Na záver výkladu si odhadnite, ako vám pôjdu úlohy.
+
+<< teraz ukážte žiakom aktivitu: Odhad vlastného výkonu >>
+
+[POKYN] Asi 30 sekúnd. Ukončite aktivitu a prejdite na samostatnú prácu.
+
+
+SAMOSTATNÁ PRÁCA (minúty 26–58)
+--------------------------------------------------------------------------
+[POKYN] Pre túto tému v aplikácii úlohy zatiaľ nie sú. Treba ich doplniť
+        skôr, než sa hodina zaradí do zberu.
+
+
+ZHRNUTIE (minúty 58–68)
+--------------------------------------------------------------------------
+[POKYN] Kým neexistujú úlohy, zhrnutie stojí na štyroch otázkach. Pri
+        každej najprv nechajte odpovedať žiakov.
+
+Prejdime si štyri otázky.
+
+Prvá. Loď pláva po jazere stálou rýchlosťou. Je sila motora väčšia ako
+odpor vody?
+
+[POKYN] Po odpovediach doplňte:
+
+Nie je. Pri stálej rýchlosti je výsledná sila nulová, takže obe sily sú
+rovnako veľké. Väčšia sila je potrebná len pri rozbiehaní.
+
+Druhá. Vo vesmírnej stanici je kontajner v beztiažovom stave. Dá sa
+zastaviť rovnako ľahko ako ceruzka?
+
+[POKYN] Po odpovediach doplňte:
+
+Nedá. Tiažovú silu necítime, ale hmotnosť, a teda zotrvačnosť, zostala. Na
+rovnakú zmenu rýchlosti treba pri väčšej hmotnosti väčšiu silu.
+
+Tretia. Na stole leží zošit a nič sa s ním nedeje. Koľko síl na neho
+pôsobí a čo vieme o ich výslednici?
+
+[POKYN] Po odpovediach doplňte:
+
+Pôsobia na neho dve sily, tiažová sila a sila stola. Zošit je v pokoji,
+takže ich výslednica je nulová.
+
+Štvrtá. Tlačíte ťažkú skriňu, ale nepohne sa. Porušuje to druhý Newtonov
+zákon?
+
+[POKYN] Zozbierajte dve až tri odlišné úvahy a nechajte žiakov, nech ich
+        porovnajú. Žiadnu nevyhlasujte za jedinú správnu.
+
+[POKYN] Nasledujúce tri vety povedzte doslova.
+
+Sila nie je príčina pohybu, ale príčina zmeny pohybu.
+Zrýchlenie telesa určuje výsledná sila a jeho hmotnosť: a = F / m.
+Sily vznikajú vždy vo dvojici, sú rovnako veľké, majú opačný smer a každá
+pôsobí na iné teleso.
+
+<< teraz ukážte žiakom aktivitu: Výstupný lístok >>
+
+[POKYN] Asi 1,5 minúty. Ukončite aktivitu.
+
+
+ZDROJE
+--------------------------------------------------------------------------
+Text výkladu vznikol pre tento výskum s pomocou nástroja umelej
+inteligencie (Claude) a pred použitím ho musí posúdiť učiteľ predmetu. Zo
+zdrojov sú prevzaté fakty, pojmy a poradie výkladu, nie formulácie. Čísla
+v riešených príkladoch sú overené výpočtom a nepoužívajú sa v položkách
+testov ani v úlohách v aplikácii.
+
+Štátny pedagogický ústav. Inovovaný ŠVP: Fyzika, gymnázium so štvorročným
+a päťročným vzdelávacím programom.
+https://www.statpedu.sk/files/articles/dokumenty/inovovany-statny-vzdelavaci-program/fyzika_g_4_5_r.pdf
+[F1, F2: rozsah učiva, slovenské pojmy]
+
+OpenStax. College Physics 2e, časti 21.1 a 21.3.
+https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel
+a
+https://openstax.org/books/college-physics-2e/pages/21-3-kirchhoffs-rules
+[F1: vzťahy pre sériu a paralel, Kirchhoffove zákony, obvody, ktoré sa
+nedajú zjednodušiť]
+
+Engelhardt, P. V., & Beichner, R. J. (2004). Students' understanding of
+direct current resistive electrical circuits. American Journal of Physics,
+72(1), 98–115. https://doi.org/10.1119/1.1614813  [F1: mylné predstavy]
+
+McDermott, L. C., & Shaffer, P. S. (1992). Research as a guide for
+curriculum development: An example from introductory electricity. Part I:
+Investigation of student understanding. American Journal of Physics,
+60(11), 994–1003. https://doi.org/10.1119/1.17003  [F1: mylné predstavy]
+
+OpenStax. Physics, časti 4.2 až 4.4.
+https://openstax.org/books/physics/pages/4-2-newtons-first-law-of-motion-inertia,
+.../4-3-newtons-second-law-of-motion, .../4-4-newtons-third-law-of-motion
+[F2: znenie zákonov, zotrvačnosť, akcia a reakcia]
+
+Technická univerzita vo Zvolene. 3 Dynamika hmotného bodu a sústavy
+hmotných bodov [prednáškové snímky].
+https://kfeam.tuzvo.sk/sites/default/files/3_dynamika.pdf  [F2: slovenské
+znenie zákonov]
+
+Černohorský, M., & Musilová, J. (2021). Newtonovy pohybové zákony –
+retrospektiva a současnost (1. část). Rozhledy matematicko-fyzikální,
+96(2), 32–56. http://dml.cz/dmlcz/149126  [F2: výklad zákonov a mylné
+predstavy]
+
+Hestenes, D., Wells, M., & Swackhamer, G. (1992). Force Concept Inventory.
+The Physics Teacher, 30(3), 141–158. https://doi.org/10.1119/1.2343497
+[F2: mylné predstavy „pohyb vyžaduje silu“ a impetus]
+
+Overenie: 30. 10. 2026. ŠVP, OpenStax, TU Zvolen a Rozhledy boli otvorené
+a prečítané. Pri článkoch s DOI boli v Crossref overené bibliografické
+údaje; ich plný text nebol čítaný.

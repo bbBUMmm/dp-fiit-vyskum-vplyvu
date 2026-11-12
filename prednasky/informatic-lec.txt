@@ -1,0 +1,711 @@
+==========================================================================
+INFORMATIKA · TEXTY VÝKLADU PRE UČITEĽA
+  I1  Vyhľadávanie v poli: lineárne a binárne
+  I2  Rekurzia a memoizácia
+==========================================================================
+Verzia:  návrh 1, 30. 10. 2026. Pred pilotom overiť s učiteľom informatiky.
+Stav:    I1 sa dá spustiť v aplikácii (RUN.cmd, voľba 1). I2 zatiaľ nie:
+         nemá v aplikácii úlohy ani aktivity (pozri začiatok témy I2).
+
+
+AKO S TÝMTO TEXTOM PRACOVAŤ
+--------------------------------------------------------------------------
+Text je napísaný tak, aby sa dal predniesť doslova. Môžete ho povedať aj
+vlastnými slovami, ale všetky body, príklady a čísla musia zostať, lebo
+výklad a zhrnutie sú v podmienkach K, G aj A rovnaké. Tri záverečné vety
+zhrnutia povedzte doslova.
+
+Označenia v texte:
+
+  << teraz ukážte žiakom hands-on: NÁZOV >>
+  << teraz ukážte žiakom animáciu: NÁZOV >>
+  << teraz ukážte žiakom aktivitu: NÁZOV >>
+      V paneli učiteľa (adresa .../teacher) nájdite v knižnici kartu
+      s týmto názvom a stlačte Spustiť. Aktivita sa naraz zobrazí všetkým
+      žiakom. Keď žiaci skončia, stlačte Zverejniť výsledky triede, ak je
+      toto tlačidlo k dispozícii, a potom Ukončiť aktivitu.
+
+  << aktivita zatiaľ nie je v aplikácii, urobte ju naživo: NÁZOV >>
+      Táto aktivita v aplikácii neexistuje. Otázku položte ústne, žiaci
+      hlasujú zdvihnutím ruky. Správna odpoveď je v pokyne pod značkou.
+
+  [TABUĽA]  napíšte alebo nakreslite na tabuľu
+  [POKYN]   poznámka pre vás, nečíta sa nahlas
+
+Všetko ostatné je text, ktorý hovoríte žiakom.
+
+
+PRAVIDLÁ HODINY (prílohy A a D diplomovej práce)
+--------------------------------------------------------------------------
+• Nepridávajte príklady, ktoré v texte nie sú.
+• Neriešte žiakom úlohy zo sady. V zhrnutí prejdite len tie, ktoré sú v
+  texte.
+• Nehovorte, ktorá podmienka je podľa vás lepšia, a nekomentujte
+  asistenta.
+• Výklad má trvať 22 ± 4 minúty a zhrnutie 10 ± 3 minúty. Minúty pri
+  nadpisoch sú orientačné a treba ich overiť v pilote.
+• Ak meškáte, skráťte komentár po aktivite. Aktivity nevynechávajte a
+  každú odchýlku zapíšte do kontrolného listu vernosti.
+• Testy pred hodinou neotvárajte a žiakom ich neukazujte.
+
+
+ČASOVÝ RÁMEC HODINY
+--------------------------------------------------------------------------
+  minúty    blok                  čo sa deje
+  0–4       úvod                  pripojenie žiakov, oznámenie témy
+  4–26      výklad                text v tomto súbore
+  26–58     samostatná práca      úlohy v aplikácii, tu sa podmienky líšia
+  58–68     zhrnutie              text v tomto súbore
+  potom     test a dotazník       podľa pokynov k testu
+
+
+PRECHOD NA SAMOSTATNÚ PRÁCU (znenie z prílohy D)
+--------------------------------------------------------------------------
+Na konci výkladu v paneli prepnite fázu na „Samostatná práca“ a podľa
+podmienky hodiny urobte toto:
+
+  K  Panel asistenta je skrytý. Žiaci pracujú samostatne alebo vo dvojiciach
+     podľa zvyku triedy. Na otázky odpovedáte ako bežne, ale nedávate
+     úplné riešenie.
+
+  G  Prečítajte doslova: „Počas riešenia máš k dispozícii asistenta. Môžeš
+     ho používať tak, ako uznáš za vhodné. Na konci hodiny píšete krátky
+     test, v ktorom asistenta k dispozícii mať nebudete.“
+     Odpovedáte len na organizačné otázky. Na otázky k obsahu odpovedajte:
+     „Skús sa spýtať asistenta.“
+
+  A  Prečítajte to isté ako v podmienke G a pridajte vetu: „Asistent ti
+     nedá hotové riešenie, ale pomôže ti k nemu dôjsť.“
+
+
+##########################################################################
+I1 · VYHĽADÁVANIE V POLI: LINEÁRNE A BINÁRNE
+##########################################################################
+Cieľ hodiny: žiak krok po kroku odsimuluje lineárne aj binárne
+vyhľadávanie, vysvetlí, prečo binárne vyhľadávanie potrebuje usporiadané
+pole, určí počet porovnaní v najhoršom prípade a zvolí vhodný postup pre
+danú situáciu.
+
+Čo si pripraviť: projektor s panelom učiteľa, tabuľu. Dohody ako v teste:
+indexy od 0, „div“ je celočíselné delenie, počet porovnaní je počet prvkov
+poľa, s ktorými sa hľadaná hodnota porovná.
+
+Pozor: aktivitu Hádaj číslo na tejto hodine nespúšťajte. Precvičuje
+položku transferového testu a v meraných hodinách sa nesmie použiť.
+
+Aktivity tejto hodiny v poradí, v akom sa spúšťajú:
+
+  fáza      názov karty v paneli                     typ            min
+  výklad    Lineárne vyhľadávanie krok za krokom     animácia       1,5
+  výklad    Binárne vyhľadávanie na poli 16 prvkov   animácia       2
+  výklad    Dá sa to použiť?                         rýchla otázka  1,5
+  výklad    Protipríklad: neusporiadané pole         predpoveď      2
+  výklad    Preteky: lineárne verzus binárne         hands-on       2
+  výklad    Koľko porovnaní na 30 000 mien?          predpoveď      1,5
+  výklad    Odhad vlastného výkonu                   predpoveď      0,5
+  zhrnutie  Zoraď pseudokód                          zoraďovanie    1,5
+  zhrnutie  Výstupný lístok                          reflexia       1,5
+
+
+ÚVOD (minúty 0–4)
+--------------------------------------------------------------------------
+[POKYN] V paneli učiteľa zapnite fázu „Úvod“ a premietnite QR kód s
+        adresou.
+
+Dobrý deň. Otvorte v prehliadači adresu z tabule alebo naskenujte QR kód a
+zadajte svoj kód z obálky. Aplikácia sa vás spýta, či súhlasíte so
+zaznamenaním. Rozhodnutie je vaše a na dnešnej práci nič nemení.
+
+Dnešná téma je vyhľadávanie v poli. Najprv budem vysvetľovať a popri tom
+si budete veci skúšať vo svojom zariadení. Potom budete samostatne riešiť
+úlohy a na konci si vybrané úlohy prejdeme spolu.
+
+
+VÝKLAD (minúty 4–26)
+--------------------------------------------------------------------------
+[POKYN] Prepnite fázu na „Výklad“.
+
+1. Ako hľadáte v slovníku (minúty 4–5)
+
+Ako by ste hľadali slovo v tlačenom slovníku? Nikto nezačne na prvej
+strane. Otvoríte ho niekde v strede, pozriete sa, či je slovo pred touto
+stranou alebo za ňou, a polovicu slovníka už neriešite. Ide to len preto,
+že slovník je usporiadaný podľa abecedy. V neusporiadanom zozname by vám
+nezostávalo nič iné než čítať od začiatku. To sú dva postupy dnešnej
+hodiny. Zaujíma nás, koľko práce každý z nich stojí, keď údajov pribúda.
+
+2. Lineárne vyhľadávanie (minúty 5–9)
+
+Pole je rad prvkov očíslovaných indexmi. V našej dohode má prvý prvok
+index 0. Ak má pole n prvkov, posledný má index n − 1. Hľadáme hodnotu x.
+
+Lineárne vyhľadávanie ide od začiatku po jednom prvku. Porovná x s prvkom.
+Ak sa rovnajú, skončí. Inak ide ďalej. Ak prejde celé pole a nič nenájde,
+vráti −1, čo je naša dohoda pre „x v poli nie je“.
+
+[TABUĽA]
+  pre i od 0 po n − 1:
+      ak A[i] = x: vráť i
+  vráť −1
+
+<< teraz ukážte žiakom animáciu: Lineárne vyhľadávanie krok za krokom >>
+
+[POKYN] Asi 1,5 minúty. Žiaci prejdú animáciu do konca. Pole má 8 prvkov,
+        hodnota sa nájde pri 7. porovnaní. Ukončite aktivitu.
+
+Koľko porovnaní ste napočítali? Sedem. Prácu algoritmu budeme merať počtom
+porovnaní. V najlepšom prípade je x hneď na začiatku a stačí jedno
+porovnanie. V najhoršom prípade je na konci alebo v poli vôbec nie je a
+treba n porovnaní. V priemere, keď x v poli je, to bude asi polovica z n.
+
+Dôležité je, ako tento počet rastie. Dvojnásobné pole znamená v najhoršom
+prípade dvojnásobnú prácu. Zapisujeme to O(n). Tento zápis nie je presný
+počet porovnaní. Je to opis rastu: počet krokov rastie úmerne s n. Veľká
+výhoda lineárneho vyhľadávania je, že funguje na každom poli.
+
+3. Binárne vyhľadávanie (minúty 9–12)
+
+Ak je pole usporiadané vzostupne, môžeme použiť nápad zo slovníka.
+Pamätáme si úsek, v ktorom ešte môže byť x. Jeho začiatok voláme lavy a
+koniec pravy. Na začiatku je to celé pole. Vypočítame stred a porovnáme x
+s prvkom v strede. Môžu nastať tri prípady. Ak sa rovnajú, máme hotovo. Ak
+je prvok v strede menší než x, x môže byť len napravo od stredu, preto
+posunieme lavy na stred + 1. Ak je väčší, x môže byť len naľavo, preto
+posunieme pravy na stred − 1. Ak úsek zostane prázdny, teda lavy je väčšie
+než pravy, x v poli nie je.
+
+Prečo stred + 1 a nie stred? Lebo prvok v strede sme práve porovnali a x
+to nie je, takže ho do úseku už nezaraďujeme. Vďaka tomu sa úsek v každom
+kroku určite zmenší a algoritmus sa skončí.
+
+Celý algoritmus drží jedna veta: ak je x v poli, je v aktuálnom úseku.
+Každý krok ju zachováva a úsek zmenšuje. Keď je úsek prázdny, zostáva
+jediná možnosť: x v poli nie je.
+
+[TABUĽA]
+  lavy ← 0;  pravy ← n − 1
+  kým lavy ≤ pravy:
+      stred ← (lavy + pravy) div 2
+      ak A[stred] = x: vráť stred
+      ak A[stred] < x: lavy ← stred + 1
+      inak: pravy ← stred − 1
+  vráť −1
+
+<< teraz ukážte žiakom animáciu: Binárne vyhľadávanie na poli 16 prvkov >>
+
+[POKYN] Asi 2 minúty. Žiaci pred každým porovnaním klikajú na prvok, ktorý
+        podľa nich príde na rad. Hodnota 58 sa nájde po 4 porovnaniach.
+        Ukončite aktivitu.
+
+4. Riešený príklad a podmienka usporiadanosti (minúty 12–17)
+
+Riešený príklad 1. Pole A = [4, 11, 15, 19, 26, 32, 36, 43, 47, 54] má 10
+prvkov, indexy 0 až 9. Hľadáme x = 54.
+
+[TABUĽA]
+  krok  lavy  pravy  stred  A[stred]  rozhodnutie
+   1     0     9      4      26       26 < 54, lavy ← 5
+   2     5     9      7      43       43 < 54, lavy ← 8
+   3     8     9      8      47       47 < 54, lavy ← 9
+   4     9     9      9      54       nájdené, vráť 9
+
+Štyri porovnania. A čo ak hľadáme hodnotu, ktorá v poli nie je, napríklad
+x = 30?
+
+[TABUĽA]
+  krok  lavy  pravy  stred  A[stred]  rozhodnutie
+   1     0     9      4      26       26 < 30, lavy ← 5
+   2     5     9      7      43       43 > 30, pravy ← 6
+   3     5     6      5      32       32 > 30, pravy ← 4
+  lavy = 5, pravy = 4: úsek je prázdny, vráť −1
+
+Tri porovnania a algoritmus vie, že 30 v poli nie je. Nemusel pozrieť
+všetky prvky, lebo usporiadanie mu to zaručilo.
+
+Skúste teraz posúdiť, kedy sa binárne vyhľadávanie dá použiť.
+
+<< teraz ukážte žiakom aktivitu: Dá sa to použiť? >>
+
+[POKYN] Asi minúta na odpoveď, potom Zverejniť výsledky triede a Ukončiť
+        aktivitu. Správne je pole [2, 2, 5, 8, 13].
+
+Pole musí byť usporiadané v smere, s ktorým algoritmus počíta. Opakovaná
+hodnota nevadí. A čo sa stane, keď podmienku porušíme?
+
+<< teraz ukážte žiakom aktivitu: Protipríklad: neusporiadané pole >>
+
+[POKYN] Žiaci najprv tipnú a potom si to krokujú, asi 2 minúty. Zverejnite
+        výsledky a ukončite aktivitu. Správne je „nenájde 9, hoci v poli
+        je“.
+
+Algoritmus zahodí polovicu poľa podľa porovnania so stredom. To je správne
+len v usporiadanom poli. Tu po prvom porovnaní zahodil ľavú časť a s ňou
+aj deviatku. Program nespadne, len potichu vráti zlú odpoveď. Preto je
+usporiadanosť podmienka, nie odporúčanie.
+
+5. Koľko porovnaní treba (minúty 17–24)
+
+Každé porovnanie rozpolí úsek. Odtiaľ pochádza názov binárne.
+
+Riešený príklad 2. Pole má 64 prvkov. Delíme dvomi: 64, 32, 16, 8, 4, 2,
+1. To je 6 delení. Zostal jeden prvok a ten treba ešte porovnať. V
+najhoršom prípade je to teda 7 porovnaní.
+
+Všeobecne sa pýtame, koľkokrát sa dá n deliť dvomi, kým nezostane
+jednotka. Na to slúži logaritmus: log₂ n je číslo, na ktoré treba umocniť
+dvojku, aby sme dostali n. Keďže sa delí celočíselne, zaokrúhlime ho nadol
+a pripočítame posledné porovnanie.
+
+[TABUĽA] Najhorší prípad:  ⌊log₂ n⌋ + 1 porovnaní.  Príklady:  64 → 7,
+         128 → 8,  300 → 9
+
+Pri 300 prvkoch: 2⁸ = 256 je ešte menej než 300 a 2⁹ = 512 je už viac,
+takže logaritmus zaokrúhlený nadol je 8 a porovnaní je 9. Všimnite si:
+dvojnásobné pole znamená jediné porovnanie navyše. Tento rast zapisujeme
+O(log n). Rovnako ako pri O(n) to nie je presný počet, ale opis rastu.
+Lineárny postup pri dvojnásobnom poli pridá dvojnásobok práce, binárny
+pridá jeden krok.
+
+<< teraz ukážte žiakom hands-on: Preteky: lineárne verzus binárne >>
+
+[POKYN] Asi 2 minúty. Žiaci menia veľkosť poľa tlačidlami ×2 a ×10 a
+        sledujú počty. V paneli otvorte Zobraziť odpovede, prečítajte
+        jednu vetu bez mena a ukončite aktivitu.
+
+<< teraz ukážte žiakom aktivitu: Koľko porovnaní na 30 000 mien? >>
+
+[POKYN] Asi 1,5 minúty. Zverejnite výsledky a ukončite aktivitu. Správne
+        je 15, lebo 2¹⁴ = 16 384 je menej než 30 000 a 2¹⁵ = 32 768 je
+        viac.
+
+6. Kedy ktorý postup (minúty 24–26)
+
+Znamená to, že binárne vyhľadávanie je vždy lepšie? Nie. Potrebuje
+usporiadané pole a usporiadanie niečo stojí. Ak máte neusporiadané pole a
+hľadáte v ňom raz, lineárne vyhľadávanie to zvládne najviac za n
+porovnaní, kým samotné usporiadanie stojí viac. Usporiadať sa oplatí, až
+keď sa v tom istom poli hľadá veľakrát.
+
+Na záver výkladu si odhadnite, ako vám pôjdu úlohy.
+
+<< teraz ukážte žiakom aktivitu: Odhad vlastného výkonu >>
+
+[POKYN] Asi 30 sekúnd. Výsledky nezverejňujte, ukončite aktivitu a
+        prejdite na samostatnú prácu podľa pokynov na začiatku súboru.
+
+
+SAMOSTATNÁ PRÁCA (minúty 26–58)
+--------------------------------------------------------------------------
+[POKYN] Žiaci riešia v aplikácii úlohy U1 až U8. V tomto čase sa
+        nevykladá.
+
+
+ZHRNUTIE (minúty 58–68)
+--------------------------------------------------------------------------
+[POKYN] Prepnite fázu na „Zhrnutie“.
+
+Prejdime si tri úlohy.
+
+Úloha U2. V poli [1, 4, 7, 9, 13, 20, 28] sme hľadali 2. Čo algoritmus
+vrátil a po koľkých porovnaniach?
+
+[POKYN] Nechajte odpovedať žiaka a potom doplňte:
+
+Porovnali sme 9, potom 4, potom 1. Po treťom porovnaní je lavy väčšie než
+pravy, úsek je prázdny a algoritmus vráti −1. Stačili tri porovnania.
+
+Úloha U5. V pseudokóde bola podmienka kým lavy < pravy namiesto kým lavy ≤
+pravy. Kde sa to prejaví?
+
+[POKYN] Nechajte odpovedať žiaka a potom doplňte:
+
+Cyklus skončí už vtedy, keď sa lavy a pravy rovnajú, takže posledný
+jednoprvkový úsek sa nikdy neporovná. Program potom ohlási, že prvok
+nenašiel, hoci v poli je. Prejaví sa to napríklad pri hľadaní 28 v tom
+istom poli.
+
+Úloha U8. Máte neusporiadané pole s 2 000 prvkami a k hľadaní. Pre aké k
+sa oplatí pole najprv usporiadať?
+
+[POKYN] Zozbierajte dve až tri odlišné úvahy a nechajte žiakov, nech ich
+        porovnajú. Žiadnu nevyhlasujte za jedinú správnu.
+
+Teraz si poskladáme algoritmus.
+
+<< teraz ukážte žiakom aktivitu: Zoraď pseudokód >>
+
+[POKYN] Pred spustením zotrite alebo zakryte pseudokód na tabuli. Asi 1,5
+        minúty. Správne poradie je rovnaké ako pseudokód z výkladu.
+        Zverejnite výsledky a ukončite aktivitu.
+
+[POKYN] Nasledujúce tri vety povedzte doslova.
+
+Lineárne vyhľadávanie funguje na každom poli a počet porovnaní rastie
+úmerne s n.
+Binárne vyhľadávanie funguje len na usporiadanom poli a každé porovnanie
+vylúči asi polovicu úseku, takže dvojnásobné pole znamená jedno porovnanie
+navyše.
+Ktorý postup je lepší, závisí od toho, či je pole usporiadané a koľkokrát
+v ňom budeme hľadať.
+
+<< teraz ukážte žiakom aktivitu: Výstupný lístok >>
+
+[POKYN] Asi 1,5 minúty. Ukončite aktivitu. Potom nasleduje test.
+
+
+##########################################################################
+I2 · REKURZIA A MEMOIZÁCIA
+##########################################################################
+Stav v aplikácii: téma má testy T1, T3 a T4, ale v aplikácii nemá úlohy
+ani vlastné aktivity a RUN.cmd ju neponúka. Preto sú aktivity označené
+značkou „zatiaľ nie je v aplikácii“ a robia sa naživo. Všeobecné aktivity
+Odhad vlastného výkonu a Výstupný lístok sa dajú spustiť, až keď bude
+hodina v aplikácii. Dovtedy ich vynechajte.
+
+Cieľ hodiny: žiak vysvetlí základný prípad a rekurzívny krok, nakreslí
+strom volaní, vysvetlí, prečo naivná rekurzia môže byť exponenciálne
+pomalá a ako ju memoizácia zrýchli, a posúdi, kedy je vhodná rekurzia a
+kedy cyklus.
+
+Čo si pripraviť: tabuľu. Dohody ako v teste: pseudokód, „vráť“ ukončí
+funkciu a vráti hodnotu, volanie je každé spustenie funkcie vrátane
+prvého.
+
+Aktivity tejto hodiny v poradí, v akom sa robia:
+
+  fáza      názov                          kde            min
+  výklad    Čo vypíše hore(3)              naživo         1
+  výklad    Koľko volaní                   naživo         1
+  výklad    Pomôže pamäť                   naživo         1
+  výklad    Odhad vlastného výkonu         aplikácia      0,5
+  zhrnutie  Výstupný lístok                aplikácia      1,5
+
+
+ÚVOD (minúty 0–4)
+--------------------------------------------------------------------------
+Dobrý deň. Dnešná téma je rekurzia a memoizácia. Najprv budem vysvetľovať
+a popri tom si budeme niektoré veci skúšať spolu. Potom budete samostatne
+riešiť úlohy a na konci si vybrané otázky prejdeme spolu.
+
+
+VÝKLAD (minúty 4–26)
+--------------------------------------------------------------------------
+1. Príbeh o králikoch (minúty 4–6)
+
+V roku 1202 opísal Leonardo z Pisy, ktorého poznáme ako Fibonacciho, úlohu
+o králikoch. Začíname jedným mladým párom. Každý pár má od druhého mesiaca
+života každý mesiac jeden nový pár a králiky neuhynú. Koľko párov máme v
+n-tom mesiaci?
+
+[TABUĽA]
+  mesiac   1  2  3  4  5  6  7
+  páry     1  1  2  3  5  8  13
+
+Prečo práve tieto čísla? V každom mesiaci máme všetky páry z minulého
+mesiaca a k nim ich mláďatá. Mláďatá majú tie páry, ktoré žili už pred
+dvoma mesiacmi. Počet párov je teda súčet počtov z dvoch predchádzajúcich
+mesiacov. Odpoveď na otázku sme vyjadrili pomocou tej istej otázky pre
+menšie čísla. To je rekurzia.
+
+2. Základný prípad a rekurzívny krok (minúty 6–9)
+
+Funkcia je rekurzívna, ak volá sama seba. Aby sa výpočet skončil,
+potrebuje dve časti. Základný prípad je vstup, pri ktorom odpoveď vieme
+hneď a funkcia sa už nevolá. Rekurzívny krok je volanie tej istej funkcie
+s menším vstupom, ktorý sa približuje k základnému prípadu. Bez základného
+prípadu by sa volania nikdy neskončili a program by spadol. Základný
+prípad musí byť aj dosiahnuteľný: ak krok vstup preskočí, výpočet sa
+neskončí, hoci základný prípad v kóde je.
+
+Riešený príklad 1. Faktoriál čísla n je súčin čísel od 1 po n, napríklad
+4! = 4 · 3 · 2 · 1, a dohodou 0! = 1. Všimnite si, že 4! = 4 · 3!.
+
+[TABUĽA]
+  funkcia fakt(n):
+      ak n = 0: vráť 1
+      vráť n · fakt(n − 1)
+
+3. Čo sa deje v počítači (minúty 9–13)
+
+Sledujme volanie fakt(4). Funkcia sa nedá dopočítať, kým nepozná fakt(3).
+Preto zavolá fakt(3) a čaká. To zavolá fakt(2), to fakt(1) a to fakt(0).
+Tu nastane základný prípad a fakt(0) vráti 1. Až teraz sa volania postupne
+vracajú: fakt(1) vráti 1 · 1 = 1, fakt(2) vráti 2 · 1 = 2, fakt(3) vráti
+3 · 2 = 6 a fakt(4) vráti 4 · 6 = 24. Spolu to bolo päť volaní.
+
+[TABUĽA] Napíšte volania pod seba nadol a návratové hodnoty šípkami nahor.
+
+Pomôže takáto predstava. Každé volanie je kolega, ktorý dostal menšiu
+úlohu. Kolega fakt(4) neurobí celú prácu sám. Odovzdá menšiu úlohu
+ďalšiemu kolegovi a čaká na jeho výsledok. Keď ho dostane, urobí jedno
+násobenie a odovzdá výsledok späť.
+
+Volania nebežia naraz. Každé má vlastný parameter n a čaká, kým skončí
+volanie, ktoré spustilo. Rozpracované volania sú uložené na zásobníku
+volaní. Naposledy pridané sa skončí ako prvé, ako pri kope tanierov. Počtu
+súčasne rozpracovaných volaní hovoríme hĺbka rekurzie. Zásobník má
+obmedzenú veľkosť. Napríklad Python štandardne dovolí okolo tisíc
+vnorených volaní a potom výpočet zastaví s chybou.
+
+Poradie príkazov vo funkcii rozhoduje o tom, čo sa stane cestou nadol a čo
+pri návrate.
+
+[TABUĽA]
+  funkcia dolu(n):              funkcia hore(n):
+      ak n = 0: skonči              ak n = 0: skonči
+      vypíš n                       hore(n − 1)
+      dolu(n − 1)                   vypíš n
+
+Volanie dolu(3) vypíše 3, 2, 1, lebo vypisuje ešte pred ďalším volaním.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Čo vypíše hore(3) >>
+
+[POKYN] Položte otázku: „Čo vypíše hore(3)? A: 3 2 1. B: 1 2 3. C: 3 2 1 1
+        2 3.“ Žiaci hlasujú zdvihnutím ruky. Správne je B: výpis je za
+        rekurzívnym volaním, takže sa vykoná až pri návrate.
+
+4. Strom volaní (minúty 13–17)
+
+Vráťme sa ku králikom. Funkcia kr vráti počet párov v mesiaci n.
+
+[TABUĽA]
+  funkcia kr(n):
+      ak n ≤ 2: vráť 1
+      vráť kr(n − 1) + kr(n − 2)
+
+Tu sa funkcia volá dvakrát, takže volania tvoria strom.
+
+Riešený príklad 2. Nakreslime strom volaní pre kr(5).
+
+[TABUĽA]
+                    kr(5)
+                 /         \
+            kr(4)           kr(3)
+            /    \          /    \
+        kr(3)   kr(2)   kr(2)   kr(1)
+        /   \
+    kr(2)  kr(1)
+
+Výsledok je 5. Spočítajme volania: je ich 9. Dá sa to vypočítať aj bez
+kreslenia. Volania kr(n) sú jedno vlastné volanie plus volania oboch
+podstromov. Pre kr(5) je to 1 + 5 + 3 = 9.
+
+Pozrite sa však, čo sa v strome opakuje. Hodnota kr(3) sa počíta dvakrát,
+kr(2) trikrát a kr(1) dvakrát. Program nevie, že tú istú vec už počítal.
+Celý pravý podstrom kr(3) je kópia ľavého.
+
+V učebniciach sa tá istá postupnosť často píše ako fib, s dohodou fib(0) =
+0, fib(1) = 1 a fib(n) = fib(n − 1) + fib(n − 2). Hodnoty sú rovnaké,
+líšia sa len základné prípady, a preto je strom volaní trochu väčší.
+
+5. Ako rýchlo rastie počet volaní (minúty 17–19)
+
+Keď n zväčšíme, opakovanie sa znásobí.
+
+[TABUĽA]
+  n               10      20         30           40
+  volania kr(n)   109     13 529     1 664 079    204 668 309
+
+Pri každom zväčšení n o jednotku narastie počet volaní približne 1,6-krát.
+Je to exponenciálny rast. Aj keby jedno volanie trvalo len mikrosekundu,
+kr(40) by trvalo vyše troch minút a kr(60) vyše mesiaca. Rýchlejší počítač
+problém len posunie o niekoľko čísel ďalej. Pomôže jedine iný postup.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Koľko volaní >>
+
+[POKYN] Položte otázku: „Počítač urobí kr(40) za minútu. Kúpime stokrát
+        rýchlejší. Pre aké n zvládne výpočet za minútu? A: asi 41. B: asi
+        50. C: asi 4 000.“ Žiaci hlasujú zdvihnutím ruky. Správne je B:
+        stonásobok volaní zodpovedá asi desiatim krokom n, lebo 1,6¹⁰ je
+        asi 110.
+
+6. Memoizácia (minúty 19–23)
+
+Čo keby si funkcia zapamätala, čo už vypočítala? Tomu hovoríme memoizácia.
+Pred výpočtom sa pozrie do pamäte. Ak tam výsledok je, vráti ho. Ak nie
+je, vypočíta ho a uloží.
+
+[TABUĽA]
+  funkcia krm(n):
+      ak n je v pamäti: vráť pamäť[n]
+      ak n ≤ 2: výsledok ← 1
+      inak: výsledok ← krm(n − 1) + krm(n − 2)
+      pamäť[n] ← výsledok
+      vráť výsledok
+
+Riešený príklad 3. Volanie krm(5) s prázdnou pamäťou. Cestou nadol sa
+volajú krm(5), krm(4), krm(3) a krm(2). Potom krm(3) zavolá krm(1). Keď sa
+krm(4) vráti k druhému sčítancu, krm(2) už je v pamäti. Rovnako krm(5)
+nájde v pamäti krm(3). Spolu je to 7 volaní a dve z nich iba čítajú z
+pamäte.
+
+[TABUĽA]
+  pamäť po výpočte:  1→1   2→1   3→2   4→3   5→5
+
+Pozrite sa na strom z príkladu 2. S pamäťou by pravý podstrom kr(3) vôbec
+nevznikol, rovnako ako volanie kr(2) pod kr(4). Zostala by jediná cesta
+nadol a dve krátke odbočky.
+
+[TABUĽA] V strome z príkladu 2 prečiarknite volania, ktoré s pamäťou
+         zmiznú.
+
+Teraz porovnajte.
+
+[TABUĽA]
+  n               10      20         30           40
+  volania kr(n)   109     13 529     1 664 079    204 668 309
+  volania krm(n)  17      37         57           77
+
+Každá hodnota sa počíta len raz, takže počet volaní rastie približne
+lineárne. Zo stromu sme odrezali všetky opakované vetvy. Cena je pamäť, do
+ktorej ukladáme výsledky. A má to dve podmienky: funkcia musí pre rovnaký
+vstup vždy vrátiť rovnaký výsledok a podproblémy sa musia opakovať.
+
+<< aktivita zatiaľ nie je v aplikácii, urobte ju naživo: Pomôže pamäť >>
+
+[POKYN] Položte otázku: „Pridáme pamäť do funkcie dolu(n). Zníži sa počet
+        volaní? A: áno, výrazne. B: nie.“ Žiaci hlasujú zdvihnutím ruky.
+        Správne je B: každé volanie má iný vstup, nič sa neopakuje.
+
+7. Rekurzia alebo cyklus (minúty 23–26)
+
+Každú rekurzívnu funkciu sa dá prepísať bez rekurzie, napríklad cyklom a
+vlastným zásobníkom. Králiky sa dajú počítať aj úplne jednoducho cyklom,
+ktorý si pamätá len posledné dve hodnoty.
+
+[TABUĽA]
+  funkcia kr_cyklus(n):
+      a ← 1;  b ← 1
+      opakuj (n − 2)-krát:
+          a, b ← b, a + b
+      vráť b
+
+Takýto cyklus urobí pre n = 40 len 38 opakovaní a nepotrebuje zásobník.
+Rekurzia je prirodzená tam, kde je úloha vnorená do seba: rodokmeň,
+vnorené škatule, úlohy, ktoré sa delia na menšie podúlohy rovnakého druhu.
+Cyklus je lepší pri jednoduchom opakovaní, najmä keď by bola rekurzia
+veľmi hlboká.
+
+Keď navrhujete rekurzívne riešenie, položte si štyri otázky. Aký je
+najmenší prípad? Ako z menšieho riešenia dostanem väčšie? Približuje sa
+vstup k základnému prípadu? A opakujú sa podproblémy?
+
+Skúsme to na najväčšom prvku poľa. Najmenší prípad je jediný prvok, ten je
+zároveň najväčší. Väčšie riešenie dostanem tak, že najväčší prvok zvyšku
+porovnám s posledným prvkom. Vstup sa približuje k základnému prípadu,
+lebo pole je stále kratšie. A podproblémy sa neopakujú, takže pamäť
+nepotrebujeme.
+
+[TABUĽA]
+  funkcia maximum(A, i):
+      ak i = 0: vráť A[0]
+      m ← maximum(A, i − 1)
+      ak A[i] > m: vráť A[i]
+      vráť m
+
+Na záver výkladu si odhadnite, ako vám pôjdu úlohy.
+
+<< teraz ukážte žiakom aktivitu: Odhad vlastného výkonu >>
+
+[POKYN] Asi 30 sekúnd. Ukončite aktivitu a prejdite na samostatnú prácu.
+
+
+SAMOSTATNÁ PRÁCA (minúty 26–58)
+--------------------------------------------------------------------------
+[POKYN] Pre túto tému v aplikácii úlohy zatiaľ nie sú. Treba ich doplniť
+        skôr, než sa hodina zaradí do zberu.
+
+
+ZHRNUTIE (minúty 58–68)
+--------------------------------------------------------------------------
+[POKYN] Kým neexistujú úlohy, zhrnutie stojí na štyroch otázkach. Pri
+        každej najprv nechajte odpovedať žiakov.
+
+Prejdime si štyri otázky.
+
+Prvá. Čo sa stane, ak z funkcie fakt vymažeme riadok so základným
+prípadom?
+
+[POKYN] Po odpovediach doplňte:
+
+Volania sa nikdy neskončia, argument klesá do záporných čísel, zásobník sa
+zaplní a program spadne.
+
+Druhá. Funkcia kr(40) urobí vyše 200 miliónov volaní. Aká je hĺbka
+rekurzie?
+
+[POKYN] Po odpovediach doplňte:
+
+Najviac 39, lebo najdlhšia cesta v strome ide od kr(40) po kr(2). Počet
+volaní a hĺbka sú dve rôzne veci. Veľa volaní stojí čas, veľká hĺbka stojí
+pamäť zásobníka.
+
+Tretia. Čo presne je v zásobníku volaní v okamihu, keď sa počíta fakt(0)
+pri volaní fakt(4)?
+
+[POKYN] Po odpovediach doplňte:
+
+Päť rozpracovaných volaní: fakt(4), fakt(3), fakt(2), fakt(1) a fakt(0).
+Každé má vlastné n a čaká na výsledok ďalšieho.
+
+Štvrtá. Mali by ste kr(n) v skutočnom programe napísať rekurzívne s
+pamäťou, alebo cyklom?
+
+[POKYN] Zozbierajte dve až tri odlišné úvahy a nechajte žiakov, nech ich
+        porovnajú. Žiadnu nevyhlasujte za jedinú správnu.
+
+[POKYN] Nasledujúce tri vety povedzte doslova.
+
+Každá rekurzívna funkcia potrebuje základný prípad a rekurzívny krok,
+ktorý sa k nemu približuje.
+Naivná rekurzia počíta tie isté podproblémy znova a znova, preto počet
+volaní môže rásť exponenciálne.
+Memoizácia vypočíta každý podproblém raz, pomáha však len vtedy, keď sa
+podproblémy opakujú.
+
+<< teraz ukážte žiakom aktivitu: Výstupný lístok >>
+
+[POKYN] Asi 1,5 minúty. Ukončite aktivitu.
+
+
+ZDROJE
+--------------------------------------------------------------------------
+Text výkladu vznikol pre tento výskum s pomocou nástroja umelej
+inteligencie (Claude) a pred použitím ho musí posúdiť učiteľ predmetu. Zo
+zdrojov sú prevzaté fakty, pojmy a poradie výkladu, nie formulácie. Čísla
+v riešených príkladoch sú overené výpočtom a nepoužívajú sa v položkách
+testov ani v úlohách v aplikácii.
+
+Príloha D diplomovej práce, časť Téma T1.
+mastersLaTeX/appendices/D-lekcie.tex  [I1: osnova výkladu; polia v
+riešených príkladoch sú zámerne iné, pozri decisions.md]
+
+Python – študijný text: Binárne vyhľadávanie. gymparnr.edu.sk.
+https://www.gymparnr.edu.sk/obsah/predmety/subory/informatika/python/Binárne_vyhľadávanie.pdf
+[I1: slovenský výklad algoritmu, tri prípady porovnania, podmienka
+usporiadanosti]
+
+Malan, D. J. CS50x 2024, Lecture 3 Notes: Algorithms. Harvard University.
+https://cs50.harvard.edu/x/2024/notes/3/  [I1: lineárne a binárne
+vyhľadávanie, rast počtu krokov; I2: rekurzia a základný prípad]
+
+Blaho, A. Programovanie v Pythone 2026/2027, 9. Rekurzia.
+https://python.input.sk/1/09.html  [I2: slovenské pojmy, zásobník, limit
+asi 1000 vnorených volaní, neefektívnosť rekurzívneho výpočtu Fibonacciho
+čísel]
+
+Abelson, H., & Sussman, G. J. Structure and Interpretation of Computer
+Programs, JavaScript edition (adaptácia M. Henz a T. Wrigstad), časť 1.2.2
+Tree Recursion. https://sicp.sourceacademy.org/chapters/1.2.2.html  [I2:
+strom volaní, opakované výpočty, čas verzus hĺbka]
+
+DeNero, J. Composing Programs, časť 2.8 Efficiency.
+https://composingprograms.com/pages/28-efficiency.html  [I2: memoizácia,
+počty volaní, pamäť podľa hĺbky stromu]
+
+Downey, A. B. Think Python, 2nd edition, časť 11.6 Memos.
+https://greenteapress.com/thinkpython2/html/thinkpython2012.html  [I2:
+memoizácia]
+
+Overenie: 30. 10. 2026. Všetky uvedené stránky boli otvorené a prečítané.
+Počty volaní kr a krm sú vypočítané programom.
