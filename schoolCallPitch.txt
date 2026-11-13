@@ -1,0 +1,83 @@
+
+„Zdravím, je to [názov školy]? … S kým hovorím, prosím? Ako Vás môžem oslovovať?"
+
+
+2a. AK ZDVIHNE SEKRETARIÁT
+„Ďakujem, pani [meno]. Volám ohľadom spolupráce s Vašou školou. Minulý týždeň
+som pani riaditeľke posielal e-mail z Fakulty informatiky STU. Mohli by ste ma
+s ňou spojiť, prípadne mi povedať, kedy jej môžem zavolať?"
+
+
+2b. RIADITEĽ / SPRÁVNA OSOBA
+„Rád by som nadviazal spoluprácu s Vašou školou. Minulý týždeň som Vám posielal
+e-mail z Fakulty informatiky STU ohľadom výskumu umelej inteligencie vo
+vyučovaní. Spomínate si na neho?"
+
+   Áno -> „Výborne."
+   Nie -> „Nevadí, možno zapadol medzi ostatnými správami."
+
+„Máte pár minút, aby som Vám stručne vysvetlil, o čo ide? Ak by Vás to zaujalo,
+dohodli by sme si krátke stretnutie."
+
+------main---------
+„V rámci diplomovej práce skúmam, ako umelá inteligencia ovplyvňuje učenie
+žiakov. Porovnávam tri prístupy: výučbu bez AI, bežný chatbot typu ChatGPT,
+ktorý dá hotovú odpoveď, a asistenta, ktorý odpoveď nedá, ale navádza žiaka
+otázkami. Potom testujem, čo si žiaci zapamätajú, aj s odstupom troch týždňov.
+
+Od školy by som potreboval tri triedy 2. alebo 3. ročníka, každú na tri hodiny:
+matematika, fyzika a informatika. Všetky materiály aj nástroje dodám ja, údaje
+sú anonymné a škola na konci dostane výsledky."
+------------------
+
+4. NÁVRH STRETNUTIA
+-------------------
+„Podrobnosti by som Vám rád ukázal na krátkom stretnutí,
+osobne. Kedy by Vám to vyhovovalo?"
+
+   Nemá teraz čas -> „Mohli by sme spolupracovat aj v buductnoti , dajme tomu februar marec?"
+
+
+   „Veľmi by mi pomohlo, keby sa stretnutia mohli zúčastniť aj vyučujúci matematiky,
+    fyziky a informatiky. Rád by som si vypočul ich pohľad na túto spoluprácu.
+   Je to pre mňa dôležité, aby som vedel, v akom rozsahu by sme ju mohli realizovať.“
+
+5. ZÁVER
+--------
+„Ďakujem, ešte dnes Vám pošlem e-mail s potvrdením. Pekný deň, dovidenia."
+
+
+=================================================
+ODPOVEDE NA NÁMIETKY
+=================================================
+
+„Musím to prebrať s učiteľmi."
+   -> „Samozrejme. Pomohlo by, keby som im to krátko predstavil priamo ja?"
+
+„Učitelia sú preťažení."
+   -> „Práve preto je to navrhnuté tak, aby ich to čo najmenej zaťažilo. Ide
+      o tri hodiny a všetky prípravy dodám ja. Termín prispôsobím Vášmu
+      harmonogramu."
+
+„Nie sme veľmi za AI v škole."
+   -> „To je v poriadku, nejde o propagáciu AI. Jedna skupina sa učí úplne bez
+      nej a výsledky môžu ukázať aj to, kde AI skôr škodí."
+
+„A čo GDPR, súhlasy rodičov?"
+   -> „Údaje sú anonymné, žiaci sa prihlasujú pridelenými kódmi, bez mien.
+      Informované súhlasy pre rodičov pripravím ja."
+
+„Kedy by to bolo?"
+   -> „Termín je flexibilný – [doplniť realistický termín, napr. december
+      alebo po Novom roku], podľa Vašich možností."
+
+
+
+=================================================
+PRED HOVOROM
+=================================================
+- Meno riaditeľa z webu školy
+- Kalendár s 2 – 3 voľnými termínmi
+- Dátum odoslania e-mailu
+- Volať cca 8:30 – 12:00, ideálne utorok až štvrtok
+- Potvrdzujúci e-mail poslať v ten istý deň
